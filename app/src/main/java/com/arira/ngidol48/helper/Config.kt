@@ -23,7 +23,5 @@ object Config {
     val extra_list: String = "extraList"
     val extra_id: String = "extraID"
 
-    var DIRECTORY_IMAGE: String =
-        Environment.getExternalStorageDirectory().toString() + "/Gisva/images/"
 
 }

@@ -4,7 +4,6 @@ import android.app.Application
 import android.os.Build
 import android.os.Environment
 import android.os.StrictMode
-import com.arira.ngidol48.helper.Config.DIRECTORY_IMAGE
 import com.arira.ngidol48.helper.Helper
 import com.arira.ngidol48.helper.HelperToast
 import com.arira.ngidol48.helper.Validasi
