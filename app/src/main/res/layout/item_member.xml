@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_ava"
+            app:civ_border_color="@color/pink"
+            app:civ_border_width="@dimen/_1sdp"
+            android:src="@drawable/ic_women"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"/>
+        <TextView
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:background="@drawable/background_shape_pink"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:textAlignment="center"
+            android:id="@+id/tv_team"
+            android:textColor="@color/colorPrimaryTeks"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_gravity="center"
+            style="@style/body8"
+            android:text="@string/app_name"/>
+        <TextView
+            android:layout_marginHorizontal="@dimen/_3sdp"
+            android:textAlignment="center"
+            android:id="@+id/tv_nama"
+            android:textColor="@color/colorPrimaryTeks"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_gravity="center"
+            style="@style/title10"
+            android:text="@string/app_name"/>
+
+    </LinearLayout>
+</layout>

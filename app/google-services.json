@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "477779479250",
+    "project_id": "ngidol48-f4526",
+    "storage_bucket": "ngidol48-f4526.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477779479250:android:666ba28c0bb22215123b0b",
+        "android_client_info": {
+          "package_name": "com.arira.ngidol48"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477779479250-t2j10lj54b0c8aa8pb9ta9gibdp0j9pi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arira.ngidol48",
+            "certificate_hash": "7e0e4fea7816645ebdd8fd0a433fddccf1c5170e"
+          }
+        },
+        {
+          "client_id": "477779479250-qbajgc37pbto4rbr8rhslqf07cjpkvp6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkL1dkSVrBAVKRJTecsB6AbE0O7xbO1aY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477779479250-qbajgc37pbto4rbr8rhslqf07cjpkvp6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

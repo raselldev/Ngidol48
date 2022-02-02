@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#CD0C0D</color>
+    <color name="colorPrimaryDark">#910A0B</color>
+    <color name="colorPrimaryTeks">#ff005f</color>
+    <color name="colorAccent">#FF5722</color>
+    <color name="colorPrimaryText">#2E2D2D</color>
+    <color name="colorSecondaryText">#757575</color>
+    <color name="colorDivider">#BDBDBD</color>
+    <color name="colorTextIcons">#FFFFFF</color>
+    <color name="colorBackground">#FAFAFA</color>
+    <color name="colorHintText">#BDBDBD</color>
+    <color name="colorMeetingInvitationStart">#01B763</color>
+    <color name="colorMeetingInvitationEnd">#2CCF7E</color>
+
+
+    <color name="dark">#131415</color>
+    <color name="dark2">#9b9b9b</color>
+    <color name="background">#FFFFFF</color>
+
+    <color name="primary_soft">#4DFEAD</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="abu1">#D6D6D6</color>
+    <color name="abu1_tipis">#B4CACACA</color>
+    <color name="pink">#B4FACECE</color>
+
+    <color name="red">#FF2C2C</color>
+
+    <color name="abu_pekat">#838383</color>
+
+    <color name="transparant">#00FFFFFF</color>
+
+    <color name="shimmer_color_text">#dddddd</color>
+    <color name="shimmer_color_background">#F3F3F3</color>
+</resources>

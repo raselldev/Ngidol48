@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Ngidol 48</string>
+    <string name="teks_app_versi">versi 1.2.2</string>
+
+    <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
+    <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
+    <string name="teks_terjadi_kesalahan_deskripsi">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. 2004</string>
+    <string name="teks_terjadi_kesalahan">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. 2004</string>
+    <string name="teks_gagal_masuk_dengan_google">Gagal masuk dengan google, coba beberapa saat lagi</string>
+    <string name="teks_peringatan">Peringatan</string>
+    <string name="teks_setlist">Setlist</string>
+    <string name="teks_kalender">Kalender</string>
+    <string name="teks_member">Member</string>
+    <string name="teks_informasi">Informasi</string>
+    <string name="teks_tidak_ada_data_member">Tidak ada data member</string>
+    <string name="teks_tidak_ada_data_setlist">Tidak ada data setlist</string>
+    <string name="teks_tidak_ada_data_songlist">Tidak ada data lagu</string>
+    <string name="teks_tidak_ada_data_event">Tidak ada data event</string>
+    <string name="teks_tidak_ada_data_berita">Tidak ada informasi</string>
+    <string name="teks_periksa_koneksi_coba_beberapa_saat">Periksa koneksi anda atau coba beberapa saat lagi</string>
+    <string name="teks_nama_panggilan">Nama Panggilan</string>
+    <string name="teks_tanggal_lahir">Tanggal Lahir</string>
+    <string name="teks_golongan_darah">Golongan Darah</string>
+    <string name="teks_horoskop">Horoskop</string>
+    <string name="teks_tinggi_badan">Tinggi Badan</string>
+    <string name="default_notification_channel_id">com.arira.ngidol48</string>
+    <string name="teks_total_lagu">%s lagu</string>
+    <string name="teks_tidak_tersedia">Tidak tersedia</string>
+    <string name="teks_tersedia">Tersedia</string>
+    <string name="teks_lagu">Lagu JKT48</string>
+    <string name="teks_d_member">%s Member</string>
+    <string name="teks_member_perform">Member Perform</string>
+    <string name="teks_bday">Ulang Tahun</string>
+    <string name="teks_event">Event</string>
+    <string name="teks_semua">Semua Informasi</string>
+    <string name="teks_lihat_semua">Lihat Semua</string>
+    <string name="teks_member_ulangtahun">Member yang berulang tahun bulan ini</string>
+    <string name="teks_selamat_berulang_tahun">Selamat berulang tahun</string>
+    <string name="teks_tiket_dan_informasi_lebih_lanjut">Tiket dan Informasi lebih lanjut</string>
+    <string name="teks_media_sosial">Media Sosial</string>
+    <string name="teks_kunjungi_fanbase">Kunjungi Fanbase</string>
+
+</resources>

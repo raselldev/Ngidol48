@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:background="@color/shimmer_color_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"/>
+
+        <View
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/shimmer_color_background"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_20sdp"/>
+
+        <View
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@color/shimmer_color_background"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_15sdp"/>
+        <View
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/shimmer_color_background"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_15sdp"/>
+
+        <View
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/shimmer_color_background"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_10sdp"/>
+
+        <View
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:background="@color/shimmer_color_background"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_13sdp"/>
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    app:civ_border_color="@color/shimmer_color_text"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_circle_background_color="@color/shimmer_color_background"
+                    android:src="@drawable/ic_women"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"/>
+
+                <View
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/shimmer_color_text"
+                    android:layout_gravity="center"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_8sdp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
