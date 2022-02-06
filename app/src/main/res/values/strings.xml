@@ -39,5 +39,7 @@
     <string name="teks_tiket_dan_informasi_lebih_lanjut">Tiket dan Informasi lebih lanjut</string>
     <string name="teks_media_sosial">Media Sosial</string>
     <string name="teks_kunjungi_fanbase">Kunjungi Fanbase</string>
+    <string name="teks_event_hari_ini">Event Hari ini</string>
+    <string name="teks_event_kosong">Tidak ada event untuk hari ini</string>
 
 </resources>

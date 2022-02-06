@@ -15,10 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
-import com.arira.ngidol48.adapter.AvaMemberAdapter
-import com.arira.ngidol48.adapter.BeritaAdapter
-import com.arira.ngidol48.adapter.MemberAdapter
-import com.arira.ngidol48.adapter.SliderAdapter
+import com.arira.ngidol48.adapter.*
 import com.arira.ngidol48.app.App.Companion.helper
 import com.arira.ngidol48.databinding.ActivityMainBinding
 import com.arira.ngidol48.databinding.DialogBdayBinding
@@ -175,6 +172,16 @@ class MainActivity : BaseActivity(), MemberCallback {
 
                     }else{
                         binding.linBday.visibility = View.GONE
+                    }
+
+                    if(it.event.isEmpty()){
+                        binding.linViewKosongEvent.visibility = View.VISIBLE
+                    }else{
+                        binding.linViewKosongEvent.visibility = View.GONE
+                        binding.rvEvent.apply {
+                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                            adapter = EventHomeAdapter(it.event)
+                        }
                     }
 
                 }

@@ -42,22 +42,6 @@ class App : Application() {
         StrictMode.setVmPolicy(builder.build())
 
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
-            DIRECTORY_IMAGE =  getExternalFilesDir(Environment.DIRECTORY_PICTURES).toString()
-            val sdIconStorageDir = File(DIRECTORY_IMAGE)
-            if (!sdIconStorageDir.isDirectory) {
-                //BUAT DIRECTORY
-                sdIconStorageDir.mkdirs()
-            }
-        }else{
-            val sdIconStorageDir = File(DIRECTORY_IMAGE)
-            if (!sdIconStorageDir.isDirectory) {
-                //BUAT DIRECTORY
-                sdIconStorageDir.mkdirs()
-            }
-        }
-
-
     }
 
 }

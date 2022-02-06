@@ -4,6 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.ItemEventBinding
+import com.arira.ngidol48.databinding.ItemEventHomeBinding
 import com.arira.ngidol48.databinding.ItemLaguBinding
 import com.arira.ngidol48.databinding.ItemSetlistBinding
 import com.arira.ngidol48.helper.Config.BASE_STORAGE
@@ -19,7 +20,7 @@ import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import java.util.zip.GZIPOutputStream
 
-class EventHolder(var item:ItemEventBinding): RecyclerView.ViewHolder(item.root) {
+class EventHomeHolder(var item:ItemEventHomeBinding): RecyclerView.ViewHolder(item.root) {
 
 
     fun setData(data: Event){

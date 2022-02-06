@@ -24,6 +24,7 @@
         <entry key="app/src/main/res/layout/item_ava_member.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_berita.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/item_event.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/item_event_home.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/item_lagu.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/item_member.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_setlist.xml" value="0.25" />

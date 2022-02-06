@@ -104,6 +104,46 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lin_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:textColor="@color/colorPrimaryTeks"
+                        android:layout_weight="1"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        style="@style/title12"
+                        android:text="@string/teks_event_hari_ini"/>
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/lin_view_kosong_event"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:src="@drawable/ic_calendar"/>
+                        <TextView
+                            android:textAlignment="center"
+                            android:layout_gravity="center"
+                            android:textColor="@color/colorPrimaryTeks"
+                            style="@style/body10"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:text="@string/teks_event_kosong"/>
+                    </LinearLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_event"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/lin_bday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

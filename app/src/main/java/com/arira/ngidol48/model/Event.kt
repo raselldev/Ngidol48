@@ -13,7 +13,7 @@ class Event() :Serializable, Parcelable {
     var event_name:String = ""
     var event_time:String = ""
     var bulan_tahun:String = ""
-    var member_perform:String = ""
+    var member_perform:String = "0"
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString() ?: ""
