@@ -129,6 +129,10 @@ class MainActivity : BaseActivity(), MemberCallback {
         binding.ivSemuaBerita.setOnClickListener {
             Go(this).move(BeritaActivity::class.java)
         }
+
+        binding.linAllNews.setOnClickListener {
+            Go(this).move(BeritaActivity::class.java)
+        }
     }
 
     private  fun subcribeAll(){

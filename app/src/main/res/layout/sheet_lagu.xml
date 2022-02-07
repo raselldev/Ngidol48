@@ -36,6 +36,16 @@
                 android:text="@string/app_name"
                 style="@style/title10"/>
 
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_kunjungi_lagu"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/background_border_primary"
+                android:textColor="@color/colorPrimaryTeks"
+                android:layout_marginTop="@dimen/_10sdp"
+                style="@style/title12"
+                android:text="@string/teks_buka_youtube"/>
+
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">

@@ -9,6 +9,7 @@ class Song() :Serializable, Parcelable {
     var lagu_id:String = ""
     var setlist_id:String = ""
     var judul:String = ""
+    var song_link:String = ""
     var lirik:String = ""
     var cover:String = ""
     var nama:String = ""
@@ -18,6 +19,7 @@ class Song() :Serializable, Parcelable {
         lagu_id = parcel.readString() ?: ""
         setlist_id = parcel.readString() ?: ""
         judul = parcel.readString() ?: ""
+        song_link = parcel.readString() ?: ""
         lirik = parcel.readString() ?: ""
         cover = parcel.readString() ?: ""
         nama = parcel.readString() ?: ""
@@ -28,6 +30,7 @@ class Song() :Serializable, Parcelable {
         parcel.writeString(lagu_id)
         parcel.writeString(setlist_id)
         parcel.writeString(judul)
+        parcel.writeString(song_link)
         parcel.writeString(lirik)
         parcel.writeString(cover)
         parcel.writeString(nama)

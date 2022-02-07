@@ -149,6 +149,7 @@
                             android:text="@string/teks_tanggal_lahir" />
                     </LinearLayout>
 
+                    <!--sosial media-->
                     <LinearLayout
                         android:visibility="gone"
                         android:id="@+id/lin_media"
@@ -228,6 +229,17 @@
                         </LinearLayout>
                     </LinearLayout>
 
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tv_showroom"
+                        android:padding="@dimen/_5sdp"
+                        android:background="@drawable/background_border_primary"
+                        android:textColor="@color/colorPrimaryTeks"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        style="@style/title12"
+                        android:text="@string/teks_buka_showroom"/>
+
+                    <!--fanbase-->
                     <LinearLayout
                         android:visibility="gone"
                         android:padding="@dimen/_10sdp"

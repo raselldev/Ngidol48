@@ -6,6 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:keepScreenOn="true"
         tools:context=".ui.lagu.DetailLaguActivity">
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
@@ -19,6 +20,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/_10sdp">
                 <TextView
+                    android:textColor="@color/colorPrimaryTeks"
                     android:id="@+id/tv_judul"
                     style="@style/title14"
                     android:text="@string/app_name"/>
@@ -28,10 +30,21 @@
                     style="@style/body10"
                     android:text="@string/app_name"/>
 
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/embed_yt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp" />
+
                 <TextView
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/tv_lirik"
+                    android:layout_marginTop="@dimen/_15sdp"
                     style="@style/body12"
+                    android:text="@string/teks_lirik_"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:id="@+id/tv_lirik"
+                    style="@style/title12"
                     android:text="@string/app_name"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

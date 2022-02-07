@@ -105,6 +105,20 @@ open class BaseActivity : AppCompatActivity() {
             bindingSheet.linMedia.visibility = View.GONE
         }
 
+        if(member.media_showroom.isNotEmpty()){
+            bindingSheet.tvShowroom.visibility = View.VISIBLE
+            bindingSheet.tvShowroom.setOnClickListener {
+                startActivity(
+                    Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(member.media_showroom)
+                    )
+                )
+            }
+        }else{
+            bindingSheet.tvShowroom.visibility = View.GONE
+        }
+
         //fanbase
         if (member.fanbase_name.isNotEmpty()){
             bindingSheet.linFans.visibility = View.VISIBLE

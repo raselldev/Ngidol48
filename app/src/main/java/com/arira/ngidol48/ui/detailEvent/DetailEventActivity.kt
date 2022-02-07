@@ -29,6 +29,10 @@ import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
+
 
 class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
     private lateinit var binding: ActivityDetailEventBinding
@@ -74,6 +78,22 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
         bindingSheet.tvJudul.text = lagu.judul
         bindingSheet.tvLirik.text = lagu.lirik
         bindingSheet.tvSetlist.text = lagu.nama
+
+        if (lagu.song_link.isNotEmpty()){
+            bindingSheet.tvKunjungiLagu.visibility = View.VISIBLE
+            bindingSheet.tvKunjungiLagu.setOnClickListener {
+                val intent = Intent(Intent.ACTION_VIEW)
+
+                intent.setPackage("com.google.android.youtube")
+                intent.data = Uri.parse("https://www.youtube.com/watch?v=${lagu.song_link}")
+
+                startActivity(intent)
+            }
+
+        }else{
+            bindingSheet.tvKunjungiLagu.visibility = View.GONE
+        }
+
         bottomSheetDialog.show()
     }
 
