@@ -15,6 +15,7 @@ import io.reactivex.annotations.NonNull
 class DetailLaguActivity : BaseActivity() {
     private lateinit var binding:ActivityDetailLaguBinding
     private var lagu:Song = Song()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_lagu)
@@ -40,11 +41,13 @@ class DetailLaguActivity : BaseActivity() {
             }
 
             binding.embedYt.visibility = View.VISIBLE
+            binding.embedYt.enableBackgroundPlayback(true)
 
             binding.embedYt.getPlayerUiController().showFullscreenButton(false)
             binding.embedYt.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
                 override fun onReady(@NonNull youTubePlayer: YouTubePlayer) {
                     youTubePlayer.cueVideo(videoId, 0f)
+                    youTubePlayer.play()
                 }
             })
 
