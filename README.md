@@ -11,3 +11,6 @@ Aplikasi fans JKT 48, di buat untuk mendapatkan informasi terbaru dari official 
 - Setlist beserta lagu dan liriknya
 - Daftar member beserta informasi sosial media dan fanbase
 - Notifikasi bila ada update dari official JKT48
+
+### Terimakasih juga untuk library yang di gunakan
+- [![N|Solid]Retrofit](https://github.com/square/retrofit)
