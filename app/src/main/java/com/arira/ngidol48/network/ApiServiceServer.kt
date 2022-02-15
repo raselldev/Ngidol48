@@ -23,6 +23,10 @@ interface ApiServiceServer {
     fun setlist(): Observable<SetlistResponse>
 
     @Headers(Config.API)
+    @GET("notifikasi")
+    fun listnotifikasi(): Observable<NotifikasiResponse>
+
+    @Headers(Config.API)
     @GET("songlist/{id}")
     fun songlist(
         @Path("id") id:String

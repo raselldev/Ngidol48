@@ -12,5 +12,6 @@ class HomeResponse : Serializable {
     var news:List<Berita> = ArrayList()
     var bday_member:List<Member> = ArrayList()
     var event:List<Event> = ArrayList()
+    var notifikasi_hari_ini:Int = 0
 
 }

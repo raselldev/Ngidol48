@@ -16,7 +16,6 @@
 
                 <!--TOP VIEW-->
                 <RelativeLayout
-                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp">
 
@@ -25,6 +24,39 @@
                         android:layout_height="@dimen/_30sdp"
                         android:layout_centerInParent="true"
                         android:src="@drawable/img_jkt48" />
+
+                    <RelativeLayout
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp">
+                        <ImageView
+                            android:id="@+id/ic_notification"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:src="@drawable/ic_notification_primary" />
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/div_jml_notif"
+                            android:layout_width="@dimen/_16sdp"
+                            android:layout_height="@dimen/_16sdp"
+                            android:layout_alignParentEnd="true"
+                            android:background="@drawable/img_circle">
+
+                            <TextView
+                                style="@style/body8"
+                                android:id="@+id/tv_jml_notif"
+                                android:layout_centerInParent="true"
+                                android:text="10"
+                                android:textColor="@color/white"/>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
                 </RelativeLayout>
 
                 <!--SLIDER-->

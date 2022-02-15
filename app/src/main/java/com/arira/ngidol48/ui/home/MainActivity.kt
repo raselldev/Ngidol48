@@ -28,6 +28,7 @@ import com.arira.ngidol48.ui.event.EventActivity
 import com.arira.ngidol48.ui.member.MemberActivity
 import com.arira.ngidol48.ui.member.MemberCallback
 import com.arira.ngidol48.ui.news.BeritaActivity
+import com.arira.ngidol48.ui.notifikasi.NotifikasiActivity
 import com.arira.ngidol48.ui.setlist.SetlistActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
@@ -114,6 +115,11 @@ class MainActivity : BaseActivity(), MemberCallback {
     }
 
     private fun action(){
+
+        binding.icNotification.setOnClickListener {
+            Go(this).move(NotifikasiActivity::class.java)
+        }
+
         binding.linMember.setOnClickListener {
             Go(this).move(MemberActivity::class.java)
         }
@@ -160,6 +166,13 @@ class MainActivity : BaseActivity(), MemberCallback {
                     binding.rvBerita.apply {
                         layoutManager = LinearLayoutManager(context)
                         adapter = BeritaAdapter(it.news)
+                    }
+
+                    if (it.notifikasi_hari_ini > 0){
+                        binding.divJmlNotif.visibility = View.VISIBLE
+                        binding.tvJmlNotif.text = it.notifikasi_hari_ini.toString()
+                    }else{
+                        binding.divJmlNotif.visibility = View.GONE
                     }
 
                     if (it.bday_member.isNotEmpty()){

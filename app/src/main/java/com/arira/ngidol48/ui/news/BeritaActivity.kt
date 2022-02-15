@@ -13,8 +13,10 @@ import com.arira.ngidol48.databinding.ActivityBeritaBinding
 import com.arira.ngidol48.helper.BaseActivity
 
 class BeritaActivity : BaseActivity() {
+
     private lateinit var binding: ActivityBeritaBinding
     private lateinit var viewModel: BeritaViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_berita)
