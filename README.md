@@ -4,13 +4,19 @@
 
 Aplikasi fans JKT 48, di buat untuk mendapatkan informasi terbaru dari official JKT 48
 
-## Fitur
+Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ngidol48
 
+## Fitur baru (1.6.2)
+- notifikasi member JKT48 ketika memulai showroom
+- menonton video showroom di aplikasi [Ngidol48](https://play.google.com/store/apps/details?id=com.arira.ngidol48) tanpa komentar, Gift ataupun interaksi lainnya
+
+## Fitur
 - Informasi Terbaru
 - Event
 - Setlist beserta lagu dan liriknya
 - Daftar member beserta informasi sosial media dan fanbase
 - Notifikasi bila ada update dari official JKT48
+
 
 ### Terimakasih juga untuk library yang di gunakan
 - [Retrofit](https://github.com/square/retrofit)
@@ -25,3 +31,4 @@ Aplikasi fans JKT 48, di buat untuk mendapatkan informasi terbaru dari official 
 - [shimmer](https://github.com/facebook/shimmer-android)
 - [lottie](https://github.com/airbnb/lottie-android)
 - [Sweet Alert Dialog](https://github.com/Chimsy/SweetAlert)
+- [ExoPlayer](https://github.com/google/ExoPlayer)
