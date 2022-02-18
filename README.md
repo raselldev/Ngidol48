@@ -8,7 +8,7 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 
 ## Fitur baru (1.6.2)
 - notifikasi member JKT48 ketika memulai showroom
-- menonton video showroom di aplikasi [Ngidol48](https://play.google.com/store/apps/details?id=com.arira.ngidol48)
+- menonton video showroom di aplikasi [Ngidol48](https://play.google.com/store/apps/details?id=com.arira.ngidol48) tanpa komentar, Gift ataupun interaksi lainnya
 
 ## Fitur
 - Informasi Terbaru
