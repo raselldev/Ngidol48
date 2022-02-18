@@ -25,3 +25,4 @@ Aplikasi fans JKT 48, di buat untuk mendapatkan informasi terbaru dari official 
 - [shimmer](https://github.com/facebook/shimmer-android)
 - [lottie](https://github.com/airbnb/lottie-android)
 - [Sweet Alert Dialog](https://github.com/Chimsy/SweetAlert)
+- [ExoPlayer](https://github.com/google/ExoPlayer)
