@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:supportsPictureInPicture="true"
             android:name=".ui.viewShowroom.ViewShowroomActivity"
             android:exported="false" />
         <activity

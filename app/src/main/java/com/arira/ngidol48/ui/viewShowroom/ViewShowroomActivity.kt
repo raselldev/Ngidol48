@@ -1,10 +1,14 @@
 package com.arira.ngidol48.ui.viewShowroom
 
+import android.app.PictureInPictureParams
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Rational
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.ActivityViewShowroomBinding
@@ -28,6 +32,7 @@ import com.google.android.exoplayer2.util.Util
 
 
 class ViewShowroomActivity : BaseActivity() {
+
     private var playWhenReady = true
     private var currentWindow = 0
     private var playbackPosition: Long = 0
@@ -46,6 +51,24 @@ class ViewShowroomActivity : BaseActivity() {
         member = intent.getParcelableExtra(extra_model) ?: Member()
 
         action()
+    }
+
+    override fun onUserLeaveHint() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val aspectRatio = Rational(16, 9)
+            val params = PictureInPictureParams.Builder().setAspectRatio(aspectRatio).build()
+            enterPictureInPictureMode(params)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun enterPipMode() {
+        val aspectRatio = Rational(16, 9)
+        val params = PictureInPictureParams
+            .Builder()
+            .setAspectRatio(aspectRatio)
+            .build()
+        enterPictureInPictureMode(params)
     }
 
     private fun action(){
