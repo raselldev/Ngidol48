@@ -11,8 +11,8 @@ android {
         applicationId "com.arira.ngidol48"
         minSdk 21
         targetSdk 31
-        versionCode 6
-        versionName "1.5.2"
+        versionCode 7
+        versionName "1.6.2"
         dataBinding.enabled = true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -99,5 +99,14 @@ dependencies {
 
     // Embed YT
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.8.3'
+    implementation 'com.google.android.exoplayer:exoplayer-hls:2.8.3'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.8.3'
+
+    // For DASH
+    implementation 'com.google.android.exoplayer:exoplayer-dash:2.8.3'
+    // For SmoothStreaming
+    implementation 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.8.3'
 
 }

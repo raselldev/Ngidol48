@@ -201,6 +201,17 @@ class MainActivity : BaseActivity(), MemberCallback {
                         }
                     }
 
+                    if(it.live_showroom.isEmpty()){
+                        binding.linViewKosongShowroom.visibility = View.VISIBLE
+                    }else{
+                        binding.tvJmlMember.text = "( ${it.live_showroom.size} Member )"
+                        binding.linViewKosongShowroom.visibility = View.GONE
+                        binding.rvShowroom.apply {
+                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                            adapter = ShowroomAdapter(it.live_showroom)
+                        }
+                    }
+
                 }
             }
         })

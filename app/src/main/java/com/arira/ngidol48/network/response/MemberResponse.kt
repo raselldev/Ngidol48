@@ -9,5 +9,6 @@ class MemberResponse : Serializable {
     val code:Int = 0
     val message:String = ""
     var members:List<Member> = ArrayList()
+    var live_showroom:List<Member> = ArrayList()
 
 }

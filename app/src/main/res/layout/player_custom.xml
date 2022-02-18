@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout
+    android:background="@color/dark_transparant"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/exo_play"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_play" />
+
+        <ImageView
+            android:id="@+id/exo_pause"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_stop" />
+        <com.google.android.exoplayer2.ui.DefaultTimeBar
+            android:visibility="gone"
+            android:id="@+id/exo_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/_10sdp"
+            app:buffered_color="@color/colorPrimary"
+            app:played_color="@color/colorPrimaryTeks"
+            app:scrubber_color="@color/colorPrimaryTeks"
+            app:unplayed_color="@color/colorBackground" />
+    </LinearLayout>
+</RelativeLayout>
+</layout>

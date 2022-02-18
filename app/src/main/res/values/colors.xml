@@ -15,6 +15,7 @@
 
 
     <color name="dark">#131415</color>
+    <color name="dark_transparant">#85131415</color>
     <color name="dark2">#9b9b9b</color>
     <color name="background">#FFFFFF</color>
 

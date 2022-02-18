@@ -6,8 +6,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.MemberAdapter
+import com.arira.ngidol48.adapter.ShowroomAdapter
 import com.arira.ngidol48.databinding.ActivityMemberBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.helper.BaseActivity
@@ -64,6 +67,17 @@ class MemberActivity : BaseActivity(), MemberCallback {
         viewModel.getResponse().observe(this, Observer {
             it.let {
                 if (it != null) {
+                    if(it.live_showroom.isEmpty()){
+                        binding.linViewKosongShowroom.visibility = View.VISIBLE
+                    }else{
+                        binding.tvJmlMember.text = "( ${it.live_showroom.size} Member )"
+                        binding.linViewKosongShowroom.visibility = View.GONE
+                        binding.rvShowroom.apply {
+                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                            adapter = ShowroomAdapter(it.live_showroom)
+                        }
+                    }
+
                     if (it.members.isNotEmpty()){
                         binding.rvData.apply {
                             layoutManager  = GridLayoutManager(context, 3)
