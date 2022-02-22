@@ -182,7 +182,7 @@
                             android:textColor="@color/colorPrimaryTeks"
                             android:layout_marginStart="@dimen/_5sdp"
                             style="@style/title12"
-                            android:text="(12 Member)"/>
+                            android:text=""/>
                     </LinearLayout>
                     <LinearLayout
                         android:visibility="gone"
@@ -202,7 +202,7 @@
                             android:textColor="@color/colorPrimaryTeks"
                             style="@style/body10"
                             android:layout_marginTop="@dimen/_15sdp"
-                            android:text="@string/teks_event_kosong"/>
+                            android:text="@string/teks_showroom_kosong"/>
                     </LinearLayout>
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_showroom"

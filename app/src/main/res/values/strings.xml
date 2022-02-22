@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Ngidol 48</string>
-    <string name="teks_app_versi">versi 1.6.3</string>
+    <string name="teks_app_versi">versi 1.6.4</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -42,6 +42,7 @@
     <string name="teks_kunjungi_fanbase">Kunjungi Fanbase</string>
     <string name="teks_event_hari_ini">Event Hari ini</string>
     <string name="teks_event_kosong">Tidak ada event untuk hari ini</string>
+    <string name="teks_showroom_kosong">Tidak ada showroom member untuk saat ini</string>
     <string name="teks_buka_showroom">Buka Showroom Member</string>
     <string name="teks_lirik">Lirik</string>
     <string name="teks_lirik_">Lirik : </string>
