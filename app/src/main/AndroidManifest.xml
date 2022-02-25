@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
+
         <activity
             android:supportsPictureInPicture="true"
             android:name=".ui.viewShowroom.ViewShowroomActivity"

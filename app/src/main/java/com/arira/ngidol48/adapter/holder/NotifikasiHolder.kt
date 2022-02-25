@@ -1,5 +1,7 @@
 package com.arira.ngidol48.adapter.holder
 
+import android.content.Intent
+import android.net.Uri
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.app.App.Companion.helper
@@ -22,6 +24,7 @@ class NotifikasiHolder(var item:ItemNotifBinding): RecyclerView.ViewHolder(item.
             "NEWS"-> item.ivThumb.setImageResource(R.drawable.ic_news)
             "MEMBER"-> item.ivThumb.setImageResource(R.drawable.ic_member)
             "SHOWROOM"-> item.ivThumb.setImageResource(R.drawable.ic_member)
+            "TIKETCOM"-> item.ivThumb.setImageResource(R.drawable.ic_tiket)
         }
 
         item.ivThumb.rootView.setOnClickListener {
@@ -30,6 +33,11 @@ class NotifikasiHolder(var item:ItemNotifBinding): RecyclerView.ViewHolder(item.
                 "NEWS"-> Go(itemView.context).move(BeritaActivity::class.java)
                 "MEMBER"-> Go(itemView.context).move(MemberActivity::class.java)
                 "SHOWROOM"-> Go(itemView.context).move(MemberActivity::class.java)
+                "TIKETCOM"-> {
+                    val openURL = Intent(Intent.ACTION_VIEW)
+                    openURL.data = Uri.parse("https://www.tiket.com${data.url}")
+                    itemView.context!!.startActivity(openURL)
+                }
             }
         }
     }

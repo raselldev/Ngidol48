@@ -7,5 +7,6 @@ class Notifikasi:Serializable {
     var title:String = ""
     var message:String = ""
     var type:String = ""
+    var url:String = ""
     var created_at:String = ""
 }
