@@ -6,6 +6,10 @@ Aplikasi fans JKT 48, di buat untuk mendapatkan informasi terbaru dari official 
 
 Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ngidol48
 
+
+## Fitur baru (1.7.5)
+- Jadwal handshake
+
 ## Fitur baru (1.6.3)
 - Picture-in-Picture untuk live showroom
 
