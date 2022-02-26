@@ -27,6 +27,10 @@ interface ApiServiceServer {
     fun listnotifikasi(): Observable<NotifikasiResponse>
 
     @Headers(Config.API)
+    @GET("handshake")
+    fun allHandshake(): Observable<HandshakeResponse>
+
+    @Headers(Config.API)
     @GET("songlist/{id}")
     fun songlist(
         @Path("id") id:String

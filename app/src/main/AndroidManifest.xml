@@ -13,11 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
-
         <activity
-            android:supportsPictureInPicture="true"
-            android:name=".ui.viewShowroom.ViewShowroomActivity"
+            android:name=".ui.handshake.DetailHandshakeActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.handshake.HandshakeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.viewShowroom.ViewShowroomActivity"
+            android:exported="false"
+            android:supportsPictureInPicture="true" />
         <activity
             android:name=".ui.notifikasi.NotifikasiActivity"
             android:exported="false" />

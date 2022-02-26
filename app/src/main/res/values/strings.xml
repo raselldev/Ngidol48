@@ -18,6 +18,7 @@
     <string name="teks_tidak_ada_data_event">Tidak ada data event</string>
     <string name="teks_tidak_ada_data_berita">Tidak ada informasi</string>
     <string name="teks_tidak_ada_data_notifikasi">Tidak ada notifikasi untuk anda</string>
+    <string name="teks_tidak_ada_data_handshake">Tidak ada handshake/video call untuk saat ini</string>
     <string name="teks_periksa_koneksi_coba_beberapa_saat">Periksa koneksi anda atau coba beberapa saat lagi</string>
     <string name="teks_nama_panggilan">Nama Panggilan</string>
     <string name="teks_tanggal_lahir">Tanggal Lahir</string>
@@ -49,5 +50,7 @@
     <string name="teks_buka_youtube">Buka Youtube</string>
     <string name="notifikasi">Notifikasi</string>
     <string name="teks_member_showroom_live">Member Live at Showroom</string>
+    <string name="teks_detail_message_handshake_kosong">Tunggu informasi lebih lanjut untuk event handshake/video kedepan</string>
+    <string name="teks_handshake_vc">Handshake/Video Call</string>
 
 </resources>

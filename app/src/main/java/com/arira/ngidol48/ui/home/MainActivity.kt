@@ -25,6 +25,7 @@ import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Slider
 import com.arira.ngidol48.ui.event.EventActivity
+import com.arira.ngidol48.ui.handshake.HandshakeActivity
 import com.arira.ngidol48.ui.member.MemberActivity
 import com.arira.ngidol48.ui.member.MemberCallback
 import com.arira.ngidol48.ui.news.BeritaActivity
@@ -124,6 +125,10 @@ class MainActivity : BaseActivity(), MemberCallback {
             Go(this).move(MemberActivity::class.java)
         }
 
+        binding.linHandshake.setOnClickListener {
+            Go(this).move(HandshakeActivity::class.java)
+        }
+
         binding.linSetlist.setOnClickListener {
             Go(this).move(SetlistActivity::class.java)
         }
@@ -202,10 +207,10 @@ class MainActivity : BaseActivity(), MemberCallback {
                     }
 
                     if(it.live_showroom.isEmpty()){
-                        binding.linViewKosongShowroom.visibility = View.VISIBLE
+                        binding.linShowroom.visibility = View.GONE
                     }else{
                         binding.tvJmlMember.text = "( ${it.live_showroom.size} Member )"
-                        binding.linViewKosongShowroom.visibility = View.GONE
+                        binding.linShowroom.visibility = View.VISIBLE
                         binding.rvShowroom.apply {
                             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
                             adapter = ShowroomAdapter(it.live_showroom)
