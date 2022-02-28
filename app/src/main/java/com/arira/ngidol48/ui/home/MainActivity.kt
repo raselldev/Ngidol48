@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.*
 import com.arira.ngidol48.app.App.Companion.helper
+import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityMainBinding
+import com.arira.ngidol48.databinding.CustomDialogRatingAppBinding
 import com.arira.ngidol48.databinding.DialogBdayBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.helper.BaseActivity
@@ -34,6 +36,10 @@ import com.arira.ngidol48.ui.setlist.SetlistActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.play.core.review.ReviewInfo
+import com.google.android.play.core.review.ReviewManager
+import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.android.play.core.tasks.Task
 import com.google.firebase.messaging.FirebaseMessaging
 import java.util.*
 import kotlin.collections.ArrayList
@@ -42,7 +48,8 @@ class MainActivity : BaseActivity(), MemberCallback {
     
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: ActivityMainBinding
-    
+    private lateinit var reviewManager: ReviewManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -57,7 +64,72 @@ class MainActivity : BaseActivity(), MemberCallback {
         action()
 
         subcribeAll()
+
+        reviewManager = ReviewManagerFactory.create(this)
+
+        /**
+         * check user count open app and update to pref */
+        var countOpenApp = pref.getOpenApp()
+        countOpenApp += 1
+        pref.setOpenApp(countOpenApp)
+
+        /** check how many user open the app,
+         * if > 10 dialog for rating was show
+         * and not rate app, dialog will be show*/
+        if (pref.getOpenApp() > 1 && !pref.isRated()){
+            Log.e("RATE", "show rate")
+            showRateApp()
+        }
     }
+
+
+    /**
+     * menampilkan review manager
+     * menggunakan goole play API untuk merating*/
+    fun showRateApp() {
+
+        val request: Task<ReviewInfo> = reviewManager.requestReviewFlow()
+        request.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // We can get the ReviewInfo object
+                val reviewInfo: ReviewInfo = task.result
+                val flow: Task<Void> = reviewManager.launchReviewFlow(this, reviewInfo)
+                flow.addOnCompleteListener {
+                    pref.setRated(true)
+                }
+                flow.addOnSuccessListener {
+                }
+                flow.addOnFailureListener {
+                }
+            } else {
+                //gagal memanggil revie manager, menampilkan alternative
+                showDialogRating()
+            }
+        }
+    }
+
+    private fun showDialogRating(){
+        val dialog = AlertDialog.Builder(this)
+        val bindingDialog= DataBindingUtil.inflate<CustomDialogRatingAppBinding>(layoutInflater,R.layout.custom_dialog_rating_app,null,false)
+        dialog.setView(bindingDialog.root)
+        val dialogCreate = dialog.create()
+        dialogCreate.window!!.setBackgroundDrawableResource(R.color.transparant)
+        with(bindingDialog){
+            tvUlas.setOnClickListener {
+                helper.openAppAtStore(this@MainActivity)
+                dialogCreate.dismiss()
+            }
+            tvNanti.setOnClickListener {
+                helper.openAppAtStore(this@MainActivity)
+                dialogCreate.dismiss()
+            }
+            tvTidak.setOnClickListener {
+                pref.setRated(true)
+            }
+        }
+        dialogCreate.show()
+    }
+
 
     private fun showBdayMember(bdayMember:List<Member>){
         val dialog = AlertDialog.Builder(this)

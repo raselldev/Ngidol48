@@ -8,13 +8,13 @@ import com.arira.ngidol48.helper.Helper
 import com.arira.ngidol48.helper.HelperToast
 import com.arira.ngidol48.helper.Validasi
 import com.arira.ngidol48.model.User
+import com.arira.ngidol48.utilities.SharedPref
 import java.io.File
 
 class App : Application() {
 
-
     companion object {
-
+        lateinit var pref: SharedPref
         var validasi = Validasi()
         var helper = Helper
         var toast = HelperToast()
@@ -40,6 +40,8 @@ class App : Application() {
         super.onCreate()
         val builder = StrictMode.VmPolicy.Builder()
         StrictMode.setVmPolicy(builder.build())
+
+        pref = SharedPref(this)
 
 
     }

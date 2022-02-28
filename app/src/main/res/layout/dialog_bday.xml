@@ -21,23 +21,40 @@
                 android:padding="@dimen/_15sdp">
 
                 <com.airbnb.lottie.LottieAnimationView
+                    android:visibility="gone"
                     app:lottie_rawRes="@raw/bday_celebration"
                     android:layout_gravity="center"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
+                    app:lottie_speed="2"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_100sdp"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_ava"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_width="wrap_content"
-                    android:orientation="horizontal"
-                    tools:itemCount="2"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_ava_member"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_centerInParent="true"
+                        android:id="@+id/rv_ava"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:orientation="horizontal"
+                        tools:itemCount="2"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_ava_member"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"/>
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        app:lottie_rawRes="@raw/bday_particle"
+                        android:layout_gravity="center"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_150sdp"/>
+                </RelativeLayout>
+
+
 
                 <TextView
                     android:layout_marginTop="@dimen/_10sdp"

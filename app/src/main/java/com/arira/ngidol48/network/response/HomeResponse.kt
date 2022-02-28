@@ -14,6 +14,7 @@ class HomeResponse : Serializable {
     var live_showroom:List<Member> = ArrayList()
     var event:List<Event> = ArrayList()
     var notifikasi_hari_ini:Int = 0
+    var for_review:Int = 0
 
 
 }

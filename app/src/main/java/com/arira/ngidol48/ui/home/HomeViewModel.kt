@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.arira.ngidol48.R
+import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.network.response.HomeResponse
 import com.arira.ngidol48.repo.HomeRepo
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -58,6 +59,12 @@ class HomeViewModel : ViewModel() {
                 { result ->
                     if (result.code == 1){
                         data.value = result
+
+                        if(result.for_review == 1){
+                            pref.setOnReview(true)
+                        }else{
+                            pref.setOnReview(false)
+                        }
                     }else{
                         errorMsg.value = result.message + ". 2002"
                     }

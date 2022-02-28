@@ -37,14 +37,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60sdp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_notification_primary" />
+                    android:src="@drawable/ic_videocall" />
 
                 <TextView
                     style="@style/title12"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:text="@string/teks_tidak_ada_data_notifikasi" />
+                    android:text="@string/teks_tidak_ada_data_handshake" />
 
                 <TextView
                     android:textAlignment="center"

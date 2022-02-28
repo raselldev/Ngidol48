@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Ngidol 48</string>
-    <string name="teks_app_versi">versi 1.7.5</string>
+    <string name="teks_app_versi">versi 1.8.5</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -18,7 +18,7 @@
     <string name="teks_tidak_ada_data_event">Tidak ada data event</string>
     <string name="teks_tidak_ada_data_berita">Tidak ada informasi</string>
     <string name="teks_tidak_ada_data_notifikasi">Tidak ada notifikasi untuk anda</string>
-    <string name="teks_tidak_ada_data_handshake">Tidak ada handshake/video call untuk saat ini</string>
+    <string name="teks_tidak_ada_data_handshake">untuk saat ini belum ada handshake/video call  ygy</string>
     <string name="teks_periksa_koneksi_coba_beberapa_saat">Periksa koneksi anda atau coba beberapa saat lagi</string>
     <string name="teks_nama_panggilan">Nama Panggilan</string>
     <string name="teks_tanggal_lahir">Tanggal Lahir</string>
@@ -52,5 +52,10 @@
     <string name="teks_member_showroom_live">Member Live at Showroom</string>
     <string name="teks_detail_message_handshake_kosong">Tunggu informasi lebih lanjut untuk event handshake/video kedepan</string>
     <string name="teks_handshake_vc">Handshake/Video Call</string>
+    <string name="teks_judul_rating">Bagaimana menurutmu aplikasi PLARIS ?</string>
+    <string name="teks_ulas_sekarang">Ulas Sekarang</string>
+    <string name="teks_tidak_terimakasih">Tidak, Terimakasih</string>
+    <string name="teks_ingatkan_saya_nanti">Ingatkan Saya Nanti</string>
+
 
 </resources>

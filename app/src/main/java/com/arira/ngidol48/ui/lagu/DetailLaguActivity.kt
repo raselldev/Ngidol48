@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.arira.ngidol48.R
+import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityDetailLaguBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config.extra_model
@@ -28,7 +29,13 @@ class DetailLaguActivity : BaseActivity() {
         binding.tvLirik.text = lagu.lirik
         binding.tvSetlist.text = lagu.nama
 
-        setDataVideo()
+        if (pref.getOnReview()){
+            binding.embedYt.visibility = View.GONE
+        }else{
+            binding.embedYt.visibility = View.VISIBLE
+            setDataVideo()
+        }
+
     }
 
     private fun setDataVideo(){
