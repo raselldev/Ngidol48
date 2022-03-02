@@ -2,6 +2,8 @@ package com.arira.ngidol48.utilities
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.arira.ngidol48.model.Song
+import com.google.gson.Gson
 
 class SharedPref(context : Context) {
 
@@ -12,10 +14,23 @@ class SharedPref(context : Context) {
     private val showRating = "showRating"
     private val openApp = "openApp"
 
+    private val songPlay = "songPlay"
+
     fun setOnReview(value: Boolean) {
         editor.putBoolean(onReview, value)
         editor.commit()
         editor.apply()
+    }
+
+    fun setSong(data: Song): Song {
+        val json = Gson().toJson(data, Song::class.java)
+        sp.edit().putString(songPlay, json).apply()
+        return getSong()
+    }
+
+    fun getSong(): Song {
+        val data = sp.getString(songPlay, null) ?: return Song()
+        return Gson().fromJson(data, Song::class.java)
     }
 
     fun getOnReview(): Boolean {

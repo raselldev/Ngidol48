@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:keepScreenOn="true"
         tools:context=".ui.lagu.DetailLaguActivity">
+
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/embed_yt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -30,23 +36,37 @@
                     style="@style/body10"
                     android:text="@string/app_name"/>
 
-                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-                    android:visibility="gone"
-                    android:id="@+id/embed_yt"
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_15sdp" />
+                    android:background="@drawable/background_shape_pink">
+                    <TextView
+
+                        style="@style/title10"
+                        android:text="@string/teks_lirik"/>
+
+                    <TextView
+                        android:textIsSelectable="true"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:id="@+id/tv_lirik"
+                        style="@style/title14"
+                        android:textColor="@color/dark"
+                        android:text="@string/app_name"/>
+                </LinearLayout>
 
                 <TextView
                     android:layout_marginTop="@dimen/_15sdp"
-                    style="@style/body12"
-                    android:text="@string/teks_lirik_"/>
+                    style="@style/title10"
+                    android:text="@string/teks_lagu_lainnya"/>
 
-                <TextView
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:id="@+id/tv_lirik"
-                    style="@style/title12"
-                    android:text="@string/app_name"/>
+                    android:id="@+id/rv_lagu_lain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>

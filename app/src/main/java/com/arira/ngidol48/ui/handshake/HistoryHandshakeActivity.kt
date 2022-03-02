@@ -9,18 +9,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.HandshakeAdapter
 import com.arira.ngidol48.databinding.ActivityHandshakeBinding
+import com.arira.ngidol48.databinding.ActivityHistoryHandshakeBinding
 import com.arira.ngidol48.helper.BaseActivity
-import com.arira.ngidol48.utilities.Go
 
-class HandshakeActivity : BaseActivity() {
-    private lateinit var binding: ActivityHandshakeBinding
+class HistoryHandshakeActivity : BaseActivity() {
+    private lateinit var binding: ActivityHistoryHandshakeBinding
     private lateinit var viewModel: HandshakeViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_history_handshake)
 
-        setContentView(R.layout.activity_handshake)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_handshake)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_history_handshake)
         setToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HandshakeViewModel::class.java]
@@ -28,53 +29,45 @@ class HandshakeActivity : BaseActivity() {
 
         observerData()
 
-        viewModel.hitAll()
-
-        action()
-    }
-
-    fun action(){
-        binding.tvRiwayat.setOnClickListener {
-            Go(this).move(HistoryHandshakeActivity::class.java)
-        }
+        viewModel.hitHistory()
     }
 
     fun observerData(){
-        viewModel.getLoading().observe(this, Observer {
+        viewModel.getLoading().observe(this) {
             it.let {
-                if (it){
+                if (it) {
                     binding.divKosong.visibility = View.GONE
                     binding.shimmer.visibility = View.VISIBLE
                     binding.shimmer.startShimmer()
-                }else{
+                } else {
                     binding.shimmer.visibility = View.GONE
                     binding.shimmer.stopShimmer()
                 }
             }
-        })
+        }
 
-        viewModel.getError().observe(this, Observer {
+        viewModel.getError().observe(this) {
             it.let {
-                if (it != null){
+                if (it != null) {
                     binding.divKosong.visibility = View.VISIBLE
 
                 }
             }
-        })
+        }
 
-        viewModel.getResponse().observe(this, Observer {
+        viewModel.getResponse().observe(this) {
             it.let {
                 if (it != null) {
-                    if (it.handshakes.isNotEmpty()){
+                    if (it.handshakes.isNotEmpty()) {
                         binding.rvData.apply {
-                            layoutManager  = LinearLayoutManager(context)
+                            layoutManager = LinearLayoutManager(context)
                             adapter = HandshakeAdapter(it.handshakes)
                         }
-                    }else{
+                    } else {
                         binding.divKosong.visibility = View.VISIBLE
                     }
                 }
             }
-        })
+        }
     }
 }

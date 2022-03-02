@@ -8,4 +8,5 @@ class Slider:Serializable {
     var image:String = ""
     var status:String = ""
     var created_at:String = ""
+    var need_windows_view:String = ""
 }

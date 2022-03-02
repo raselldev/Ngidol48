@@ -12,6 +12,7 @@ import com.arira.ngidol48.databinding.ActivityLaguBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config.extra_model
 import com.arira.ngidol48.model.Setlist
+import com.arira.ngidol48.model.Song
 
 class LaguActivity : BaseActivity() {
     private lateinit var viewModel: SongListViewModel
@@ -61,7 +62,7 @@ class LaguActivity : BaseActivity() {
                     if (it.song_list.isNotEmpty()){
                         binding.rvData.apply {
                             layoutManager  = LinearLayoutManager(context)
-                            adapter = SongAdapter(it.song_list)
+                            adapter = SongAdapter(it.song_list, laguSetlist = it.song_list as ArrayList<Song>)
                         }
                     }else{
                         binding.divKosong.visibility = View.VISIBLE

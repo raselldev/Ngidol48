@@ -1,7 +1,9 @@
 package com.arira.ngidol48.ui.detailEvent
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -13,7 +15,6 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.MemberAdapter
 import com.arira.ngidol48.adapter.SongAdapter
 import com.arira.ngidol48.databinding.ActivityDetailEventBinding
-import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.databinding.SheetLaguBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config
@@ -29,9 +30,6 @@ import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
 
 
 class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
@@ -115,54 +113,58 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
             }
         })
 
-        viewModel.getError().observe(this, {
+        viewModel.getError().observe(this) {
             it.let {
-                if (it != null){
+                if (it != null) {
                     binding.divKosong.visibility = View.VISIBLE
 
                 }
             }
-        })
+        }
 
-        viewModel.getResponse().observe(this, {
+        viewModel.getResponse().observe(this) {
             it.let {
                 if (it != null) {
 
                     /*member perform*/
-                    if (it.members_perform.isNotEmpty()){
+                    if (it.members_perform.isNotEmpty()) {
                         binding.rvMemberPerform.apply {
                             layoutManager = GridLayoutManager(context, 3)
                             adapter = MemberAdapter(it.members_perform, this@DetailEventActivity)
                         }
                         binding.divMemberPerform.visibility = View.VISIBLE
-                    }else{
+                    } else {
                         binding.divMemberPerform.visibility = View.GONE
                     }
 
                     /*member bday*/
-                    if (it.members_bday.isNotEmpty()){
+                    if (it.members_bday.isNotEmpty()) {
                         binding.rvBday.apply {
                             layoutManager = GridLayoutManager(context, 3)
                             adapter = MemberAdapter(it.members_bday, this@DetailEventActivity)
                         }
                         binding.divBday.visibility = View.VISIBLE
-                    }else{
+                    } else {
                         binding.divBday.visibility = View.GONE
                     }
 
                     /*set list / song list*/
-                    if (it.song_list.isNotEmpty()){
-                        if (!it.song_list[0].cover.isNullOrEmpty()){
+                    if (it.song_list.isNotEmpty()) {
+                        if (!it.song_list[0].cover.isNullOrEmpty()) {
                             Glide.with(this)
                                 .asBitmap()
                                 .load(Config.BASE_STORAGE + it.song_list[0].cover)
-                                .into(object : CustomTarget<Bitmap>(){
+                                .into(object : CustomTarget<Bitmap>() {
                                     override fun onResourceReady(
                                         resource: Bitmap,
                                         transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
                                     ) {
                                         binding.ivEventCover.setImageBitmap(resource)
-                                        binding.ivEventCover.setBackgroundColor(Helper.getDominantColor(resource))
+                                        binding.ivEventCover.setBackgroundColor(
+                                            Helper.getDominantColor(
+                                                resource
+                                            )
+                                        )
                                     }
 
                                     override fun onLoadCleared(placeholder: Drawable?) {
@@ -174,25 +176,30 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
                         }
                         binding.rvSonglist.apply {
                             layoutManager = LinearLayoutManager(context)
-                            adapter = SongAdapter(it.song_list, this@DetailEventActivity)
+                            adapter = SongAdapter(
+                                it.song_list, this@DetailEventActivity,
+                                it.song_list as ArrayList<Song>
+                            )
                         }
                         binding.divSetlist.visibility = View.VISIBLE
-                    }else{
+                    } else {
                         binding.divSetlist.visibility = View.GONE
                     }
 
                     /*event data*/
-                    if (it.event.id.isNotEmpty()){
-                        Glide.with(this).load(Config.BASE_STORAGE_JKT + it.event.badge_url).into(binding.ivBadge)
+                    if (it.event.id.isNotEmpty()) {
+                        Glide.with(this).load(Config.BASE_STORAGE_JKT + it.event.badge_url)
+                            .into(binding.ivBadge)
                         binding.tvNamaEvent.text = it.event.event_name
-                        if(it.event.event_time.isEmpty()){
+                        if (it.event.event_time.isEmpty()) {
                             binding.tvTanggal.text = "${it.event.tanggal} ${it.event.bulan_tahun}"
-                        }else{
-                            binding.tvTanggal.text = "${it.event.event_time}, ${it.event.tanggal} ${it.event.bulan_tahun}"
+                        } else {
+                            binding.tvTanggal.text =
+                                "${it.event.event_time}, ${it.event.tanggal} ${it.event.bulan_tahun}"
                         }
                     }
                 }
             }
-        })
+        }
     }
 }

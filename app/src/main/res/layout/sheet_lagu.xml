@@ -46,15 +46,45 @@
                 style="@style/title12"
                 android:text="@string/teks_buka_youtube"/>
 
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:id="@+id/tv_lirik"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:text="@string/app_name"
-                    style="@style/body12"/>
-            </androidx.core.widget.NestedScrollView>
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shape_pink">
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/title10"
+                                android:text="@string/teks_lirik"/>
+
+
+                            <TextView
+                                android:textIsSelectable="true"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:id="@+id/tv_lirik"
+                                style="@style/title14"
+                                android:textColor="@color/dark"
+                                android:text="@string/app_name"/>
+
+                        </LinearLayout>
+
+
+
+                    </androidx.core.widget.NestedScrollView>
+
+
+
+                </LinearLayout>
 
         </LinearLayout>
 

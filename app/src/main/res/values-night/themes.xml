@@ -168,4 +168,9 @@
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
+    <style name="ThemeOverlay.Ngidol48.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
+        <item name="fullscreenTextColor">@color/light_blue_A400</item>
+    </style>
+
 </resources>

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.arira.ngidol48.BuildConfig
 import com.arira.ngidol48.R
 import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.network.response.HomeResponse
@@ -60,7 +61,13 @@ class HomeViewModel : ViewModel() {
                     if (result.code == 1){
                         data.value = result
 
-                        if(result.for_review == 1){
+//                        if(result.for_review == 1){
+//                            pref.setOnReview(true)
+//                        }else{
+//                            pref.setOnReview(false)
+//                        }
+
+                        if (BuildConfig.VERSION_CODE > result.app_version){
                             pref.setOnReview(true)
                         }else{
                             pref.setOnReview(false)

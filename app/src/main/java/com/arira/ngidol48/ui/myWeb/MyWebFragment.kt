@@ -74,7 +74,7 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
             myWebView.getSettings().setDatabaseEnabled(true)
 
 
-//            myWebView.settings.userAgentString = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2049.0 Safari/537.36"
+//            myWebView.settings.userAgentString = CHROME_FULL
 
             myWebView.webViewClient = WebViewClient()
 

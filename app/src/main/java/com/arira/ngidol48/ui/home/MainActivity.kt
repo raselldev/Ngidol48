@@ -76,7 +76,7 @@ class MainActivity : BaseActivity(), MemberCallback {
         /** check how many user open the app,
          * if > 10 dialog for rating was show
          * and not rate app, dialog will be show*/
-        if (pref.getOpenApp() > 1 && !pref.isRated()){
+        if (pref.getOpenApp() > 5 && !pref.isRated()){
             Log.e("RATE", "show rate")
             showRateApp()
         }
