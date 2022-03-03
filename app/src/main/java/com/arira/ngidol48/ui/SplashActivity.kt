@@ -34,7 +34,7 @@ class SplashActivity : BaseActivity() {
             .setAnimation(Bounce.inUp(binding.ivLogoNewEra, AnimationX().getNewAnimatorSet())).start()
 
         Handler(Looper.getMainLooper()).postDelayed({
-            Go(this).move(MainActivity::class.java)
+            Go(this).move(MainActivity::class.java, clearPrevious = true)
         }, 3000)
     }
 
