@@ -23,6 +23,12 @@ class HandshakeActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_handshake)
         setToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HandshakeViewModel::class.java]
         viewModel.context = this
 
@@ -36,6 +42,15 @@ class HandshakeActivity : BaseActivity() {
     fun action(){
         binding.tvRiwayat.setOnClickListener {
             Go(this).move(HistoryHandshakeActivity::class.java)
+        }
+
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            viewModel.hitAll()
+        }
+
+        binding.tvReload.setOnClickListener {
+            viewModel.hitAll()
         }
     }
 
@@ -56,6 +71,9 @@ class HandshakeActivity : BaseActivity() {
         viewModel.getError().observe(this, Observer {
             it.let {
                 if (it != null){
+                    binding.tvRiwayat.visibility = View.GONE
+                    binding.tvReload.visibility = View.VISIBLE
+
                     binding.divKosong.visibility = View.VISIBLE
 
                 }
@@ -65,6 +83,8 @@ class HandshakeActivity : BaseActivity() {
         viewModel.getResponse().observe(this, Observer {
             it.let {
                 if (it != null) {
+
+
                     if (it.handshakes.isNotEmpty()){
                         binding.rvData.apply {
                             layoutManager  = LinearLayoutManager(context)
@@ -72,6 +92,9 @@ class HandshakeActivity : BaseActivity() {
                         }
                     }else{
                         binding.divKosong.visibility = View.VISIBLE
+
+                        binding.tvRiwayat.visibility = View.VISIBLE
+                        binding.tvReload.visibility = View.GONE
                     }
                 }
             }

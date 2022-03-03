@@ -23,9 +23,29 @@ class SetlistActivity : BaseActivity() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SetlistViewModel::class.java]
         viewModel.context = this
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         setToolbar(getString(R.string.teks_setlist), binding.toolbar)
         observerData()
         viewModel.hitSetlist()
+
+        action()
+    }
+
+    fun action(){
+
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            viewModel.hitSetlist()
+        }
+
+        binding.tvReload.setOnClickListener {
+            viewModel.hitSetlist()
+        }
     }
 
     fun observerData(){

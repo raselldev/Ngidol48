@@ -6,374 +6,381 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.MainActivity">
-        <androidx.core.widget.NestedScrollView
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <LinearLayout
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <!--TOP VIEW-->
-                <RelativeLayout
+                android:layout_height="match_parent">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="@dimen/_100sdp"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_centerInParent="true"
-                        android:src="@drawable/img_jkt48" />
-
+                    <!--TOP VIEW-->
                     <RelativeLayout
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/_10sdp"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp">
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp">
+
                         <ImageView
-                            android:id="@+id/ic_notification"
-                            android:layout_width="@dimen/_30sdp"
+                            android:layout_width="@dimen/_100sdp"
                             android:layout_height="@dimen/_30sdp"
-                            android:src="@drawable/ic_notification_primary" />
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/img_jkt48" />
 
                         <RelativeLayout
-                            android:visibility="gone"
-                            android:id="@+id/div_jml_notif"
-                            android:layout_width="@dimen/_16sdp"
-                            android:layout_height="@dimen/_16sdp"
                             android:layout_alignParentEnd="true"
-                            android:background="@drawable/img_circle">
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp">
+                            <ImageView
+                                android:id="@+id/ic_notification"
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_30sdp"
+                                android:src="@drawable/ic_notification_primary" />
 
-                            <TextView
-                                style="@style/body8"
-                                android:id="@+id/tv_jml_notif"
-                                android:layout_centerInParent="true"
-                                android:text="10"
-                                android:textColor="@color/white"/>
+                            <RelativeLayout
+                                android:visibility="gone"
+                                android:id="@+id/div_jml_notif"
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_16sdp"
+                                android:layout_alignParentEnd="true"
+                                android:background="@drawable/img_circle">
+
+                                <TextView
+                                    style="@style/body8"
+                                    android:id="@+id/tv_jml_notif"
+                                    android:layout_centerInParent="true"
+                                    android:text="10"
+                                    android:textColor="@color/white"/>
+
+                            </RelativeLayout>
 
                         </RelativeLayout>
 
+
                     </RelativeLayout>
 
+                    <!--SLIDER-->
+                    <androidx.viewpager.widget.ViewPager
+                        android:clipToPadding="false"
+                        android:overScrollMode="never"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_165sdp"/>
 
-                </RelativeLayout>
-
-                <!--SLIDER-->
-                <androidx.viewpager.widget.ViewPager
-                    android:clipToPadding="false"
-                    android:overScrollMode="never"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:id="@+id/slider"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_165sdp"/>
-
-                <!--MENU-->
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    <!--MENU-->
                     <LinearLayout
-                        android:id="@+id/lin_kalender"
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:padding="@dimen/_5sdp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_calendar"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:id="@+id/lin_kalender"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:padding="@dimen/_5sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_calendar"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                style="@style/title10"
+                                android:text="@string/teks_kalender"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lin_all_news"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:padding="@dimen/_5sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_news"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                style="@style/title10"
+                                android:text="@string/teks_informasi"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lin_setlist"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:padding="@dimen/_5sdp"
+                                android:src="@drawable/ic_playlist"
+                                android:scaleType="centerInside"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                style="@style/title10"
+                                android:text="@string/teks_setlist"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/lin_member"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:padding="@dimen/_5sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_member"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                style="@style/title10"
+                                android:text="@string/teks_member"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:id="@+id/lin_handshake"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:padding="@dimen/_5sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_videocall"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_gravity="center"
+                                style="@style/title10"
+                                android:textAlignment="center"
+                                android:text="@string/teks_handshake_vc"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lin_showroom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"/>
-
-                        <TextView
-                            android:textColor="@color/colorPrimary"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_gravity="center"
-                            style="@style/title10"
-                            android:text="@string/teks_kalender"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lin_all_news"
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:padding="@dimen/_5sdp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_news"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:textColor="@color/colorPrimaryTeks"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                style="@style/title12"
+                                android:text="@string/teks_member_showroom_live"/>
+                            <TextView
+                                android:id="@+id/tv_jml_member"
+                                android:textColor="@color/colorPrimaryTeks"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                style="@style/title12"
+                                android:text=""/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/lin_view_kosong_showroom"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"/>
-
-                        <TextView
-                            android:textColor="@color/colorPrimary"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_gravity="center"
-                            style="@style/title10"
-                            android:text="@string/teks_informasi"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lin_setlist"
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:padding="@dimen/_5sdp"
-                            android:src="@drawable/ic_playlist"
-                            android:scaleType="centerInside"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_gravity="center"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:src="@drawable/ic_calendar"/>
+                            <TextView
+                                android:textAlignment="center"
+                                android:layout_gravity="center"
+                                android:textColor="@color/colorPrimaryTeks"
+                                style="@style/body10"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:text="@string/teks_showroom_kosong"/>
+                        </LinearLayout>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_showroom"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"/>
-
-                        <TextView
-                            android:textColor="@color/colorPrimary"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_gravity="center"
-                            style="@style/title10"
-                            android:text="@string/teks_setlist"/>
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/lin_member"
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
+                        android:id="@+id/lin_event"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:padding="@dimen/_5sdp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_member"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textColor="@color/colorPrimaryTeks"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            style="@style/title12"
+                            android:text="@string/teks_event_hari_ini"/>
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/lin_view_kosong_event"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"/>
-
-                        <TextView
-                            android:textColor="@color/colorPrimary"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_gravity="center"
-                            style="@style/title10"
-                            android:text="@string/teks_member"/>
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:id="@+id/lin_handshake"
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-                        <ImageView
-                            android:padding="@dimen/_5sdp"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/ic_videocall"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_gravity="center"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:src="@drawable/ic_calendar"/>
+                            <TextView
+                                android:textAlignment="center"
+                                android:layout_gravity="center"
+                                android:textColor="@color/colorPrimaryTeks"
+                                style="@style/body10"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:text="@string/teks_event_kosong"/>
+                        </LinearLayout>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_event"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_40sdp"/>
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
 
+                    <LinearLayout
+                        android:id="@+id/lin_bday"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
                         <TextView
-                            android:textColor="@color/colorPrimary"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_gravity="center"
-                            style="@style/title10"
-                            android:textAlignment="center"
-                            android:text="@string/teks_handshake_vc"/>
+                            android:textColor="@color/colorPrimaryTeks"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            style="@style/title12"
+                            android:text="@string/teks_member_ulangtahun"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_bday"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
 
                     <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lin_showroom"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_marginTop="@dimen/_20sdp"
-                        android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
                             android:textColor="@color/colorPrimaryTeks"
+                            android:layout_weight="1"
                             android:layout_marginStart="@dimen/_15sdp"
-                            style="@style/title12"
-                            android:text="@string/teks_member_showroom_live"/>
-                        <TextView
-                            android:id="@+id/tv_jml_member"
-                            android:textColor="@color/colorPrimaryTeks"
-                            android:layout_marginStart="@dimen/_5sdp"
-                            style="@style/title12"
-                            android:text=""/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:id="@+id/lin_view_kosong_showroom"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
                             android:layout_marginTop="@dimen/_20sdp"
-                            android:layout_gravity="center"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:src="@drawable/ic_calendar"/>
-                        <TextView
-                            android:textAlignment="center"
-                            android:layout_gravity="center"
-                            android:textColor="@color/colorPrimaryTeks"
-                            style="@style/body10"
-                            android:layout_marginTop="@dimen/_15sdp"
-                            android:text="@string/teks_showroom_kosong"/>
-                    </LinearLayout>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_showroom"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginHorizontal="@dimen/_15sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
+                            style="@style/title14"
+                            android:text="@string/teks_informasi"/>
 
-                <LinearLayout
-                    android:id="@+id/lin_event"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:textColor="@color/colorPrimaryTeks"
-                        android:layout_weight="1"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_20sdp"
-                        style="@style/title12"
-                        android:text="@string/teks_event_hari_ini"/>
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:id="@+id/lin_view_kosong_event"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <ImageView
+                        <TextView
+                            android:id="@+id/iv_semua_berita"
+                            android:layout_marginEnd="@dimen/_15sdp"
                             android:layout_marginTop="@dimen/_20sdp"
-                            android:layout_gravity="center"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:src="@drawable/ic_calendar"/>
-                        <TextView
-                            android:textAlignment="center"
-                            android:layout_gravity="center"
-                            android:textColor="@color/colorPrimaryTeks"
-                            style="@style/body10"
-                            android:layout_marginTop="@dimen/_15sdp"
-                            android:text="@string/teks_event_kosong"/>
+                            style="@style/title10"
+                            android:textColor="@color/colorPrimary"
+                            android:text="@string/teks_lihat_semua"/>
                     </LinearLayout>
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_event"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginHorizontal="@dimen/_15sdp"
+                        android:id="@+id/rv_berita"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_height="match_parent"/>
 
-                <LinearLayout
-                    android:id="@+id/lin_bday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
                     <TextView
-                        android:textColor="@color/colorPrimaryTeks"
-                        android:layout_weight="1"
-                        android:layout_marginStart="@dimen/_15sdp"
+                        android:textAlignment="center"
                         android:layout_marginTop="@dimen/_20sdp"
-                        style="@style/title12"
-                        android:text="@string/teks_member_ulangtahun"/>
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_bday"
+                        android:layout_gravity="center"
+                        android:autoLink="web"
+                        style="@style/body10"
+                        android:text="Sumber jkt48.com\n Semua hak cipta milik JKT 48 atau pemilik aset asliknya"/>
+
+                    <TextView
+                        android:layout_marginBottom="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginHorizontal="@dimen/_15sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:autoLink="web"
+                        style="@style/body10"
+                        android:text="@string/teks_app_versi"/>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:textColor="@color/colorPrimaryTeks"
-                        android:layout_weight="1"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_20sdp"
-                        style="@style/title14"
-                        android:text="@string/teks_informasi"/>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-                    <TextView
-                        android:id="@+id/iv_semua_berita"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_20sdp"
-                        style="@style/title10"
-                        android:textColor="@color/colorPrimary"
-                        android:text="@string/teks_lihat_semua"/>
-                </LinearLayout>
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_berita"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_width="match_parent"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_height="match_parent"/>
-
-                <TextView
-                    android:textAlignment="center"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:layout_gravity="center"
-                    android:autoLink="web"
-                    style="@style/body10"
-                    android:text="Sumber jkt48.com\n Semua hak cipta milik JKT 48 atau pemilik aset asliknya"/>
-
-                <TextView
-                    android:layout_marginBottom="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:textAlignment="center"
-                    android:layout_gravity="center"
-                    android:autoLink="web"
-                    style="@style/body10"
-                    android:text="@string/teks_app_versi"/>
-            </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
 
     </RelativeLayout>
 </layout>

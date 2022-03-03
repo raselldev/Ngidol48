@@ -1,6 +1,5 @@
 package com.arira.ngidol48.helper
 
-import android.os.Environment
 object Config {
 
     const val BASE_URL = "http://apiidol.arira.my.id/"

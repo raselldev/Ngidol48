@@ -25,6 +25,12 @@ class DetailHandshakeActivity : BaseActivity() {
         setToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
         parentData = intent.getParcelableExtra(extra_model) ?: ParentHandshake()
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         load()
 
         binding.rvData.apply {
@@ -33,6 +39,15 @@ class DetailHandshakeActivity : BaseActivity() {
         }
 
         setDataParentHS()
+
+        action()
+    }
+
+    private fun action(){
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            load()
+        }
     }
 
     private fun setDataParentHS(){

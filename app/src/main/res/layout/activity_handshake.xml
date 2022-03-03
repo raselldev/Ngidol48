@@ -40,6 +40,8 @@
                     android:src="@drawable/ic_videocall" />
 
                 <TextView
+
+                    android:textAlignment="center"
                     style="@style/title12"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -54,6 +56,18 @@
                     android:text="@string/teks_detail_message_handshake_kosong" />
 
                 <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_reload"
+                    android:background="@drawable/background_border_abu"
+                    android:textColor="@color/abu_pekat"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    style="@style/body10"
+                    android:text="@string/teks_muat_ulang"/>
+
+                <TextView
                     android:id="@+id/tv_riwayat"
                     android:background="@drawable/background_border_primary"
                     android:paddingHorizontal="@dimen/_10sdp"
@@ -66,11 +80,16 @@
             </LinearLayout>
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:id="@+id/rv_data"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:id="@+id/swipe">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:id="@+id/rv_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>

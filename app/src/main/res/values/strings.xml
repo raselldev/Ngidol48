@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Ngidol 48</string>
-    <string name="teks_app_versi">versi 1.9.6</string>
+    <string name="teks_app_versi">versi 1.9.7</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -63,6 +63,7 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="teks_muat_ulang">Muat Ulang</string>
 
 
 </resources>

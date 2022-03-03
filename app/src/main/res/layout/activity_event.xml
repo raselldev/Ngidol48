@@ -33,7 +33,7 @@
                 android:layout_centerInParent="true">
                 <ImageView
                     android:id="@+id/img_"
-                    android:src="@drawable/ic_member"
+                    android:src="@drawable/ic_calendar"
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60sdp"/>
@@ -49,14 +49,30 @@
                     android:layout_gravity="center"
                     style="@style/body10"
                     android:text="@string/teks_periksa_koneksi_coba_beberapa_saat"/>
+
+                <TextView
+                    android:id="@+id/tv_reload"
+                    android:background="@drawable/background_border_abu"
+                    android:textColor="@color/abu_pekat"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_gravity="center"
+                    style="@style/body10"
+                    android:text="@string/teks_muat_ulang"/>
             </LinearLayout>
         </RelativeLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:id="@+id/rv_data"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+       <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:id="@+id/swipe">
+           <androidx.recyclerview.widget.RecyclerView
+               android:layout_marginBottom="@dimen/_10sdp"
+               android:layout_marginHorizontal="@dimen/_10sdp"
+               android:id="@+id/rv_data"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"/>
+       </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 </layout>

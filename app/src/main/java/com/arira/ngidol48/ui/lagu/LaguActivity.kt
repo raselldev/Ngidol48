@@ -15,9 +15,11 @@ import com.arira.ngidol48.model.Setlist
 import com.arira.ngidol48.model.Song
 
 class LaguActivity : BaseActivity() {
+
     private lateinit var viewModel: SongListViewModel
     private lateinit var binding: ActivityLaguBinding
     private var setlist:Setlist = Setlist()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lagu)
@@ -25,12 +27,31 @@ class LaguActivity : BaseActivity() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SongListViewModel::class.java]
         viewModel.context = this
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         setlist = intent.getParcelableExtra(extra_model) ?: Setlist()
 
         setToolbar(setlist.nama, binding.toolbar)
         observerData()
 
         viewModel.hitSong(setlist.setlist_id)
+
+        action()
+    }
+
+    fun action(){
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            viewModel.hitSong(setlist.setlist_id)
+        }
+
+        binding.tvReload.setOnClickListener {
+            viewModel.hitSong(setlist.setlist_id)
+        }
     }
 
     fun observerData(){

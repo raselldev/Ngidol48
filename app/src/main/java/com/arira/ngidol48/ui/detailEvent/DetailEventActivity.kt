@@ -42,8 +42,14 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_event)
         event = intent.getParcelableExtra(extra_model) ?: Event()
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailEventViewModel::class.java]
-        viewModel.context =this
+        viewModel.context = this
 
         setToolbar(getString(R.string.teks_event), binding.toolbar)
 
@@ -58,6 +64,15 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
         binding.tvTiketDll.setOnClickListener {
             val url = "https://jkt48.com/theater/schedule/id/${event.event_id}?lang=id"
             Go(this).move(MyWebActivity::class.java, url = url)
+        }
+
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            viewModel.hitDetail(event.event_id)
+        }
+
+        binding.tvReload.setOnClickListener {
+            viewModel.hitDetail(event.event_id)
         }
     }
 
@@ -103,6 +118,7 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
         viewModel.getLoading().observe(this, Observer {
             it.let {
                 if (it){
+
                     binding.divKosong.visibility = View.GONE
                     binding.shimmer.visibility = View.VISIBLE
                     binding.shimmer.startShimmer()

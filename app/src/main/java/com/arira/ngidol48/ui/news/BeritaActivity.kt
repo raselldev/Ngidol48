@@ -26,8 +26,28 @@ class BeritaActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_berita)
         setToolbar(getString(R.string.teks_informasi), binding.toolbar)
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         observerData()
         viewModel.hitAll()
+
+        action()
+    }
+
+    fun action(){
+
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            viewModel.hitAll()
+        }
+
+        binding.tvReload.setOnClickListener {
+            viewModel.hitAll()
+        }
     }
 
     fun observerData(){

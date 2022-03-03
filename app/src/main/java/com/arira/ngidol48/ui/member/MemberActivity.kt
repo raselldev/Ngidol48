@@ -34,11 +34,31 @@ class MemberActivity : BaseActivity(), MemberCallback {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MemberViewModel::class.java]
         viewModel.context = this
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         setToolbar(getString(R.string.teks_member), binding.toolbar)
 
         observerData()
 
         viewModel.hitAll()
+
+        action()
+    }
+
+    fun action(){
+
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            viewModel.hitAll()
+        }
+
+        binding.tvReload.setOnClickListener {
+            viewModel.hitAll()
+        }
     }
 
     fun observerData(){

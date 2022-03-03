@@ -11,6 +11,7 @@ import com.arira.ngidol48.adapter.HandshakeAdapter
 import com.arira.ngidol48.databinding.ActivityHandshakeBinding
 import com.arira.ngidol48.databinding.ActivityHistoryHandshakeBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.utilities.Go
 
 class HistoryHandshakeActivity : BaseActivity() {
     private lateinit var binding: ActivityHistoryHandshakeBinding
@@ -24,12 +25,32 @@ class HistoryHandshakeActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_history_handshake)
         setToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HandshakeViewModel::class.java]
         viewModel.context = this
 
         observerData()
 
         viewModel.hitHistory()
+
+        action()
+    }
+
+    fun action(){
+
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            viewModel.hitHistory()
+        }
+
+        binding.tvReload.setOnClickListener {
+            viewModel.hitHistory()
+        }
     }
 
     fun observerData(){

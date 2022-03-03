@@ -24,6 +24,7 @@ import com.arira.ngidol48.databinding.DialogBdayBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config
+import com.arira.ngidol48.helper.SweetAlert
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Slider
 import com.arira.ngidol48.ui.event.EventActivity
@@ -58,6 +59,12 @@ class MainActivity : BaseActivity(), MemberCallback {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
         viewModel.context = this
 
+        /*menambakan warna untuk swipe refresh*/
+        binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
+            R.color.colorPrimary,
+            R.color.colorPrimaryDark,
+            R.color.colorAccent)
+
         observerData()
         viewModel.home()
 
@@ -81,6 +88,8 @@ class MainActivity : BaseActivity(), MemberCallback {
             showRateApp()
         }
     }
+
+
 
 
     /**
@@ -189,6 +198,10 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     private fun action(){
 
+        binding.swipe.setOnRefreshListener {
+            viewModel.home()
+        }
+
         binding.icNotification.setOnClickListener {
             Go(this).move(NotifikasiActivity::class.java)
         }
@@ -228,10 +241,21 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     fun observerData(){
         viewModel.getLoading().observe(this, Observer {
+            it.let {
+                if (it != null){
+                    binding.swipe.isRefreshing = it
+                }
+            }
+
         })
 
         viewModel.getError().observe(this, Observer {
             it.let {
+                if (it != null){
+                    binding.swipe.isRefreshing = false
+                    SweetAlert.onFailure(this, it)
+                }
+
             }
         })
 
