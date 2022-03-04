@@ -15,14 +15,15 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/_20sdp"
+            android:paddingHorizontal="@dimen/_20sdp"
             android:orientation="vertical">
 
             <View
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="7dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@drawable/background_shape_pink" />
 
             <androidx.core.widget.NestedScrollView
@@ -38,22 +39,35 @@
                         android:id="@+id/iv_ava"
                         app:civ_border_width="@dimen/_1sdp"
                         android:src="@drawable/ic_women"
-                        android:layout_width="@dimen/_105sdp"
-                        android:layout_height="@dimen/_105sdp"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_90sdp"
                         android:layout_gravity="center"/>
 
-                    <TextView
-                        android:paddingHorizontal="@dimen/_10sdp"
-                        android:paddingVertical="@dimen/_3sdp"
-                        android:background="@drawable/background_shape_pink"
-                        android:layout_marginHorizontal="@dimen/_2sdp"
-                        android:textAlignment="center"
-                        android:id="@+id/tv_team"
-                        android:textColor="@color/colorPrimaryTeks"
+                    <LinearLayout
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_gravity="center"
-                        style="@style/body10"
-                        android:text="@string/app_name"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_gravity="center"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_3sdp"
+                            android:background="@drawable/background_shape_pink"
+                            android:layout_marginHorizontal="@dimen/_2sdp"
+                            android:textAlignment="center"
+                            android:id="@+id/tv_team"
+                            android:textColor="@color/colorPrimaryTeks"
+                            style="@style/body10"
+                            android:text="@string/app_name"/>
+
+                        <TextView
+                            android:textColor="@color/colorPrimaryTeks"
+                            android:id="@+id/tv_generasi"
+                            android:layout_marginStart="@dimen/_3sdp"
+                            style="@style/body10"
+                            android:text="-"/>
+                    </LinearLayout>
                     <TextView
                         android:layout_marginHorizontal="@dimen/_10sdp"
                         android:textAlignment="center"
@@ -63,6 +77,18 @@
                         android:layout_gravity="center"
                         style="@style/title12"
                         android:text="@string/app_name"/>
+
+                    <TextView
+                        android:textStyle="italic"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimaryTeks"
+                        android:id="@+id/tv_jiko"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        style="@style/body10"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:text="'-''"/>
 
                     <LinearLayout
                         android:layout_marginTop="@dimen/_20sdp"

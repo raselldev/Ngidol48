@@ -11,6 +11,8 @@ import com.arira.ngidol48.adapter.MemberAdapter
 import com.arira.ngidol48.adapter.SetlistAdapter
 import com.arira.ngidol48.databinding.ActivitySetlistBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.ui.cariLagu.CariLaguActivity
+import com.arira.ngidol48.utilities.Go
 
 class SetlistActivity : BaseActivity() {
     private lateinit var binding:ActivitySetlistBinding
@@ -29,7 +31,7 @@ class SetlistActivity : BaseActivity() {
             R.color.colorPrimaryDark,
             R.color.colorAccent)
 
-        setToolbar(getString(R.string.teks_setlist), binding.toolbar)
+        setToolbar(getString(R.string.teks_lagu), binding.toolbar)
         observerData()
         viewModel.hitSetlist()
 
@@ -37,6 +39,10 @@ class SetlistActivity : BaseActivity() {
     }
 
     fun action(){
+
+        binding.linCari.setOnClickListener {
+            Go(this).move(CariLaguActivity::class.java)
+        }
 
         binding.swipe.setOnRefreshListener {
             binding.swipe.isRefreshing = false

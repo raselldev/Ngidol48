@@ -9,5 +9,6 @@ class SongResponse : Serializable {
     val code:Int = 0
     val message:String = ""
     var song_list:List<Song> = ArrayList()
+    var setlist:List<Setlist> = ArrayList()
 
 }

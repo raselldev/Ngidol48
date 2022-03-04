@@ -7,6 +7,7 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiServiceServer {
 
@@ -38,6 +39,12 @@ interface ApiServiceServer {
     @GET("songlist/{id}")
     fun songlist(
         @Path("id") id:String
+    ): Observable<SongResponse>
+
+    @Headers(Config.API)
+    @GET("songlist/search")
+    fun cariLagu(
+        @Query("q") query:String
     ): Observable<SongResponse>
 
     @Headers(Config.API)

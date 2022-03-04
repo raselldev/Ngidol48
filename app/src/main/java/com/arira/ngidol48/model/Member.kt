@@ -16,6 +16,8 @@ class Member() : Serializable, Parcelable{
     var id_member:String = ""
     var status:String = ""
     var kategori:String = ""
+    var jiko:String = ""
+    var generasi:String = ""
 
     var media_instagram:String = ""
     var media_tiktok:String = ""
@@ -41,6 +43,8 @@ class Member() : Serializable, Parcelable{
         id_member = parcel.readString() ?: ""
         status = parcel.readString() ?: ""
         kategori = parcel.readString() ?: ""
+        jiko = parcel.readString() ?: ""
+        generasi = parcel.readString() ?: ""
         media_instagram = parcel.readString() ?: ""
         media_tiktok = parcel.readString() ?: ""
         media_twitter = parcel.readString() ?: ""
@@ -65,6 +69,8 @@ class Member() : Serializable, Parcelable{
         parcel.writeString(id_member)
         parcel.writeString(status)
         parcel.writeString(kategori)
+        parcel.writeString(jiko)
+        parcel.writeString(generasi)
         parcel.writeString(media_instagram)
         parcel.writeString(media_tiktok)
         parcel.writeString(media_twitter)

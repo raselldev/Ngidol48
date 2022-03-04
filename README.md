@@ -6,23 +6,32 @@ Aplikasi fans JKT 48, di buat untuk mendapatkan informasi terbaru dari official 
 
 Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ngidol48
 
-## Fitur baru (1.9.5)
+## Changelog
+
+### 1.10.7
+- Bug fixing di detail lagu
+- menambahkan crashlytics
+- [Baru] Pencarian lagu, album dengan kata kunci judul, lirk atau album
+
+### 1.9.5
 - Bug fixing
 
-## Fitur baru (1.7.5)
+### 1.7.5
 - Jadwal handshake
 
-## Fitur baru (1.6.3)
+### 1.6.3
 - Picture-in-Picture untuk live showroom
 
-## Fitur baru (1.6.2)
+### 1.6.2
 - notifikasi member JKT48 ketika memulai showroom
 - menonton video showroom di aplikasi [Ngidol48](https://play.google.com/store/apps/details?id=com.arira.ngidol48) tanpa komentar, Gift ataupun interaksi lainnya
+
 
 ## Fitur
 - Informasi Terbaru
 - Event
-- Setlist beserta lagu dan liriknya
+- Setlist/Album beserta lagu dan liriknya
+- Cari Setlist/Album dengan kata kunci lirik, judul atau nama album
 - Daftar member beserta informasi sosial media dan fanbase
 - Notifikasi bila ada update dari official JKT48
 

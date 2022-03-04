@@ -11,8 +11,8 @@
             android:id="@+id/iv_logo"
             android:src="@drawable/img_logo"
             android:layout_centerInParent="true"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"/>
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"/>
 
         <ImageView
             android:scaleType="fitEnd"
@@ -20,7 +20,7 @@
             android:src="@drawable/img_new_era"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_width="@dimen/_50sdp"
+            android:layout_width="@dimen/_70sdp"
             android:layout_height="@dimen/_30sdp"/>
     </RelativeLayout>
 

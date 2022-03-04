@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shape_pink">
                     <TextView
-
+                        android:textColor="@color/dark"
                         style="@style/title10"
                         android:text="@string/teks_lirik"/>
 
@@ -58,6 +58,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/tv_lagu_lain"
                     android:layout_marginTop="@dimen/_15sdp"
                     style="@style/title10"
                     android:text="@string/teks_lagu_lainnya"/>

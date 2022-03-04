@@ -64,6 +64,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:textColor="@color/dark"
                                 style="@style/title10"
                                 android:text="@string/teks_lirik"/>
 

@@ -1,9 +1,7 @@
 package com.arira.ngidol48.ui.lagu
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +13,6 @@ import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config.extra_list
 import com.arira.ngidol48.helper.Config.extra_model
 import com.arira.ngidol48.model.Song
-import com.arira.ngidol48.utilities.MediaSessionService
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
@@ -31,10 +28,16 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_lagu)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_lagu)
-        setToolbar(getString(R.string.teks_lagu), binding.toolbar)
+        setToolbar(getString(R.string.teks_lagu_jkt), binding.toolbar)
 
         lagu = intent.getParcelableExtra(extra_model) ?: Song()
         listLagu = intent.getParcelableArrayListExtra(extra_list) ?: ArrayList()
+
+        if (listLagu.isNotEmpty()){
+            binding.tvLaguLain.visibility = View.VISIBLE
+        }else{
+            binding.tvLaguLain.visibility = View.GONE
+        }
 
         binding.embedYt.enableBackgroundPlayback(true)
         binding.embedYt.getPlayerUiController().showFullscreenButton(false)
@@ -111,14 +114,32 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 
                     when(state.toString()){
                         "PLAYING"->{
-                            pref.setSong(lagu)
-                            ContextCompat.startForegroundService(
-                                applicationContext,
-                                Intent(applicationContext, MediaSessionService::class.java)
-                            )
+//                            pref.setSong(lagu)
+//                            try{
+//                                ContextCompat.startForegroundService(
+//                                    applicationContext,
+//                                    Intent(applicationContext, MediaSessionService::class.java)
+//                                )
+//                            }catch (e:RuntimeException){
+//
+//                            }catch (e:RuntimeException){
+//
+//                            }catch (e:RemoteException){
+//
+//                            }
+
                         }
                         else->{
-                            stopService(Intent(applicationContext, MediaSessionService::class.java))
+//                            try{
+//                                stopService(Intent(applicationContext, MediaSessionService::class.java))
+//                            }catch (e:RuntimeException){
+//
+//                            }catch (e:RuntimeException){
+//
+//                            }catch (e:RemoteException){
+//
+//                            }
+
                         }
                     }
                 }

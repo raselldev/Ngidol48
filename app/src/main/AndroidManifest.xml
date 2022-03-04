@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:name=".ui.cariLagu.CariLaguActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
@@ -64,9 +67,7 @@
         <activity android:name=".ui.myWeb.MyWebActivity" />
         <activity
             android:name=".ui.home.MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
 
         <service
             android:name=".fcm.MyFirebaseMesssagingService"

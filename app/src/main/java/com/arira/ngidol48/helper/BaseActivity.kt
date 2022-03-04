@@ -81,6 +81,20 @@ open class BaseActivity : AppCompatActivity() {
         bindingSheet.tvTeam.text = member.kategori
         Glide.with(this).load(Config.BASE_STORAGE_JKT + member.avatar).into(bindingSheet.ivAva)
 
+        if (member.jiko.isNotEmpty()){
+            bindingSheet.tvJiko.text = "`${member.jiko}`"
+            bindingSheet.tvJiko.visibility = View.VISIBLE
+        }else{
+            bindingSheet.tvJiko.visibility = View.GONE
+        }
+
+        if (member.generasi != "0"){
+            bindingSheet.tvGenerasi.text = "Gen ${member.generasi}"
+            bindingSheet.tvGenerasi.visibility = View.VISIBLE
+        }else{
+            bindingSheet.tvGenerasi.visibility = View.GONE
+        }
+
         //media sosial
         val showMedia = member.media_instagram.isNotEmpty()
 

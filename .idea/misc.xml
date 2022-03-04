@@ -15,6 +15,7 @@
         <entry key="app/src/main/res/drawable/shape_rounded_dialog.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog_dark.xml" value="0.2388888888888889" />
         <entry key="app/src/main/res/layout/activity_berita.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/activity_cari_lagu.xml" value="0.2116289012398461" />
         <entry key="app/src/main/res/layout/activity_detail_event.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_detail_handshake.xml" value="0.24375" />
         <entry key="app/src/main/res/layout/activity_detail_lagu.xml" value="0.24322916666666666" />
@@ -22,7 +23,7 @@
         <entry key="app/src/main/res/layout/activity_handshake.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_history_handshake.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_lagu.xml" value="0.22671353251318102" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_member.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_my_web.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/activity_notifikasi.xml" value="0.24322916666666666" />
@@ -31,6 +32,8 @@
         <entry key="app/src/main/res/layout/activity_view_showroom.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/custom_dialog_rating_app.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/dialog_bday.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/fragment_lagu.xml" value="0.1881145788798632" />
+        <entry key="app/src/main/res/layout/fragment_setlist.xml" value="0.1996579734929457" />
         <entry key="app/src/main/res/layout/item_ava_member.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_berita.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/item_detail_handshake.xml" value="0.2578125" />
