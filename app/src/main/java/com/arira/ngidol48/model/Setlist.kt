@@ -10,6 +10,7 @@ class Setlist() :Serializable, Parcelable {
     var cover:String = ""
     var setlist_id:String = ""
     var total_lagu:String = ""
+    var kategori:String = ""
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString() ?: ""
@@ -17,6 +18,7 @@ class Setlist() :Serializable, Parcelable {
         cover = parcel.readString() ?: ""
         setlist_id = parcel.readString() ?: ""
         total_lagu = parcel.readString() ?: ""
+        kategori = parcel.readString() ?: ""
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -25,6 +27,7 @@ class Setlist() :Serializable, Parcelable {
         parcel.writeString(cover)
         parcel.writeString(setlist_id)
         parcel.writeString(total_lagu)
+        parcel.writeString(kategori)
     }
 
     override fun describeContents(): Int {

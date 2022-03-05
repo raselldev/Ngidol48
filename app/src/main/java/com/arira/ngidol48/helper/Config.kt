@@ -22,5 +22,10 @@ object Config {
     val extra_list: String = "extraList"
     val extra_id: String = "extraID"
 
+    val TOPIC_NEWS = "news"
+    val TOPIC_EVENT = "event"
+    val TOPIC_HANDSHAKE = "handshake"
+    val TOPIC_SHOWROOM = "showroom"
+
 
 }

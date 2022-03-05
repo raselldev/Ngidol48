@@ -10,6 +10,7 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.SongAdapter
 import com.arira.ngidol48.databinding.ActivityLaguBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.helper.Config.extra_id
 import com.arira.ngidol48.helper.Config.extra_model
 import com.arira.ngidol48.model.Setlist
 import com.arira.ngidol48.model.Song
@@ -19,6 +20,7 @@ class LaguActivity : BaseActivity() {
     private lateinit var viewModel: SongListViewModel
     private lateinit var binding: ActivityLaguBinding
     private var setlist:Setlist = Setlist()
+    private var id:String = String()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

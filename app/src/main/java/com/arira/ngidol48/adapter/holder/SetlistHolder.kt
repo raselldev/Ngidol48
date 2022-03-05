@@ -20,7 +20,7 @@ class SetlistHolder(var item:ItemSetlistBinding): RecyclerView.ViewHolder(item.r
 
 
     fun setData(data: Setlist){
-        item.tvTotalLagu.text = itemView.context.getString(R.string.teks_total_lagu, data.total_lagu)
+        item.tvTotalLagu.text = "${data.kategori} . ${itemView.context.getString(R.string.teks_total_lagu, data.total_lagu)}"
         item.tvNama.text = data.nama
 
         if (data.cover.isEmpty()){

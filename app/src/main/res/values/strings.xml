@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Ngidol 48</string>
-    <string name="teks_app_versi">versi 1.10.7</string>
+    <string name="teks_app_versi">versi 1.11.7</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -69,6 +69,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="teks_gunakan_kata_kunci_lain">Gunakan kata kunci lain untuk mencari pastikan pernah dengan itu dibawahakn JKT48 ya !</string>
+    <string name="teks_lagu_selanjutnya">Lagu Selanjutnya</string>
+    <string name="teks_notifikasi">Notifikasi</string>
+    <string name="teks_atur_penerimaan_notifikasi_anda">Atur penerimaan notifikasi anda</string>
+    <string name="teks_donasi">Donasi</string>
+    <string name="teks_deskripsi_donasi">Jika ingin berdonasi untuk kehidupan pengembang</string>
+    <string name="teks_deskripsi_informasi">Anda akan mendapatkan notifikasi terkait dengan informasi terbaru dari JKT48 Official Team</string>
+    <string name="teks_deskripsi_notifikasi_event">Anda akan mendapatkan notifikasi terkait dengan event termasuk dengan penjualan dan pemberitahuan hari H event</string>
+    <string name="teks_deskripsi_notifikasi_handshake">Anda akan mendapatkan notifikasi terkait dengan jadwal handshake / video call dan penjualan tiket</string>
+    <string name="teks_deskripsi_notifikasi_showroom">Anda akan mendapatkan notifikasi ketika ada member yang sedang atau memulai live showroom</string>
+    <string name="teks_showroom">Live Showroom</string>
+    <string name="teks_pengaturan">Pengaturan</string>
 
 
 </resources>

@@ -1,6 +1,9 @@
 package com.arira.ngidol48.ui.lagu
 
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,17 +15,24 @@ import com.arira.ngidol48.databinding.ActivityDetailLaguBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config.extra_list
 import com.arira.ngidol48.helper.Config.extra_model
+import com.arira.ngidol48.model.Setlist
 import com.arira.ngidol48.model.Song
+import com.arira.ngidol48.ui.home.MainActivity
+import com.arira.ngidol48.utilities.Go
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.rommansabbir.animationx.AnimationX
+import com.rommansabbir.animationx.Bounce
+import com.rommansabbir.animationx.Fade
 import io.reactivex.annotations.NonNull
 
 class DetailLaguActivity : BaseActivity(), LaguCallback {
     private lateinit var binding:ActivityDetailLaguBinding
-    private var lagu:Song = Song()
+    private var currentSong:Song = Song()
     private var listLagu:ArrayList<Song> = ArrayList()
     private var mYouTubePlayer:YouTubePlayer? = null
+    private var countDownNext: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +40,7 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_lagu)
         setToolbar(getString(R.string.teks_lagu_jkt), binding.toolbar)
 
-        lagu = intent.getParcelableExtra(extra_model) ?: Song()
+        currentSong = intent.getParcelableExtra(extra_model) ?: Song()
         listLagu = intent.getParcelableArrayListExtra(extra_list) ?: ArrayList()
 
         if (listLagu.isNotEmpty()){
@@ -44,14 +54,31 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 
 
         setDataLagu()
+        action()
+
+    }
+
+    private fun action(){
+        binding.tvSetlist.setOnClickListener {
+            val setlist = Setlist()
+
+            if (listLagu.isNotEmpty()){
+                val song = listLagu[0]
+                setlist.cover = song.cover
+                setlist.setlist_id = song.setlist_id
+                setlist.nama = song.nama
+                setlist.total_lagu = listLagu.size.toString()
+                Go(this).move(LaguActivity::class.java, data = setlist)
+            }
+        }
 
     }
 
     private fun setDataLagu(){
 
-        binding.tvJudul.text = lagu.judul
-        binding.tvLirik.text = lagu.lirik
-        binding.tvSetlist.text = lagu.nama
+        binding.tvJudul.text = currentSong.judul
+        binding.tvLirik.text = currentSong.lirik
+        binding.tvSetlist.text = currentSong.nama
 
         if (pref.getOnReview()){
             binding.embedYt.visibility = View.GONE
@@ -62,7 +89,7 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 
         val filterSong:ArrayList<Song> = ArrayList()
         for (song in listLagu){
-            if (song.id != this.lagu.id){
+            if (song.id != this.currentSong.id){
                 filterSong.add(song)
             }
         }
@@ -82,20 +109,44 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
                 lagu.song_link
             }
 
-            mYouTubePlayer?.cueVideo(videoId, 0f)
-            mYouTubePlayer?.play()
+            mYouTubePlayer?.loadVideo(videoId, 0f)
+
+            //stop count down
+            if (countDownNext != null){
+                countDownNext?.cancel()
+            }
         }
-        this.lagu = lagu
+
+        this.currentSong = lagu
         setDataLagu()
+
+        binding.scroll.postDelayed(Runnable {
+            binding.scroll.fullScroll(View.FOCUS_UP)
+        }, 400)
     }
+
+    private fun getNext():Song?{
+        var currentPosition = 0
+        for (i in  0 until listLagu.size){
+            if (listLagu[i].id == currentSong.id){
+                currentPosition = i
+            }
+        }
+
+        if ((currentPosition+1) < listLagu.size){
+            return listLagu[currentPosition + 1]
+        }
+        return null
+    }
+
 
     private fun setDataVideo(){
         var videoId = ""
-        if (lagu.song_link.isNotEmpty()) {
-            videoId = if (lagu.song_link.contains("/")) {
-                lagu.song_link.substring(lagu.song_link.lastIndexOf("/") + 1)
+        if (currentSong.song_link.isNotEmpty()) {
+            videoId = if (currentSong.song_link.contains("/")) {
+                currentSong.song_link.substring(currentSong.song_link.lastIndexOf("/") + 1)
             } else {
-                lagu.song_link
+                currentSong.song_link
             }
 
             binding.embedYt.visibility = View.VISIBLE
@@ -105,8 +156,8 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
                 override fun onReady(@NonNull youTubePlayer: YouTubePlayer) {
                     mYouTubePlayer = youTubePlayer
 
-                    youTubePlayer.cueVideo(videoId, 0f)
-                    youTubePlayer.play()
+                    youTubePlayer.loadVideo(videoId, 0f)
+//                    youTubePlayer.play()
                 }
 
                 override fun onStateChange(youTubePlayer: YouTubePlayer, state: PlayerConstants.PlayerState) {
@@ -128,6 +179,38 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 //
 //                            }
 
+                        }
+                        "ENDED"->{
+                            val nextSong = getNext()
+                            if (nextSong != null){
+                                //show card next
+                                AnimationX().setDuration(1000)
+                                    .setAnimation(Fade.outRight(binding.cardNextSong, AnimationX().getNewAnimatorSet())).start()
+
+                                binding.cardNextSong.visibility = View.VISIBLE
+                                binding.tvJudulNextSong.text = nextSong.judul
+
+                                countDownNext = object : CountDownTimer(5000, 1000){
+                                    override fun onTick(p0: Long) {
+                                        binding.tvCdtNextSong.text = "(${p0/1000})"
+                                    }
+                                    override fun onFinish() {
+                                        //change song
+                                        onSelectOtherSong(nextSong)
+
+                                        //reset count down
+                                        countDownNext = null
+
+
+                                        //hide card count down
+                                        Handler(Looper.getMainLooper()).postDelayed({
+                                            binding.cardNextSong.visibility = View.GONE
+                                        }, 1000)
+
+                                    }
+
+                                }.start()
+                            }
                         }
                         else->{
 //                            try{

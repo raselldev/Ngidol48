@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:name=".ui.pengaturan.PengaturanNotifikasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.pengaturan.PengaturanActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.cariLagu.CariLaguActivity"
             android:exported="false" />
         <activity
@@ -67,7 +73,7 @@
         <activity android:name=".ui.myWeb.MyWebActivity" />
         <activity
             android:name=".ui.home.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
 
         <service
             android:name=".fcm.MyFirebaseMesssagingService"

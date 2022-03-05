@@ -36,6 +36,7 @@ class LaguFragment(val songList: List<Song>,val callback:CariLaguCallback) : Bas
             }
         }else{
             binding.divKosong.visibility = View.VISIBLE
+            callback.callReload()
         }
 
         binding.swipe.setOnRefreshListener {

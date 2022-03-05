@@ -24,6 +24,10 @@ import com.arira.ngidol48.databinding.DialogBdayBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config
+import com.arira.ngidol48.helper.Config.TOPIC_EVENT
+import com.arira.ngidol48.helper.Config.TOPIC_HANDSHAKE
+import com.arira.ngidol48.helper.Config.TOPIC_NEWS
+import com.arira.ngidol48.helper.Config.TOPIC_SHOWROOM
 import com.arira.ngidol48.helper.SweetAlert
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Slider
@@ -33,6 +37,7 @@ import com.arira.ngidol48.ui.member.MemberActivity
 import com.arira.ngidol48.ui.member.MemberCallback
 import com.arira.ngidol48.ui.news.BeritaActivity
 import com.arira.ngidol48.ui.notifikasi.NotifikasiActivity
+import com.arira.ngidol48.ui.pengaturan.PengaturanActivity
 import com.arira.ngidol48.ui.setlist.SetlistActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
@@ -198,6 +203,10 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     private fun action(){
 
+        binding.ivSetting.setOnClickListener {
+            Go(this).move(PengaturanActivity::class.java)
+        }
+
         binding.swipe.setOnRefreshListener {
             viewModel.home()
         }
@@ -232,11 +241,28 @@ class MainActivity : BaseActivity(), MemberCallback {
     }
 
     private  fun subcribeAll(){
-        FirebaseMessaging.getInstance().subscribeToTopic("event").addOnSuccessListener {
+        if (pref.getNotifNews()){
+            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_NEWS).addOnSuccessListener {
+            }
         }
 
-        FirebaseMessaging.getInstance().subscribeToTopic("news").addOnSuccessListener {
+        if (pref.getNotifEvent()){
+            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_EVENT).addOnSuccessListener {
+            }
         }
+
+        if (pref.getNotifHandshake()){
+            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_HANDSHAKE).addOnSuccessListener {
+            }
+        }
+
+        if (pref.getNotifShowroom()){
+            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_SHOWROOM).addOnSuccessListener {
+            }
+        }
+
+
+
     }
 
     fun observerData(){

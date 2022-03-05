@@ -18,9 +18,9 @@ import com.google.android.material.tabs.TabLayoutMediator
 class CariLaguActivity : BaseActivity(), CariLaguCallback {
     private lateinit var binding: ActivityCariLaguBinding
     private lateinit var viewModel: CariLaguViewModel
-
+    private var querySeach:String = ""
     override fun callReload() {
-
+        viewModel.cari(querySeach)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +44,7 @@ class CariLaguActivity : BaseActivity(), CariLaguCallback {
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
+                querySeach = query
                 viewModel.cari(query)
                 return false
             }
@@ -55,11 +56,11 @@ class CariLaguActivity : BaseActivity(), CariLaguCallback {
         val adapter = PagerAdapter(this)
         if (data != null){
             adapter.addFragment(LaguFragment(data.song_list, this), "Lagu (${data.song_list.size})")
-            adapter.addFragment(SetlistFragment(data.setlist, this), "Album (${data.setlist.size})")
+            adapter.addFragment(SetlistFragment(data.setlist, this), "Lainnya (${data.setlist.size})")
 
         }else{
             adapter.addFragment(LaguFragment(ArrayList(), this), "Lagu")
-            adapter.addFragment(SetlistFragment(ArrayList(), this), "Album")
+            adapter.addFragment(SetlistFragment(ArrayList(), this), "Lainnya")
 
         }
 

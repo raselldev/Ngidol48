@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -12,12 +12,52 @@
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
-        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-            android:id="@+id/embed_yt"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content">
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/embed_yt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.cardview.widget.CardView
+                android:visibility="gone"
+                android:id="@+id/card_next_song"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_10sdp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:textColor="@color/abu_pekat"
+                            style="@style/body8"
+                            android:text="@string/teks_lagu_selanjutnya"/>
+                        <TextView
+                            android:id="@+id/tv_cdt_next_song"
+                            android:layout_marginStart="@dimen/_3sdp"
+                            style="@style/body8"
+                            android:text="(4)"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_judul_next_song"
+                        android:textColor="@color/colorPrimaryTeks"
+                        style="@style/title10"
+                        android:text="@string/teks_lagu"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout

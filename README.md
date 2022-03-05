@@ -8,6 +8,12 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 
 ## Changelog
 
+### 1.11.7
+- auto play music
+- auto next music when play album/EP/Setlist
+- notification settings
+- donation to saweria
+
 ### 1.10.7
 - Bug fixing di detail lagu
 - menambahkan crashlytics

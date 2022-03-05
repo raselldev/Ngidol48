@@ -16,6 +16,11 @@ class SharedPref(context : Context) {
 
     private val songPlay = "songPlay"
 
+    private val notifShowroom = "notifShowroom"
+    private val notifNews = "notifNews"
+    private val notifEvent = "notifEvent"
+    private val notifHandshake = "notifHandshake"
+
     fun setOnReview(value: Boolean) {
         editor.putBoolean(onReview, value)
         editor.commit()
@@ -39,6 +44,38 @@ class SharedPref(context : Context) {
 
     fun setOpenApp(value : Int){
         sp.edit().putInt(openApp, value).apply()
+    }
+
+    fun getNotifShowroom(): Boolean {
+        return sp.getBoolean(notifShowroom, true)
+    }
+
+    fun setNotifShowroom(value : Boolean){
+        sp.edit().putBoolean(notifShowroom, value).apply()
+    }
+
+    fun getNotifNews(): Boolean {
+        return sp.getBoolean(notifNews, true)
+    }
+
+    fun setNotifNews(value : Boolean){
+        sp.edit().putBoolean(notifNews, value).apply()
+    }
+
+    fun getNotifEvent(): Boolean {
+        return sp.getBoolean(notifEvent, true)
+    }
+
+    fun setNotifEvent(value : Boolean){
+        sp.edit().putBoolean(notifEvent, value).apply()
+    }
+
+    fun getNotifHandshake(): Boolean {
+        return sp.getBoolean(notifHandshake, true)
+    }
+
+    fun setNotifHandshake(value : Boolean){
+        sp.edit().putBoolean(notifHandshake, value).apply()
     }
 
     fun getOpenApp() : Int{
