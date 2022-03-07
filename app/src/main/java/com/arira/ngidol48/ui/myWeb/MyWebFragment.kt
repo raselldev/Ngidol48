@@ -35,6 +35,10 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
 
     var DEBUG_TAG = javaClass.simpleName
 
+    fun MyWebFragment() {
+
+    }
+
     fun newInstance(links: String, title: String): MyWebFragment {
         return MyWebFragment(links, title)
     }

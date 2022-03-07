@@ -14,6 +14,7 @@ class Event() :Serializable, Parcelable {
     var event_time:String = ""
     var bulan_tahun:String = ""
     var member_perform:String = "0"
+    var cover:String? = null
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString() ?: ""
@@ -25,6 +26,7 @@ class Event() :Serializable, Parcelable {
         event_time = parcel.readString() ?: ""
         bulan_tahun = parcel.readString() ?: ""
         member_perform = parcel.readString() ?: ""
+        cover = parcel.readString()
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -37,6 +39,7 @@ class Event() :Serializable, Parcelable {
         parcel.writeString(event_time)
         parcel.writeString(bulan_tahun)
         parcel.writeString(member_perform)
+        parcel.writeString(cover)
     }
 
     override fun describeContents(): Int {
