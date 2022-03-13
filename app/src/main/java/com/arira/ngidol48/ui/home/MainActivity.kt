@@ -24,6 +24,8 @@ import com.arira.ngidol48.databinding.DialogBdayBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config
+import com.arira.ngidol48.helper.Config.BASE_STORAGE
+import com.arira.ngidol48.helper.Config.BASE_STORAGE_IMAGE
 import com.arira.ngidol48.helper.Config.TOPIC_EVENT
 import com.arira.ngidol48.helper.Config.TOPIC_HANDSHAKE
 import com.arira.ngidol48.helper.Config.TOPIC_NEWS
@@ -33,11 +35,13 @@ import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Slider
 import com.arira.ngidol48.ui.event.EventActivity
 import com.arira.ngidol48.ui.handshake.HandshakeActivity
+import com.arira.ngidol48.ui.login.LoginActivity
 import com.arira.ngidol48.ui.member.MemberActivity
 import com.arira.ngidol48.ui.member.MemberCallback
 import com.arira.ngidol48.ui.news.BeritaActivity
 import com.arira.ngidol48.ui.notifikasi.NotifikasiActivity
 import com.arira.ngidol48.ui.pengaturan.PengaturanActivity
+import com.arira.ngidol48.ui.profil.ProfilActivity
 import com.arira.ngidol48.ui.setlist.SetlistActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
@@ -94,7 +98,22 @@ class MainActivity : BaseActivity(), MemberCallback {
         }
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        if(pref.getIsLogin()){
+            val user = pref.getUser()
+            binding.linUser.visibility = View.VISIBLE
+            binding.tvNama.text = getString(R.string.teks_halo_s_nama, user.fullname)
+            binding.tvBodyNama.text = getString(R.string.teks_ucakapan_pagi)
+            if (user.avatar.contains("http")){
+                Glide.with(this).load(user.avatar).error(R.drawable.ic_baseline_person_24).placeholder(R.drawable.ic_baseline_person_24).into(binding.ivAvatarUser)
+            }else{
+                Glide.with(this).load(BASE_STORAGE_IMAGE + user.avatar).error(R.drawable.ic_baseline_person_24).placeholder(R.drawable.ic_baseline_person_24).into(binding.ivAvatarUser)
+            }
+        }else{
+            binding.linUser.visibility = View.GONE
+        }
+    }
 
 
     /**
@@ -203,6 +222,14 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     private fun action(){
 
+        binding.linUser.setOnClickListener {
+            Go(this).move(ProfilActivity::class.java)
+        }
+
+        binding.linBlog.setOnClickListener {
+            Go(this).move(LoginActivity::class.java)
+        }
+
         binding.ivSetting.setOnClickListener {
             Go(this).move(PengaturanActivity::class.java)
         }
@@ -257,7 +284,9 @@ class MainActivity : BaseActivity(), MemberCallback {
         }
 
         if (pref.getNotifShowroom()){
-            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_SHOWROOM).addOnSuccessListener {
+            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_SHOWROOM)
+            .addOnSuccessListener {
+                Log.e("SHOWROM", "update")
             }
         }
 

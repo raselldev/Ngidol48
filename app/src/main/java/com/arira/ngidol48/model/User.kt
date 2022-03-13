@@ -7,47 +7,40 @@ import java.io.Serializable
 class User() :Serializable, Parcelable {
 
     var id:String = ""
-    var email:String = ""
-    var first_name:String = ""
-    var last_name:String = ""
-    var birth:String = ""
-    var gender:String = ""
-    var token:String = ""
-    var created_at:String = ""
-    var password:String = ""
     var avatar:String = ""
-    var avatar_url:String = ""
-    var telp:String = ""
-    var typelogin:String = ""
+    var fullname:String = ""
+    var gender:String = ""
+    var bio:String = ""
+    var cover:String = ""
+    var phone:String = ""
+    var email:String = ""
+    var token_app:String = ""
+    var status:String = ""
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString() ?: ""
-        email = parcel.readString() ?: ""
-        first_name = parcel.readString() ?: ""
-        last_name = parcel.readString() ?: ""
-        birth = parcel.readString() ?: ""
-        gender = parcel.readString() ?: ""
-        token = parcel.readString() ?: ""
-        created_at = parcel.readString() ?: ""
-        password = parcel.readString() ?: ""
         avatar = parcel.readString() ?: ""
-        avatar_url = parcel.readString() ?: ""
-        telp = parcel.readString() ?: ""
+        fullname = parcel.readString() ?: ""
+        gender = parcel.readString() ?: ""
+        bio = parcel.readString() ?: ""
+        cover = parcel.readString() ?: ""
+        phone = parcel.readString() ?: ""
+        email = parcel.readString() ?: ""
+        token_app = parcel.readString() ?: ""
+        status = parcel.readString() ?: ""
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
-        parcel.writeString(email)
-        parcel.writeString(first_name)
-        parcel.writeString(last_name)
-        parcel.writeString(birth)
-        parcel.writeString(gender)
-        parcel.writeString(token)
-        parcel.writeString(created_at)
-        parcel.writeString(password)
         parcel.writeString(avatar)
-        parcel.writeString(avatar_url)
-        parcel.writeString(telp)
+        parcel.writeString(fullname)
+        parcel.writeString(gender)
+        parcel.writeString(bio)
+        parcel.writeString(cover)
+        parcel.writeString(phone)
+        parcel.writeString(email)
+        parcel.writeString(token_app)
+        parcel.writeString(status)
     }
 
     override fun describeContents(): Int {

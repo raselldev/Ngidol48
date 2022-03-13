@@ -35,7 +35,17 @@
                             android:layout_marginTop="@dimen/_5sdp"
                             style="@style/body10"
                             android:text="-"/>
+                        <TextView
+                            android:id="@+id/tv_tiket_dll"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            android:background="@drawable/background_border_primary"
+                            android:textColor="@color/colorPrimaryTeks"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            style="@style/title12"
+                            android:text="@string/teks_tiket_dan_informasi_lebih_lanjut"/>
                         <LinearLayout
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">

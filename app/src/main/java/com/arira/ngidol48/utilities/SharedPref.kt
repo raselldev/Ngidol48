@@ -3,6 +3,7 @@ package com.arira.ngidol48.utilities
 import android.content.Context
 import android.content.SharedPreferences
 import com.arira.ngidol48.model.Song
+import com.arira.ngidol48.model.User
 import com.google.gson.Gson
 
 class SharedPref(context : Context) {
@@ -11,6 +12,7 @@ class SharedPref(context : Context) {
     private val sp: SharedPreferences = context.getSharedPreferences(mypref, Context.MODE_PRIVATE)
     private val editor: SharedPreferences.Editor = sp.edit()
     private val onReview = "onReview"
+    private val isLogin = "isLogin"
     private val showRating = "showRating"
     private val openApp = "openApp"
 
@@ -20,6 +22,9 @@ class SharedPref(context : Context) {
     private val notifNews = "notifNews"
     private val notifEvent = "notifEvent"
     private val notifHandshake = "notifHandshake"
+
+    private val token = "token"
+    private val users = "users"
 
     fun setOnReview(value: Boolean) {
         editor.putBoolean(onReview, value)
@@ -38,12 +43,31 @@ class SharedPref(context : Context) {
         return Gson().fromJson(data, Song::class.java)
     }
 
+    fun setUser(data: User): User {
+        val json = Gson().toJson(data, User::class.java)
+        sp.edit().putString(users, json).apply()
+        return getUser()
+    }
+
+    fun getUser(): User {
+        val data = sp.getString(users, null) ?: return User()
+        return Gson().fromJson(data, User::class.java)
+    }
+
     fun getOnReview(): Boolean {
         return sp.getBoolean(onReview, false)
     }
 
     fun setOpenApp(value : Int){
         sp.edit().putInt(openApp, value).apply()
+    }
+
+    fun setIsLogin(value : Boolean){
+        sp.edit().putBoolean(isLogin, value).apply()
+    }
+
+    fun getIsLogin(): Boolean {
+        return sp.getBoolean(isLogin, false)
     }
 
     fun getNotifShowroom(): Boolean {

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Ngidol 48</string>
-    <string name="teks_app_versi">versi 1.11.8</string>
+    <string name="teks_app_versi">versi 1.12.8</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -18,6 +18,7 @@
     <string name="teks_tidak_ada_data_event">Tidak ada data event</string>
     <string name="teks_tidak_ada_data_berita">Tidak ada informasi</string>
     <string name="teks_tidak_ada_data_notifikasi">Tidak ada notifikasi untuk anda</string>
+    <string name="teks_tidak_ada_data_blog">Tidak ada blog untuk saat ini</string>
     <string name="teks_tidak_ada_data_handshake">untuk saat ini belum ada handshake/video call  ygy</string>
     <string name="teks_tidak_ada_data_handshake_riwayat">untuk saat ini belum ada riwayat handshake/video call  ygy</string>
     <string name="teks_periksa_koneksi_coba_beberapa_saat">Periksa koneksi anda atau coba beberapa saat lagi</string>
@@ -80,6 +81,39 @@
     <string name="teks_deskripsi_notifikasi_showroom">Anda akan mendapatkan notifikasi ketika ada member yang sedang atau memulai live showroom</string>
     <string name="teks_showroom">Live Showroom</string>
     <string name="teks_pengaturan">Pengaturan</string>
+    <string name="teks_blog">Blog</string>
+    <string name="buat">Buat</string>
+    <string name="teks_masuk_ke_ngidol48">Masuk ke Ngidol48</string>
+    <string name="teks_selamat_datang_di_ngidol48">Selamat datang di Ngidol48. aplikasi untuk fans JKT48 berkumpul dan mendapatkan informasi mengenai JKT48</string>
+    <string name="teks_masuk_dengan_google">Masuk Dengan Google</string>
+    <string name="teks_masuk">Masuk</string>
+    <string name="teks_mendaftar">Mendaftar</string>
+    <string name="teks_dummy_halo">Halo, Nama Pengguna</string>
+    <string name="teks_ucakapan_pagi">Bagaimana pagimu ini, Semoga menyenangkan</string>
+    <string name="teks_halo_s_nama">Halo, %s</string>
+    <string name="teks_keluar">Keluar</string>
+    <string name="teks_nama_anda">Nama Anda</string>
+    <string name="hint_email">emai@yourdomain</string>
+    <string name="teks_email">Email</string>
+    <string name="teks_nomor_tlp">Nomor Telepon</string>
+    <string name="hint_phone_number">+1-21435333</string>
+    <string name="teks_gender">Gender</string>
+    <string name="teks_">-</string>
+    <string name="teks_perbarui_profil">Perbarui Profil</string>
+    <string name="teks_profil">Profil</string>
+    <string name="teks_ganti_avatar">Ganti Avatar</string>
+    <string name="teks_pria">Pria</string>
+    <string name="teks_wanita">Wanita</string>
+    <string name="teks_deskripsi_keluar">Apakah anda ingin keluar dari akun Ngidol48 ?</string>
+    <string name="teks_tidak">Tidak</string>
+    <string name="teks_iya">Iya</string>
+    <string name="teks_dummy_nama">Fiony Alveria Tantri</string>
+    <string name="teks_bio">Bio</string>
+    <string name="teks_bio_terkeren_anda">Bio terkeren anda</string>
+    <string name="teks_perbarui">Perbarui</string>
+    <string name="teks_nama_kosong">Nama anda tidak boleh kosong</string>
+    <string name="teks_profil_berhasil_diperbarui">Profil anda berhasil di perbarui</string>
+    <string name="teks_kebijakan_privasi">Kebijakan Privasi</string>
 
 
 </resources>

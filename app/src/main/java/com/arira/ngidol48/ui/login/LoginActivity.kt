@@ -1,13 +1,17 @@
-package com.arira.ngidol48.ui
+package com.arira.ngidol48.ui.login
 
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import com.arira.ngidol48.R
+import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityLoginBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.helper.SweetAlert
 import com.arira.ngidol48.model.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -22,12 +26,17 @@ class LoginActivity : BaseActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
     private var users = User()
+    private lateinit var viewModel: LoginViewModel
 
     private lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         setToolbar(getString(R.string.teks_masuk), binding.toolbar)
+
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[LoginViewModel::class.java]
+        viewModel.context = this
 
         /*TODO: login by google prepare*/
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -47,6 +56,63 @@ class LoginActivity : BaseActivity() {
         /* end of login by google prepare*/
 
         action()
+        observeDataAuth()
+    }
+
+    private fun observeDataAuth(){
+        viewModel.getLoading().observe(this){
+            it.let {
+                if (it != null){
+                    if (it){
+                        SweetAlert.onLoading(this)
+                    }else{
+                        SweetAlert.dismis()
+                    }
+                }
+            }
+        }
+
+        viewModel.getError().observe(this){
+            it.let {
+                if (it != null){
+                    SweetAlert.dismis()
+                    SweetAlert.onFailure(this, it)
+
+                    if (auth.currentUser != null){
+                        googleSignInClient.signOut()
+                        auth.signOut()
+                    }
+
+                }
+            }
+        }
+
+        viewModel.getResponse().observe(this){
+            it.let {
+                if (it != null){
+                    if (it.code == 1){
+                        SweetAlert.dismis()
+                        //sukses
+                        pref.setUser(it.user)
+                        pref.setIsLogin(true)
+                        finish()
+                    }
+                }
+            }
+        }
+
+        viewModel.needRegister().observe(this){
+            it.let {
+                if (it != null){
+                    if (it){
+                        //call register
+                        toast.show(getString(R.string.teks_mendaftar), this)
+                        viewModel.register(users)
+                    }
+                }
+            }
+        }
+
     }
 
     private fun action(){
@@ -83,17 +149,26 @@ class LoginActivity : BaseActivity() {
                     if (user != null) {
                         user.let {
                             users.email = it.email.toString()
-                            users.fullname = it.displayName.toString()
-                            users.phone = it.phoneNumber.toString()
-                            users.avatar = it.photoUrl.toString()
-                            it.email?.let { it1 -> viewModel.loginEmail(it1) }
+                            if (it.displayName != null){
+                                users.fullname = it.displayName.toString()
+                            }
+                            if (it.phoneNumber != null){
+                                users.phone = it.phoneNumber.toString()
+                            }
+                            if (it.photoUrl != null){
+                                users.avatar = it.photoUrl.toString()
+                            }
+
+
+
+                            it.email?.let { viewModel.login(users) }
                         }
                     }else{
                         toast.show(getString(R.string.teks_gagal_masuk_dengan_google), this)
                     }
 
                 } else {
-
+                    SweetAlert.onFailure(this, task.exception?.message)
                 }
             }
     }

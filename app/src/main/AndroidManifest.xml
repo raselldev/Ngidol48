@@ -3,6 +3,8 @@
     package="com.arira.ngidol48">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".app.App"
@@ -14,6 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
+        <activity
+            android:name=".ui.profil.EditProfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profil.ProfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.allBlog.BlogActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.pengaturan.PengaturanNotifikasiActivity"
             android:exported="false" />

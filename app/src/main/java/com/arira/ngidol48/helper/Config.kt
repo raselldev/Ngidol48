@@ -1,11 +1,14 @@
 package com.arira.ngidol48.helper
 
+import android.os.Environment
+
 object Config {
 
     const val BASE_URL = "http://apiidol.arira.my.id/"
     const val BASE_API = BASE_URL + ""
 
     const val BASE_STORAGE = BASE_URL
+    const val BASE_STORAGE_IMAGE = BASE_URL + "image/"
     const val BASE_STORAGE_JKT = "https://jkt48.com/"
 
 
@@ -26,6 +29,10 @@ object Config {
     val TOPIC_EVENT = "event"
     val TOPIC_HANDSHAKE = "handshake"
     val TOPIC_SHOWROOM = "showroom"
+
+    var DIRECTORY_IMAGE_AVATAR: String = Environment.getExternalStorageDirectory().toString() + "/NGIDOL48/avatar/"
+    var DIRECTORY_IMAGE_BLOG: String = Environment.getExternalStorageDirectory().toString() + "/NGIDOL48/blog/"
+
 
 
 }

@@ -12,8 +12,8 @@ android {
         applicationId "com.arira.ngidol48"
         minSdk 21
         targetSdk 31
-        versionCode 18
-        versionName "1.11.8"
+        versionCode 19
+        versionName "1.12.8"
         dataBinding.enabled = true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -72,7 +72,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.8'
     implementation 'com.google.firebase:firebase-analytics-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
 
+    //login with google
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
 
     /*RXJAVA*/
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"

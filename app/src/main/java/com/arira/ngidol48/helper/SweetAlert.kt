@@ -38,6 +38,9 @@ object SweetAlert {
                 .setTitleText(title)
                 .setContentText(pesan)
                 .setConfirmClickListener {
+                    it.dismissWithAnimation()
+                    it.dismiss()
+
                     context.finish()
                 }
                 .show()

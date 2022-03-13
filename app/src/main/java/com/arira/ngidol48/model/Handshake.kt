@@ -20,6 +20,7 @@ class Handshake() :Serializable, Parcelable {
     var is_sold:String = ""
     var active:String = ""
     var status:String = ""
+    var buy_url:String = ""
 
     constructor(parcel: Parcel) : this() {
         nama_lengkap = parcel.readString()
@@ -36,6 +37,7 @@ class Handshake() :Serializable, Parcelable {
         is_sold = parcel.readString() ?: ""
         active = parcel.readString() ?: ""
         status = parcel.readString() ?: ""
+        buy_url = parcel.readString() ?: ""
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -53,6 +55,7 @@ class Handshake() :Serializable, Parcelable {
         parcel.writeString(is_sold)
         parcel.writeString(active)
         parcel.writeString(status)
+        parcel.writeString(buy_url)
     }
 
     override fun describeContents(): Int {

@@ -38,6 +38,7 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
     private lateinit var viewModel:DetailEventViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_detail_event)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_event)
         event = intent.getParcelableExtra(extra_model) ?: Event()

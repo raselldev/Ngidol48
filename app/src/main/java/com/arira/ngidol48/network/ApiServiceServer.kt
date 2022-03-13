@@ -2,12 +2,12 @@ package com.arira.ngidol48.network
 
 import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.model.Setlist
+import com.arira.ngidol48.model.User
 import com.arira.ngidol48.network.response.*
 import io.reactivex.Observable
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Path
-import retrofit2.http.Query
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.http.*
 
 interface ApiServiceServer {
 
@@ -63,6 +63,35 @@ interface ApiServiceServer {
         @Path("id") id:String
     ): Observable<EventResponse>
 
+    @Headers(Config.API)
+    @POST("fans/login")
+    fun login(
+        @Body user:User
+    ): Observable<AuthResponse>
 
+    @Headers(Config.API)
+    @POST("fans/register")
+    fun register(
+        @Body user:User
+    ): Observable<AuthResponse>
+
+
+    /**profil */
+    @Headers(Config.API)
+    @Multipart
+    @POST("fans/avatar")
+    fun changeAvatar(
+        @Header("token") token:String,
+        @Part("id") id: RequestBody,
+        @Part image: MultipartBody.Part,
+    ): Observable<AuthResponse>
+
+    @Headers(Config.API)
+    @POST("fans/update")
+    fun updateProfil(
+        @Header("token") token:String,
+        @Body user:User
+    ): Observable<AuthResponse>
+    /** profil*/
 
 }
