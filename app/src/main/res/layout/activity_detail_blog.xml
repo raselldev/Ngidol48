@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.detailBlog.DetailBlogActivity">
+        <include layout="@layout/layout_toolbar"
+            android:id="@+id/toolbar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:shimmer_duration="300">
+
+                <include layout="@layout/placeholder_news" />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/swipe">
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/iv_cover"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_150sdp"
+                            android:src="@drawable/img_logo"/>
+                        <LinearLayout
+                            android:padding="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:textColor="@color/colorPrimaryTeks"
+                                android:id="@+id/tv_judul"
+                                style="@style/title14"
+                                android:text="Informasi kembalinya gen 3"/>
+                            <LinearLayout
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/tv_tanggal"
+                                    android:textColor="@color/abu_pekat"
+                                    style="@style/body10"
+                                    android:text="1 januari 2022"/>
+
+                                <TextView
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:id="@+id/tv_total_komentar"
+                                    style="@style/body10"
+                                    android:text="12 Komentar"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:id="@+id/iv_pengguna"
+                                    android:layout_height="@dimen/_15sdp"
+                                    app:civ_border_width="1dp"
+                                    android:src="@drawable/ic_baseline_person_24"
+                                    app:civ_border_color="@color/abu1_tipis"/>
+                                <TextView
+                                    android:id="@+id/tv_nama_pengguna"
+                                    android:textColor="@color/abu_pekat"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    style="@style/body8"
+                                    android:text="Nama Pengguna"/>
+                            </LinearLayout>
+
+                            <com.arira.ngidol48.helper.uiTextView.ObservableScrollView
+                                android:id="@+id/dPart_sroll"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fillViewport="true"
+                                android:paddingVertical="@dimen/_10sdp">
+
+                                <com.arira.ngidol48.helper.uiTextView.SelectableTextView
+                                    android:id="@+id/tv_blog_1"
+                                    style="@style/body12"
+                                    android:layout_marginBottom="@dimen/_20sdp"
+                                    android:bufferType="spannable"
+                                    android:text="@string/teks_" />
+
+                            </com.arira.ngidol48.helper.uiTextView.ObservableScrollView>
+
+                            <TextView
+                                android:id="@+id/tv_blog"
+                                style="@style/body12"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:text="@string/teks_deskripsi_notifikasi_handshake"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>

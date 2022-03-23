@@ -27,8 +27,7 @@
 
                     <TextView
                         style="@style/body10"
-                        android:text="@string/teks_nama_anda"
-                        android:textColor="@color/dark" />
+                        android:text="@string/teks_nama_anda"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -66,8 +65,7 @@
 
                     <TextView
                         style="@style/body10"
-                        android:text="@string/teks_bio"
-                        android:textColor="@color/dark" />
+                        android:text="@string/teks_bio" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -104,8 +102,7 @@
 
                     <TextView
                         style="@style/body10"
-                        android:text="@string/teks_gender"
-                        android:textColor="@color/dark" />
+                        android:text="@string/teks_gender" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"

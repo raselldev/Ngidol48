@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:name=".ui.addBlog.TambahBlogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.detailBlog.DetailBlogActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.profil.EditProfilActivity"
             android:exported="false" />
         <activity

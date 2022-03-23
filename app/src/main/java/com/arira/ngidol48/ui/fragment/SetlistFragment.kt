@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.SetlistAdapter
@@ -34,7 +35,7 @@ class SetlistFragment(val setlist: List<Setlist>, val callback:CariLaguCallback)
         if(setlist.isNotEmpty()){
             binding.divKosong.visibility = View.GONE
             binding.rvData.apply {
-                layoutManager = LinearLayoutManager(context)
+                layoutManager = GridLayoutManager(context, 2)
                 adapter = SetlistAdapter(setlist)
             }
         }else{

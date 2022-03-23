@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Ngidol 48</string>
-    <string name="teks_app_versi">versi 1.12.8</string>
+    <string name="teks_app_versi">versi 1.12.9</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -114,6 +114,13 @@
     <string name="teks_nama_kosong">Nama anda tidak boleh kosong</string>
     <string name="teks_profil_berhasil_diperbarui">Profil anda berhasil di perbarui</string>
     <string name="teks_kebijakan_privasi">Kebijakan Privasi</string>
+    <string name="teks_judul">Judul</string>
+    <string name="teks_tulis_blog">Tulis blog</string>
+    <string name="_0_kata">0 kata</string>
+    <string name="teks_blog_tersimpan">Terimakasih sudah membuat blog. blog anda sudah tersimpan dan dipublikasikan</string>
+    <string name="teks_dummy_judul_blog" />
+    <string name="teks_isi">Isi</string>
+    <string name="teks_tuliskan_cerita_anda">Tuliskan cerita anda</string>
 
 
 </resources>

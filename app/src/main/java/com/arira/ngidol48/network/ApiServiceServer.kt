@@ -94,4 +94,40 @@ interface ApiServiceServer {
     ): Observable<AuthResponse>
     /** profil*/
 
+
+    /** blog +*/
+    @Headers(Config.API)
+    @GET("blog/search/{page}")
+    fun searchBlog(
+        @Header("query") query:String,
+        @Path("page") page:Int
+    ): Observable<BlogResponse>
+
+    @Headers(Config.API)
+    @GET("blog/list/{page}")
+    fun allBlog(
+        @Path("page") page:Int
+    ): Observable<BlogResponse>
+
+    @Headers(Config.API)
+    @Multipart
+    @POST("blog/insert")
+    fun addBlog(
+        @Header("token") token:String,
+        @Part("judul") judul: RequestBody,
+        @Part("blog") blog: RequestBody,
+        @Part("id_user") id_user: RequestBody,
+        @Part cover: MultipartBody.Part,
+    ): Observable<DefaultResponse>
+
+    @Headers(Config.API)
+    @FormUrlEncoded
+    @POST("blog/insert")
+    fun addBlog(
+        @Header("token") token:String,
+        @Field("judul") judul: String,
+        @Field("blog") blog: String,
+        @Field("id_user") id_user: String,
+    ): Observable<DefaultResponse>
+
 }

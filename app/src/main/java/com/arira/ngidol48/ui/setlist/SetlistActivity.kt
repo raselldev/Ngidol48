@@ -5,6 +5,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.MemberAdapter
@@ -82,7 +83,7 @@ class SetlistActivity : BaseActivity() {
                 if (it != null) {
                     if (it.setlist.isNotEmpty()){
                         binding.rvData.apply {
-                            layoutManager  = LinearLayoutManager(context)
+                            layoutManager  = GridLayoutManager(context, 2)
                             adapter = SetlistAdapter(it.setlist)
                         }
                     }else{

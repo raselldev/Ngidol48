@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/background_border_abu.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/background_border_primary.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/drawable/background_shape_abu.xml" value="0.2064814814814815" />
+        <entry key="app/src/main/res/drawable/background_shape_accent.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/background_shape_pink.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/background_shape_primary.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/drawable/background_shape_white.xml" value="0.2064814814814815" />
@@ -15,11 +16,14 @@
         <entry key="app/src/main/res/drawable/ic_baseline_chevron_right_24.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/ic_baseline_chevron_right_24_primary.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/ic_google.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/ic_plus.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/ic_undo.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog_dark.xml" value="0.2388888888888889" />
         <entry key="app/src/main/res/layout/activity_berita.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/activity_blog.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_cari_lagu.xml" value="0.2116289012398461" />
+        <entry key="app/src/main/res/layout/activity_detail_blog.xml" value="0.15777027027027027" />
         <entry key="app/src/main/res/layout/activity_detail_event.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_detail_handshake.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_detail_lagu.xml" value="0.165" />
@@ -38,6 +42,7 @@
         <entry key="app/src/main/res/layout/activity_profil.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_setlist.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_tambah_blog.xml" value="0.15777027027027027" />
         <entry key="app/src/main/res/layout/activity_view_showroom.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/custom_dialog_rating_app.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/dialog_bday.xml" value="0.24322916666666666" />

@@ -252,7 +252,6 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:visibility="gone"
                             android:id="@+id/lin_blog"
                             android:orientation="vertical"
                             android:layout_width="0dp"
@@ -274,13 +273,6 @@
                                 android:text="@string/teks_blog"/>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                        </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"

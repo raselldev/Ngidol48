@@ -33,6 +33,7 @@ import com.arira.ngidol48.helper.Config.TOPIC_SHOWROOM
 import com.arira.ngidol48.helper.SweetAlert
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Slider
+import com.arira.ngidol48.ui.allBlog.BlogActivity
 import com.arira.ngidol48.ui.event.EventActivity
 import com.arira.ngidol48.ui.handshake.HandshakeActivity
 import com.arira.ngidol48.ui.login.LoginActivity
@@ -227,7 +228,7 @@ class MainActivity : BaseActivity(), MemberCallback {
         }
 
         binding.linBlog.setOnClickListener {
-            Go(this).move(LoginActivity::class.java)
+            Go(this).move(BlogActivity::class.java)
         }
 
         binding.ivSetting.setOnClickListener {

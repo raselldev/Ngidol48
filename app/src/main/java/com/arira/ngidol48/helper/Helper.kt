@@ -7,10 +7,18 @@ import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.net.Uri
+import android.text.Spannable
+import android.text.SpannableString
 import android.text.Spanned
+import android.text.TextPaint
 import android.text.format.DateUtils
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.util.Log
+import android.view.View
+import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import java.text.NumberFormat
 import java.text.ParseException
@@ -32,6 +40,47 @@ object Helper {
 
     fun fromHtml(string:String):Spanned{
         return HtmlCompat.fromHtml(string, HtmlCompat.FROM_HTML_MODE_LEGACY)
+    }
+
+    fun setTags(pTextView: TextView, pTagString: String, mContext:Context) {
+        val string = SpannableString(pTagString)
+        var start = -1
+        var i = 0
+        while (i < pTagString.length) {
+            if (/*pTagString[i] == '@' ||*/ pTagString[i] == '#') {
+                start = i
+            } else if (pTagString[i] == ' '
+                || i == pTagString.length - 1 && start != -1
+            ) {
+                if (start != -1) {
+                    if (i == pTagString.length - 1) {
+                        i++ // case for if hash is last word and there is no
+                        // space after word
+                    }
+                    val tag = pTagString.substring(start, i)
+
+                    string.setSpan(object : ClickableSpan() {
+                        override fun onClick(p0: View) {
+//                            val intents = Intent(mContext, CariFeedActivity::class.java)
+//                            intents.putExtra(extra_id, tag)
+//                            mContext.startActivity(intents)
+                        }
+
+                        override fun updateDrawState(ds: TextPaint) {
+//                            if (tag.contains("@")) ds.setColor(Color.parseColor("#0474be")) else ds.setColor(
+//                                Color.parseColor("#ed6057")
+//                            )
+                            if (tag.contains("#")) ds.setColor(Color.parseColor("#0474be"))
+                            ds.setUnderlineText(false)
+                        }
+                    }, start, i, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    start = -1
+                }
+            }
+            i++
+        }
+        pTextView.setMovementMethod(LinkMovementMethod.getInstance())
+        pTextView.setText(string)
     }
 
     fun getAppVersion(context:Context):String{

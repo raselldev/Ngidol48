@@ -112,17 +112,6 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
                     error: WebResourceError?
                 ) {
                     super.onReceivedError(view, request, error)
-                    if (!title.contains("covid", true) || !title.contains("cctv", true)) {
-                        myWebView.visibility = View.GONE
-
-                        context?.let { it1 ->
-                            toast.show(
-                                getString(R.string.teks_tidak_dapat_tehubung_ke_server),
-                                it1
-                            )
-                        }
-                    }
-
                 }
 
                 override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
