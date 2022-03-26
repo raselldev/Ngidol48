@@ -19,6 +19,7 @@ class CariLaguActivity : BaseActivity(), CariLaguCallback {
     private lateinit var binding: ActivityCariLaguBinding
     private lateinit var viewModel: CariLaguViewModel
     private var querySeach:String = ""
+
     override fun callReload() {
         viewModel.cari(querySeach)
     }

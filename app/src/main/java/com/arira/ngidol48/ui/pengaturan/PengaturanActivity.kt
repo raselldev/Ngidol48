@@ -2,7 +2,6 @@ package com.arira.ngidol48.ui.pengaturan
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -30,6 +29,14 @@ class PengaturanActivity : BaseActivity() {
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse("https://saweria.co/raflipakei")
             startActivity(openURL)
+        }
+        binding.linSaran.setOnClickListener {
+            val i = Intent(Intent.ACTION_SENDTO)
+            i.type = "message/rfc822"
+            i.setData(Uri.parse("mailto:arira.studio@gmail.com"))
+//            i.putExtra(Intent.EXTRA_SUBJECT, "Laporan Kendala dan Masukan Ngidol48")
+//            startActivity(i)
+            startActivity(Intent.createChooser(i, "Choose an Email client :"))
         }
         binding.linNotifikasi.setOnClickListener {
             Go(this).move(PengaturanNotifikasiActivity::class.java)
