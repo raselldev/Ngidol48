@@ -107,6 +107,8 @@
                             </com.arira.ngidol48.helper.uiTextView.ObservableScrollView>
 
                             <TextView
+                                android:autoLink="all"
+                                android:linksClickable="true"
                                 android:id="@+id/tv_blog"
                                 style="@style/body12"
                                 android:layout_marginTop="@dimen/_10sdp"

@@ -269,6 +269,9 @@ class MainActivity : BaseActivity(), MemberCallback {
     }
 
     private  fun subcribeAll(){
+//        FirebaseMessaging.getInstance().subscribeToTopic("handshake_test").addOnSuccessListener {
+//        }
+
         if (pref.getNotifNews()){
             FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_NEWS).addOnSuccessListener {
             }

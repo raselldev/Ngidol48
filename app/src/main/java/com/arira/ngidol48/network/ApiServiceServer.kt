@@ -32,6 +32,12 @@ interface ApiServiceServer {
     fun allHandshake(): Observable<HandshakeResponse>
 
     @Headers(Config.API)
+    @GET("handshake/member/{id}")
+    fun handshakeByMeber(
+        @Path("id") id:String,
+    ): Observable<HandshakeResponse>
+
+    @Headers(Config.API)
     @GET("handshake/history")
     fun allHisotryHandshake(): Observable<HandshakeResponse>
 

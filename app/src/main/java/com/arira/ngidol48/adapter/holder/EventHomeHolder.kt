@@ -48,23 +48,42 @@ class EventHomeHolder(var item:ItemEventHomeBinding): RecyclerView.ViewHolder(it
                 })
         }
         else{
-            Glide.with(itemView.context)
-                .asBitmap()
-                .load(BASE_STORAGE_JKT  + data.badge_url)
-                .into(object : CustomTarget<Bitmap>(){
-                    override fun onResourceReady(
-                        resource: Bitmap,
-                        transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
-                    ) {
-                        item.ivCover.setImageBitmap(resource)
-                        item.ivCover.setBackgroundColor(Helper.getDominantColor(resource))
-                    }
+            if(data.badge_url.contains("http")){
+                Glide.with(itemView.context)
+                    .asBitmap()
+                    .load(data.badge_url)
+                    .into(object : CustomTarget<Bitmap>(){
+                        override fun onResourceReady(
+                            resource: Bitmap,
+                            transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
+                        ) {
+                            item.ivCover.setImageBitmap(resource)
+                            item.ivCover.setBackgroundColor(Helper.getDominantColor(resource))
+                        }
 
-                    override fun onLoadCleared(placeholder: Drawable?) {
+                        override fun onLoadCleared(placeholder: Drawable?) {
 
-                    }
-                })
+                        }
+                    })
+            }
+            else{
+                Glide.with(itemView.context)
+                    .asBitmap()
+                    .load(BASE_STORAGE_JKT  + data.badge_url)
+                    .into(object : CustomTarget<Bitmap>(){
+                        override fun onResourceReady(
+                            resource: Bitmap,
+                            transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
+                        ) {
+                            item.ivCover.setImageBitmap(resource)
+                            item.ivCover.setBackgroundColor(Helper.getDominantColor(resource))
+                        }
 
+                        override fun onLoadCleared(placeholder: Drawable?) {
+
+                        }
+                    })
+            }
         }
 
         item.tvMemberPerform.text = itemView.context.getString(R.string.teks_d_member, data.member_perform)

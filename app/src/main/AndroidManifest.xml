@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:name=".ui.handshakeMember.HandshakeByMemberActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.addBlog.TambahBlogActivity"
             android:exported="false" />
         <activity

@@ -20,6 +20,7 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.LayoutToolbarBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.model.Member
+import com.arira.ngidol48.ui.handshakeMember.HandshakeByMemberActivity
 import com.arira.ngidol48.ui.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
@@ -72,14 +73,23 @@ open class BaseActivity : AppCompatActivity() {
 
         bottomSheetDialog.setContentView(bindingSheet.root)
 
-        bindingSheet.tvNama.text = member.nama_lengkap
+
         bindingSheet.tvTinggil.text = member.tinggi_badan
         bindingSheet.tvTanggalLahir.text = member.tanggal_lahir
         bindingSheet.tvGolDarah.text = member.gol_darah
         bindingSheet.tvHoroskop.text = member.horoskop
         bindingSheet.tvPanggilan.text = member.nama_panggilan
         bindingSheet.tvTeam.text = member.kategori
+        bindingSheet.tvNama.text = member.nama_lengkap
         Glide.with(this).load(Config.BASE_STORAGE_JKT + member.avatar).into(bindingSheet.ivAva)
+
+        if (member.generasi != "0"){
+            bindingSheet.tvGenerasi.text = "Gen ${member.generasi}"
+            bindingSheet.tvGenerasi.visibility = View.VISIBLE
+        }else{
+            bindingSheet.tvGenerasi.visibility = View.GONE
+        }
+
 
         if (member.jiko.isNotEmpty()){
             bindingSheet.tvJiko.text = "`${member.jiko}`"
@@ -88,11 +98,8 @@ open class BaseActivity : AppCompatActivity() {
             bindingSheet.tvJiko.visibility = View.GONE
         }
 
-        if (member.generasi != "0"){
-            bindingSheet.tvGenerasi.text = "Gen ${member.generasi}"
-            bindingSheet.tvGenerasi.visibility = View.VISIBLE
-        }else{
-            bindingSheet.tvGenerasi.visibility = View.GONE
+        bindingSheet.linHandshake.setOnClickListener {
+            Go(this).move(HandshakeByMemberActivity::class.java, id = member.id_member)
         }
 
         //media sosial

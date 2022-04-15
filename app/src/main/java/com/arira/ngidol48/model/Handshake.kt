@@ -9,6 +9,7 @@ class Handshake() :Serializable, Parcelable {
     var nama_lengkap: String? = null
     var avatar: String? = null
     var id:String = ""
+    var id_member:String = ""
     var sesi:String = ""
     var waktu:String = ""
     var standby:String = ""
@@ -26,6 +27,7 @@ class Handshake() :Serializable, Parcelable {
         nama_lengkap = parcel.readString()
         avatar = parcel.readString()
         id = parcel.readString() ?: ""
+        id_member = parcel.readString() ?: ""
         sesi = parcel.readString() ?: ""
         waktu = parcel.readString() ?: ""
         standby = parcel.readString() ?: ""
@@ -44,6 +46,7 @@ class Handshake() :Serializable, Parcelable {
         parcel.writeString(nama_lengkap)
         parcel.writeString(avatar)
         parcel.writeString(id)
+        parcel.writeString(id_member)
         parcel.writeString(sesi)
         parcel.writeString(waktu)
         parcel.writeString(standby)

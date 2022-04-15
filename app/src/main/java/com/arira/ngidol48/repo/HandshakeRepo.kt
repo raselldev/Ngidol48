@@ -10,6 +10,10 @@ class HandshakeRepo: BaseHelper() {
         return  ApiServiceServer.allHandshake()
     }
 
+    fun handshakeByMember(id:String): Observable<HandshakeResponse> {
+        return  ApiServiceServer.handshakeByMeber(id)
+    }
+
     fun allHisotryHandshake(): Observable<HandshakeResponse> {
         return  ApiServiceServer.allHisotryHandshake()
     }

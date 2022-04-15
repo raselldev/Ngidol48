@@ -2,6 +2,7 @@ package com.arira.ngidol48.adapter.holder
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
@@ -28,6 +29,7 @@ class EventHolder(var item:ItemEventBinding): RecyclerView.ViewHolder(item.root)
 
     fun setData(data: Event){
         item.tvNama.text = data.event_name
+
         if (data.cover != null){
             Glide.with(itemView.context)
                 .asBitmap()
@@ -47,23 +49,42 @@ class EventHolder(var item:ItemEventBinding): RecyclerView.ViewHolder(item.root)
                 })
         }
         else{
-            Glide.with(itemView.context)
-                .asBitmap()
-                .load(BASE_STORAGE_JKT  + data.badge_url)
-                .into(object : CustomTarget<Bitmap>(){
-                    override fun onResourceReady(
-                        resource: Bitmap,
-                        transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
-                    ) {
-                        item.ivCover.setImageBitmap(resource)
-                        item.ivCover.setBackgroundColor(Helper.getDominantColor(resource))
-                    }
+            if(data.badge_url.contains("http")){
+                Glide.with(itemView.context)
+                    .asBitmap()
+                    .load(data.badge_url)
+                    .into(object : CustomTarget<Bitmap>(){
+                        override fun onResourceReady(
+                            resource: Bitmap,
+                            transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
+                        ) {
+                            item.ivCover.setImageBitmap(resource)
+                            item.ivCover.setBackgroundColor(Helper.getDominantColor(resource))
+                        }
 
-                    override fun onLoadCleared(placeholder: Drawable?) {
+                        override fun onLoadCleared(placeholder: Drawable?) {
 
-                    }
-                })
+                        }
+                    })
+            }
+            else{
+                Glide.with(itemView.context)
+                    .asBitmap()
+                    .load(BASE_STORAGE_JKT  + data.badge_url)
+                    .into(object : CustomTarget<Bitmap>(){
+                        override fun onResourceReady(
+                            resource: Bitmap,
+                            transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
+                        ) {
+                            item.ivCover.setImageBitmap(resource)
+                            item.ivCover.setBackgroundColor(Helper.getDominantColor(resource))
+                        }
 
+                        override fun onLoadCleared(placeholder: Drawable?) {
+
+                        }
+                    })
+            }
         }
 
         item.tvMemberPerform.text = itemView.context.getString(R.string.teks_d_member, data.member_perform)

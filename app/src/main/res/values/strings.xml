@@ -123,6 +123,7 @@
     <string name="teks_tuliskan_cerita_anda">Tuliskan cerita anda</string>
     <string name="teks_kendala_dan_masukan">Lapor kendala dan masukan</string>
     <string name="teks_deskripsi_kendala_masukan">Laporakan kendala yang terjadi dan beri masukan untuk aplikasi</string>
+    <string name="teks_cari_event">Cari event atau tanggal event</string>
 
 
 </resources>

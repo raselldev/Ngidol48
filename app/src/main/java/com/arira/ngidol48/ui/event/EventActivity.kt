@@ -2,19 +2,23 @@ package com.arira.ngidol48.ui.event
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.EventAdapter
 import com.arira.ngidol48.databinding.ActivityEventBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.model.Event
 
 class EventActivity : BaseActivity() {
     private lateinit var binding: ActivityEventBinding
     private lateinit var viewModel: EventViewModel
-
+    private lateinit var adapterEvent:EventAdapter
+    private var listEvent:ArrayList<Event> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event)
@@ -22,6 +26,13 @@ class EventActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_event)
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[EventViewModel::class.java]
         viewModel.context = this
+
+        adapterEvent = EventAdapter(listEvent)
+
+        binding.rvData.apply {
+            layoutManager  = GridLayoutManager(context, 2)
+            adapter = adapterEvent
+        }
 
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
@@ -45,10 +56,23 @@ class EventActivity : BaseActivity() {
         binding.tvReload.setOnClickListener {
             viewModel.hitAll()
         }
+
+        binding.svPencarian.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapterEvent.filter.filter(newText)
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+//                adapterEvent.filter.filter(query)
+                return false
+            }
+
+        })
     }
 
     fun observerData(){
-        viewModel.getLoading().observe(this, Observer {
+        viewModel.getLoading().observe(this, {
             it.let {
                 if (it){
                     binding.divKosong.visibility = View.GONE
@@ -74,10 +98,10 @@ class EventActivity : BaseActivity() {
             it.let {
                 if (it != null) {
                     if (it.events.isNotEmpty()){
-                        binding.rvData.apply {
-                            layoutManager  = LinearLayoutManager(context)
-                            adapter = EventAdapter(it.events)
-                        }
+                        listEvent.clear()
+                        listEvent.addAll(it.events)
+                        adapterEvent.notifyDataSetChanged()
+
                     }else{
                         binding.divKosong.visibility = View.VISIBLE
                     }

@@ -14,8 +14,8 @@ class DetailHandshakeHolder(var item:ItemDetailHandshakeBinding): RecyclerView.V
 
     fun setData(data: DetailHandshake){
         item.tvSesi.text = data.sesi
-        item.tvWaktu.text = data.waktu
-        item.tvStandby.text = data.standby
+        item.tvWaktu.text = data.waktu.replace("-", " - ")
+        item.tvStandby.text = data.standby.replace("-", " - ")
         item.tvMemberList.text = data.member_list_name
         item.rvMember.apply {
             layoutManager = LinearLayoutManager(itemView.context)
@@ -24,6 +24,10 @@ class DetailHandshakeHolder(var item:ItemDetailHandshakeBinding): RecyclerView.V
 
         updateView(data)
         item.ivExpand.setOnClickListener {
+            data.is_expand = !data.is_expand
+            updateView(data)
+        }
+        item.ivExpand.rootView.setOnClickListener {
             data.is_expand = !data.is_expand
             updateView(data)
         }

@@ -8,6 +8,12 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 
 ## Changelog
 
+### 1.13.11
+- memperbarui tampilkan dan fungsi handshake
+- memperbarui tampilkan dan fungsi event
+- memperbaiki daftar notifikasi
+- menambahkan halaman daftar handshake berdasarkan member
+
 ### 1.11.7
 - auto play music
 - auto next music when play album/EP/Setlist

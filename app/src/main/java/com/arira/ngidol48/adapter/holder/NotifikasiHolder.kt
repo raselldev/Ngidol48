@@ -8,6 +8,7 @@ import com.arira.ngidol48.app.App.Companion.helper
 import com.arira.ngidol48.databinding.ItemNotifBinding
 import com.arira.ngidol48.model.Notifikasi
 import com.arira.ngidol48.ui.event.EventActivity
+import com.arira.ngidol48.ui.handshake.HandshakeActivity
 import com.arira.ngidol48.ui.member.MemberActivity
 import com.arira.ngidol48.ui.news.BeritaActivity
 import com.arira.ngidol48.utilities.Go
@@ -25,19 +26,34 @@ class NotifikasiHolder(var item:ItemNotifBinding): RecyclerView.ViewHolder(item.
             "MEMBER"-> item.ivThumb.setImageResource(R.drawable.ic_member)
             "SHOWROOM"-> item.ivThumb.setImageResource(R.drawable.ic_member)
             "TIKETCOM"-> item.ivThumb.setImageResource(R.drawable.ic_tiket)
+            "HANDSHAKE"-> item.ivThumb.setImageResource(R.drawable.ic_videocall)
         }
 
         item.ivThumb.rootView.setOnClickListener {
-            when(data.type){
-                "EVENT"-> Go(itemView.context).move(EventActivity::class.java)
-                "NEWS"-> Go(itemView.context).move(BeritaActivity::class.java)
-                "MEMBER"-> Go(itemView.context).move(MemberActivity::class.java)
-                "SHOWROOM"-> Go(itemView.context).move(MemberActivity::class.java)
-                "TIKETCOM"-> {
+            if (data.url.isEmpty()){
+                when(data.type){
+                    "EVENT"-> Go(itemView.context).move(EventActivity::class.java)
+                    "NEWS"-> Go(itemView.context).move(BeritaActivity::class.java)
+                    "MEMBER"-> Go(itemView.context).move(MemberActivity::class.java)
+                    "SHOWROOM"-> Go(itemView.context).move(MemberActivity::class.java)
+                    "HANDSHAKE"-> Go(itemView.context).move(HandshakeActivity::class.java)
+                    "TIKETCOM"-> {
+                        val openURL = Intent(Intent.ACTION_VIEW)
+                        openURL.data = Uri.parse("https://www.tiket.com${data.url}")
+                        itemView.context!!.startActivity(openURL)
+                    }
+                }
+            }else{
+                if (data.type == ""){
                     val openURL = Intent(Intent.ACTION_VIEW)
                     openURL.data = Uri.parse("https://www.tiket.com${data.url}")
                     itemView.context!!.startActivity(openURL)
+                }else{
+                    val openURL = Intent(Intent.ACTION_VIEW)
+                    openURL.data = Uri.parse("${data.url}")
+                    itemView.context!!.startActivity(openURL)
                 }
+
             }
         }
     }

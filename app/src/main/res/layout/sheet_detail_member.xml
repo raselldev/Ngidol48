@@ -42,7 +42,6 @@
                         android:layout_width="@dimen/_90sdp"
                         android:layout_height="@dimen/_90sdp"
                         android:layout_gravity="center"/>
-
                     <LinearLayout
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_gravity="center"
@@ -173,6 +172,26 @@
                             android:id="@+id/tv_tinggil"
                             style="@style/title12"
                             android:text="@string/teks_tanggal_lahir" />
+                    </LinearLayout>
+
+                    <!--handshake-->
+                    <LinearLayout
+                        android:id="@+id/lin_handshake"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_videocall"/>
+
+                        <TextView
+                            android:textColor="@color/colorPrimaryTeks"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            style="@style/title10"
+                            android:text="Lihat Jadwal Handshake/Video Call"/>
                     </LinearLayout>
 
                     <!--sosial media-->

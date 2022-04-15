@@ -1,6 +1,5 @@
 package com.arira.ngidol48.ui.handshake
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
@@ -9,7 +8,6 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.DetailHandshakeAdapter
 import com.arira.ngidol48.databinding.ActivityDetailHandshakeBinding
 import com.arira.ngidol48.helper.BaseActivity
-import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.helper.Config.extra_model
 import com.arira.ngidol48.model.DetailHandshake
 import com.arira.ngidol48.model.Handshake
@@ -22,6 +20,7 @@ class DetailHandshakeActivity : BaseActivity() {
     private var parentData = ParentHandshake()
     private var listDetail:ArrayList<DetailHandshake> = ArrayList()
     private var buy_url:String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_handshake)
@@ -54,10 +53,7 @@ class DetailHandshakeActivity : BaseActivity() {
         }
 
         binding.tvTiketDll.setOnClickListener {
-            Log.e("BAN", "url ${buy_url}")
-            if (buy_url.isEmpty()){
-                buy_url = "https://jkt48.com"
-            }
+            buy_url = "https://jkt48.com/handshake?id=${parentData.id_handshake}"
             Go(this).move(MyWebActivity::class.java, url = buy_url)
         }
     }
@@ -72,7 +68,6 @@ class DetailHandshakeActivity : BaseActivity() {
 
     private fun load(){
         for (data in parentData.details){
-            buy_url = data.buy_url
             if (alreadySesi(data.sesi)){
                 addDataToSesi(data)
             }else{
@@ -89,6 +84,7 @@ class DetailHandshakeActivity : BaseActivity() {
     }
 
     private fun addDataToSesi(handshake:Handshake){
+        Log.e("HS", "id ${handshake.id_member}")
         for (i in listDetail.indices){
             if (listDetail[i].sesi == handshake.sesi){
                 listDetail[i].handshake.add(handshake)

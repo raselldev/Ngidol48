@@ -9,4 +9,6 @@ class HandshakeResponse : Serializable {
     val code:Int = 0
     val message:String = ""
     var handshakes:List<ParentHandshake> = ArrayList()
+    var handshake_member:List<Handshake> = ArrayList()
+    var member:Member = Member()
 }
