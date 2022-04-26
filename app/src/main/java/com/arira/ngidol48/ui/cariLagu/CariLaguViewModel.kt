@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.arira.ngidol48.R
+import com.arira.ngidol48.model.Song
 import com.arira.ngidol48.network.response.HomeResponse
 import com.arira.ngidol48.network.response.MemberResponse
 import com.arira.ngidol48.network.response.SetlistResponse
@@ -91,6 +92,8 @@ class CariLaguViewModel : ViewModel() {
 
             )
     }
+
+
 
 
 }

@@ -20,15 +20,7 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_15sdp">
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:visibility="gone"
-                    app:lottie_rawRes="@raw/bday_celebration"
-                    android:layout_gravity="center"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_speed="2"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100sdp"/>
+
 
                 <RelativeLayout
                     android:layout_width="match_parent"

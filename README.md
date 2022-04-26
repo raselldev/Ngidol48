@@ -2,11 +2,18 @@
 
 [![N|Solid](https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png)](https://play.google.com/store/apps/details?id=com.arira.ngidol48)
 
-Aplikasi fans JKT 48, di buat untuk mendapatkan informasi terbaru dari official JKT 48
+Aplikasi fans JKT48, di buat untuk mendapatkan informasi terbaru dari official JKT48
 
 Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ngidol48
 
 ## Changelog
+
+### 1.13.12
+- bug fixing di notifikasi tiket
+- menambahkan kategori pada halaman notifikasi
+- menambakan image notifikasi (big badge icon)
+- menambahkan image movable untuk member ulang tahun (hanya bisa 1 member)
+- menyimpan lagu yang diputar oleh pengguna
 
 ### 1.13.11
 - memperbarui tampilkan dan fungsi handshake

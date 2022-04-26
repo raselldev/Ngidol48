@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
+        android:id="@+id/viewGroup"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.MainActivity">
@@ -464,6 +465,38 @@
             </androidx.core.widget.NestedScrollView>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rel_bday_ava"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_ava_bday"
+                app:civ_border_color="@color/pink"
+                app:civ_border_width="@dimen/_1sdp"
+                android:src="@drawable/ic_women"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"/>
+
+            <com.airbnb.lottie.LottieAnimationView
+                app:lottie_rawRes="@raw/lottie_bday_dar"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"/>
+
+            <ImageView
+                android:id="@+id/iv_close_bd"
+                android:layout_alignParentRight="true"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/ic_close"/>
+        </RelativeLayout>
 
     </RelativeLayout>
 </layout>

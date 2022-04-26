@@ -68,11 +68,16 @@ class ViewShowroomActivity : BaseActivity() {
     }
 
     override fun onUserLeaveHint() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val aspectRatio = Rational(16, 9)
-            val params = PictureInPictureParams.Builder().setAspectRatio(aspectRatio).build()
-            enterPictureInPictureMode(params)
+        try{
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val aspectRatio = Rational(16, 9)
+                val params = PictureInPictureParams.Builder().setAspectRatio(aspectRatio).build()
+                enterPictureInPictureMode(params)
+            }
+        }catch (e: IllegalStateException){
+            toast.show(getString(R.string.teks_perangkat_tidak_mendukung_pip), this)
         }
+
     }
 
     @RequiresApi(Build.VERSION_CODES.O)

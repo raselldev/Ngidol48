@@ -22,6 +22,7 @@
         </com.facebook.shimmer.ShimmerFrameLayout>
 
         <RelativeLayout
+            android:visibility="gone"
             android:id="@+id/div_kosong"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -70,12 +71,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/swipe">
-            <androidx.recyclerview.widget.RecyclerView
+            <LinearLayout
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:id="@+id/rv_data"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_kategori"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:id="@+id/rv_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>

@@ -6,7 +6,11 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
+import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -21,10 +25,8 @@ import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityMainBinding
 import com.arira.ngidol48.databinding.CustomDialogRatingAppBinding
 import com.arira.ngidol48.databinding.DialogBdayBinding
-import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config
-import com.arira.ngidol48.helper.Config.BASE_STORAGE
 import com.arira.ngidol48.helper.Config.BASE_STORAGE_IMAGE
 import com.arira.ngidol48.helper.Config.TOPIC_EVENT
 import com.arira.ngidol48.helper.Config.TOPIC_HANDSHAKE
@@ -36,7 +38,6 @@ import com.arira.ngidol48.model.Slider
 import com.arira.ngidol48.ui.allBlog.BlogActivity
 import com.arira.ngidol48.ui.event.EventActivity
 import com.arira.ngidol48.ui.handshake.HandshakeActivity
-import com.arira.ngidol48.ui.login.LoginActivity
 import com.arira.ngidol48.ui.member.MemberActivity
 import com.arira.ngidol48.ui.member.MemberCallback
 import com.arira.ngidol48.ui.news.BeritaActivity
@@ -46,20 +47,24 @@ import com.arira.ngidol48.ui.profil.ProfilActivity
 import com.arira.ngidol48.ui.setlist.SetlistActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.tasks.Task
 import com.google.firebase.messaging.FirebaseMessaging
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 class MainActivity : BaseActivity(), MemberCallback {
     
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: ActivityMainBinding
     private lateinit var reviewManager: ReviewManager
+
+    private var xDelta = 0
+    private var yDelta = 0
+
+    private var selectedBdMember:Member = Member()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -266,6 +271,58 @@ class MainActivity : BaseActivity(), MemberCallback {
         binding.linAllNews.setOnClickListener {
             Go(this).move(BeritaActivity::class.java)
         }
+
+        binding.ivCloseBd.setOnClickListener {
+            binding.relBdayAva.visibility = View.GONE
+        }
+
+        binding.relBdayAva.setOnTouchListener(onTouchAvaBdListener())
+        binding.relBdayAva.setOnClickListener {
+            toast.show("click", this)
+        }
+
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun onTouchAvaBdListener(): OnTouchListener {
+        var fromMove  = false
+        return OnTouchListener { view, event ->
+            val x = event.rawX.toInt()
+            val y = event.rawY.toInt()
+            Log.e("NOW", "${event.action}")
+            when (event.action and MotionEvent.ACTION_MASK) {
+
+                MotionEvent.ACTION_BUTTON_PRESS ->{
+                    Log.e("NOW", "btn press")
+                }
+                MotionEvent.ACTION_DOWN -> {
+                    fromMove = false
+                    Log.e("NOW", "down")
+                    val lParams = view.layoutParams as RelativeLayout.LayoutParams
+                    xDelta = x - lParams.leftMargin
+                    yDelta = y - lParams.topMargin
+                }
+                MotionEvent.ACTION_UP -> {
+                    if (!fromMove){
+                        showSheetMember(selectedBdMember)
+                    }
+
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    fromMove = true
+                    Log.e("NOW", "move")
+                    val layoutParams = view
+                        .layoutParams as RelativeLayout.LayoutParams
+                    layoutParams.leftMargin = x - xDelta
+                    layoutParams.topMargin = y - yDelta
+                    layoutParams.rightMargin = 0
+                    layoutParams.bottomMargin = 0
+                    view.layoutParams = layoutParams
+                }
+            }
+            binding.viewGroup.invalidate()
+            true
+        }
     }
 
     private  fun subcribeAll(){
@@ -345,9 +402,17 @@ class MainActivity : BaseActivity(), MemberCallback {
                         val bdayToday = findTodayBday(it.bday_member)
                         if (bdayToday.isNotEmpty()){
                             showBdayMember(bdayToday)
+
+                            selectedBdMember = bdayToday[0]
+                            binding.relBdayAva.visibility = View.VISIBLE
+                            Glide.with(this).load(Config.BASE_STORAGE_JKT + selectedBdMember.avatar).into(binding.ivAvaBday)
                         }
 
+
+//                        selectedBdMember
+
                     }else{
+                        binding.relBdayAva.visibility = View.GONE
                         binding.linBday.visibility = View.GONE
                     }
 

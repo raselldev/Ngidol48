@@ -9,6 +9,7 @@ class NotifikasiResponse : Serializable {
     val code:Int = 0
     val message:String = ""
     var notifikasi:List<Notifikasi> = ArrayList()
+    var kategori:List<String> = ArrayList()
 
 
 }

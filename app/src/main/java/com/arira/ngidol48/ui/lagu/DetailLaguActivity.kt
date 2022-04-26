@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
@@ -34,11 +35,15 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
     private var mYouTubePlayer:YouTubePlayer? = null
     private var countDownNext: CountDownTimer? = null
 
+    private lateinit var listeningView: SongListeningViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_lagu)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_lagu)
         setToolbar(getString(R.string.teks_lagu_jkt), binding.toolbar)
+
+        listeningView = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SongListeningViewModel::class.java]
+        listeningView.context = this
 
         currentSong = intent.getParcelableExtra(extra_model) ?: Song()
         listLagu = intent.getParcelableArrayListExtra(extra_list) ?: ArrayList()
@@ -157,6 +162,7 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
                     mYouTubePlayer = youTubePlayer
 
                     youTubePlayer.loadVideo(videoId, 0f)
+                    listeningView.listening(currentSong)
 //                    youTubePlayer.play()
                 }
 

@@ -32,10 +32,19 @@ object Helper {
         val localeID = Locale("in", "ID")
         val format = NumberFormat.getCurrencyInstance(localeID)
 
-        var hasil = format.format(x).replace(",00", "")
+        val hasil = format.format(x).replace(",00", "")
 
         return hasil
 
+    }
+
+    fun capitalizeString(str: String): String {
+        var retStr = str
+        try { // We can face index out of bound exception if the string is null
+            retStr = str.substring(0, 1).uppercase() + str.substring(1).lowercase()
+        } catch (e: Exception) {
+        }
+        return retStr
     }
 
     fun fromHtml(string:String):Spanned{

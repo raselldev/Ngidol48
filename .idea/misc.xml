@@ -37,7 +37,7 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_member.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_my_web.xml" value="0.20833333333333334" />
-        <entry key="app/src/main/res/layout/activity_notifikasi.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/activity_notifikasi.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_pengaturan.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_pengaturan_notifikasi.xml" value="0.1581081081081081" />
         <entry key="app/src/main/res/layout/activity_profil.xml" value="0.16722972972972974" />
@@ -59,6 +59,7 @@
         <entry key="app/src/main/res/layout/item_handshake_by_member.xml" value="0.16555183946488294" />
         <entry key="app/src/main/res/layout/item_handshake_member_list.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_handshake_member_list_2.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/item_kategori_notifikasi.xml" value="0.16555183946488294" />
         <entry key="app/src/main/res/layout/item_lagu.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/item_lagu_small.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_member.xml" value="0.25" />

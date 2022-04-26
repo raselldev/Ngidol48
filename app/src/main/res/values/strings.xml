@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Ngidol 48</string>
-    <string name="teks_app_versi">versi 1.12.10</string>
+    <string name="app_name" translatable="false">Ngidol48</string>
+    <string name="teks_app_versi" translatable="false">versi 1.13.12</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -124,6 +124,9 @@
     <string name="teks_kendala_dan_masukan">Lapor kendala dan masukan</string>
     <string name="teks_deskripsi_kendala_masukan">Laporakan kendala yang terjadi dan beri masukan untuk aplikasi</string>
     <string name="teks_cari_event">Cari event atau tanggal event</string>
+    <string name="teks_semua_kategori">Semua</string>
+    <string name="teks_pilih_aplikasi_untuk_membuka">Pilih aplikasi untuk membuka</string>
+    <string name="teks_perangkat_tidak_mendukung_pip">Perangkat tidak mendukung untuk picture in picture</string>
 
 
 </resources>

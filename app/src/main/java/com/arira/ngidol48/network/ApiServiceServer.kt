@@ -2,6 +2,7 @@ package com.arira.ngidol48.network
 
 import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.model.Setlist
+import com.arira.ngidol48.model.Song
 import com.arira.ngidol48.model.User
 import com.arira.ngidol48.network.response.*
 import io.reactivex.Observable
@@ -52,6 +53,12 @@ interface ApiServiceServer {
     fun cariLagu(
         @Query("q") query:String
     ): Observable<SongResponse>
+
+    @Headers(Config.API)
+    @POST("player/listening")
+    fun listeningSong(
+        @Body song:Song
+    ): Observable<DefaultResponse>
 
     @Headers(Config.API)
     @GET("event")

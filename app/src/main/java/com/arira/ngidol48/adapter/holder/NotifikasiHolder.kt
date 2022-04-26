@@ -40,18 +40,21 @@ class NotifikasiHolder(var item:ItemNotifBinding): RecyclerView.ViewHolder(item.
                     "TIKETCOM"-> {
                         val openURL = Intent(Intent.ACTION_VIEW)
                         openURL.data = Uri.parse("https://www.tiket.com${data.url}")
-                        itemView.context!!.startActivity(openURL)
+                        itemView.context!!.startActivity(Intent.createChooser(openURL, itemView.context.getString(R.string.teks_pilih_aplikasi_untuk_membuka)))
                     }
                 }
             }else{
-                if (data.type == ""){
+                if (data.type == "TIKETCOM"){
                     val openURL = Intent(Intent.ACTION_VIEW)
                     openURL.data = Uri.parse("https://www.tiket.com${data.url}")
-                    itemView.context!!.startActivity(openURL)
+                    itemView.context!!.startActivity(Intent.createChooser(openURL, itemView.context.getString(R.string.teks_pilih_aplikasi_untuk_membuka)))
                 }else{
-                    val openURL = Intent(Intent.ACTION_VIEW)
-                    openURL.data = Uri.parse("${data.url}")
-                    itemView.context!!.startActivity(openURL)
+                    if (data.url.contains("http")){
+                        val openURL = Intent(Intent.ACTION_VIEW)
+                        openURL.data = Uri.parse("${data.url}")
+                        itemView.context!!.startActivity(Intent.createChooser(openURL, itemView.context.getString(R.string.teks_pilih_aplikasi_untuk_membuka)))
+                    }
+
                 }
 
             }

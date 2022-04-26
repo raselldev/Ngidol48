@@ -6,9 +6,13 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.media.AudioAttributes
 import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.arira.ngidol48.R
@@ -17,6 +21,9 @@ import com.arira.ngidol48.ui.home.MainActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import org.json.JSONException
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.URL
 
 class MyFirebaseMesssagingService : FirebaseMessagingService() {
 
@@ -44,7 +51,8 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
             try {
                 sendNotification(
                     p0.notification?.body!!,
-                    p0.data.get("type"))
+                    p0.data.get("type"),
+                    p0.notification?.imageUrl)
             } catch (e: KotlinNullPointerException) {
 
             }
@@ -56,7 +64,7 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
 
     /*@Param messageBody  = teks yang di tampilkan di dalam pesan notifikasi*/
     @SuppressLint("ServiceCast")
-    private fun sendNotification(messageBody: String, type: String?) {
+    private fun sendNotification(messageBody: String, type: String?, imageUrl: Uri?) {
 
         var go = Intent(this, MainActivity::class.java)
 
@@ -89,9 +97,14 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
             .setSound(defaultSoundUri)
             .setContentIntent(pendingIntent)
 
+        val bitmapImage = getBitmapfromUrl(imageUrl)
+        if (bitmapImage != null){
+//            notificationBuilder.setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmapImage))
+            notificationBuilder.setLargeIcon(bitmapImage)
+        }
 
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
         val audioAttributes: AudioAttributes = AudioAttributes.Builder()
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -112,6 +125,21 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
         }
 
         notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
+    }
+
+    private fun getBitmapfromUrl(imageUrl: Uri?): Bitmap? {
+        return try {
+            val url = URL(imageUrl?.toString())
+            val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
+            connection.setDoInput(true)
+            connection.connect()
+            val input = connection.getInputStream()
+            BitmapFactory.decodeStream(input)
+        } catch (e: Exception) {
+            // TODO Auto-generated catch block
+            e.printStackTrace()
+            null
+        }
     }
 
 
