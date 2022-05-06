@@ -14,7 +14,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import androidx.annotation.RequiresApi
-import com.arira.ngidol48.R
 import com.arira.ngidol48.helper.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
@@ -36,11 +35,6 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
     var DEBUG_TAG = javaClass.simpleName
 
     fun MyWebFragment() {
-
-    }
-
-    fun newInstance(links: String, title: String): MyWebFragment {
-        return MyWebFragment(links, title)
     }
 
     lateinit var myWebView: WebView

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.reportBlog.ReportBlogActivity">
+        <include layout="@layout/layout_toolbar"
+            android:id="@+id/toolbar"/>
+
+        <LinearLayout
+            android:padding="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_judul"
+                android:text="@string/teks_judul_report_view"
+                style="@style/headline2"/>
+
+            <TextView
+                style="@style/body12"
+                android:text="@string/teks_pilih_salah_satu_kategori_dibawah_ini"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_data"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
+            <Button
+                android:id="@+id/btn_lapor"
+                android:text="@string/teks_laporkan"
+                style="@style/button_main"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

@@ -32,12 +32,20 @@
             <TextView
                 android:id="@+id/toolbar_subtitle"
                 style="@style/body8"
-                android:ellipsize="marquee"
-                android:maxLines="1"
                 android:visibility="gone" />
 
         </LinearLayout>
 
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_menu"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_menu"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
     </RelativeLayout>
 
 </layout>

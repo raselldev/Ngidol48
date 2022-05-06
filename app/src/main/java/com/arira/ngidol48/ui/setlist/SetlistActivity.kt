@@ -13,6 +13,7 @@ import com.arira.ngidol48.adapter.SetlistAdapter
 import com.arira.ngidol48.databinding.ActivitySetlistBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.ui.cariLagu.CariLaguActivity
+import com.arira.ngidol48.ui.lagu.LaguActivity
 import com.arira.ngidol48.utilities.Go
 
 class SetlistActivity : BaseActivity() {
@@ -23,6 +24,9 @@ class SetlistActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setlist)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_setlist)
+        binding.toolbar.ivMenu.visibility = View.VISIBLE
+        binding.toolbar.ivMenu.setImageResource(R.drawable.ic_fav)
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SetlistViewModel::class.java]
         viewModel.context = this
 
@@ -33,6 +37,7 @@ class SetlistActivity : BaseActivity() {
             R.color.colorAccent)
 
         setToolbar(getString(R.string.teks_lagu), binding.toolbar)
+
         observerData()
         viewModel.hitSetlist()
 
@@ -40,6 +45,9 @@ class SetlistActivity : BaseActivity() {
     }
 
     fun action(){
+        binding.toolbar.ivMenu.setOnClickListener {
+            Go(this).move(LaguActivity::class.java, choose = true)
+        }
 
         binding.linCari.setOnClickListener {
             Go(this).move(CariLaguActivity::class.java)

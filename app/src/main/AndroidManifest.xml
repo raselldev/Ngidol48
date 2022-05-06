@@ -17,6 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:name=".ui.reportBlog.ReportBlogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ViewImageActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.handshakeMember.HandshakeByMemberActivity"
             android:exported="false" />
         <activity
@@ -66,7 +72,7 @@
             android:name=".ui.handshake.HandshakeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.viewShowroom.ViewShowroomActivity"
+            android:name=".ui.viewShowroom.ViewLiveActivity"
             android:exported="false"
             android:supportsPictureInPicture="true" />
         <activity
@@ -85,7 +91,7 @@
             android:name=".ui.lagu.LaguActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.lagu.DetailLaguActivity"
+            android:name=".ui.detailLagu.DetailLaguActivity"
             android:exported="false" />
         <activity
             android:name=".ui.setlist.SetlistActivity"

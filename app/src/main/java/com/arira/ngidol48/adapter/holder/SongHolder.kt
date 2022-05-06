@@ -2,21 +2,17 @@ package com.arira.ngidol48.adapter.holder
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.ItemLaguBinding
-import com.arira.ngidol48.databinding.ItemSetlistBinding
 import com.arira.ngidol48.helper.Config.BASE_STORAGE
 import com.arira.ngidol48.helper.Helper
-import com.arira.ngidol48.model.Setlist
 import com.arira.ngidol48.model.Song
-import com.arira.ngidol48.ui.lagu.DetailLaguActivity
+import com.arira.ngidol48.ui.detailLagu.DetailLaguActivity
 import com.arira.ngidol48.ui.lagu.LaguCallback
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
-import java.util.zip.GZIPOutputStream
 
 class SongHolder(var item:ItemLaguBinding): RecyclerView.ViewHolder(item.root) {
 

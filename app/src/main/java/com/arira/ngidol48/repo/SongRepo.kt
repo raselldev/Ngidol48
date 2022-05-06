@@ -15,6 +15,10 @@ class SongRepo: BaseHelper() {
         return  ApiServiceServer.songlist(id)
     }
 
+    fun detail(idUser:String, idSong:String): Observable<SongResponse> {
+        return  ApiServiceServer.detailSong(idUser, idSong)
+    }
+
     fun cari(q:String): Observable<SongResponse> {
         return  ApiServiceServer.cariLagu(q)
     }

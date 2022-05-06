@@ -10,6 +10,7 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.SongAdapter
 import com.arira.ngidol48.databinding.ActivityLaguBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.helper.Config.extra_boolean
 import com.arira.ngidol48.helper.Config.extra_id
 import com.arira.ngidol48.helper.Config.extra_model
 import com.arira.ngidol48.model.Setlist
@@ -20,12 +21,15 @@ class LaguActivity : BaseActivity() {
     private lateinit var viewModel: SongListViewModel
     private lateinit var binding: ActivityLaguBinding
     private var setlist:Setlist = Setlist()
-    private var id:String = String()
+    private var isFav:Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lagu)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_lagu)
+
+        isFav = intent.getBooleanExtra(extra_boolean, false)
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SongListViewModel::class.java]
         viewModel.context = this
 
@@ -37,22 +41,44 @@ class LaguActivity : BaseActivity() {
 
         setlist = intent.getParcelableExtra(extra_model) ?: Setlist()
 
-        setToolbar(setlist.nama, binding.toolbar)
+
+        if (isFav){
+            setToolbar(getString(R.string.teks_lagu_favorit_anda), binding.toolbar)
+        }else{
+            setToolbar(setlist.nama, binding.toolbar)
+        }
+
+
+
         observerData()
 
-        viewModel.hitSong(setlist.setlist_id)
+        if (isFav){
+            viewModel.hitFavSong()
+        }else{
+            viewModel.hitSong(setlist.setlist_id)
+        }
+
 
         action()
     }
 
     fun action(){
+
         binding.swipe.setOnRefreshListener {
             binding.swipe.isRefreshing = false
-            viewModel.hitSong(setlist.setlist_id)
+            if (isFav){
+                viewModel.hitFavSong()
+            }else{
+                viewModel.hitSong(setlist.setlist_id)
+            }
         }
 
         binding.tvReload.setOnClickListener {
-            viewModel.hitSong(setlist.setlist_id)
+            if (isFav){
+                viewModel.hitFavSong()
+            }else{
+                viewModel.hitSong(setlist.setlist_id)
+            }
         }
     }
 

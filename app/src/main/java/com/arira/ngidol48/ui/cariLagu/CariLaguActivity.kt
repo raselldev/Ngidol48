@@ -13,6 +13,8 @@ import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.network.response.SongResponse
 import com.arira.ngidol48.ui.fragment.LaguFragment
 import com.arira.ngidol48.ui.fragment.SetlistFragment
+import com.arira.ngidol48.ui.lagu.LaguActivity
+import com.arira.ngidol48.utilities.Go
 import com.google.android.material.tabs.TabLayoutMediator
 
 class CariLaguActivity : BaseActivity(), CariLaguCallback {
@@ -29,7 +31,11 @@ class CariLaguActivity : BaseActivity(), CariLaguCallback {
         setContentView(R.layout.activity_cari_lagu)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cari_lagu)
         setToolbar(getString(R.string.teks_lagu), binding.toolbar)
+        binding.toolbar.ivMenu.visibility = View.VISIBLE
+        binding.toolbar.ivMenu.setImageResource(R.drawable.ic_fav)
+
         setupPager(null)
+
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[CariLaguViewModel::class.java]
         viewModel.context = this
@@ -39,6 +45,10 @@ class CariLaguActivity : BaseActivity(), CariLaguCallback {
     }
 
     private fun action(){
+        binding.toolbar.ivMenu.setOnClickListener {
+            Go(this).move(LaguActivity::class.java, choose = true)
+        }
+
         binding.svPencarian.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
                 return false

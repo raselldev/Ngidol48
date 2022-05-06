@@ -32,7 +32,7 @@ class App : Application() {
 
     }
 
-    public fun clearAppData(){
+    fun clearAppData(){
         pref.clearAll()
 
         user = User()

@@ -10,11 +10,13 @@
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
-        <androidx.core.widget.NestedScrollView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none">
             <LinearLayout
+                android:layout_weight="1"
                 android:padding="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,6 +74,32 @@
 
                 <LinearLayout
                     android:layout_marginTop="@dimen/_15sdp"
+                    android:id="@+id/lin_privasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/title12"
+                            android:text="@string/teks_kebijakan_privasi"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/body10"
+                            android:text="@string/teks_baca_kebijakan_aplikasi"/>
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/ic_baseline_chevron_right_24"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_25sdp"
                     android:id="@+id/lin_donasi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -96,7 +124,32 @@
                         android:src="@drawable/ic_flower"/>
                 </LinearLayout>
             </LinearLayout>
-        </androidx.core.widget.NestedScrollView>
+
+            <TextView
+                android:layout_marginRight="@dimen/_10sdp"
+                android:id="@+id/tv_signout"
+                android:textColor="@color/red"
+                android:padding="@dimen/_10sdp"
+                android:layout_gravity="right"
+                style="@style/body12"
+                android:text="@string/teks_keluar"/>
+
+            <TextView
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:autoLink="web"
+                style="@style/body10"
+                android:text="@string/sumber_jkt48_com_n_semua_hak_cipta_milik_jkt_48_atau_pemilik_aset_asliknya"/>
+
+            <TextView
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:autoLink="web"
+                style="@style/body10"
+                android:text="@string/teks_app_versi"/>
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

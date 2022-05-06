@@ -13,6 +13,7 @@ class HomeResponse : Serializable {
     var bday_member:List<Member> = ArrayList()
     var live_showroom:List<Member> = ArrayList()
     var event:List<Event> = ArrayList()
+    var idn:Idn = Idn()
     var notifikasi_hari_ini:Int = 0
     var for_review:Int = 0
     var app_version:Int = 0

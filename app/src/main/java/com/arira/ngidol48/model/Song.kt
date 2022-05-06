@@ -14,6 +14,9 @@ class Song() :Serializable, Parcelable {
     var cover:String = ""
     var nama:String = ""
 
+    var user_id:String = ""
+    var song_id:String = ""
+
     constructor(parcel: Parcel) : this() {
         id = parcel.readString() ?: ""
         lagu_id = parcel.readString() ?: ""
@@ -23,6 +26,9 @@ class Song() :Serializable, Parcelable {
         lirik = parcel.readString() ?: ""
         cover = parcel.readString() ?: ""
         nama = parcel.readString() ?: ""
+
+        user_id = parcel.readString() ?: ""
+        song_id = parcel.readString() ?: ""
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -34,6 +40,9 @@ class Song() :Serializable, Parcelable {
         parcel.writeString(lirik)
         parcel.writeString(cover)
         parcel.writeString(nama)
+
+        parcel.writeString(user_id)
+        parcel.writeString(song_id)
     }
 
     override fun describeContents(): Int {

@@ -20,6 +20,7 @@ object Config {
 
     val extra_model: String = "extraModel"
     val extra_type: String = "extraType"
+    val extra_boolean: String = "extraType"
     val extra_other:String = "extraOther"
     val extra_url: String = "extraUrl"
     val extra_list: String = "extraList"

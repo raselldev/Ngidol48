@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp">
             <androidx.core.widget.NestedScrollView
-
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:scrollbars="none">
@@ -24,112 +23,154 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="@dimen/_16sdp">
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/iv_avatar"
-                        app:civ_border_color="@color/pink"
-                        app:civ_border_width="@dimen/_1sdp"
-                        android:src="@drawable/ic_member"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/_80sdp"
-                        android:layout_height="@dimen/_80sdp"/>
-                    <TextView
-                        android:id="@+id/tv_ganti_ava"
-                        android:padding="@dimen/_5sdp"
-                        android:layout_gravity="center"
-                        style="@style/body10"
-                        android:text="@string/teks_ganti_avatar"/>
-
-                    <TextView
-                        android:id="@+id/tv_perbarui"
-                        android:padding="@dimen/_10sdp"
-                        android:layout_marginTop="@dimen/_20sdp"
-                        android:layout_gravity="end"
-                        android:textColor="@color/colorPrimary"
-                        style="@style/title10"
-                        android:text="@string/teks_perbarui_profil"/>
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/body12"
-                            android:text="@string/teks_nama_anda"/>
-                        <TextView
-                            android:id="@+id/tv_nama_detail"
-                            style="@style/title12"
-                            android:text="@string/teks_nama_anda"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/body12"
-                            android:text="@string/teks_email"/>
-                        <TextView
-                            android:id="@+id/tv_email"
-                            style="@style/title12"
-                            android:text="@string/hint_email"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/body12"
-                            android:text="@string/teks_nomor_tlp"/>
-                        <TextView
-                            android:id="@+id/tv_tlp"
-                            style="@style/title12"
-                            android:text="@string/hint_phone_number"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/body12"
-                            android:text="@string/teks_gender"/>
-                        <TextView
-                            android:id="@+id/tv_gender"
-                            style="@style/title12"
-                            android:text="@string/teks_"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lin_kebijakan_privasi"
-                        android:layout_marginTop="@dimen/_20sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <ImageView
-                            android:src="@drawable/ic_blog"
-                            android:layout_width="@dimen/_20sdp"
-                            android:layout_height="@dimen/_20sdp"/>
-                        <TextView
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/iv_avatar"
+                                android:layout_gravity="center"
+                                app:civ_border_color="@color/pink"
+                                app:civ_border_width="@dimen/_1sdp"
+                                android:src="@drawable/ic_member"
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"/>
+                            <TextView
+                                android:textColor="@color/colorPrimaryTeks"
+                                android:id="@+id/tv_ganti_ava"
+                                android:padding="@dimen/_5sdp"
+                                style="@style/body8"
+                                android:text="@string/teks_ganti_avatar"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:layout_marginStart="@dimen/_10sdp"
-                            android:layout_gravity="center"
-                            style="@style/body12"
-                            android:text="@string/teks_kebijakan_privasi"/>
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tv_nama_detail"
+                                style="@style/title12"
+                                android:text="@string/teks_nama_anda"/>
+
+                            <TextView
+                                android:textColor="@color/dark2"
+                                android:id="@+id/tv_gender"
+                                style="@style/body12"
+                                android:text="@string/teks_"/>
+
+                            <LinearLayout
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:id="@+id/lin_fav"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_gravity="left"
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:src="@drawable/ic_fav"/>
+
+                                    <TextView
+                                        android:id="@+id/tv_fav_lagu"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:textColor="@color/colorPrimaryTeks"
+                                        android:layout_gravity="left"
+                                        style="@style/body10"
+                                        android:text="@string/d_lagu"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_gravity="left"
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:src="@drawable/ic_blog"/>
+
+                                    <TextView
+                                        android:id="@+id/tv_blog"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:textColor="@color/colorPrimaryTeks"
+                                        android:layout_gravity="left"
+                                        style="@style/body10"
+                                        android:text="@string/d_blog"/>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/iv_edit"
+                            android:padding="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="@dimen/_25sdp"
+                            android:layout_height="@dimen/_25sdp"
+                            android:src="@drawable/ic_edit"/>
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_blog_name"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        style="@style/title12"
+                        android:text="@string/teks_blog_s_user"/>
+
+                    <RelativeLayout
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/div_blog_kosong"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/img_"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_60sdp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_blog" />
+
+                            <TextView
+                                android:textAlignment="center"
+                                style="@style/title12"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:text="@string/teks_tidak_ada_data_blog" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:id="@+id/rv_blog"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-        <TextView
-            android:id="@+id/tv_keluar"
-            android:textAlignment="center"
-            android:textColor="@color/abu_pekat"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:padding="@dimen/_10sdp"
-            style="@style/title12"
-            android:text="@string/teks_keluar"/>
+
     </LinearLayout>
 </layout>

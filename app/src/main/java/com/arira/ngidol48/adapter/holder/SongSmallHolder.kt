@@ -8,9 +8,7 @@ import com.arira.ngidol48.databinding.ItemLaguSmallBinding
 import com.arira.ngidol48.helper.Config.BASE_STORAGE
 import com.arira.ngidol48.helper.Helper
 import com.arira.ngidol48.model.Song
-import com.arira.ngidol48.ui.lagu.DetailLaguActivity
 import com.arira.ngidol48.ui.lagu.LaguCallback
-import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 

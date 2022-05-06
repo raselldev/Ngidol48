@@ -2,38 +2,53 @@ package com.arira.ngidol48.ui.profil
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.arira.ngidol48.R
-import com.arira.ngidol48.app.App
-import com.arira.ngidol48.app.App.Companion.pref
+import com.arira.ngidol48.adapter.BlogAdapter
+import com.arira.ngidol48.app.App.Companion.user
 import com.arira.ngidol48.databinding.ActivityProfilBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config
+import com.arira.ngidol48.helper.Config.extra_id
 import com.arira.ngidol48.helper.SweetAlert
+import com.arira.ngidol48.model.Blog
 import com.arira.ngidol48.model.User
+import com.arira.ngidol48.ui.lagu.LaguActivity
 import com.arira.ngidol48.utilities.Go
 import com.arira.ngidol48.utilities.Picker
 import com.bumptech.glide.Glide
-import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
 import net.alhazmy13.mediapicker.Image.ImagePicker
 import java.io.File
 
 class ProfilActivity : BaseActivity() {
     private lateinit var binding: ActivityProfilBinding
-    private var user = User()
+    private var userData = User()
     private lateinit var viewModel: EditProfilViewModel
-
+    private lateinit var viewModelMyProfil: ProfilByIdViewModel
+    private var idUser:String = "0"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profil)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profil)
         setToolbar(getString(R.string.teks_profil), binding.toolbar)
 
+        idUser = intent.getStringExtra(extra_id) ?: "0"
+        if (idUser.isEmpty()){
+            idUser = user.id
+        }
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[EditProfilViewModel::class.java]
         viewModel.context = this
 
-        setDataUser()
+        viewModelMyProfil = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[ProfilByIdViewModel::class.java]
+        viewModelMyProfil.context = this
+
+        observeProfilById()
+        viewModelMyProfil.hit(idUser.toInt())
+
         action()
         observeProfil()
 
@@ -70,30 +85,67 @@ class ProfilActivity : BaseActivity() {
         }
     }
 
-    private fun action(){
-        binding.tvPerbarui.setOnClickListener {
-            Go(this).move(EditProfilActivity::class.java)
+    private fun observeProfilById(){
+        viewModelMyProfil.getLoading().observe(this){
+            it.let {
+                if (it != null){
+                    if (it){
+                        SweetAlert.onLoading(this)
+                    }else{
+                        SweetAlert.dismis()
+                    }
+                }
+            }
         }
-        binding.tvKeluar.setOnClickListener {
-            SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE)
-                .setCancelText(getString(R.string.teks_tidak))
-                .setConfirmText(getString(R.string.teks_iya))
-                .setTitleText(getString(R.string.teks_profil))
-                .setContentText(getString(R.string.teks_deskripsi_keluar))
-                .setConfirmClickListener {
-                    it.dismiss()
-                    App().clearAppData()
-                    finish()
+
+        viewModelMyProfil.getError().observe(this){
+            it.let {
+                if (it != null){
+                    SweetAlert.dismis()
+                    SweetAlert.onFailure(this, it)
                 }
-                .setCancelClickListener {
-                    it.dismiss()
+            }
+        }
+
+        viewModelMyProfil.getResponse().observe(this){
+            it.let {
+                if (it != null){
+                    userData = it.user
+
+                    //update ui
+                    binding.tvFavLagu.text = getString(R.string.d_lagu, it.fav_song_count)
+                    binding.tvBlog.text = getString(R.string.d_blog, it.blogs.size)
+                    if(it.blogs.isEmpty()){
+                        binding.divBlogKosong.visibility = View.VISIBLE
+                    }else{
+                        binding.divBlogKosong.visibility = View.GONE
+                        binding.rvBlog.apply {
+                            layoutManager = LinearLayoutManager(context)
+                            adapter = BlogAdapter(it.blogs as ArrayList<Blog>)
+                        }
+                    }
+
+                    setDataUser()
                 }
-                .show()
+            }
+        }
+    }
+
+    private fun action(){
+        binding.linFav.setOnClickListener {
+            if (user.id == userData.id){
+                Go(this).move(LaguActivity::class.java, choose = true)
+            }
+
+        }
+
+        binding.ivEdit.setOnClickListener {
+            Go(this).move(EditProfilActivity::class.java)
         }
 
         binding.swipe.setOnRefreshListener {
             binding.swipe.isRefreshing = false
-            setDataUser()
+            observeProfilById()
         }
         binding.tvGantiAva.setOnClickListener {
             Picker(this).ambilGambarSemua(type = "ava")
@@ -101,33 +153,21 @@ class ProfilActivity : BaseActivity() {
     }
 
     private fun setDataUser(){
-        user = pref.getUser()
+        if (userData.id == user.id){
+            binding.ivEdit.visibility = View.VISIBLE
+            binding.tvGantiAva.visibility = View.VISIBLE
+        }else{
+            binding.ivEdit.visibility = View.GONE
+            binding.tvGantiAva.visibility = View.GONE
+        }
+        binding.tvBlogName.text = getString(R.string.teks_blog_s_user, userData.fullname)
+        binding.tvNamaDetail.text = userData.fullname
+        binding.tvGender.text = userData.bio
 
-        binding.tvNamaDetail.text = user.fullname
-        binding.tvTlp.text = if (user.phone.isNotEmpty()){
-            user.phone
+        if (userData.avatar.contains("http")){
+            Glide.with(this).load(userData.avatar).error(R.drawable.ic_baseline_person_24).placeholder(R.drawable.ic_baseline_person_24).into(binding.ivAvatar)
         }else{
-            getString(R.string.teks_)
-        }
-        binding.tvEmail.text = if (user.email.isNotEmpty()){
-            user.email
-        }else{
-            getString(R.string.teks_)
-        }
-        binding.tvGender.text = if (user.gender.isNotEmpty()){
-            if (user.gender == "M"){
-                getString(R.string.teks_pria)
-            }else{
-                getString(R.string.teks_wanita)
-            }
-        }else{
-            getString(R.string.teks_)
-        }
-
-        if (user.avatar.contains("http")){
-            Glide.with(this).load(user.avatar).error(R.drawable.ic_baseline_person_24).placeholder(R.drawable.ic_baseline_person_24).into(binding.ivAvatar)
-        }else{
-            Glide.with(this).load(Config.BASE_STORAGE_IMAGE + user.avatar).error(R.drawable.ic_baseline_person_24).placeholder(R.drawable.ic_baseline_person_24).into(binding.ivAvatar)
+            Glide.with(this).load(Config.BASE_STORAGE_IMAGE + userData.avatar).error(R.drawable.ic_baseline_person_24).placeholder(R.drawable.ic_baseline_person_24).into(binding.ivAvatar)
         }
     }
 

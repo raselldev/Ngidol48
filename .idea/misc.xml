@@ -15,6 +15,12 @@
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/ic_baseline_chevron_right_24.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/ic_baseline_chevron_right_24_primary.xml" value="0.1295" />
+        <entry key="app/src/main/res/drawable/ic_baseline_close_24_white.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_baseline_filter_alt_24.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_baseline_filter_alt_24_primary.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_baseline_report_problem_24.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.159" />
         <entry key="app/src/main/res/drawable/ic_google.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/ic_plus.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/ic_undo.xml" value="0.1295" />
@@ -41,12 +47,16 @@
         <entry key="app/src/main/res/layout/activity_pengaturan.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_pengaturan_notifikasi.xml" value="0.1581081081081081" />
         <entry key="app/src/main/res/layout/activity_profil.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/activity_report_blog.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_setlist.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_tambah_blog.xml" value="0.15777027027027027" />
+        <entry key="app/src/main/res/layout/activity_view_image.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/activity_view_live.xml" value="0.16555183946488294" />
         <entry key="app/src/main/res/layout/activity_view_showroom.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/custom_dialog_rating_app.xml" value="0.24322916666666666" />
-        <entry key="app/src/main/res/layout/dialog_bday.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/dialog_bday.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/dialog_komentar.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/fragment_lagu.xml" value="0.1881145788798632" />
         <entry key="app/src/main/res/layout/fragment_setlist.xml" value="0.1996579734929457" />
         <entry key="app/src/main/res/layout/item_ava_member.xml" value="0.2578125" />
@@ -59,11 +69,14 @@
         <entry key="app/src/main/res/layout/item_handshake_by_member.xml" value="0.16555183946488294" />
         <entry key="app/src/main/res/layout/item_handshake_member_list.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_handshake_member_list_2.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/item_kategori_blog.xml" value="0.15618729096989967" />
         <entry key="app/src/main/res/layout/item_kategori_notifikasi.xml" value="0.16555183946488294" />
+        <entry key="app/src/main/res/layout/item_komentar.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/item_lagu.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/item_lagu_small.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_member.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_notif.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/item_report.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/item_setlist.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_slider.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/layout_toolbar.xml" value="0.125" />
@@ -74,8 +87,11 @@
         <entry key="app/src/main/res/layout/placeholder_news.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/placeholder_setlist.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/player_custom.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/sheet_blog_kategori.xml" value="0.15777027027027027" />
         <entry key="app/src/main/res/layout/sheet_detail_member.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/sheet_komentar.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/sheet_lagu.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/sheet_menu_blog.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/view_showroom.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14895833333333333" />

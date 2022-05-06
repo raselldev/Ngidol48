@@ -6,6 +6,7 @@ import com.arira.ngidol48.model.User
 import com.arira.ngidol48.network.response.AuthResponse
 import com.arira.ngidol48.network.response.EventResponse
 import com.arira.ngidol48.network.response.HomeResponse
+import com.arira.ngidol48.network.response.ProfilResponse
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -18,6 +19,12 @@ class ProfilRepo: BaseHelper() {
     fun updateProfil(user:User): Observable<AuthResponse>{
         return  ApiServiceServerFile.updateProfil(token, user)
     }
+
+    fun profilById(id:Int): Observable<ProfilResponse>{
+        return  ApiServiceServerFile.profilById(token, id)
+    }
+
+
 
 
 }

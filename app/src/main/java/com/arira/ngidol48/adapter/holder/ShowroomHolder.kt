@@ -1,11 +1,10 @@
 package com.arira.ngidol48.adapter.holder
 
 import androidx.recyclerview.widget.RecyclerView
-import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.ViewShowroomBinding
 import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.model.Member
-import com.arira.ngidol48.ui.viewShowroom.ViewShowroomActivity
+import com.arira.ngidol48.ui.viewShowroom.ViewLiveActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -24,7 +23,7 @@ class ShowroomHolder(var item:ViewShowroomBinding): RecyclerView.ViewHolder(item
         item.tvNamaMember.text = data.nama_panggilan
 
         item.divPlay.setOnClickListener {
-            Go(context).move(ViewShowroomActivity::class.java, url = data.stream_url, data = data)
+            Go(context).move(ViewLiveActivity::class.java, url = data.stream_url, data = data, choose = true)
         }
     }
 }

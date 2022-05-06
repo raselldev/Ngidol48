@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:padding="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_avatar"
+                android:src="@drawable/ic_member"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                app:civ_border_color="@color/colorPrimaryTeks"
+                app:civ_border_width="1dp"
+                />
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tv_nama"
+                    style="@style/title10"
+                    android:text="@string/teks_nama_anda"/>
+
+                <TextView
+                    android:textColor="@color/abu_pekat"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:id="@+id/tv_tanggal"
+                    style="@style/body10"
+                    android:text="2 menit yang lalu"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:id="@+id/tv_komentar"
+                    style="@style/body10"
+                    android:text="komentar anda"/>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/iv_menu"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/div_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_margin="@dimen/_5sdp"
+                android:background="@drawable/background_shape_pink"
+                android:id="@+id/iv_delete_cancel"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_close_24_white"
+                android:padding="@dimen/_5sdp"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_25sdp"/>
+
+            <ImageView
+                android:layout_margin="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/background_border_primary"
+                android:id="@+id/iv_delete_yes"
+                android:layout_weight="1"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_25sdp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

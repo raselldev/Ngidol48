@@ -45,6 +45,7 @@ import com.arira.ngidol48.ui.notifikasi.NotifikasiActivity
 import com.arira.ngidol48.ui.pengaturan.PengaturanActivity
 import com.arira.ngidol48.ui.profil.ProfilActivity
 import com.arira.ngidol48.ui.setlist.SetlistActivity
+import com.arira.ngidol48.ui.viewShowroom.ViewLiveActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.google.android.play.core.review.ReviewInfo
@@ -65,6 +66,7 @@ class MainActivity : BaseActivity(), MemberCallback {
     private var yDelta = 0
 
     private var selectedBdMember:Member = Member()
+    private var idnLiveStreamURL:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -106,6 +108,7 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     override fun onResume() {
         super.onResume()
+
         if(pref.getIsLogin()){
             val user = pref.getUser()
             binding.linUser.visibility = View.VISIBLE
@@ -200,7 +203,7 @@ class MainActivity : BaseActivity(), MemberCallback {
 
         bindingDialog.tvNamaMember.text = memberName
 
-        bindingDialog.ivClose.setOnClickListener {
+        bindingDialog.btnClose.setOnClickListener {
             dialogCreate.dismiss()
         }
 
@@ -227,6 +230,10 @@ class MainActivity : BaseActivity(), MemberCallback {
     }
 
     private fun action(){
+
+        binding.divPlayIdn.setOnClickListener {
+            Go(this).move(ViewLiveActivity::class.java, url = idnLiveStreamURL, choose = false)
+        }
 
         binding.linUser.setOnClickListener {
             Go(this).move(ProfilActivity::class.java)
@@ -380,6 +387,18 @@ class MainActivity : BaseActivity(), MemberCallback {
                 if (it != null) {
                     setSlider(it.slider)
 
+                    //idnlive
+                    val idn = it.idn
+                    if(idn.status == "live"){
+                        binding.linIdn.visibility = View.VISIBLE
+                        Glide.with(this).load(idn.image_url).into(binding.ivThumbIdn)
+                        binding.divPlayIdn.setOnClickListener {
+                            idnLiveStreamURL = idn.playback_url
+                        }
+                    }else{
+                        binding.linIdn.visibility = View.GONE
+                    }
+
                     binding.rvBerita.apply {
                         layoutManager = LinearLayoutManager(context)
                         adapter = BeritaAdapter(it.news)
@@ -408,8 +427,6 @@ class MainActivity : BaseActivity(), MemberCallback {
                             Glide.with(this).load(Config.BASE_STORAGE_JKT + selectedBdMember.avatar).into(binding.ivAvaBday)
                         }
 
-
-//                        selectedBdMember
 
                     }else{
                         binding.relBdayAva.visibility = View.GONE

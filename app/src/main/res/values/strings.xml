@@ -124,9 +124,38 @@
     <string name="teks_kendala_dan_masukan">Lapor kendala dan masukan</string>
     <string name="teks_deskripsi_kendala_masukan">Laporakan kendala yang terjadi dan beri masukan untuk aplikasi</string>
     <string name="teks_cari_event">Cari event atau tanggal event</string>
-    <string name="teks_semua_kategori">Semua</string>
+    <string name="teks_semua_kategori">Semua Kategori</string>
     <string name="teks_pilih_aplikasi_untuk_membuka">Pilih aplikasi untuk membuka</string>
     <string name="teks_perangkat_tidak_mendukung_pip">Perangkat tidak mendukung untuk picture in picture</string>
+    <string name="teks_jkt_live_idn">JKT48 on IDN Live</string>
+    <string name="teks_lihat_komentar">Lihat Komentar</string>
+    <string name="teks_cari_kategori">Cari Kategori</string>
+    <string name="teks_mohon_tunggu">Mohon tunggu</string>
+    <string name="teks_sedang_menyiapkan_data">Sedang menyiakan data ya gess</string>
+    <string name="teks_kategori">Kategori</string>
+    <string name="teks_tidak_ada_komentar">Tidak ada komentar</string>
+    <string name="teks_jadilah_yang_pertama_untuk_mengomentarinya">Jadilah yang pertama untuk mengomentarinya</string>
+    <string name="teks_tulis_komentar_anda">Tulis Komentar Anda</string>
+    <string name="teks_tutup">Tutup</string>
+    <string name="teks_hapus">Hapus</string>
+    <string name="teks_bagikan">Bagikan</string>
+    <string name="teks_detail_delete_blog">Apakah anda yakin ingin menghapus tulisan anda ini ?</string>
+    <string name="teks_ya">Ya</string>
+    <string name="teks_success_delete_blog">Tulisan anda telah dihapus</string>
+    <string name="teks_laporkan">Laporkan</string>
+    <string name="teks_judul_report_view">Ada masalah apa dengan tulisan %s</string>
+    <string name="teks_pilih_salah_satu_kategori_dibawah_ini">Pilih salah satu kategori dibawah ini</string>
+    <string name="teks_pilih_salah_satu_kategori">Pilih salah satu kategori terlebih dahulu</string>
+    <string name="teks_publish">Publish</string>
+    <string name="d_lagu">%d Lagu</string>
+    <string name="d_blog">%d tulisan</string>
+    <string name="teks_blog_s_user">Blog %s</string>
+    <string name="teks_baca_kebijakan_aplikasi">Baca kebijakan privasi untuk aplikasi Ngidol48</string>
+    <string name="sumber_jkt48_com_n_semua_hak_cipta_milik_jkt_48_atau_pemilik_aset_asliknya">Sumber jkt48.com\n Semua hak cipta milik JKT 48 atau pemilik aset asliknya</string>
+    <string name="teks_dx_didengarkan">%dx Didengarkan</string>
+    <string name="teks_d_suka">%d Suka</string>
+    <string name="teks_anda_perlu_login">Anda perlu login</string>
+    <string name="teks_lagu_favorit_anda">Lagu favorit anda</string>
 
 
 </resources>

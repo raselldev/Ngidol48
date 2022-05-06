@@ -23,7 +23,7 @@ class MyWebActivity : BaseActivity() {
 
         val link = intent.getStringExtra(Config.extra_url) ?: ""
 
-        myWebFragment = MyWebFragment(link, getString(R.string.app_name)).newInstance(link,  getString(R.string.app_name))
+        myWebFragment = MyWebFragment(link, getString(R.string.app_name))
 
         myWebFragment?.let {
             supportFragmentManager

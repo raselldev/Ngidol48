@@ -58,7 +58,7 @@ class SetlistHolder(var item:ItemSetlistBinding): RecyclerView.ViewHolder(item.r
 
 
         item.tvNama.rootView.setOnClickListener {
-            Go(itemView.context).move(LaguActivity::class.java, data = data)
+            Go(itemView.context).move(LaguActivity::class.java, data = data, choose = false)
         }
     }
 }

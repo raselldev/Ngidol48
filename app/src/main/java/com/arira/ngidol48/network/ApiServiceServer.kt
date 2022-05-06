@@ -1,9 +1,7 @@
 package com.arira.ngidol48.network
 
 import com.arira.ngidol48.helper.Config
-import com.arira.ngidol48.model.Setlist
-import com.arira.ngidol48.model.Song
-import com.arira.ngidol48.model.User
+import com.arira.ngidol48.model.*
 import com.arira.ngidol48.network.response.*
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -46,6 +44,13 @@ interface ApiServiceServer {
     @GET("songlist/{id}")
     fun songlist(
         @Path("id") id:String
+    ): Observable<SongResponse>
+
+    @Headers(Config.API)
+    @GET("songlist/detail/{idUser}/{idLagu}")
+    fun detailSong(
+        @Path("idUser") idUser:String,
+        @Path("idLagu") idLagu:String,
     ): Observable<SongResponse>
 
     @Headers(Config.API)
@@ -105,10 +110,22 @@ interface ApiServiceServer {
         @Header("token") token:String,
         @Body user:User
     ): Observable<AuthResponse>
+
+    @Headers(Config.API)
+    @GET("fans/my/{id}")
+    fun profilById(
+        @Header("token") token:String,
+        @Path("id") id:Int,
+    ): Observable<ProfilResponse>
     /** profil*/
 
 
     /** blog +*/
+    @Headers(Config.API)
+    @GET("blog/category")
+    fun kategoriBlog(
+    ): Observable<BlogKategoriResponse>
+
     @Headers(Config.API)
     @GET("blog/search/{page}")
     fun searchBlog(
@@ -117,9 +134,17 @@ interface ApiServiceServer {
     ): Observable<BlogResponse>
 
     @Headers(Config.API)
-    @GET("blog/list/{page}")
+    @GET("blog/list/{page}/{kategori}")
     fun allBlog(
-        @Path("page") page:Int
+        @Path("page") page:Int,
+        @Path("kategori") kategori:Int,
+    ): Observable<BlogResponse>
+
+    @Headers(Config.API)
+    @GET("/blog/search")
+    fun allBlogSearch(
+        @Header("query") query:String,
+        @Header("slug") slug:Int,
     ): Observable<BlogResponse>
 
     @Headers(Config.API)
@@ -130,6 +155,7 @@ interface ApiServiceServer {
         @Part("judul") judul: RequestBody,
         @Part("blog") blog: RequestBody,
         @Part("id_user") id_user: RequestBody,
+        @Part("kategori_id") kategori_id: RequestBody,
         @Part cover: MultipartBody.Part,
     ): Observable<DefaultResponse>
 
@@ -141,6 +167,76 @@ interface ApiServiceServer {
         @Field("judul") judul: String,
         @Field("blog") blog: String,
         @Field("id_user") id_user: String,
+        @Field("kategori_id") kategori_id: String,
     ): Observable<DefaultResponse>
+
+    @Headers(Config.API)
+    @FormUrlEncoded
+    @POST("blog/delete")
+    fun deleteBlog(
+        @Header("token") token:String,
+        @Field("id") id: String,
+    ): Observable<DefaultResponse>
+
+    /**komentar*/
+    @Headers(Config.API)
+    @GET("comment/blog/{id}")
+    fun listKomentar(
+        @Header("token") token:String,
+        @Path("id") id:String,
+    ): Observable<KomentarResponse>
+
+    @Headers(Config.API)
+    @POST("comment/insert")
+    fun komentar(
+        @Header("token") token:String,
+        @Body raw:Komentar
+    ): Observable<KomentarResponse>
+
+    @Headers(Config.API)
+    @POST("comment/delete")
+    fun deleteKomentar(
+        @Header("token") token:String,
+        @Body raw:Komentar
+    ): Observable<KomentarResponse>
+
+    /** report */
+    @Headers(Config.API)
+    @GET("report/list")
+    fun listReport(
+        @Header("token") token:String,
+    ): Observable<ReportResponse>
+
+    @Headers(Config.API)
+    @POST("report/blog")
+    fun reportBlog(
+        @Header("token") token:String,
+        @Body raw:Report
+    ): Observable<ReportResponse>
+
+
+    /** favovite */
+    @Headers(Config.API)
+    @GET("fav/my/{id}")
+    fun listFav(
+        @Header("token") token:String,
+        @Path("id") id:String,
+    ): Observable<SongResponse>
+
+    @Headers(Config.API)
+    @POST("fav/add")
+    fun addFavorit(
+        @Header("token") token:String,
+        @Body raw:Song
+    ): Observable<FavoritResponse>
+
+    @Headers(Config.API)
+    @POST("fav/remove")
+    fun removeFavorit(
+        @Header("token") token:String,
+        @Body raw:Song
+    ): Observable<FavoritResponse>
+
+
 
 }

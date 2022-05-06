@@ -51,8 +51,8 @@ class AllblogViewModel : ViewModel() {
         return data
     }
 
-    fun hitAll(page:Int) {
-        subscription = repo.allBlog(page)
+    fun hitAll(page:Int, kategori:Int, query:String = "") {
+        subscription = repo.allBlog(page, kategori, query)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { isLoading.value = true }

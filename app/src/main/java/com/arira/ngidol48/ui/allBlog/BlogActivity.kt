@@ -3,6 +3,7 @@ package com.arira.ngidol48.ui.allBlog
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -10,17 +11,22 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.BlogAdapter
+import com.arira.ngidol48.adapter.BlogKategoriAdapter
 import com.arira.ngidol48.adapter.EventAdapter
 import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityBlogBinding
+import com.arira.ngidol48.databinding.SheetBlogKategoriBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.SweetAlert
 import com.arira.ngidol48.model.Blog
+import com.arira.ngidol48.model.BlogKategori
+import com.arira.ngidol48.ui.addBlog.BlogKategoriCallback
 import com.arira.ngidol48.ui.addBlog.TambahBlogActivity
 import com.arira.ngidol48.ui.login.LoginActivity
 import com.arira.ngidol48.utilities.Go
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class BlogActivity : BaseActivity() {
+class BlogActivity : BaseActivity(), BlogKategoriCallback {
 
     private lateinit var viewModel: AllblogViewModel
     private lateinit var binding: ActivityBlogBinding
@@ -37,6 +43,38 @@ class BlogActivity : BaseActivity() {
     private var listBlog:ArrayList<Blog> = ArrayList()
     private var totalPage:Int = 1
 
+    private lateinit var bottomSheetDialog: BottomSheetDialog
+    private lateinit var bindingSheetKategori: SheetBlogKategoriBinding
+    private var listKategori:ArrayList<BlogKategori> = ArrayList()
+    private lateinit var adapterKategori: BlogKategoriAdapter
+    private lateinit var kategoriViewModel: BlogKategoriViewModel
+    private var querySearch:String = ""
+    private var kategoriSelected: BlogKategori = BlogKategori()
+
+    override fun onKategoriSelected(data: BlogKategori) {
+        kategoriSelected = data
+
+        //update kategori update
+        adapterKategori.selected = data
+
+        //update ui
+        if(data.id == "0"){
+            binding.ivFilter.setImageResource(R.drawable.ic_baseline_filter_alt_24)
+        }else{
+            binding.ivFilter.setImageResource(R.drawable.ic_baseline_filter_alt_24_primary)
+        }
+
+        //reload data
+        defaultIndex()
+        viewModel.hitAll(indexLoad, kategoriSelected.id.toInt(), querySearch)
+
+
+        bottomSheetDialog.dismiss()
+
+        //update adapter
+        adapterKategori.notifyDataSetChanged()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blog)
@@ -45,6 +83,11 @@ class BlogActivity : BaseActivity() {
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[AllblogViewModel::class.java]
         viewModel.context = this
+
+        adapterKategori = BlogKategoriAdapter(listKategori, this)
+
+        kategoriViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BlogKategoriViewModel::class.java]
+        kategoriViewModel.context = this
 
         /** setup recyc*/
         blogLayoutManager = LinearLayoutManager(this)
@@ -58,15 +101,41 @@ class BlogActivity : BaseActivity() {
 
         setupPageination()
         observerData()
-        viewModel.hitAll(indexLoad)
+        viewModel.hitAll(indexLoad, kategoriSelected.id.toInt(), querySearch)
 
         action()
         observerData()
+        observeDataKategori()
     }
 
 
 
     fun action(){
+
+
+        binding.svPencarian.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                if (querySearch.isNotEmpty()){
+                    if (newText.isEmpty()){
+                        querySearch = ""
+                        defaultIndex()
+                        viewModel.hitAll(indexLoad, kategoriSelected.id.toInt(), querySearch)
+                    }
+                }
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                querySearch = query
+                defaultIndex()
+                viewModel.hitAll(indexLoad, kategoriSelected.id.toInt(), querySearch)
+                return false
+            }
+
+        })
+        binding.ivFilter.setOnClickListener {
+            showSheetKategori()
+        }
 
         binding.fabTambah.setOnClickListener {
             if(pref.getIsLogin()){
@@ -80,7 +149,7 @@ class BlogActivity : BaseActivity() {
         binding.swipe.setOnRefreshListener {
             binding.swipe.isRefreshing = false
             defaultIndex()
-            viewModel.hitAll(indexLoad)
+            viewModel.hitAll(indexLoad, kategoriSelected.id.toInt(), querySearch)
         }
     }
 
@@ -147,9 +216,111 @@ class BlogActivity : BaseActivity() {
                 if (!isLoading && isLastPosition && indexLoad < totalPage) {
                     isLoading = true
                     indexLoad += 1
-                    viewModel.hitAll(indexLoad)
+                    viewModel.hitAll(indexLoad, kategoriSelected.id.toInt(), querySearch)
                 }
             }
         })
     }
+
+    private fun showSheetKategori() {
+
+        bottomSheetDialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+
+        bindingSheetKategori = DataBindingUtil.inflate(
+            layoutInflater,
+            R.layout.sheet_blog_kategori,
+            null,
+            false
+        )
+
+        bottomSheetDialog.setContentView(bindingSheetKategori.root)
+
+
+        if (listKategori.isEmpty()) {
+            kategoriViewModel.hitAll()
+            bottomSheetDialog.setCancelable(false)
+
+        } else {
+            bottomSheetDialog.setCancelable(true)
+
+            bindingSheetKategori.divData.visibility = View.VISIBLE
+            bindingSheetKategori.divLoading.visibility = View.GONE
+        }
+
+        bindingSheetKategori.rvKategori.apply {
+            adapter = adapterKategori
+            layoutManager = LinearLayoutManager(context)
+        }
+
+        bindingSheetKategori.svKota.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String): Boolean {
+                adapterKategori.filter.filter(newText)
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                adapterKategori.filter.filter(query)
+                return false
+            }
+
+        })
+
+        bottomSheetDialog.setOnCancelListener {
+            adapterKategori.filter.filter("")
+        }
+
+        bottomSheetDialog.show()
+
+    }
+
+    private fun observeDataKategori() {
+
+        /*get data on viewmodel*/
+        kategoriViewModel.getLoading().observe(this, Observer {
+            it.let {
+                if (it) {
+                    bindingSheetKategori.divData.visibility = View.GONE
+                    bindingSheetKategori.divLoading.visibility = View.VISIBLE
+                } else {
+                    bindingSheetKategori.divData.visibility = View.VISIBLE
+                    bindingSheetKategori.divLoading.visibility = View.GONE
+                }
+            }
+        })
+
+        kategoriViewModel.getResponse().observe(this, Observer {
+            it.let {
+                if(it != null){
+                    if (it.data.isNotEmpty()) {
+                        bottomSheetDialog.setCancelable(true)
+                        listKategori.clear()
+
+                        //add default
+                        val default = BlogKategori()
+                        default.id = "0"
+                        default.nama = getString(R.string.teks_semua_kategori)
+                        listKategori.add(default)
+
+                        listKategori.addAll(it.data)
+
+                        adapterKategori.notifyDataSetChanged()
+                    }
+                }
+
+
+            }
+        })
+
+        kategoriViewModel.getError().observe(this, Observer {
+            it.let {
+                if (it != null) {
+                    toast.show(it, this)
+                }
+
+            }
+        })
+        /*end of get data viewmodel*/
+
+    }
+
 }

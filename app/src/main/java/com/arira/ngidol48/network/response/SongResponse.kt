@@ -11,4 +11,9 @@ class SongResponse : Serializable {
     var song_list:List<Song> = ArrayList()
     var setlist:List<Setlist> = ArrayList()
 
+    val listener:Int = 0
+    val size_fav:Int = 0
+    val fav:Boolean  = false
+
+
 }

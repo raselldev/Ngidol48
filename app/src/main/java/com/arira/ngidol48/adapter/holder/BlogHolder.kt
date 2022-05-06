@@ -47,16 +47,12 @@ class BlogHolder(var item:ItemBlogBinding): RecyclerView.ViewHolder(item.root) {
             item.ivThumb.visibility = View.GONE
         }
 
+        item.tvKategori.text = data.nama_kategori
         item.tvJudul.text = data.judul
         item.tvNamaPengguna.text = data.fullname
         item.tvTanggal.text = helper.convert(data.created_at, "yyyy-MM-dd HH:mm:ss", "HH:mm dd MMMM yyyy")
 
-        if (data.total_command > 0){
-            item.tvTotalKomentar.visibility = View.VISIBLE
-            item.tvTotalKomentar.text = "${data.total_command} Komentar"
-        }else{
-            item.tvTotalKomentar.visibility = View.GONE
-        }
+        item.tvTotalKomentar.text = "${data.total_command} Komentar"
 
         item.tvTanggal.rootView.setOnClickListener {
             Go(itemView.context).move(DetailBlogActivity::class.java, data = data)

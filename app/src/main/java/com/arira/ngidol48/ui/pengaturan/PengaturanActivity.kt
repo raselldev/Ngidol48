@@ -10,6 +10,7 @@ import com.arira.ngidol48.app.App
 import com.arira.ngidol48.databinding.ActivityPengaturanBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.utilities.Go
+import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
 
 class PengaturanActivity : BaseActivity() {
     private lateinit var binding: ActivityPengaturanBinding
@@ -25,6 +26,23 @@ class PengaturanActivity : BaseActivity() {
         }
     }
     private fun action(){
+        binding.tvSignout.setOnClickListener {
+            SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE)
+                .setCancelText(getString(R.string.teks_tidak))
+                .setConfirmText(getString(R.string.teks_iya))
+                .setTitleText(getString(R.string.teks_profil))
+                .setContentText(getString(R.string.teks_deskripsi_keluar))
+                .setConfirmClickListener {
+                    it.dismiss()
+                    App().clearAppData()
+                    finish()
+                }
+                .setCancelClickListener {
+                    it.dismiss()
+                }
+                .show()
+        }
+
         binding.linDonasi.setOnClickListener {
             val openURL = Intent(Intent.ACTION_VIEW)
             openURL.data = Uri.parse("https://saweria.co/raflipakei")
@@ -34,8 +52,6 @@ class PengaturanActivity : BaseActivity() {
             val i = Intent(Intent.ACTION_SENDTO)
             i.type = "message/rfc822"
             i.setData(Uri.parse("mailto:arira.studio@gmail.com"))
-//            i.putExtra(Intent.EXTRA_SUBJECT, "Laporan Kendala dan Masukan Ngidol48")
-//            startActivity(i)
             startActivity(Intent.createChooser(i, "Choose an Email client :"))
         }
         binding.linNotifikasi.setOnClickListener {

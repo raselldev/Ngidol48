@@ -9,5 +9,4 @@ class SetlistResponse : Serializable {
     val code:Int = 0
     val message:String = ""
     var setlist:List<Setlist> = ArrayList()
-
 }

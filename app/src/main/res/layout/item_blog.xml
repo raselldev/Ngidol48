@@ -5,77 +5,100 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <androidx.cardview.widget.CardView
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginVertical="@dimen/_5sdp"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/_10sdp">
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/iv_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:src="@drawable/img_logo"/>
+
             <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
+                android:paddingHorizontal="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <ImageView
-                    android:id="@+id/iv_thumb"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100sdp"
-                    android:src="@drawable/img_logo"/>
+
+                <TextView
+                    android:id="@+id/tv_judul"
+                    android:textColor="@color/colorPrimary"
+                    style="@style/title12"
+                    android:text="Judul Blog Postingan"/>
+                <TextView
+                    android:id="@+id/tv_kategori"
+                    android:textColor="@color/abu_pekat"
+                    style="@style/body10"
+                    android:text="Kategori"/>
 
                 <LinearLayout
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:paddingHorizontal="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:id="@+id/iv_pengguna"
+                        android:layout_height="@dimen/_15sdp"
+                        app:civ_border_width="1dp"
+                        android:src="@drawable/ic_baseline_person_24"
+                        app:civ_border_color="@color/abu1_tipis"/>
                     <TextView
-                        android:id="@+id/tv_judul"
-                        android:textColor="@color/colorPrimary"
-                        style="@style/title12"
-                        android:text="Judul Blog Postingan"/>
+                        android:id="@+id/tv_nama_pengguna"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        style="@style/body10"
+                        android:text="Nama Pengguna"/>
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="@dimen/_10sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
                             android:id="@+id/tv_tanggal"
                             android:textColor="@color/abu_pekat"
-                            style="@style/body10"
+                            style="@style/body8"
                             android:text="1 januari 2022"/>
-
-                        <TextView
-                            android:layout_marginStart="@dimen/_5sdp"
-                            android:id="@+id/tv_total_komentar"
-                            style="@style/body10"
-                            android:text="12 Komentar"/>
                     </LinearLayout>
 
                     <LinearLayout
+                        android:layout_weight="1"
                         android:layout_marginBottom="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="@dimen/_15sdp"
-                            android:id="@+id/iv_pengguna"
-                            android:layout_height="@dimen/_15sdp"
-                            app:civ_border_width="1dp"
-                            android:src="@drawable/ic_baseline_person_24"
-                            app:civ_border_color="@color/abu1_tipis"/>
-                        <TextView
-                            android:id="@+id/tv_nama_pengguna"
-                            android:textColor="@color/abu_pekat"
+                        <ImageView
                             android:layout_gravity="center"
-                            android:layout_marginStart="@dimen/_5sdp"
+                            android:src="@drawable/ic_comment"
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"/>
+                        <TextView
+                            android:layout_marginLeft="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            android:id="@+id/tv_total_komentar"
                             style="@style/body8"
-                            android:text="Nama Pengguna"/>
+                            android:text="12 Komentar"/>
                     </LinearLayout>
-
-
                 </LinearLayout>
+
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+
+            <View
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/abu1_tipis"/>
+
+        </LinearLayout>
     </LinearLayout>
 </layout>

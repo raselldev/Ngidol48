@@ -17,6 +17,8 @@ class Blog() :Serializable, Parcelable {
     var updated_at:String = ""
     var fullname:String = ""
     var avatar:String = ""
+    var kategori_id:String = ""
+    var nama_kategori:String = ""
     var total_command:Int = 0
 
     constructor(parcel: Parcel) : this() {
@@ -30,6 +32,8 @@ class Blog() :Serializable, Parcelable {
         updated_at = parcel.readString() ?: ""
         fullname = parcel.readString() ?: ""
         avatar = parcel.readString() ?: ""
+        kategori_id = parcel.readString() ?: ""
+        nama_kategori = parcel.readString() ?: ""
         total_command = parcel.readInt()
     }
 
@@ -44,6 +48,8 @@ class Blog() :Serializable, Parcelable {
         parcel.writeString(updated_at)
         parcel.writeString(fullname)
         parcel.writeString(avatar)
+        parcel.writeString(kategori_id)
+        parcel.writeString(nama_kategori)
         parcel.writeInt(total_command)
     }
 
