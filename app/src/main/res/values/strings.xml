@@ -156,6 +156,8 @@
     <string name="teks_d_suka">%d Suka</string>
     <string name="teks_anda_perlu_login">Anda perlu login</string>
     <string name="teks_lagu_favorit_anda">Lagu favorit anda</string>
+    <string name="teks_data_tidak_valid">Data anda tidak valid</string>
+    <string name="pilih_aplikasi">Pilih Aplikasi</string>
 
 
 </resources>

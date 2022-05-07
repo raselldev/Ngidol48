@@ -20,6 +20,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
+import com.arira.ngidol48.R
 import java.text.NumberFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -416,6 +417,13 @@ object Helper {
             )
             context.startActivity(webIntent)
         }
+    }
+
+    fun shareText(text:String, context: Context){
+        val i = Intent(Intent.ACTION_SEND)
+        i.type = "text/plain"
+        i.putExtra(Intent.EXTRA_TEXT, text)
+        context.startActivity(Intent.createChooser(i, context.getString(R.string.pilih_aplikasi)))
     }
 
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.arira.ngidol48">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,7 +19,7 @@
         android:theme="@style/Theme.Ngidol48">
         <activity
             android:name=".ui.reportBlog.ReportBlogActivity"
-            android:exported="false" />
+            android:exported="false"></activity>
         <activity
             android:name=".ui.ViewImageActivity"
             android:exported="false" />
@@ -30,7 +31,22 @@
             android:exported="false" />
         <activity
             android:name=".ui.detailBlog.DetailBlogActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="ngidol"
+                    android:host="apiidol.arira.my.id"/>
+                <!--                <data-->
+                <!--                    android:host="apiidol.arira.my.id"-->
+                <!--                    android:scheme="https"-->
+                <!--                    android:path="/app/share" />-->
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".ui.profil.EditProfilActivity"
             android:exported="false" />
@@ -56,6 +72,7 @@
             android:name=".ui.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

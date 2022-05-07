@@ -4,7 +4,7 @@ import android.os.Environment
 
 object Config {
 
-    const val BASE_URL = "http://apiidol.arira.my.id/"
+    const val BASE_URL = "https://idol48.top/"
     const val BASE_API = BASE_URL + ""
 
     const val BASE_STORAGE = BASE_URL
@@ -34,6 +34,9 @@ object Config {
     var DIRECTORY_IMAGE_AVATAR: String = Environment.getExternalStorageDirectory().toString() + "/NGIDOL48/avatar/"
     var DIRECTORY_IMAGE_BLOG: String = Environment.getExternalStorageDirectory().toString() + "/NGIDOL48/blog/"
 
+    public fun shareUrlBlog(id:String):String{
+        return BASE_URL +"app/share/"+id
+    }
 
 
 }

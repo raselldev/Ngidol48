@@ -30,6 +30,10 @@ class BlogRepo: BaseHelper() {
         return  ApiServiceServerFile.deleteBlog(token, id)
     }
 
+    fun detailBlog(id: String,): Observable<BlogResponse>{
+        return  ApiServiceServerFile.detailBlog(token, id)
+    }
+
     fun kategori(): Observable<BlogKategoriResponse> {
         return  ApiServiceServer.kategoriBlog()
     }

@@ -1,9 +1,15 @@
 package com.arira.ngidol48.ui.detailBlog
 
 import android.app.AlertDialog
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.PersistableBundle
+import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -22,11 +28,13 @@ import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.helper.Config.extra_model
 import com.arira.ngidol48.helper.Helper
+import com.arira.ngidol48.helper.Helper.shareText
 import com.arira.ngidol48.helper.SweetAlert
 import com.arira.ngidol48.model.Blog
 import com.arira.ngidol48.model.Komentar
 import com.arira.ngidol48.ui.ViewImageActivity
 import com.arira.ngidol48.ui.addBlog.BlogViewModel
+import com.arira.ngidol48.ui.home.MainActivity
 import com.arira.ngidol48.ui.profil.ProfilActivity
 import com.arira.ngidol48.ui.reportBlog.ReportBlogActivity
 import com.arira.ngidol48.utilities.Go
@@ -48,6 +56,8 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
 
     private lateinit var blogViewModel: BlogViewModel
 
+    private lateinit var detailBlogViewModel: DetailBlogViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_blog)
@@ -62,14 +72,36 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
         blogViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BlogViewModel::class.java]
         blogViewModel.context = this
 
+        detailBlogViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailBlogViewModel::class.java]
+        detailBlogViewModel.context = this
+
+        val appLinkIntent = intent
+        val appLinkData = appLinkIntent.data
+        if (appLinkData != null){
+            var id = 0
+            try{
+                id = appLinkData.lastPathSegment.toString().toInt()
+                blog.id = id.toString()
+
+                detailBlogViewModel.hitDetail(blog.id)
+            }catch (e:NumberFormatException){
+                toast.show(getString(R.string.teks_data_tidak_valid), this)
+                Go(this).move(MainActivity::class.java, clearPrevious = true)
+            }
+
+        }else{
+            blog = intent.getParcelableExtra(extra_model) ?: Blog()
+        }
+
         adapterKomentar = KomentarAdapter(listKomentar, this)
 
-        blog = intent.getParcelableExtra(extra_model) ?: Blog()
+
         setDataBlog()
 
         action()
 
         observeDataBlog()
+        observeDataDetailBlog()
         observeDataKomentar()
 
         /*set data user*/
@@ -161,17 +193,22 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
         bottomSheetDialog.setContentView(bindingSheet.root)
         bottomSheetDialog.dismissWithAnimation = true
 
-//        if (blog.id_user == user.id){
-//            bindingSheet.linHapus.visibility  = View.VISIBLE
-//            bindingSheet.linLapor.visibility  = View.GONE
-//        }else{
-//            bindingSheet.linHapus.visibility  = View.GONE
-//            bindingSheet.linLapor.visibility  = View.VISIBLE
-//        }
+        if (blog.id_user == user.id){
+            bindingSheet.linHapus.visibility  = View.VISIBLE
+            bindingSheet.linLapor.visibility  = View.GONE
+        }else{
+            bindingSheet.linHapus.visibility  = View.GONE
+            bindingSheet.linLapor.visibility  = View.VISIBLE
+        }
 
         bindingSheet.linLapor.setOnClickListener {
             bottomSheetDialog.dismiss()
             Go(this).move(ReportBlogActivity::class.java, data = blog)
+        }
+
+        bindingSheet.linBagikan.setOnClickListener {
+            val link = Config.shareUrlBlog(blog.id)
+            shareText(link, this)
         }
 
         bindingSheet.linHapus.setOnClickListener {
@@ -332,6 +369,48 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
 
 
         blogViewModel.getError().observe(this, Observer {
+            it.let {
+                if (it != null) {
+                    SweetAlert.dismis()
+                    SweetAlert.onFailure(this, it)
+                }
+
+            }
+        })
+        /*end of get data viewmodel*/
+
+    }
+
+    private fun observeDataDetailBlog() {
+
+        /*get data on viewmodel*/
+        detailBlogViewModel.getLoading().observe(this, Observer {
+            it.let {
+                if (it) {
+                    SweetAlert.onLoading(this)
+                } else {
+                    SweetAlert.dismis()
+                }
+            }
+        })
+
+        detailBlogViewModel.getResponse().observe(this, Observer {
+            it.let {
+                if(it != null){
+                    if (it.code == 1){
+                        blog = it.blog
+                        setDataBlog()
+                    }else{
+                        SweetAlert.onFailure(this, it.message)
+                    }
+                }
+
+
+            }
+        })
+
+
+        detailBlogViewModel.getError().observe(this, Observer {
             it.let {
                 if (it != null) {
                     SweetAlert.dismis()

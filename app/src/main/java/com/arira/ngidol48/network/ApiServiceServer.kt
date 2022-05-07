@@ -178,6 +178,13 @@ interface ApiServiceServer {
         @Field("id") id: String,
     ): Observable<DefaultResponse>
 
+    @Headers(Config.API)
+    @GET("blog/detail/{id}")
+    fun detailBlog(
+        @Header("token") token:String,
+        @Path("id") id:String,
+    ): Observable<BlogResponse>
+
     /**komentar*/
     @Headers(Config.API)
     @GET("comment/blog/{id}")

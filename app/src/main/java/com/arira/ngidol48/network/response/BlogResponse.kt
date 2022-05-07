@@ -9,6 +9,8 @@ class BlogResponse : Serializable {
     val code:Int = 0
     val message:String = ""
     val blogs:List<Blog> = ArrayList()
+    val blog:Blog = Blog()
+    val comments:List<Komentar> = ArrayList()
     val totalpage:Int = 0
     val totalitem:Int = 0
 
