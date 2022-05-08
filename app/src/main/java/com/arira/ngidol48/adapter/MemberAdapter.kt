@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.holder.MemberHolder
 import com.arira.ngidol48.model.Member
-import com.arira.ngidol48.ui.member.MemberCallback
+import com.arira.ngidol48.ui.activity.member.MemberCallback
 
-class MemberAdapter(var list:List<Member>, val callback:MemberCallback): RecyclerView.Adapter<MemberHolder>() {
+class MemberAdapter(var list:List<Member>, val callback: MemberCallback): RecyclerView.Adapter<MemberHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemberHolder {
         return  MemberHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_member, parent, false))
     }

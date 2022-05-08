@@ -1,17 +1,15 @@
 package com.arira.ngidol48.adapter.holder
 
 import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.view.View
-import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.ItemSetlistBinding
 import com.arira.ngidol48.helper.Config.BASE_STORAGE
 import com.arira.ngidol48.helper.Helper
 import com.arira.ngidol48.model.Setlist
-import com.arira.ngidol48.ui.lagu.LaguActivity
+import com.arira.ngidol48.ui.activity.lagu.LaguActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget

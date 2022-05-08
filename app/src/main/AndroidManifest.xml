@@ -18,19 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
-            android:name=".ui.reportBlog.ReportBlogActivity"
+            android:name=".ui.activity.reportBlog.ReportBlogActivity"
             android:exported="false"></activity>
         <activity
-            android:name=".ui.ViewImageActivity"
+            android:name=".ui.activity.ViewImageActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.handshakeMember.HandshakeByMemberActivity"
+            android:name=".ui.activity.handshakeMember.HandshakeByMemberActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.addBlog.TambahBlogActivity"
+            android:name="com.arira.ngidol48.ui.activity.addBlog.TambahBlogActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.detailBlog.DetailBlogActivity"
+            android:name="com.arira.ngidol48.ui.activity.detailBlog.DetailBlogActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -48,28 +48,28 @@
 
         </activity>
         <activity
-            android:name=".ui.profil.EditProfilActivity"
+            android:name=".ui.activity.profil.EditProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.profil.ProfilActivity"
+            android:name=".ui.activity.profil.ProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.activity.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.allBlog.BlogActivity"
+            android:name="com.arira.ngidol48.ui.activity.allBlog.BlogActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.pengaturan.PengaturanNotifikasiActivity"
+            android:name=".ui.activity.pengaturan.PengaturanNotifikasiActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.pengaturan.PengaturanActivity"
+            android:name=".ui.activity.pengaturan.PengaturanActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.cariLagu.CariLaguActivity"
+            android:name="com.arira.ngidol48.ui.activity.cariLagu.CariLaguActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SplashActivity"
+            android:name=".ui.activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
 
@@ -80,45 +80,45 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.handshake.HistoryHandshakeActivity"
+            android:name=".ui.activity.handshake.HistoryHandshakeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.handshake.DetailHandshakeActivity"
+            android:name=".ui.activity.handshake.DetailHandshakeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.handshake.HandshakeActivity"
+            android:name=".ui.activity.handshake.HandshakeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.viewShowroom.ViewLiveActivity"
+            android:name=".ui.activity.viewShowroom.ViewLiveActivity"
             android:exported="false"
             android:supportsPictureInPicture="true" />
         <activity
-            android:name=".ui.notifikasi.NotifikasiActivity"
+            android:name=".ui.activity.notifikasi.NotifikasiActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.news.BeritaActivity"
+            android:name=".ui.activity.news.BeritaActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.detailEvent.DetailEventActivity"
+            android:name="com.arira.ngidol48.ui.activity.detailEvent.DetailEventActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.event.EventActivity"
+            android:name="com.arira.ngidol48.ui.activity.event.EventActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.lagu.LaguActivity"
+            android:name=".ui.activity.lagu.LaguActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.detailLagu.DetailLaguActivity"
+            android:name="com.arira.ngidol48.ui.activity.detailLagu.DetailLaguActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.setlist.SetlistActivity"
+            android:name=".ui.activity.setlist.SetlistActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.member.MemberActivity"
+            android:name=".ui.activity.member.MemberActivity"
             android:exported="false" />
-        <activity android:name=".ui.myWeb.MyWebActivity" />
+        <activity android:name=".ui.activity.myWeb.MyWebActivity" />
         <activity
-            android:name=".ui.home.MainActivity"
+            android:name=".ui.activity.home.MainActivity"
             android:exported="false" />
 
         <service

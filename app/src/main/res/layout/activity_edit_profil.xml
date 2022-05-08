@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.profil.EditProfilActivity">
+        tools:context=".ui.activity.profil.EditProfilActivity">
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
@@ -50,7 +50,6 @@
                             android:hint="@string/teks_dummy_nama"
                             android:maxLines="1"
                             android:singleLine="true"
-                            android:textColor="@color/dark"
                             android:textColorHint="@color/abu1"
                             android:textSize="@dimen/_12sdp" />
                     </RelativeLayout>
@@ -87,7 +86,6 @@
                             android:hint="@string/teks_bio_terkeren_anda"
                             android:lines="3"
                             android:maxLines="3"
-                            android:textColor="@color/dark"
                             android:textColorHint="@color/abu1"
                             android:textSize="@dimen/_12sdp" />
                     </RelativeLayout>

@@ -7,10 +7,10 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.app.App.Companion.helper
 import com.arira.ngidol48.databinding.ItemNotifBinding
 import com.arira.ngidol48.model.Notifikasi
-import com.arira.ngidol48.ui.event.EventActivity
-import com.arira.ngidol48.ui.handshake.HandshakeActivity
-import com.arira.ngidol48.ui.member.MemberActivity
-import com.arira.ngidol48.ui.news.BeritaActivity
+import com.arira.ngidol48.ui.activity.event.EventActivity
+import com.arira.ngidol48.ui.activity.handshake.HandshakeActivity
+import com.arira.ngidol48.ui.activity.member.MemberActivity
+import com.arira.ngidol48.ui.activity.news.BeritaActivity
 import com.arira.ngidol48.utilities.Go
 
 class NotifikasiHolder(var item:ItemNotifBinding): RecyclerView.ViewHolder(item.root) {

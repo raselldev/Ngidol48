@@ -21,7 +21,7 @@ import androidx.core.content.ContextCompat;
 import androidx.media.session.MediaButtonReceiver;
 
 import com.arira.ngidol48.R;
-import com.arira.ngidol48.ui.home.MainActivity;
+import com.arira.ngidol48.ui.activity.home.MainActivity;
 
 public class MediaNotificationManager {
 

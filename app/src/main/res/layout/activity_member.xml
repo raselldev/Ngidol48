@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.member.MemberActivity">
+        tools:context=".ui.activity.member.MemberActivity">
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 

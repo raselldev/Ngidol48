@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.ItemReportBinding
 import com.arira.ngidol48.model.Report
-import com.arira.ngidol48.ui.reportBlog.ReportCallback
+import com.arira.ngidol48.ui.activity.reportBlog.ReportCallback
 
 class ReportHolder(var item:ItemReportBinding): RecyclerView.ViewHolder(item.root) {
 

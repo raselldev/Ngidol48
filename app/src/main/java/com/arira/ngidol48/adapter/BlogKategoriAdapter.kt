@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.holder.BlogKategoriHolder
 import com.arira.ngidol48.model.BlogKategori
-import com.arira.ngidol48.ui.addBlog.BlogKategoriCallback
+import com.arira.ngidol48.ui.activity.addBlog.BlogKategoriCallback
 
 class BlogKategoriAdapter(var list:ArrayList<BlogKategori>, val callback: BlogKategoriCallback): RecyclerView.Adapter<BlogKategoriHolder>(), Filterable {
     var selected:BlogKategori = BlogKategori()

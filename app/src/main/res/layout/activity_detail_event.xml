@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:keepScreenOn="true"
-        tools:context=".ui.detailEvent.DetailEventActivity">
+        tools:context=".ui.activity.detailEvent.DetailEventActivity">
 
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>

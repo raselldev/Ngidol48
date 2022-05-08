@@ -11,7 +11,7 @@ import com.arira.ngidol48.adapter.SongAdapter
 import com.arira.ngidol48.databinding.FragmentLaguBinding
 import com.arira.ngidol48.helper.BaseFragment
 import com.arira.ngidol48.model.Song
-import com.arira.ngidol48.ui.cariLagu.CariLaguCallback
+import com.arira.ngidol48.ui.activity.cariLagu.CariLaguCallback
 
 class LaguFragment(val songList: List<Song>,val callback:CariLaguCallback) : BaseFragment() {
     private lateinit var binding: FragmentLaguBinding

@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.databinding.ItemHandshakeMemberListBinding
 import com.arira.ngidol48.helper.Config.BASE_STORAGE_JKT
 import com.arira.ngidol48.model.Handshake
-import com.arira.ngidol48.ui.handshakeMember.HandshakeByMemberActivity
+import com.arira.ngidol48.ui.activity.handshakeMember.HandshakeByMemberActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 

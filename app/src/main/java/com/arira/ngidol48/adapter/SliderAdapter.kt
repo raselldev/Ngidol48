@@ -12,7 +12,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.arira.ngidol48.R
 import com.arira.ngidol48.helper.Config.BASE_STORAGE_JKT
 import com.arira.ngidol48.model.Slider
-import com.arira.ngidol48.ui.myWeb.MyWebActivity
+import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import java.util.*

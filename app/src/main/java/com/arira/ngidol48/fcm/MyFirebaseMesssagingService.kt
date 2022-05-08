@@ -12,16 +12,14 @@ import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.helper.Config
-import com.arira.ngidol48.ui.home.MainActivity
+import com.arira.ngidol48.ui.activity.home.MainActivity
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import org.json.JSONException
-import java.io.InputStream
 import java.net.HttpURLConnection
 import java.net.URL
 

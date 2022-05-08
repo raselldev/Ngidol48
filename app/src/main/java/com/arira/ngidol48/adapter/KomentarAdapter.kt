@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.holder.KomentarHolder
 import com.arira.ngidol48.model.Komentar
-import com.arira.ngidol48.ui.detailBlog.KomentarCallback
+import com.arira.ngidol48.ui.activity.detailBlog.KomentarCallback
 
 class KomentarAdapter(var list:ArrayList<Komentar>, val callback:KomentarCallback): RecyclerView.Adapter<KomentarHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KomentarHolder {

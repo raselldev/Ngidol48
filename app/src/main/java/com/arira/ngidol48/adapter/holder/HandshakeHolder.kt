@@ -3,7 +3,7 @@ package com.arira.ngidol48.adapter.holder
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.databinding.ItemHandshakeBinding
 import com.arira.ngidol48.model.ParentHandshake
-import com.arira.ngidol48.ui.handshake.DetailHandshakeActivity
+import com.arira.ngidol48.ui.activity.handshake.DetailHandshakeActivity
 import com.arira.ngidol48.utilities.Go
 
 class HandshakeHolder(var item:ItemHandshakeBinding): RecyclerView.ViewHolder(item.root) {

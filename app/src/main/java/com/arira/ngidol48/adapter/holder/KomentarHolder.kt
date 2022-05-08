@@ -1,7 +1,6 @@
 package com.arira.ngidol48.adapter.holder
 
 import android.animation.ObjectAnimator
-import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.view.View
@@ -11,9 +10,8 @@ import com.arira.ngidol48.app.App.Companion.helper
 import com.arira.ngidol48.app.App.Companion.user
 import com.arira.ngidol48.databinding.ItemKomentarBinding
 import com.arira.ngidol48.helper.Config.BASE_STORAGE_IMAGE
-import com.arira.ngidol48.helper.Helper
 import com.arira.ngidol48.model.Komentar
-import com.arira.ngidol48.ui.detailBlog.KomentarCallback
+import com.arira.ngidol48.ui.activity.detailBlog.KomentarCallback
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 

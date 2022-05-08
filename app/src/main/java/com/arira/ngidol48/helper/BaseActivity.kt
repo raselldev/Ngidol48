@@ -20,8 +20,8 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.LayoutToolbarBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.model.Member
-import com.arira.ngidol48.ui.handshakeMember.HandshakeByMemberActivity
-import com.arira.ngidol48.ui.myWeb.MyWebActivity
+import com.arira.ngidol48.ui.activity.handshakeMember.HandshakeByMemberActivity
+import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog

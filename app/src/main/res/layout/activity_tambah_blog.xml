@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.addBlog.TambahBlogActivity">
+        tools:context=".ui.activity.addBlog.TambahBlogActivity">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">

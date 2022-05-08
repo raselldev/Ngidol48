@@ -6,16 +6,11 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.app.App.Companion.helper
-import com.arira.ngidol48.databinding.ItemBeritaBinding
 import com.arira.ngidol48.databinding.ItemBlogBinding
-import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.helper.Config.BASE_STORAGE_IMAGE
-import com.arira.ngidol48.helper.Config.BASE_STORAGE_JKT
 import com.arira.ngidol48.helper.Helper
-import com.arira.ngidol48.model.Berita
 import com.arira.ngidol48.model.Blog
-import com.arira.ngidol48.ui.detailBlog.DetailBlogActivity
-import com.arira.ngidol48.ui.myWeb.MyWebActivity
+import com.arira.ngidol48.ui.activity.detailBlog.DetailBlogActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget

@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.databinding.ViewShowroomBinding
 import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.model.Member
-import com.arira.ngidol48.ui.viewShowroom.ViewLiveActivity
+import com.arira.ngidol48.ui.activity.viewShowroom.ViewLiveActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions

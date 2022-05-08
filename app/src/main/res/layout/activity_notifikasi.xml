@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ui.notifikasi.NotifikasiActivity">
+        tools:context=".ui.activity.notifikasi.NotifikasiActivity">
 
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>

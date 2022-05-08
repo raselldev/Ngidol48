@@ -10,8 +10,8 @@ import com.arira.ngidol48.helper.Config.BASE_STORAGE
 import com.arira.ngidol48.helper.Config.BASE_STORAGE_JKT
 import com.arira.ngidol48.helper.Helper
 import com.arira.ngidol48.model.Event
-import com.arira.ngidol48.ui.detailEvent.DetailEventActivity
-import com.arira.ngidol48.ui.myWeb.MyWebActivity
+import com.arira.ngidol48.ui.activity.detailEvent.DetailEventActivity
+import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget

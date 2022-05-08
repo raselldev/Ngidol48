@@ -7,7 +7,7 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.MemberHandshakeByMemberAdapter
 import com.arira.ngidol48.databinding.ItemHandshakeByMemberBinding
 import com.arira.ngidol48.model.DetailHandshake
-import com.arira.ngidol48.ui.myWeb.MyWebActivity
+import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 
 class HandshakeByMemberHolder(var item:ItemHandshakeByMemberBinding): RecyclerView.ViewHolder(item.root) {

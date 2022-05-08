@@ -8,14 +8,14 @@ import com.arira.ngidol48.databinding.ItemLaguSmallBinding
 import com.arira.ngidol48.helper.Config.BASE_STORAGE
 import com.arira.ngidol48.helper.Helper
 import com.arira.ngidol48.model.Song
-import com.arira.ngidol48.ui.lagu.LaguCallback
+import com.arira.ngidol48.ui.activity.lagu.LaguCallback
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 
 class SongSmallHolder(var item:ItemLaguSmallBinding): RecyclerView.ViewHolder(item.root) {
 
 
-    fun setData(data: Song, callback:LaguCallback?){
+    fun setData(data: Song, callback: LaguCallback?){
         item.tvJudul.text = data.judul
 
         if (data.cover.isEmpty()){
