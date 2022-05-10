@@ -8,6 +8,14 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 
 ## Changelog
 
+
+### 2.14.13
+- favorit song
+- login -> register -> edit profil
+- fitur blog (image & text only)
+- jumlah show member
+
+
 ### 1.13.12
 - bug fixing di notifikasi tiket
 - menambahkan kategori pada halaman notifikasi
