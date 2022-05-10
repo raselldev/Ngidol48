@@ -8,10 +8,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.SetlistAdapter
+import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivitySetlistBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.ui.activity.cariLagu.CariLaguActivity
 import com.arira.ngidol48.ui.activity.lagu.LaguActivity
+import com.arira.ngidol48.ui.activity.login.LoginActivity
 import com.arira.ngidol48.utilities.Go
 
 class SetlistActivity : BaseActivity() {
@@ -44,7 +46,12 @@ class SetlistActivity : BaseActivity() {
 
     fun action(){
         binding.toolbar.ivMenu.setOnClickListener {
-            Go(this).move(LaguActivity::class.java, choose = true)
+            if (pref.getIsLogin()){
+                Go(this).move(LaguActivity::class.java, choose = true)
+            }else{
+                Go(this).move(LoginActivity::class.java)
+            }
+
         }
 
         binding.linCari.setOnClickListener {

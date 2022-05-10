@@ -97,7 +97,7 @@ class MemberActivity : BaseActivity(), MemberCallback {
                     if (it.members.isNotEmpty()){
                         binding.rvData.apply {
                             layoutManager  = GridLayoutManager(context, 4)
-                            adapter = MemberAdapter(it.members, this@MemberActivity)
+                            adapter = MemberAdapter(it.members, this@MemberActivity, true)
                         }
                     }else{
                         binding.divKosong.visibility = View.VISIBLE
