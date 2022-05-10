@@ -168,6 +168,15 @@
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
+    <style name="body6">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/_6sdp</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
     <style name="ThemeOverlay.Ngidol48.FullscreenContainer" parent="">
         <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
         <item name="fullscreenTextColor">@color/light_blue_A400</item>

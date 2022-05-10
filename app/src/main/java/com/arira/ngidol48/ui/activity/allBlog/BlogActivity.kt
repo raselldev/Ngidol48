@@ -1,6 +1,7 @@
 package com.arira.ngidol48.ui.activity.allBlog
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
@@ -101,7 +102,7 @@ class BlogActivity : BaseActivity(), BlogKategoriCallback {
         viewModel.hitAll(indexLoad, kategoriSelected.id.toInt(), querySearch)
 
         action()
-        observerData()
+
         observeDataKategori()
     }
 
@@ -173,6 +174,7 @@ class BlogActivity : BaseActivity(), BlogKategoriCallback {
         viewModel.getError().observe(this) {
             it.let {
                 if (it != null) {
+                    toast.show(it, this)
                 }
             }
         }
@@ -181,11 +183,13 @@ class BlogActivity : BaseActivity(), BlogKategoriCallback {
             it.let {
                 if (it != null) {
                     totalPage = it.totalpage
+
                     if (it.blogs.isNotEmpty()) {
                         listBlog.addAll(it.blogs)
                         blogAdapter.notifyDataSetChanged()
-                        isLoading = false
                     }
+
+                    isLoading = false
                 }
             }
         }

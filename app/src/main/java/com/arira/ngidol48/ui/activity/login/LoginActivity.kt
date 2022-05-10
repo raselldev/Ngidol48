@@ -8,6 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.arira.ngidol48.R
+import com.arira.ngidol48.app.App
 import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityLoginBinding
 import com.arira.ngidol48.helper.BaseActivity
@@ -64,6 +65,9 @@ class LoginActivity : BaseActivity() {
             it.let {
                 if (it != null){
                     if (it){
+
+                        SweetAlert.dismis()
+
                         SweetAlert.onLoading(this)
                     }else{
                         SweetAlert.dismis()
@@ -90,11 +94,17 @@ class LoginActivity : BaseActivity() {
         viewModel.getResponse().observe(this){
             it.let {
                 if (it != null){
+
+                    SweetAlert.dismis()
                     if (it.code == 1){
-                        SweetAlert.dismis()
+
                         //sukses
                         pref.setUser(it.user)
                         pref.setIsLogin(true)
+
+                        App.user = pref.getUser()
+                        App.token = App.user.token_app
+
                         finish()
                     }
                 }
@@ -105,6 +115,8 @@ class LoginActivity : BaseActivity() {
             it.let {
                 if (it != null){
                     if (it){
+                        SweetAlert.dismis()
+
                         //call register
                         toast.show(getString(R.string.teks_mendaftar), this)
                         viewModel.register(users)

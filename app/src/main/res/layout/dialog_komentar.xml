@@ -108,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_ava"
                     android:layout_width="@dimen/_30sdp"
                     app:civ_border_color="@color/colorPrimaryTeks"
                     app:civ_border_width="@dimen/_1sdp"

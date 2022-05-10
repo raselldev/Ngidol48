@@ -29,6 +29,7 @@ import com.arira.ngidol48.model.Komentar
 import com.arira.ngidol48.ui.activity.ViewImageActivity
 import com.arira.ngidol48.ui.activity.addBlog.BlogViewModel
 import com.arira.ngidol48.ui.activity.home.MainActivity
+import com.arira.ngidol48.ui.activity.login.LoginActivity
 import com.arira.ngidol48.ui.activity.profil.ProfilActivity
 import com.arira.ngidol48.ui.activity.reportBlog.ReportBlogActivity
 import com.arira.ngidol48.utilities.Go
@@ -55,8 +56,10 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_blog)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_blog)
         setToolbar(getString(R.string.teks_blog), binding.toolbar)
+
         binding.toolbar.ivMenu.visibility = View.VISIBLE
 
         /*komentar*/
@@ -72,7 +75,7 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
         val appLinkIntent = intent
         val appLinkData = appLinkIntent.data
         if (appLinkData != null){
-            var id = 0
+            val id: Int
             try{
                 id = appLinkData.lastPathSegment.toString().toInt()
                 blog.id = id.toString()
@@ -125,6 +128,24 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
         dialogKomentar.setCancelable(true)
 
         val dialogCreate = dialogKomentar.create()
+
+        Glide.with(this)
+            .asBitmap()
+            .load(Config.BASE_STORAGE_IMAGE + user.avatar)
+            .placeholder(R.drawable.ic_baseline_person_24)
+            .error(R.drawable.ic_baseline_person_24)
+            .into(object : CustomTarget<Bitmap>(){
+                override fun onResourceReady(
+                    resource: Bitmap,
+                    transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
+                ) {
+                    bindingDialogKomentar.ivAva.setImageBitmap(resource)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+
+                }
+            })
 
 
         if (listKomentar.isEmpty()) {
@@ -233,7 +254,12 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
             sheetMenu()
         }
         binding.linKomentar.setOnClickListener {
-            showSheetKomentar()
+            if (pref.getIsLogin()){
+                showSheetKomentar()
+            }else{
+                Go(this).move(LoginActivity::class.java)
+            }
+
         }
 
         binding.ivCover.setOnClickListener {
@@ -266,18 +292,37 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
             binding.ivCover.visibility = View.GONE
         }
 
+        binding.ivPengguna.visibility = View.VISIBLE
+        Glide.with(this)
+            .asBitmap()
+            .load(Config.BASE_STORAGE_IMAGE + blog.avatar)
+            .placeholder(R.drawable.ic_baseline_person_24)
+            .error(R.drawable.ic_baseline_person_24)
+            .into(object : CustomTarget<Bitmap>(){
+                override fun onResourceReady(
+                    resource: Bitmap,
+                    transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
+                ) {
+                    binding.ivPengguna.setImageBitmap(resource)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+
+                }
+            })
+
         binding.tvKategori.text = blog.nama_kategori
         binding.tvJudul.text = blog.judul
         binding.tvNamaPengguna.text = blog.fullname
-        binding.tvTanggal.text = helper.convert(blog.created_at, "yyyy-MM-dd HH:mm:ss", "HH:mm dd MMMM yyyy")
-        binding.tvTotalKomentar.text = "${blog.total_command} Komentar"
-        helper.setTags(binding.tvBlog, helper.fromHtml(blog.blog).toString(), this)
+        binding.tvTanggal.text = helper.waktulalu(blog.created_at)
+        binding.tvTotalKomentar.text = getString(R.string.teks_d_komentar, blog.total_command)
+        helper.setTags(binding.tvBlog, blog.blog, this)
     }
 
     private fun observeDataKomentar() {
 
         /*get data on viewmodel*/
-        komentarViewModel.getLoading().observe(this, Observer {
+        komentarViewModel.getLoading().observe(this) {
             it.let {
                 if (it) {
                     dialogKomentar.setCancelable(false)
@@ -290,7 +335,7 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
                     bindingDialogKomentar.shimmer.visibility = View.GONE
                 }
             }
-        })
+        }
 
         komentarViewModel.getResponse().observe(this, Observer {
             it.let {

@@ -21,6 +21,8 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.*
 import com.arira.ngidol48.app.App.Companion.helper
 import com.arira.ngidol48.app.App.Companion.pref
+import com.arira.ngidol48.app.App.Companion.token
+import com.arira.ngidol48.app.App.Companion.user
 import com.arira.ngidol48.databinding.ActivityMainBinding
 import com.arira.ngidol48.databinding.CustomDialogRatingAppBinding
 import com.arira.ngidol48.databinding.DialogBdayBinding
@@ -235,7 +237,11 @@ class MainActivity : BaseActivity(), MemberCallback {
         }
 
         binding.linUser.setOnClickListener {
-            Go(this).move(ProfilActivity::class.java)
+            if (user.id.isEmpty()){
+                user = pref.getUser()
+                token = user.token_app
+            }
+            Go(this).move(ProfilActivity::class.java, id = user.id)
         }
 
         binding.linBlog.setOnClickListener {
@@ -333,7 +339,8 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     private  fun subcribeAll(){
 //        FirebaseMessaging.getInstance().subscribeToTopic("handshake_test").addOnSuccessListener {
-//        }
+//            Log.e("SUCCESS", "handshake_test")
+//         }
 
         if (pref.getNotifNews()){
             FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_NEWS).addOnSuccessListener {
@@ -413,7 +420,7 @@ class MainActivity : BaseActivity(), MemberCallback {
                     if (it.bday_member.isNotEmpty()){
                         binding.linBday.visibility = View.VISIBLE
                         binding.rvBday.apply {
-                            layoutManager = GridLayoutManager(context, 3)
+                            layoutManager = GridLayoutManager(context, 4)
                             adapter = MemberAdapter(it.bday_member, this@MainActivity)
                         }
 

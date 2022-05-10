@@ -9,6 +9,8 @@ import com.arira.ngidol48.R
 import com.arira.ngidol48.app.App
 import com.arira.ngidol48.databinding.ActivityPengaturanBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.helper.Config.BASE_URL
+import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
 
@@ -20,6 +22,12 @@ class PengaturanActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_pengaturan)
         setToolbar(getString(R.string.teks_pengaturan), binding.toolbar)
         action()
+
+        if(App.pref.getIsLogin()){
+            binding.tvSignout.visibility = View.VISIBLE
+        }else{
+            binding.tvSignout.visibility = View.GONE
+        }
 
         if (App.pref.getOnReview()){
             binding.linDonasi.visibility = View.GONE
@@ -48,6 +56,15 @@ class PengaturanActivity : BaseActivity() {
             openURL.data = Uri.parse("https://saweria.co/raflipakei")
             startActivity(openURL)
         }
+
+        binding.linPrivasi.setOnClickListener {
+            Go(this).move(MyWebActivity::class.java, url = BASE_URL + "app/privacy")
+        }
+
+        binding.linSumber.setOnClickListener {
+            Go(this).move(MyWebActivity::class.java, url = BASE_URL + "app/source")
+        }
+
         binding.linSaran.setOnClickListener {
             val i = Intent(Intent.ACTION_SENDTO)
             i.type = "message/rfc822"

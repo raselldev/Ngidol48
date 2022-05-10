@@ -76,6 +76,13 @@
                         android:layout_gravity="center"
                         style="@style/title12"
                         android:text="@string/app_name"/>
+                    <TextView
+                        android:layout_gravity="center"
+                        android:textColor="@color/colorPrimaryTeks"
+                        android:id="@+id/tv_show"
+                        android:layout_marginStart="@dimen/_3sdp"
+                        style="@style/title10"
+                        android:text="-"/>
 
                     <TextView
                         android:textStyle="italic"

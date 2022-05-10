@@ -99,6 +99,32 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:id="@+id/lin_sumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/title12"
+                            android:text="@string/teks_sumber_data"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/body10"
+                            android:text="@string/teks_daftar_sumber_data_untuk_aplikasi_dan_hak_cipta"/>
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:src="@drawable/ic_baseline_chevron_right_24"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_marginTop="@dimen/_25sdp"
                     android:id="@+id/lin_donasi"
                     android:layout_width="match_parent"
@@ -135,6 +161,7 @@
                 android:text="@string/teks_keluar"/>
 
             <TextView
+                android:visibility="gone"
                 android:textAlignment="center"
                 android:layout_gravity="center"
                 android:autoLink="web"

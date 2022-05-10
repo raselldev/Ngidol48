@@ -96,7 +96,7 @@ class MemberActivity : BaseActivity(), MemberCallback {
 
                     if (it.members.isNotEmpty()){
                         binding.rvData.apply {
-                            layoutManager  = GridLayoutManager(context, 3)
+                            layoutManager  = GridLayoutManager(context, 4)
                             adapter = MemberAdapter(it.members, this@MemberActivity)
                         }
                     }else{

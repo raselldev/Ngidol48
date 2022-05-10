@@ -1,5 +1,6 @@
 package com.arira.ngidol48.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -18,6 +19,7 @@ class BlogAdapter(var list:ArrayList<Blog>): RecyclerView.Adapter<BlogHolder>() 
     }
 
     override fun getItemCount(): Int {
+        Log.e("SIZE", "sie : ${list.size}")
         return  list.size
     }
 }

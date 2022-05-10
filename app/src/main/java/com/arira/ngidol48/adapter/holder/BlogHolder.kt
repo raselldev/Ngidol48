@@ -42,10 +42,29 @@ class BlogHolder(var item:ItemBlogBinding): RecyclerView.ViewHolder(item.root) {
             item.ivThumb.visibility = View.GONE
         }
 
+        item.ivPengguna.visibility = View.VISIBLE
+        Glide.with(itemView.context)
+            .asBitmap()
+            .load(BASE_STORAGE_IMAGE + data.avatar)
+            .placeholder(R.drawable.ic_baseline_person_24)
+            .error(R.drawable.ic_baseline_person_24)
+            .into(object : CustomTarget<Bitmap>(){
+                override fun onResourceReady(
+                    resource: Bitmap,
+                    transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
+                ) {
+                    item.ivPengguna.setImageBitmap(resource)
+                }
+
+                override fun onLoadCleared(placeholder: Drawable?) {
+
+                }
+            })
+
         item.tvKategori.text = data.nama_kategori
         item.tvJudul.text = data.judul
         item.tvNamaPengguna.text = data.fullname
-        item.tvTanggal.text = helper.convert(data.created_at, "yyyy-MM-dd HH:mm:ss", "HH:mm dd MMMM yyyy")
+        item.tvTanggal.text = helper.waktulalu(data.created_at)
 
         item.tvTotalKomentar.text = "${data.total_command} Komentar"
 

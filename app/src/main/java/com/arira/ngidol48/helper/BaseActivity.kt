@@ -81,6 +81,7 @@ open class BaseActivity : AppCompatActivity() {
         bindingSheet.tvPanggilan.text = member.nama_panggilan
         bindingSheet.tvTeam.text = member.kategori
         bindingSheet.tvNama.text = member.nama_lengkap
+        bindingSheet.tvShow.text = getString(R.string.teks_s_show, member.showtime)
         Glide.with(this).load(Config.BASE_STORAGE_JKT + member.avatar).into(bindingSheet.ivAva)
 
         if (member.generasi != "0"){

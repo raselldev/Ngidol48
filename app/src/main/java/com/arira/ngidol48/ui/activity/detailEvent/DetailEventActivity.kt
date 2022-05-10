@@ -146,7 +146,7 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
                     /*member perform*/
                     if (it.members_perform.isNotEmpty()) {
                         binding.rvMemberPerform.apply {
-                            layoutManager = GridLayoutManager(context, 3)
+                            layoutManager = GridLayoutManager(context, 4)
                             adapter = MemberAdapter(it.members_perform, this@DetailEventActivity)
                         }
                         binding.divMemberPerform.visibility = View.VISIBLE
@@ -157,7 +157,7 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
                     /*member bday*/
                     if (it.members_bday.isNotEmpty()) {
                         binding.rvBday.apply {
-                            layoutManager = GridLayoutManager(context, 3)
+                            layoutManager = GridLayoutManager(context, 4)
                             adapter = MemberAdapter(it.members_bday, this@DetailEventActivity)
                         }
                         binding.divBday.visibility = View.VISIBLE

@@ -217,6 +217,10 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
         return myWebView.canGoBack()
     }
 
+    fun reloadPage(){
+        myWebView.reload()
+    }
+
     fun goBack() {
         if(myWebView.canGoBack()){
             myWebView.goBack()
