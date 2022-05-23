@@ -13,8 +13,8 @@ class MemberMngByMemberHolder(var item:ItemMngMemberList2Binding): RecyclerView.
     fun setData(data: Mng){
         item.tvNama.text = data.nama_member
         item.tvJalur.text = "${data.sesi} - ${data.jalur}"
-        item.tvWaktu.text = data.penukaran.replace("-", " - ")
-        item.tvStandby.text = data.waktu.replace("-", " - ")
+        item.tvWaktu.text = data.waktu.replace("-", " - ")
+        item.tvStandby.text = data.penukaran.replace("-", " - ")
 
         if (data.is_sold == "1"){
             item.linSold.visibility = View.VISIBLE

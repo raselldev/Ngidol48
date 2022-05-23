@@ -17,8 +17,8 @@ class DetailMngHolder(var item:ItemDetailMngBinding): RecyclerView.ViewHolder(it
 
     fun setData(data: DetailMng){
         item.tvSesi.text = data.sesi
-        item.tvWaktu.text = data.penukaran.replace("-", " - ")
-        item.tvStandby.text = data.waktu.replace("-", " - ")
+        item.tvWaktu.text = data.waktu.replace("-", " - ")
+        item.tvStandby.text = data.penukaran.replace("-", " - ")
         item.tvMemberList.text = data.member_list_name
         item.rvMember.apply {
             layoutManager = LinearLayoutManager(itemView.context)
