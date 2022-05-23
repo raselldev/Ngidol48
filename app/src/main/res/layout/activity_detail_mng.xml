@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.handshake.DetailHandshakeActivity">
+        <include layout="@layout/layout_toolbar"
+            android:id="@+id/toolbar"/>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:id="@+id/swipe"
+            android:layout_height="match_parent">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_10sdp">
+                        <TextView
+                            android:id="@+id/tv_nama"
+                            style="@style/title12"
+                            android:text="@string/app_name"/>
+                        <TextView
+                            android:id="@+id/tv_tanggal"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/body10"
+                            android:text="-"/>
+                        <TextView
+                            android:id="@+id/tv_tiket_dll"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            android:background="@drawable/background_border_primary"
+                            android:textColor="@color/colorPrimaryTeks"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            style="@style/title12"
+                            android:text="@string/teks_tiket_dan_informasi_lebih_lanjut"/>
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:src="@drawable/ic_session"
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_gravity="center"/>
+                                <TextView
+                                    android:id="@+id/tv_sesi"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_gravity="center"
+                                    style="@style/body10"
+                                    android:text="-"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:src="@drawable/ic_member"
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_gravity="center"/>
+                                <TextView
+                                    android:id="@+id/tv_member"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_gravity="center"
+                                    style="@style/body10"
+                                    android:text="-"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:src="@drawable/ic_tiket"
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_gravity="center"/>
+                                <TextView
+                                    android:id="@+id/tv_tiket"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_gravity="center"
+                                    style="@style/body10"
+                                    android:text="-"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    </LinearLayout>
+</layout>

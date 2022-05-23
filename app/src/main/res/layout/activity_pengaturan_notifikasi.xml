@@ -106,6 +106,32 @@
                         android:orientation="vertical">
                         <TextView
                             style="@style/title12"
+                            android:text="@string/teks_mng_vc"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            style="@style/body10"
+                            android:text="@string/teks_deskripsi_notifikasi_handshake"/>
+                    </LinearLayout>
+                    <Switch
+                        android:id="@+id/switch_mng"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/title12"
                             android:text="@string/teks_showroom"/>
                         <TextView
                             android:layout_marginTop="@dimen/_5sdp"

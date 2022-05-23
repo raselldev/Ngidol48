@@ -26,6 +26,10 @@
         <activity
             android:name=".ui.activity.handshakeMember.HandshakeByMemberActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ui.activity.mng.MngByMemberActivity"
+            android:exported="false" />
         <activity
             android:name="com.arira.ngidol48.ui.activity.addBlog.TambahBlogActivity"
             android:exported="false" />
@@ -87,6 +91,15 @@
             android:exported="false" />
         <activity
             android:name=".ui.activity.handshake.HandshakeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.mng.HistoryMngActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.mng.DetailMngActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.mng.MngActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.viewShowroom.ViewLiveActivity"

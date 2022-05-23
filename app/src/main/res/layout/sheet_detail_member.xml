@@ -198,7 +198,27 @@
                             android:layout_marginStart="@dimen/_10sdp"
                             android:layout_gravity="center"
                             style="@style/title10"
-                            android:text="Lihat Jadwal Handshake/Video Call"/>
+                            android:text="@string/teks_lihat_jadwal_handshake_video_call"/>
+                    </LinearLayout>
+
+                    <!--handshake-->
+                    <LinearLayout
+                        android:id="@+id/lin_mng"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_mng"/>
+
+                        <TextView
+                            android:textColor="@color/colorPrimaryTeks"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            style="@style/title10"
+                            android:text="Jadwal Meet and Great"/>
                     </LinearLayout>
 
                     <!--sosial media-->

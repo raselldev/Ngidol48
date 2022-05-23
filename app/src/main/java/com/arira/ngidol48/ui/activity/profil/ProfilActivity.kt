@@ -113,8 +113,8 @@ class ProfilActivity : BaseActivity() {
                     userData = it.user
 
                     //update ui
-                    binding.tvFavLagu.text = getString(R.string.d_lagu, it.fav_song_count)
-                    binding.tvBlog.text = getString(R.string.d_blog, it.blogs.size)
+                    binding.tvFavLagu.text = it.fav_song_count.toString()
+                    binding.tvBlog.text = it.blogs.size.toString()
                     if(it.blogs.isEmpty()){
                         binding.divBlogKosong.visibility = View.VISIBLE
                     }else{

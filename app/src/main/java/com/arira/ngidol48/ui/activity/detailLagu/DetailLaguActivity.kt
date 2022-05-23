@@ -86,7 +86,7 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
             if (pref.getIsLogin()){
                 if (isLike){
                     isLike = false
-                    binding.ivFav.setImageResource(R.drawable.ic_unfav)
+                    binding.ivFav.setImageResource(R.drawable.ic_fav_outlen)
                     totalLike -= 1
                     favViewModel.remove(currentSong.id)
                 }else{
@@ -170,6 +170,7 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 
         this.currentSong = lagu
         setDataLagu()
+        songDetailViewModel.detail(currentSong.id)
 
         binding.scroll.postDelayed(Runnable {
             binding.scroll.fullScroll(View.FOCUS_UP)
@@ -299,8 +300,8 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
             if (it != null){
                 if (it.listener > 10){
                     binding.tvDidengarkan.visibility = View.VISIBLE
-                    binding.tvDidengarkan.text = getString(R.string.teks_dx_didengarkan, it.listener)
                 }
+                binding.tvDidengarkan.text = getString(R.string.teks_dx_didengarkan, it.listener)
 
                 totalLike = it.size_fav
                 isLike = it.fav
@@ -309,7 +310,7 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
                 if (it.fav){
                     binding.ivFav.setImageResource(R.drawable.ic_fav)
                 }else{
-                    binding.ivFav.setImageResource(R.drawable.ic_unfav)
+                    binding.ivFav.setImageResource(R.drawable.ic_fav_outlen)
                 }
 
             }

@@ -10,6 +10,7 @@ import com.arira.ngidol48.model.Notifikasi
 import com.arira.ngidol48.ui.activity.event.EventActivity
 import com.arira.ngidol48.ui.activity.handshake.HandshakeActivity
 import com.arira.ngidol48.ui.activity.member.MemberActivity
+import com.arira.ngidol48.ui.activity.mng.MngActivity
 import com.arira.ngidol48.ui.activity.news.BeritaActivity
 import com.arira.ngidol48.utilities.Go
 
@@ -19,6 +20,7 @@ class NotifikasiHolder(var item:ItemNotifBinding): RecyclerView.ViewHolder(item.
         item.tvJudul.text = data.title
         item.tvDeskripsi.text = data.message
         item.tvWaktu.text = helper.convert(data.created_at, "yyyy-MM-dd HH:mm:ss", "HH:mm dd MMM yyyy")
+        item.tvType.text = helper.capitalizeString(data.type)
 
         when(data.type){
             "EVENT"-> item.ivThumb.setImageResource(R.drawable.ic_calendar)
@@ -27,6 +29,7 @@ class NotifikasiHolder(var item:ItemNotifBinding): RecyclerView.ViewHolder(item.
             "SHOWROOM"-> item.ivThumb.setImageResource(R.drawable.ic_member)
             "TIKETCOM"-> item.ivThumb.setImageResource(R.drawable.ic_tiket)
             "HANDSHAKE"-> item.ivThumb.setImageResource(R.drawable.ic_videocall)
+            "MNG"-> item.ivThumb.setImageResource(R.drawable.ic_mng)
         }
 
         item.ivThumb.rootView.setOnClickListener {
@@ -37,6 +40,7 @@ class NotifikasiHolder(var item:ItemNotifBinding): RecyclerView.ViewHolder(item.
                     "MEMBER"-> Go(itemView.context).move(MemberActivity::class.java)
                     "SHOWROOM"-> Go(itemView.context).move(MemberActivity::class.java)
                     "HANDSHAKE"-> Go(itemView.context).move(HandshakeActivity::class.java)
+                    "MNG"-> Go(itemView.context).move(MngActivity::class.java)
                     "TIKETCOM"-> {
                         val openURL = Intent(Intent.ACTION_VIEW)
                         openURL.data = Uri.parse("https://www.tiket.com${data.url}")

@@ -253,6 +253,28 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/lin_mng"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+                            <ImageView
+                                android:padding="@dimen/_5sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_mng"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimary"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_gravity="center"
+                                style="@style/title10"
+                                android:textAlignment="center"
+                                android:text="@string/teks_mng_vc"/>
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:id="@+id/lin_blog"
                             android:orientation="vertical"
                             android:layout_width="0dp"
@@ -284,13 +306,7 @@
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
 
-                        </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -304,6 +320,7 @@
 
 
                     </LinearLayout>
+
 
 
                     <LinearLayout

@@ -9,6 +9,11 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 ## Changelog
 
 
+### 2.15.14
+- menu baru meet and greet
+- ui baru untuk halaman profil
+- ui baru untuk item notifikasi
+
 ### 2.14.13
 - favorit song
 - login -> register -> edit profil

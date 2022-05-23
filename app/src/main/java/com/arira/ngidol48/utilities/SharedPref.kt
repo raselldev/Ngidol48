@@ -20,6 +20,7 @@ class SharedPref(context : Context) {
 
     private val notifShowroom = "notifShowroom"
     private val notifNews = "notifNews"
+    private val notifMng = "notifMng"
     private val notifEvent = "notifEvent"
     private val notifHandshake = "notifHandshake"
 
@@ -84,6 +85,14 @@ class SharedPref(context : Context) {
 
     fun setNotifNews(value : Boolean){
         sp.edit().putBoolean(notifNews, value).apply()
+    }
+
+    fun getNotifMng(): Boolean {
+        return sp.getBoolean(notifMng, true)
+    }
+
+    fun setNotifMng(value : Boolean){
+        sp.edit().putBoolean(notifMng, value).apply()
     }
 
     fun getNotifEvent(): Boolean {

@@ -31,6 +31,7 @@ import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.helper.Config.BASE_STORAGE_IMAGE
 import com.arira.ngidol48.helper.Config.TOPIC_EVENT
 import com.arira.ngidol48.helper.Config.TOPIC_HANDSHAKE
+import com.arira.ngidol48.helper.Config.TOPIC_MNG
 import com.arira.ngidol48.helper.Config.TOPIC_NEWS
 import com.arira.ngidol48.helper.Config.TOPIC_SHOWROOM
 import com.arira.ngidol48.helper.SweetAlert
@@ -41,6 +42,7 @@ import com.arira.ngidol48.ui.activity.event.EventActivity
 import com.arira.ngidol48.ui.activity.handshake.HandshakeActivity
 import com.arira.ngidol48.ui.activity.member.MemberActivity
 import com.arira.ngidol48.ui.activity.member.MemberCallback
+import com.arira.ngidol48.ui.activity.mng.MngActivity
 import com.arira.ngidol48.ui.activity.news.BeritaActivity
 import com.arira.ngidol48.ui.activity.notifikasi.NotifikasiActivity
 import com.arira.ngidol48.ui.activity.pengaturan.PengaturanActivity
@@ -268,6 +270,10 @@ class MainActivity : BaseActivity(), MemberCallback {
             Go(this).move(HandshakeActivity::class.java)
         }
 
+        binding.linMng.setOnClickListener {
+            Go(this).move(MngActivity::class.java)
+        }
+
         binding.linSetlist.setOnClickListener {
             Go(this).move(SetlistActivity::class.java)
         }
@@ -344,6 +350,11 @@ class MainActivity : BaseActivity(), MemberCallback {
 
         if (pref.getNotifNews()){
             FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_NEWS).addOnSuccessListener {
+            }
+        }
+
+        if (pref.getNotifMng()){
+            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_MNG).addOnSuccessListener {
             }
         }
 

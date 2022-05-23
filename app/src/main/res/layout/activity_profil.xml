@@ -55,19 +55,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-                            <TextView
-                                android:id="@+id/tv_nama_detail"
-                                style="@style/title12"
-                                android:text="@string/teks_nama_anda"/>
 
-                            <TextView
-                                android:textColor="@color/dark2"
-                                android:id="@+id/tv_gender"
-                                style="@style/body12"
-                                android:text="@string/teks_"/>
 
                             <LinearLayout
-                                android:layout_marginTop="@dimen/_10sdp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
@@ -79,6 +69,7 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
                                     <ImageView
+                                        android:visibility="gone"
                                         android:layout_gravity="left"
                                         android:layout_width="@dimen/_20sdp"
                                         android:layout_height="@dimen/_20sdp"
@@ -88,9 +79,16 @@
                                         android:id="@+id/tv_fav_lagu"
                                         android:layout_marginTop="@dimen/_5sdp"
                                         android:textColor="@color/colorPrimaryTeks"
-                                        android:layout_gravity="left"
+                                        android:layout_gravity="center"
+                                        style="@style/title10"
+                                        android:text="0"/>
+
+                                    <TextView
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:textColor="@color/colorPrimaryTeks"
+                                        android:layout_gravity="center"
                                         style="@style/body10"
-                                        android:text="@string/d_lagu"/>
+                                        android:text="@string/lagu_disukai"/>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -99,18 +97,27 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="vertical">
                                     <ImageView
+                                        android:visibility="gone"
                                         android:layout_gravity="left"
                                         android:layout_width="@dimen/_20sdp"
                                         android:layout_height="@dimen/_20sdp"
                                         android:src="@drawable/ic_blog"/>
 
                                     <TextView
+                                        android:gravity="center"
                                         android:id="@+id/tv_blog"
                                         android:layout_marginTop="@dimen/_5sdp"
                                         android:textColor="@color/colorPrimaryTeks"
-                                        android:layout_gravity="left"
+                                        android:layout_gravity="center"
+                                        style="@style/title10"
+                                        android:text="0"/>
+
+                                    <TextView
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:textColor="@color/colorPrimaryTeks"
+                                        android:layout_gravity="center"
                                         style="@style/body10"
-                                        android:text="@string/d_blog"/>
+                                        android:text="@string/teks_tulisan"/>
                                 </LinearLayout>
                             </LinearLayout>
 
@@ -126,6 +133,19 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/tv_nama_detail"
+                        style="@style/title12"
+                        android:text="@string/teks_nama_anda"/>
+
+                    <TextView
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/dark2"
+                        android:id="@+id/tv_gender"
+                        style="@style/body12"
+                        android:text="@string/teks_"/>
+
+                    <TextView
+                        android:visibility="gone"
                         android:id="@+id/tv_blog_name"
                         android:layout_marginTop="@dimen/_10sdp"
                         style="@style/title12"

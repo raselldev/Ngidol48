@@ -21,6 +21,7 @@ import com.arira.ngidol48.databinding.LayoutToolbarBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.ui.activity.handshakeMember.HandshakeByMemberActivity
+import com.arira.ngidol48.ui.activity.mng.MngByMemberActivity
 import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
@@ -101,6 +102,10 @@ open class BaseActivity : AppCompatActivity() {
 
         bindingSheet.linHandshake.setOnClickListener {
             Go(this).move(HandshakeByMemberActivity::class.java, id = member.id_member)
+        }
+
+        bindingSheet.linMng.setOnClickListener {
+            Go(this).move(MngByMemberActivity::class.java, id = member.id_member)
         }
 
         //media sosial

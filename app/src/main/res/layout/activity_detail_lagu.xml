@@ -97,7 +97,7 @@
                             android:layout_gravity="center"
                             android:layout_width="@dimen/_20sdp"
                             android:layout_height="@dimen/_20sdp"
-                            android:src="@drawable/ic_unfav"/>
+                            android:src="@drawable/ic_fav_outlen"/>
 
                         <TextView
                             android:layout_gravity="center"
@@ -107,8 +107,8 @@
                             android:text="@string/teks_d_suka"/>
                     </LinearLayout>
                 </LinearLayout>
+
                 <TextView
-                    android:visibility="gone"
                     android:layout_marginTop="@dimen/_3sdp"
                     android:id="@+id/tv_didengarkan"
                     style="@style/body10"

@@ -50,7 +50,12 @@ class SongDetailViewModel : ViewModel() {
     }
 
     fun detail(idLagu:String) {
-        subscription = repo.detail(user.id, idLagu)
+        val iduser = if (user.id.isEmpty()){
+            "0"
+        }else{
+            user.id
+        }
+        subscription = repo.detail(iduser, idLagu)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { isLoading.value = true }

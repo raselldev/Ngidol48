@@ -10,6 +10,7 @@ import com.arira.ngidol48.databinding.ActivityPengaturanNotifikasiBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config.TOPIC_EVENT
 import com.arira.ngidol48.helper.Config.TOPIC_HANDSHAKE
+import com.arira.ngidol48.helper.Config.TOPIC_MNG
 import com.arira.ngidol48.helper.Config.TOPIC_NEWS
 import com.arira.ngidol48.helper.Config.TOPIC_SHOWROOM
 import com.arira.ngidol48.utilities.Go
@@ -61,11 +62,20 @@ class PengaturanNotifikasiActivity : BaseActivity() {
                 }
             }
         }
+
+        binding.switchMng.setOnClickListener {
+            pref.setNotifHandshake(binding.switchMng.isChecked)
+            if (!binding.switchMng.isChecked){
+                FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_MNG).addOnSuccessListener {
+                }
+            }
+        }
     }
 
     private fun setData(){
         binding.switchEvent.isChecked = pref.getNotifEvent()
         binding.switchHandshake.isChecked = pref.getNotifHandshake()
+        binding.switchMng.isChecked = pref.getNotifMng()
         binding.switchNews.isChecked = pref.getNotifNews()
         binding.switchShowroom.isChecked = pref.getNotifShowroom()
     }

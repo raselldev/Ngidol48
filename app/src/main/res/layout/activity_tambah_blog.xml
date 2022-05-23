@@ -31,7 +31,18 @@
                         android:orientation="vertical"
                         android:padding="@dimen/_16sdp">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:orientation="vertical">
+                        <TextView
+                            style="@style/body10"
+                            android:layout_height="wrap_content"
+                            android:text="@string/teks_cover" />
+
                         <RelativeLayout
+                            android:layout_marginTop="@dimen/_6sdp"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_100sdp"
                             android:background="@drawable/background_border_abu">
@@ -59,6 +70,8 @@
                                 android:visibility="gone" />
 
                         </RelativeLayout>
+                    </LinearLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
