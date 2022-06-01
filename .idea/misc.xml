@@ -26,6 +26,11 @@
         <entry key="app/src/main/res/drawable/ic_undo.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog_dark.xml" value="0.2388888888888889" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout-land/activity_notifikasi.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout-land/item_ava_member.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout-land/item_member.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout-land/item_slider.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_berita.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/activity_blog.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_cari_lagu.xml" value="0.2116289012398461" />

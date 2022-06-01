@@ -15,141 +15,147 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none">
-            <LinearLayout
+            <ScrollView
+                android:scrollbars="none"
                 android:layout_weight="1"
-                android:padding="@dimen/_10sdp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="0dp">
                 <LinearLayout
-                    android:id="@+id/lin_notifikasi"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
                     <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:id="@+id/lin_notifikasi"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/title12"
-                            android:text="@string/teks_notifikasi"/>
-                        <TextView
-                            android:layout_marginTop="@dimen/_5sdp"
-                            style="@style/body10"
-                            android:text="@string/teks_atur_penerimaan_notifikasi_anda"/>
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                style="@style/title12"
+                                android:text="@string/teks_notifikasi"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_5sdp"
+                                style="@style/body10"
+                                android:text="@string/teks_atur_penerimaan_notifikasi_anda"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_chevron_right_24"/>
                     </LinearLayout>
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:src="@drawable/ic_baseline_chevron_right_24"/>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:id="@+id/lin_saran"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
                     <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:id="@+id/lin_saran"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/title12"
-                            android:text="@string/teks_kendala_dan_masukan"/>
-                        <TextView
-                            android:layout_marginTop="@dimen/_5sdp"
-                            style="@style/body10"
-                            android:text="@string/teks_deskripsi_kendala_masukan"/>
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                style="@style/title12"
+                                android:text="@string/teks_kendala_dan_masukan"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_5sdp"
+                                style="@style/body10"
+                                android:text="@string/teks_deskripsi_kendala_masukan"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_chevron_right_24"/>
                     </LinearLayout>
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:src="@drawable/ic_baseline_chevron_right_24"/>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:id="@+id/lin_privasi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
                     <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:id="@+id/lin_privasi"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/title12"
-                            android:text="@string/teks_kebijakan_privasi"/>
-                        <TextView
-                            android:layout_marginTop="@dimen/_5sdp"
-                            style="@style/body10"
-                            android:text="@string/teks_baca_kebijakan_aplikasi"/>
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                style="@style/title12"
+                                android:text="@string/teks_kebijakan_privasi"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_5sdp"
+                                style="@style/body10"
+                                android:text="@string/teks_baca_kebijakan_aplikasi"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_chevron_right_24"/>
                     </LinearLayout>
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:src="@drawable/ic_baseline_chevron_right_24"/>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:id="@+id/lin_sumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
                     <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:id="@+id/lin_sumber"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/title12"
-                            android:text="@string/teks_sumber_data"/>
-                        <TextView
-                            android:layout_marginTop="@dimen/_5sdp"
-                            style="@style/body10"
-                            android:text="@string/teks_daftar_sumber_data_untuk_aplikasi_dan_hak_cipta"/>
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                style="@style/title12"
+                                android:text="@string/teks_sumber_data"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_5sdp"
+                                style="@style/body10"
+                                android:text="@string/teks_daftar_sumber_data_untuk_aplikasi_dan_hak_cipta"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_baseline_chevron_right_24"/>
                     </LinearLayout>
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:src="@drawable/ic_baseline_chevron_right_24"/>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_marginTop="@dimen/_25sdp"
-                    android:id="@+id/lin_donasi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
                     <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:id="@+id/lin_donasi"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            style="@style/title12"
-                            android:text="@string/teks_donasi"/>
-                        <TextView
-                            android:layout_marginTop="@dimen/_5sdp"
-                            style="@style/body10"
-                            android:text="@string/teks_deskripsi_donasi"/>
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                style="@style/title12"
+                                android:text="@string/teks_donasi"/>
+                            <TextView
+                                android:layout_marginTop="@dimen/_5sdp"
+                                style="@style/body10"
+                                android:text="@string/teks_deskripsi_donasi"/>
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:src="@drawable/ic_flower"/>
                     </LinearLayout>
-                    <ImageView
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:src="@drawable/ic_flower"/>
                 </LinearLayout>
-            </LinearLayout>
+            </ScrollView>
 
             <TextView
                 android:layout_marginRight="@dimen/_10sdp"

@@ -1,5 +1,6 @@
 package com.arira.ngidol48.ui.activity.member
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -96,7 +97,11 @@ class MemberActivity : BaseActivity(), MemberCallback {
 
                     if (it.members.isNotEmpty()){
                         binding.rvData.apply {
-                            layoutManager  = GridLayoutManager(context, 4)
+                            layoutManager = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+                                GridLayoutManager(context, 5)
+                            }else{
+                                GridLayoutManager(context, 4)
+                            }
                             adapter = MemberAdapter(it.members, this@MemberActivity, true)
                         }
                     }else{

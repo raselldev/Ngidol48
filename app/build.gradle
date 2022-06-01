@@ -12,8 +12,8 @@ android {
         applicationId "com.arira.ngidol48"
         minSdk 21
         targetSdk 31
-        versionCode 25
-        versionName "2.15.14"
+        versionCode 26
+        versionName "2.15.16"
         dataBinding.enabled = true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

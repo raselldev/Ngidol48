@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:id="@+id/lin_main_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_ava"
+            app:civ_border_color="@color/pink"
+            app:civ_border_width="@dimen/_1sdp"
+            android:src="@drawable/ic_women"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"/>
+    </LinearLayout>
+</layout>

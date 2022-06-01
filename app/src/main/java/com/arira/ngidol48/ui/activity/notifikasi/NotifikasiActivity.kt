@@ -1,5 +1,6 @@
 package com.arira.ngidol48.ui.activity.notifikasi
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -48,7 +49,12 @@ class NotifikasiActivity : BaseActivity(), NotificationCallback {
 
         adapterKategoriNotifikasi = KategoriNotifikasiAdapter(listkategoriNotifikasi, this)
         binding.rvKategori.apply {
-            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            layoutManager = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+                LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            }else{
+                LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            }
+
             adapter = adapterKategoriNotifikasi
         }
 

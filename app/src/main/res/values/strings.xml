@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Ngidol48</string>
-    <string name="teks_app_versi" translatable="false">versi 2.14.13</string>
+    <string name="teks_app_versi" translatable="false">versi 2.15.16</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -168,7 +168,7 @@
     <string name="teks_s_show">%s Show</string>
     <string name="teks_sumber_data">Sumber Data</string>
     <string name="teks_daftar_sumber_data_untuk_aplikasi_dan_hak_cipta">Daftar sumber data untuk aplikasi dan hak cipta</string>
-    <string name="teks_mng_vc">Personal Meet n Great</string>
+    <string name="teks_mng_vc">Personal Meet n Greet</string>
     <string name="teks_lihat_jadwal_handshake_video_call">Lihat Jadwal Handshake/Video Call</string>
     <string name="teks_cover">Cover</string>
     <string name="lagu_disukai">Lagu Disukai</string>

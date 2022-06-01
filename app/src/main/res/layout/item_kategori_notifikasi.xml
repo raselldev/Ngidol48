@@ -6,6 +6,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
+            android:layout_marginTop="@dimen/_10sdp"
             android:id="@+id/tv_nama"
             android:textColor="@color/colorPrimary"
             android:background="@drawable/background_border_primary"

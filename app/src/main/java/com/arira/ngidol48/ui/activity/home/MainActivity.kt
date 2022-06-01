@@ -1,6 +1,7 @@
 package com.arira.ngidol48.ui.activity.home
 
 import android.annotation.SuppressLint
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -431,7 +432,12 @@ class MainActivity : BaseActivity(), MemberCallback {
                     if (it.bday_member.isNotEmpty()){
                         binding.linBday.visibility = View.VISIBLE
                         binding.rvBday.apply {
-                            layoutManager = GridLayoutManager(context, 4)
+                            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+                                layoutManager = GridLayoutManager(context, 5)
+                            }else{
+                                layoutManager = GridLayoutManager(context, 4)
+                            }
+
                             adapter = MemberAdapter(it.bday_member, this@MainActivity)
                         }
 

@@ -1,6 +1,7 @@
 package com.arira.ngidol48.ui.activity.detailEvent
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -157,7 +158,11 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
                     /*member bday*/
                     if (it.members_bday.isNotEmpty()) {
                         binding.rvBday.apply {
-                            layoutManager = GridLayoutManager(context, 4)
+                            layoutManager = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+                                GridLayoutManager(context, 5)
+                            }else{
+                                GridLayoutManager(context, 4)
+                            }
                             adapter = MemberAdapter(it.members_bday, this@DetailEventActivity)
                         }
                         binding.divBday.visibility = View.VISIBLE

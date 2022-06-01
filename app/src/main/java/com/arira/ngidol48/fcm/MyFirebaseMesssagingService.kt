@@ -86,13 +86,13 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
         }
 
         val channelId = getString(R.string.default_notification_channel_id)
-        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE)
+        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.img_jkt48)
             .setContentTitle(getString(R.string.app_name))
             .setContentText(messageBody)
             .setAutoCancel(true)
-            .setSound(defaultSoundUri)
+//            .setSound(defaultSoundUri)
             .setContentIntent(pendingIntent)
 
         val bitmapImage = getBitmapfromUrl(imageUrl)
@@ -106,19 +106,19 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
 
         val audioAttributes: AudioAttributes = AudioAttributes.Builder()
             .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-            .setUsage(AudioAttributes.USAGE_NOTIFICATION_RINGTONE)
+            .setUsage(AudioAttributes.USAGE_ALARM)
             .build()
         // Since android Oreo notification channel is needed.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 channelId,
                 getString(R.string.app_name),
-                NotificationManager.IMPORTANCE_HIGH
+                NotificationManager.IMPORTANCE_DEFAULT
             )
 
             channel.enableVibration(true)
-            channel.importance = NotificationManager.IMPORTANCE_HIGH
-            channel.setSound(defaultSoundUri, audioAttributes)
+            channel.importance = NotificationManager.IMPORTANCE_DEFAULT
+//            channel.setSound(defaultSoundUri, audioAttributes)
             notificationManager.createNotificationChannel(channel)
         }
 
