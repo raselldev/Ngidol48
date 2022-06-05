@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Ngidol48</string>
-    <string name="teks_app_versi" translatable="false">versi 2.15.16</string>
+    <string name="teks_app_versi" translatable="false">versi 2.16.19</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -20,9 +20,9 @@
     <string name="teks_tidak_ada_data_notifikasi">Tidak ada notifikasi untuk anda</string>
     <string name="teks_tidak_ada_data_blog">Tidak ada blog untuk saat ini</string>
     <string name="teks_tidak_ada_data_handshake">untuk saat ini belum ada handshake/video call  ygy</string>
-    <string name="teks_tidak_ada_data_mng">untuk saat ini belum ada personal meet n great ygy</string>
+    <string name="teks_tidak_ada_data_mng">untuk saat ini belum ada personal meet n greet ygy</string>
     <string name="teks_tidak_ada_data_handshake_riwayat">untuk saat ini belum ada riwayat handshake/video call  ygy</string>
-    <string name="teks_tidak_ada_data_mng_riwayat">untuk saat ini belum ada riwayat personal meet n great  ygy</string>
+    <string name="teks_tidak_ada_data_mng_riwayat">untuk saat ini belum ada riwayat personal meet n greet  ygy</string>
     <string name="teks_periksa_koneksi_coba_beberapa_saat">Periksa koneksi anda atau coba beberapa saat lagi</string>
     <string name="teks_nama_panggilan">Nama Panggilan</string>
     <string name="teks_tanggal_lahir">Tanggal Lahir</string>
@@ -56,7 +56,7 @@
     <string name="notifikasi">Notifikasi</string>
     <string name="teks_member_showroom_live">Member Live at Showroom</string>
     <string name="teks_detail_message_handshake_kosong">Tunggu informasi lebih lanjut untuk event handshake/video kedepan</string>
-    <string name="teks_detail_message_mng_kosong">Tunggu informasi lebih lanjut untuk event personal meet n great kedepan</string>
+    <string name="teks_detail_message_mng_kosong">Tunggu informasi lebih lanjut untuk event personal meet n greet kedepan</string>
     <string name="teks_handshake_vc">Handshake/Video Call</string>
     <string name="teks_riwayat_handshake_vc">Riwayat Handshake/Video Call</string>
     <string name="teks_judul_rating">Bagaimana menurutmu aplikasi PLARIS ?</string>
@@ -81,7 +81,7 @@
     <string name="teks_deskripsi_informasi">Anda akan mendapatkan notifikasi terkait dengan informasi terbaru dari JKT48 Official Team</string>
     <string name="teks_deskripsi_notifikasi_event">Anda akan mendapatkan notifikasi terkait dengan event termasuk dengan penjualan dan pemberitahuan hari H event</string>
     <string name="teks_deskripsi_notifikasi_handshake">Anda akan mendapatkan notifikasi terkait dengan jadwal handshake / video call dan penjualan tiket</string>
-    <string name="teks_deskripsi_notifikasi_mng">Anda akan mendapatkan notifikasi terkait dengan jadwal personal meet and great dan penjualan tiket</string>
+    <string name="teks_deskripsi_notifikasi_mng">Anda akan mendapatkan notifikasi terkait dengan jadwal personal meet and greet dan penjualan tiket</string>
     <string name="teks_deskripsi_notifikasi_showroom">Anda akan mendapatkan notifikasi ketika ada member yang sedang atau memulai live showroom</string>
     <string name="teks_showroom">Live Showroom</string>
     <string name="teks_pengaturan">Pengaturan</string>
@@ -173,6 +173,18 @@
     <string name="teks_cover">Cover</string>
     <string name="lagu_disukai">Lagu Disukai</string>
     <string name="teks_tulisan">Tulisan</string>
+    <string name="teks_kalender_jadwal">Kalender Jadwal</string>
+    <string name="teks_tidak_ada_jadwal_pada_tanggal_s">Tidak ada jadwal pada tanggal %s</string>
+    <string name="teks_buka_jadwal_dalam_halaman_kalender_baru">Buka jadwal dalam halaman kalender baru</string>
+    <string name="teks_atur_sebagai_halaman_baru_untuk_jadwal_jkt48">Atur sebagai halaman baru untuk jadwal JKT48</string>
+    <string name="teks_halaman_jadwal">Halaman Jadwal</string>
+    <string name="teks_atur_kalender_sebagai_halaman_default_untuk_jadwal_di_aplikasi">Atur kalender sebagai halaman default untuk jadwal di aplikasi</string>
+    <string name="teks_jadwal">Jadwal</string>
+    <string name="teks_jumlah_show">Jumlah Show</string>
+    <string name="teks_generasi">Generasi</string>
+    <string name="teks_lihat_detail">Lihat Detail</string>
+    <string name="teks_detail_member">Detail Member</string>
+    <string name="teks_jadwal_perform">Jadwal Perform</string>
 
 
 </resources>

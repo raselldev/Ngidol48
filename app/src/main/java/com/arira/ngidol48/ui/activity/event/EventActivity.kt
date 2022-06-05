@@ -12,17 +12,21 @@ import com.arira.ngidol48.adapter.EventAdapter
 import com.arira.ngidol48.databinding.ActivityEventBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.model.Event
+import com.arira.ngidol48.ui.activity.newKalender.KalenderActivity
+import com.arira.ngidol48.utilities.Go
 
 class EventActivity : BaseActivity() {
     private lateinit var binding: ActivityEventBinding
     private lateinit var viewModel: EventViewModel
     private lateinit var adapterEvent:EventAdapter
     private var listEvent:ArrayList<Event> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_event)
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[EventViewModel::class.java]
         viewModel.context = this
 
@@ -56,6 +60,10 @@ class EventActivity : BaseActivity() {
             viewModel.hitAll()
         }
 
+        binding.linNewCalender.setOnClickListener {
+            Go(this).move(KalenderActivity::class.java)
+        }
+
         binding.svPencarian.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
                 adapterEvent.filter.filter(newText)
@@ -71,18 +79,18 @@ class EventActivity : BaseActivity() {
     }
 
     fun observerData(){
-        viewModel.getLoading().observe(this, {
+        viewModel.getLoading().observe(this) {
             it.let {
-                if (it){
+                if (it) {
                     binding.divKosong.visibility = View.GONE
                     binding.shimmer.visibility = View.VISIBLE
                     binding.shimmer.startShimmer()
-                }else{
+                } else {
                     binding.shimmer.visibility = View.GONE
                     binding.shimmer.stopShimmer()
                 }
             }
-        })
+        }
 
         viewModel.getError().observe(this, Observer {
             it.let {

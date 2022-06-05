@@ -1,7 +1,10 @@
 package com.arira.ngidol48.network
 
 import com.arira.ngidol48.helper.Config
-import com.arira.ngidol48.model.*
+import com.arira.ngidol48.model.Komentar
+import com.arira.ngidol48.model.Report
+import com.arira.ngidol48.model.Song
+import com.arira.ngidol48.model.User
 import com.arira.ngidol48.network.response.*
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -92,6 +95,12 @@ interface ApiServiceServer {
     @Headers(Config.API)
     @GET("event/detail/{id}")
     fun detailEvent(
+        @Path("id") id:String
+    ): Observable<EventResponse>
+
+    @Headers(Config.API)
+    @GET("event/member/{id}")
+    fun detailEventByMember(
         @Path("id") id:String
     ): Observable<EventResponse>
 

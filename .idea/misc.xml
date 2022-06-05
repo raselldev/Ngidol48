@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.23703703703703705" />
+        <entry key="app/src/main/res/drawable-v24/background_color_circle_selector.xml" value="0.154" />
         <entry key="app/src/main/res/drawable/background_accept_invitation.xml" value="0.2064814814814815" />
+        <entry key="app/src/main/res/drawable/background_border.xml" value="0.154" />
         <entry key="app/src/main/res/drawable/background_border_abu.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/background_border_primary.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/drawable/background_shape_abu.xml" value="0.2064814814814815" />
@@ -26,7 +28,7 @@
         <entry key="app/src/main/res/drawable/ic_undo.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog_dark.xml" value="0.2388888888888889" />
-        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout-land/activity_notifikasi.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout-land/item_ava_member.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout-land/item_member.xml" value="0.1984375" />
@@ -38,6 +40,7 @@
         <entry key="app/src/main/res/layout/activity_detail_event.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_detail_handshake.xml" value="0.125" />
         <entry key="app/src/main/res/layout/activity_detail_lagu.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_detail_member.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/activity_detail_mng.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_edit_profil.xml" value="0.14864864864864866" />
         <entry key="app/src/main/res/layout/activity_event.xml" value="0.22916666666666666" />
@@ -45,9 +48,10 @@
         <entry key="app/src/main/res/layout/activity_handshake_by_member.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_history_handshake.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_history_mng.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/activity_kalender.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_lagu.xml" value="0.22671353251318102" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16722972972972974" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_member.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_mng.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_mng_by_member.xml" value="0.16722972972972974" />
@@ -75,6 +79,7 @@
         <entry key="app/src/main/res/layout/item_detail_mng.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/item_event.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/item_event_home.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_event_kalender.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/item_handshake.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_handshake_by_member.xml" value="0.16555183946488294" />
         <entry key="app/src/main/res/layout/item_handshake_member_list.xml" value="0.2578125" />
@@ -103,6 +108,8 @@
         <entry key="app/src/main/res/layout/player_custom.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/sheet_blog_kategori.xml" value="0.15777027027027027" />
         <entry key="app/src/main/res/layout/sheet_detail_member.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/sheet_event.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/sheet_event_kalender.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/sheet_komentar.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/sheet_lagu.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/sheet_menu_blog.xml" value="0.16722972972972974" />
@@ -110,6 +117,17 @@
         <entry key="app/src/main/res/layout/view_showroom.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14895833333333333" />
+        <entry key="calener-libs/src/main/res/drawable-v21/day_item_background.xml" value="0.154" />
+        <entry key="calener-libs/src/main/res/drawable/background_color_circle_selector.xml" value="0.154" />
+        <entry key="calener-libs/src/main/res/drawable/background_shape_primary.xml" value="0.154" />
+        <entry key="calener-libs/src/main/res/drawable/day_item_background.xml" value="0.154" />
+        <entry key="calener-libs/src/main/res/layout/calendar_view.xml" value="0.16722972972972974" />
+        <entry key="calener-libs/src/main/res/layout/calendar_view_day.xml" value="0.165" />
+        <entry key="calener-libs/src/main/res/layout/calendar_view_grid.xml" value="0.16722972972972974" />
+        <entry key="calener-libs/src/main/res/layout/calendar_view_picker_day.xml" value="0.16722972972972974" />
+        <entry key="calener-libs/src/main/res/layout/date_picker_dialog.xml" value="0.16722972972972974" />
+        <entry key="calener-libs/src/main/res/layout/item_event.xml" value="0.16722972972972974" />
+        <entry key="calener-libs/src/main/res/layout/item_event_date.xml" value="0.25" />
       </map>
     </option>
   </component>

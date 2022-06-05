@@ -37,46 +37,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60sdp"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_videocall" />
+                    android:src="@drawable/ic_mng" />
 
                 <TextView
 
-                    android:textAlignment="center"
                     style="@style/title12"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:text="@string/teks_tidak_ada_data_mng" />
+                    android:text="@string/teks_tidak_ada_data_mng"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:textAlignment="center"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
                     style="@style/body10"
                     android:layout_gravity="center"
-                    android:text="@string/teks_detail_message_mng_kosong" />
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:text="@string/teks_detail_message_mng_kosong"
+                    android:textAlignment="center" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/tv_reload"
+                    style="@style/body10"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_15sdp"
                     android:background="@drawable/background_border_abu"
-                    android:textColor="@color/abu_pekat"
                     android:paddingHorizontal="@dimen/_10sdp"
                     android:paddingVertical="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_gravity="center"
-                    style="@style/body10"
-                    android:text="@string/teks_muat_ulang"/>
+                    android:text="@string/teks_muat_ulang"
+                    android:textColor="@color/abu_pekat"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/tv_riwayat"
+                    style="@style/body10"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:background="@drawable/background_border_primary"
                     android:paddingHorizontal="@dimen/_10sdp"
                     android:paddingVertical="@dimen/_5sdp"
-                    android:textColor="@color/colorPrimaryTeks"
                     android:text="@string/teks_lihat_riwayat"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    style="@style/body10"/>
+                    android:textColor="@color/colorPrimaryTeks" />
             </LinearLayout>
         </RelativeLayout>
 

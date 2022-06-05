@@ -12,9 +12,11 @@
             android:id="@+id/swipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -49,9 +51,9 @@
 
                             <RelativeLayout
 
-                                android:layout_marginEnd="@dimen/_10sdp"
                                 android:layout_width="@dimen/_25sdp"
-                                android:layout_height="@dimen/_25sdp">
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_marginEnd="@dimen/_10sdp">
 
                                 <ImageView
                                     android:id="@+id/ic_notification"
@@ -60,19 +62,19 @@
                                     android:src="@drawable/ic_notification_primary" />
 
                                 <RelativeLayout
-                                    android:visibility="gone"
                                     android:id="@+id/div_jml_notif"
                                     android:layout_width="@dimen/_16sdp"
                                     android:layout_height="@dimen/_16sdp"
                                     android:layout_alignParentEnd="true"
-                                    android:background="@drawable/img_circle">
+                                    android:background="@drawable/img_circle"
+                                    android:visibility="gone">
 
                                     <TextView
-                                        style="@style/body8"
                                         android:id="@+id/tv_jml_notif"
+                                        style="@style/body8"
                                         android:layout_centerInParent="true"
                                         android:text="10"
-                                        android:textColor="@color/white"/>
+                                        android:textColor="@color/white" />
 
                                 </RelativeLayout>
 
@@ -80,274 +82,304 @@
                         </LinearLayout>
 
 
-
                     </RelativeLayout>
 
                     <!--SLIDER-->
                     <androidx.viewpager.widget.ViewPager
-                        android:clipToPadding="false"
-                        android:overScrollMode="never"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:id="@+id/slider"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_165sdp"/>
+                        android:layout_height="@dimen/_165sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:clipToPadding="false"
+                        android:overScrollMode="never" />
 
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:id="@+id/lin_user"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
                         android:orientation="horizontal">
+
                         <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_gravity="center"
                             android:id="@+id/iv_avatar_user"
-                            app:civ_border_color="@color/pink"
-                            app:civ_border_width="@dimen/_1sdp"
                             android:layout_width="@dimen/_30sdp"
                             android:layout_height="@dimen/_30sdp"
-                            android:src="@drawable/ic_member"/>
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_member"
+                            app:civ_border_color="@color/pink"
+                            app:civ_border_width="@dimen/_1sdp" />
 
                         <LinearLayout
-                            android:layout_gravity="center"
-                            android:layout_weight="1"
-                             android:layout_width="0dp"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginStart="@dimen/_10sdp">
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <TextView
                                 android:id="@+id/tv_nama"
-                                android:textColor="@color/colorPrimary"
                                 style="@style/title12"
-                                android:text="@string/teks_dummy_halo"/>
+                                android:text="@string/teks_dummy_halo"
+                                android:textColor="@color/colorPrimary" />
+
                             <TextView
                                 android:id="@+id/tv_body_nama"
-                                android:textColor="@color/colorPrimary"
                                 style="@style/body10"
-                                android:text="@string/teks_ucakapan_global"/>
+                                android:text="@string/teks_ucakapan_global"
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
+
                         <ImageView
-                            android:src="@drawable/ic_baseline_chevron_right_24_primary"
                             android:layout_width="@dimen/_30sdp"
-                            android:layout_height="@dimen/_45sdp"/>
+                            android:layout_height="@dimen/_45sdp"
+                            android:src="@drawable/ic_baseline_chevron_right_24_primary" />
                     </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:visibility="gone"
+                        android:id="@+id/card_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10sp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        app:cardCornerRadius="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_gravity="start"
+                            android:id="@+id/iv_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_48sdp" />
+                    </androidx.cardview.widget.CardView>
 
                     <!--MENU-->
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:orientation="horizontal">
+
                         <LinearLayout
                             android:id="@+id/lin_kalender"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
                                 android:padding="@dimen/_5sdp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_calendar"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_40sdp"/>
+                                android:src="@drawable/ic_calendar" />
 
                             <TextView
-                                android:textColor="@color/colorPrimary"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_gravity="center"
                                 style="@style/title10"
-                                android:text="@string/teks_kalender"/>
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="@string/teks_jadwal"
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/lin_all_news"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
                                 android:padding="@dimen/_5sdp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_news"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_40sdp"/>
+                                android:src="@drawable/ic_news" />
 
                             <TextView
-                                android:textColor="@color/colorPrimary"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_gravity="center"
                                 style="@style/title10"
-                                android:text="@string/teks_informasi"/>
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="@string/teks_informasi"
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/lin_setlist"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ImageView
-                                android:padding="@dimen/_5sdp"
-                                android:src="@drawable/ic_playlist"
-                                android:scaleType="centerInside"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/_40sdp"/>
+                                android:layout_height="@dimen/_40sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_playlist" />
 
                             <TextView
-                                android:textColor="@color/colorPrimary"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_gravity="center"
                                 style="@style/title10"
-                                android:text="@string/teks_lagu"/>
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="@string/teks_lagu"
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/lin_member"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
                                 android:padding="@dimen/_5sdp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_member"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_40sdp"/>
+                                android:src="@drawable/ic_member" />
 
                             <TextView
-                                android:textColor="@color/colorPrimary"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_gravity="center"
                                 style="@style/title10"
-                                android:text="@string/teks_member"/>
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="@string/teks_member"
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
 
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:orientation="horizontal">
+
                         <LinearLayout
                             android:id="@+id/lin_handshake"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
                                 android:padding="@dimen/_5sdp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_videocall"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_40sdp"/>
+                                android:src="@drawable/ic_videocall" />
 
                             <TextView
-                                android:textColor="@color/colorPrimary"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_gravity="center"
                                 style="@style/title10"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="@string/teks_handshake_vc"
                                 android:textAlignment="center"
-                                android:text="@string/teks_handshake_vc"/>
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/lin_mng"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
                             <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
                                 android:padding="@dimen/_5sdp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_mng"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_40sdp"/>
+                                android:src="@drawable/ic_mng" />
 
                             <TextView
-                                android:textColor="@color/colorPrimary"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_gravity="center"
                                 style="@style/title10"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="@string/teks_mng_vc"
                                 android:textAlignment="center"
-                                android:text="@string/teks_mng_vc"/>
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/lin_blog"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
                             <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
                                 android:padding="@dimen/_5sdp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_blog"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_40sdp"/>
+                                android:src="@drawable/ic_blog" />
 
                             <TextView
-                                android:textColor="@color/colorPrimary"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_gravity="center"
                                 style="@style/title10"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="@string/teks_blog"
                                 android:textAlignment="center"
-                                android:text="@string/teks_blog"/>
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
 
                         <LinearLayout
-                            android:visibility="gone"
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
                         </LinearLayout>
-
 
 
                         <LinearLayout
-                            android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
                         </LinearLayout>
-
-
 
 
                     </LinearLayout>
 
 
-
                     <LinearLayout
-                        android:visibility="gone"
-                        android:layout_marginStart="@dimen/_15sdp"
                         android:id="@+id/lin_idn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
                         <LinearLayout
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_weight="1"
                             android:orientation="horizontal">
-                            <TextView
-                                android:textColor="@color/colorPrimaryTeks"
 
+                            <TextView
                                 style="@style/title12"
-                                android:text="@string/teks_jkt_live_idn"/>
+
+                                android:text="@string/teks_jkt_live_idn"
+                                android:textColor="@color/colorPrimaryTeks" />
                         </LinearLayout>
+
                         <androidx.cardview.widget.CardView
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="@dimen/_150sdp"
                             android:layout_margin="@dimen/_5sdp"
                             app:cardCornerRadius="@dimen/_8sdp">
+
                             <RelativeLayout
+                                android:id="@+id/div_play_idn"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
 
@@ -358,7 +390,6 @@
                                     android:scaleType="centerCrop" />
 
                                 <RelativeLayout
-                                    android:id="@+id/div_play_idn"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:background="@color/abu1_tipis">
@@ -380,50 +411,57 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <LinearLayout
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_weight="1"
                             android:orientation="horizontal">
+
                             <TextView
-                                android:textColor="@color/colorPrimaryTeks"
-                                android:layout_marginStart="@dimen/_15sdp"
                                 style="@style/title12"
-                                android:text="@string/teks_member_showroom_live"/>
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:text="@string/teks_member_showroom_live"
+                                android:textColor="@color/colorPrimaryTeks" />
+
                             <TextView
                                 android:id="@+id/tv_jml_member"
-                                android:textColor="@color/colorPrimaryTeks"
-                                android:layout_marginStart="@dimen/_5sdp"
                                 style="@style/title12"
-                                android:text=""/>
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:text=""
+                                android:textColor="@color/colorPrimaryTeks" />
                         </LinearLayout>
+
                         <LinearLayout
-                            android:visibility="gone"
                             android:id="@+id/lin_view_kosong_showroom"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
                             <ImageView
-                                android:layout_marginTop="@dimen/_20sdp"
-                                android:layout_gravity="center"
                                 android:layout_width="@dimen/_40sdp"
                                 android:layout_height="@dimen/_40sdp"
-                                android:src="@drawable/ic_calendar"/>
-                            <TextView
-                                android:textAlignment="center"
                                 android:layout_gravity="center"
-                                android:textColor="@color/colorPrimaryTeks"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:src="@drawable/ic_calendar" />
+
+                            <TextView
                                 style="@style/body10"
+                                android:layout_gravity="center"
                                 android:layout_marginTop="@dimen/_15sdp"
-                                android:text="@string/teks_showroom_kosong"/>
+                                android:text="@string/teks_showroom_kosong"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimaryTeks" />
                         </LinearLayout>
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_showroom"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginHorizontal="@dimen/_15sdp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_5sdp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -431,39 +469,44 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
-                            android:textColor="@color/colorPrimaryTeks"
-                            android:layout_weight="1"
+                            style="@style/title12"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_marginTop="@dimen/_20sdp"
-                            style="@style/title12"
-                            android:text="@string/teks_event_hari_ini"/>
+                            android:layout_weight="1"
+                            android:text="@string/teks_event_hari_ini"
+                            android:textColor="@color/colorPrimaryTeks" />
+
                         <LinearLayout
-                            android:visibility="gone"
                             android:id="@+id/lin_view_kosong_event"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
                             <ImageView
-                                android:layout_marginTop="@dimen/_20sdp"
-                                android:layout_gravity="center"
                                 android:layout_width="@dimen/_40sdp"
                                 android:layout_height="@dimen/_40sdp"
-                                android:src="@drawable/ic_calendar"/>
-                            <TextView
-                                android:textAlignment="center"
                                 android:layout_gravity="center"
-                                android:textColor="@color/colorPrimaryTeks"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:src="@drawable/ic_calendar" />
+
+                            <TextView
                                 style="@style/body10"
+                                android:layout_gravity="center"
                                 android:layout_marginTop="@dimen/_15sdp"
-                                android:text="@string/teks_event_kosong"/>
+                                android:text="@string/teks_event_kosong"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimaryTeks" />
                         </LinearLayout>
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_event"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginHorizontal="@dimen/_15sdp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_5sdp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -471,66 +514,69 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <TextView
-                            android:textColor="@color/colorPrimaryTeks"
-                            android:layout_weight="1"
+                            style="@style/title12"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_marginTop="@dimen/_20sdp"
-                            style="@style/title12"
-                            android:text="@string/teks_member_ulangtahun"/>
+                            android:layout_weight="1"
+                            android:text="@string/teks_member_ulangtahun"
+                            android:textColor="@color/colorPrimaryTeks" />
+
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/rv_bday"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:layout_marginHorizontal="@dimen/_15sdp"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_5sdp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:textColor="@color/colorPrimaryTeks"
-                            android:layout_weight="1"
+                            style="@style/title14"
                             android:layout_marginStart="@dimen/_15sdp"
                             android:layout_marginTop="@dimen/_20sdp"
-                            style="@style/title14"
-                            android:text="@string/teks_informasi"/>
+                            android:layout_weight="1"
+                            android:text="@string/teks_informasi"
+                            android:textColor="@color/colorPrimaryTeks" />
 
                         <TextView
                             android:id="@+id/iv_semua_berita"
-                            android:layout_marginEnd="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_20sdp"
                             style="@style/title10"
-                            android:textColor="@color/colorPrimary"
-                            android:text="@string/teks_lihat_semua"/>
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:text="@string/teks_lihat_semua"
+                            android:textColor="@color/colorPrimary" />
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_berita"
-                        android:layout_marginTop="@dimen/_10sdp"
                         android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginHorizontal="@dimen/_20sdp"
-                        android:layout_height="match_parent"/>
+                        android:layout_marginTop="@dimen/_10sdp" />
 
                     <TextView
-                        android:visibility="gone"
-                        android:textAlignment="center"
+                        style="@style/body10"
+                        android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_20sdp"
-                        android:layout_gravity="center"
                         android:autoLink="web"
-                        style="@style/body10"
-                        android:text="@string/sumber_jkt48_com_n_semua_hak_cipta_milik_jkt_48_atau_pemilik_aset_asliknya"/>
+                        android:text="@string/sumber_jkt48_com_n_semua_hak_cipta_milik_jkt_48_atau_pemilik_aset_asliknya"
+                        android:textAlignment="center"
+                        android:visibility="gone" />
 
                     <TextView
-                        android:layout_marginBottom="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:textAlignment="center"
-                        android:layout_gravity="center"
-                        android:autoLink="web"
                         style="@style/body10"
-                        android:text="@string/teks_app_versi"/>
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:autoLink="web"
+                        android:text="@string/teks_app_versi"
+                        android:textAlignment="center" />
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>

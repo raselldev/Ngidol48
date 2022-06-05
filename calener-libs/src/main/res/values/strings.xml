@@ -1,0 +1,38 @@
+<resources>
+    <string name="material_calendar_monday">Sen</string>
+    <string name="material_calendar_tuesday">Sel</string>
+    <string name="material_calendar_wednesday">Rab</string>
+    <string name="material_calendar_thursday">Kam</string>
+    <string name="material_calendar_friday">Jum</string>
+    <string name="material_calendar_saturday">Sab</string>
+    <string name="material_calendar_sunday">Min</string>
+
+    <array name="material_calendar_day_abbreviations_array">
+        <item>@string/material_calendar_sunday</item>
+        <item>@string/material_calendar_monday</item>
+        <item>@string/material_calendar_tuesday</item>
+        <item>@string/material_calendar_wednesday</item>
+        <item>@string/material_calendar_thursday</item>
+        <item>@string/material_calendar_friday</item>
+        <item>@string/material_calendar_saturday</item>
+    </array>
+
+    <array name="material_calendar_months_array">
+        <item>Januari</item>
+        <item>Februari</item>
+        <item>Maret</item>
+        <item>April</item>
+        <item>Mei</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>Agustus</item>
+        <item>September</item>
+        <item>Ocktober</item>
+        <item>November</item>
+        <item>Desember</item>
+    </array>
+
+    <string name="material_calendar_today_button">Today</string>
+    <string name="material_calendar_positive_button">OK</string>
+    <string name="material_calendar_negative_button">Cancel</string>
+</resources>

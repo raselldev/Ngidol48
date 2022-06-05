@@ -18,23 +18,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:name=".ui.activity.detailMember.DetailMemberActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.newKalender.KalenderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.reportBlog.ReportBlogActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.activity.ViewImageActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.handshakeMember.HandshakeByMemberActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.activity.mng.MngByMemberActivity"
             android:exported="false" />
         <activity
-            android:name="com.arira.ngidol48.ui.activity.addBlog.TambahBlogActivity"
+            android:name=".ui.activity.addBlog.TambahBlogActivity"
             android:exported="false" />
         <activity
-            android:name="com.arira.ngidol48.ui.activity.detailBlog.DetailBlogActivity"
+            android:name=".ui.activity.detailBlog.DetailBlogActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -42,14 +47,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="ngidol"
-                    android:host="apiidol.arira.my.id"/>
-                <!--                <data-->
-                <!--                    android:host="apiidol.arira.my.id"-->
-                <!--                    android:scheme="https"-->
-                <!--                    android:path="/app/share" />-->
+                <data
+                    android:host="apiidol.arira.my.id"
+                    android:scheme="ngidol" />
+                <!-- <data -->
+                <!-- android:host="apiidol.arira.my.id" -->
+                <!-- android:scheme="https" -->
+                <!-- android:path="/app/share" /> -->
             </intent-filter>
-
         </activity>
         <activity
             android:name=".ui.activity.profil.EditProfilActivity"
@@ -61,7 +66,7 @@
             android:name=".ui.activity.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="com.arira.ngidol48.ui.activity.allBlog.BlogActivity"
+            android:name=".ui.activity.allBlog.BlogActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.pengaturan.PengaturanNotifikasiActivity"
@@ -70,13 +75,12 @@
             android:name=".ui.activity.pengaturan.PengaturanActivity"
             android:exported="false" />
         <activity
-            android:name="com.arira.ngidol48.ui.activity.cariLagu.CariLaguActivity"
+            android:name=".ui.activity.cariLagu.CariLaguActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -112,16 +116,16 @@
             android:name=".ui.activity.news.BeritaActivity"
             android:exported="false" />
         <activity
-            android:name="com.arira.ngidol48.ui.activity.detailEvent.DetailEventActivity"
+            android:name=".ui.activity.detailEvent.DetailEventActivity"
             android:exported="false" />
         <activity
-            android:name="com.arira.ngidol48.ui.activity.event.EventActivity"
+            android:name=".ui.activity.event.EventActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.lagu.LaguActivity"
             android:exported="false" />
         <activity
-            android:name="com.arira.ngidol48.ui.activity.detailLagu.DetailLaguActivity"
+            android:name=".ui.activity.detailLagu.DetailLaguActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.setlist.SetlistActivity"

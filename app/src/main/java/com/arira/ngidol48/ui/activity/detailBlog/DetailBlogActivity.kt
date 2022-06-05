@@ -80,8 +80,7 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
                 id = appLinkData.lastPathSegment.toString().toInt()
                 blog.id = id.toString()
 
-                detailBlogViewModel.hitDetail(blog.id)
-            }catch (e:NumberFormatException){
+             }catch (e:NumberFormatException){
                 toast.show(getString(R.string.teks_data_tidak_valid), this)
                 Go(this).move(MainActivity::class.java, clearPrevious = true)
             }
@@ -89,6 +88,9 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
         }else{
             blog = intent.getParcelableExtra(extra_model) ?: Blog()
         }
+        detailBlogViewModel.hitDetail(blog.id)
+
+
 
         adapterKomentar = KomentarAdapter(listKomentar, this)
 

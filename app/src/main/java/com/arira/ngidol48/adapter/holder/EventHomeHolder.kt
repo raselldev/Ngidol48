@@ -86,10 +86,14 @@ class EventHomeHolder(var item:ItemEventHomeBinding): RecyclerView.ViewHolder(it
             item.tvTanggal.text = "${data.event_time}, ${data.tanggal} ${data.bulan_tahun}"
         }
 
-        if (data.member_perform != "0"){
-            item.linMember.visibility = View.VISIBLE
-        }else{
+        if(data.member_perform.isEmpty()){
             item.linMember.visibility = View.GONE
+        }else{
+            if (data.member_perform != "0"){
+                item.linMember.visibility = View.VISIBLE
+            } else{
+                item.linMember.visibility = View.GONE
+            }
         }
 
 

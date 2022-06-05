@@ -24,6 +24,8 @@ class SharedPref(context : Context) {
     private val notifEvent = "notifEvent"
     private val notifHandshake = "notifHandshake"
 
+    private val calenderNewView = "calenderNewView"
+
     private val token = "token"
     private val users = "users"
 
@@ -56,7 +58,7 @@ class SharedPref(context : Context) {
     }
 
     fun getOnReview(): Boolean {
-        return sp.getBoolean(onReview, false)
+        return sp.getBoolean(onReview, true)
     }
 
     fun setOpenApp(value : Int){
@@ -69,6 +71,14 @@ class SharedPref(context : Context) {
 
     fun getIsLogin(): Boolean {
         return sp.getBoolean(isLogin, false)
+    }
+
+    fun getNewCalender(): Boolean {
+        return sp.getBoolean(calenderNewView, false)
+    }
+
+    fun setNewCalender(value : Boolean){
+        sp.edit().putBoolean(calenderNewView, value).apply()
     }
 
     fun getNotifShowroom(): Boolean {

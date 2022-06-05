@@ -12,21 +12,18 @@ import android.os.Build
 import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
-import java.text.SimpleDateFormat
-import java.util.*
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
 import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.LayoutToolbarBinding
 import com.arira.ngidol48.databinding.SheetDetailMemberBinding
 import com.arira.ngidol48.model.Member
-import com.arira.ngidol48.ui.activity.handshakeMember.HandshakeByMemberActivity
-import com.arira.ngidol48.ui.activity.mng.MngByMemberActivity
-import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
+import com.arira.ngidol48.ui.activity.detailMember.DetailMemberActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 open class BaseActivity : AppCompatActivity() {
@@ -74,12 +71,6 @@ open class BaseActivity : AppCompatActivity() {
 
         bottomSheetDialog.setContentView(bindingSheet.root)
 
-
-        bindingSheet.tvTinggil.text = member.tinggi_badan
-        bindingSheet.tvTanggalLahir.text = member.tanggal_lahir
-        bindingSheet.tvGolDarah.text = member.gol_darah
-        bindingSheet.tvHoroskop.text = member.horoskop
-        bindingSheet.tvPanggilan.text = member.nama_panggilan
         bindingSheet.tvTeam.text = member.kategori
         bindingSheet.tvNama.text = member.nama_lengkap
         bindingSheet.tvShow.text = getString(R.string.teks_s_show, member.showtime)
@@ -100,62 +91,11 @@ open class BaseActivity : AppCompatActivity() {
             bindingSheet.tvJiko.visibility = View.GONE
         }
 
-        bindingSheet.linHandshake.setOnClickListener {
-            Go(this).move(HandshakeByMemberActivity::class.java, id = member.id_member)
+        bindingSheet.btnDetail.setOnClickListener {
+            bottomSheetDialog.dismiss()
+            Go(this).move(DetailMemberActivity::class.java, data = member)
         }
 
-        bindingSheet.linMng.setOnClickListener {
-            Go(this).move(MngByMemberActivity::class.java, id = member.id_member)
-        }
-
-        //media sosial
-        val showMedia = member.media_instagram.isNotEmpty()
-
-        if (showMedia){
-            bindingSheet.linMedia.visibility = View.VISIBLE
-            bindingSheet.tvInstagram.text = "${member.media_instagram}"
-            bindingSheet.tvTiktok.text = "${member.media_tiktok}"
-            bindingSheet.tvTwitter.text = "${member.media_twitter}"
-
-            bindingSheet.linInstagram.setOnClickListener {
-                launchInsta(member.media_instagram)
-            }
-
-            bindingSheet.linTiktok.setOnClickListener {
-                openTikTokProfile(member.media_tiktok)
-            }
-
-            bindingSheet.linTwitter.setOnClickListener {
-                openTwitter(member.media_twitter)
-            }
-        }else{
-            bindingSheet.linMedia.visibility = View.GONE
-        }
-
-        if(member.media_showroom.isNotEmpty()){
-            bindingSheet.tvShowroom.visibility = View.VISIBLE
-            bindingSheet.tvShowroom.setOnClickListener {
-                startActivity(
-                    Intent(
-                        Intent.ACTION_VIEW,
-                        Uri.parse(member.media_showroom)
-                    )
-                )
-            }
-        }else{
-            bindingSheet.tvShowroom.visibility = View.GONE
-        }
-
-        //fanbase
-        if (member.fanbase_name.isNotEmpty()){
-            bindingSheet.linFans.visibility = View.VISIBLE
-            bindingSheet.tvFanbase.text = member.fanbase_name
-            bindingSheet.tvFanbaseVisit.setOnClickListener {
-                Go(this).move(MyWebActivity::class.java, url = member.fanbase_page)
-            }
-        }else{
-            bindingSheet.linFans.visibility = View.GONE
-        }
 
         bottomSheetDialog.show()
     }

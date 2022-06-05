@@ -10,6 +10,27 @@
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
+        <LinearLayout
+            android:id="@+id/lin_new_calender"
+            android:padding="@dimen/_10sdp"
+            android:background="@color/pink_transparan_40"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimaryTeks"
+                style="@style/body10"
+                android:text="@string/teks_buka_jadwal_dalam_halaman_kalender_baru"/>
+            <ImageView
+                android:src="@drawable/ic_baseline_chevron_right_24_primary"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"/>
+
+        </LinearLayout>
+
         <com.facebook.shimmer.ShimmerFrameLayout
             android:id="@+id/shimmer"
             android:layout_width="match_parent"

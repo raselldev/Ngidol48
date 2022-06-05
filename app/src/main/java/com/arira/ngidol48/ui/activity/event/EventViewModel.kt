@@ -1,6 +1,7 @@
 package com.arira.ngidol48.ui.activity.event
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -64,7 +65,7 @@ class EventViewModel : ViewModel() {
                 },
                 { error ->
                     try{
-
+                        Log.e("EROR", "e : ${error.message}")
                         when {
                             error.message!!.contains("Failed to connect", true) -> {
                                 errorMsg.value = context?.getString(R.string.teks_tidak_dapat_tehubung_ke_server)

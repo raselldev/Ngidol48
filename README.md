@@ -8,6 +8,10 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 
 ## Changelog
 
+### 2.16.19
+- new ui for profil
+- add banner on home screen
+- new feature : kalender
 
 ### 2.15.14
 - menu baru meet and greet
@@ -59,14 +63,6 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 - menonton video showroom di aplikasi [Ngidol48](https://play.google.com/store/apps/details?id=com.arira.ngidol48) tanpa komentar, Gift ataupun interaksi lainnya
 
 
-## Fitur
-- Informasi Terbaru
-- Event
-- Setlist/Album beserta lagu dan liriknya
-- Cari Setlist/Album dengan kata kunci lirik, judul atau nama album
-- Daftar member beserta informasi sosial media dan fanbase
-- Notifikasi bila ada update dari official JKT48
-
 
 ### Terimakasih juga untuk library yang di gunakan
 - [Retrofit](https://github.com/square/retrofit)
@@ -82,3 +78,4 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 - [lottie](https://github.com/airbnb/lottie-android)
 - [Sweet Alert Dialog](https://github.com/Chimsy/SweetAlert)
 - [ExoPlayer](https://github.com/google/ExoPlayer)
+- Kalender hasil modifikasi dari [Material-Calendar-View](https://github.com/Applandeo/Material-Calendar-View)

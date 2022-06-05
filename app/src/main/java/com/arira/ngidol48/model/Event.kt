@@ -15,6 +15,7 @@ class Event() :Serializable, Parcelable {
     var bulan_tahun:String = ""
     var member_perform:String = "0"
     var cover:String? = null
+    var listEventName:ArrayList<String> = ArrayList()
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString() ?: ""

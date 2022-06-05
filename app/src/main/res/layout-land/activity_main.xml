@@ -83,6 +83,22 @@
 
                     </RelativeLayout>
 
+                    <androidx.cardview.widget.CardView
+                        android:visibility="gone"
+                        android:id="@+id/card_banner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10sp"
+                        android:layout_marginVertical="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_8sdp">
+
+                        <ImageView
+                            android:layout_gravity="start"
+                            android:id="@+id/iv_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_48sdp" />
+                    </androidx.cardview.widget.CardView>
+
                     <LinearLayout
                         android:layout_marginTop="@dimen/_10sdp"
                         android:id="@+id/lin_user"
@@ -266,6 +282,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:visibility="gone"
                             android:id="@+id/lin_blog"
                             android:orientation="vertical"
                             android:layout_width="0dp"

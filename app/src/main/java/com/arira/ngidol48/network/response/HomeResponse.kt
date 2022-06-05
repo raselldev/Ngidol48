@@ -17,6 +17,8 @@ class HomeResponse : Serializable {
     var notifikasi_hari_ini:Int = 0
     var for_review:Int = 0
     var app_version:Int = 0
+    var show_banner:String = "0"
+    var banner:Banner = Banner()
 
 
 }

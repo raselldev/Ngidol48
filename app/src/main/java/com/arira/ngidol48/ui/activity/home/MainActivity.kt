@@ -1,7 +1,9 @@
 package com.arira.ngidol48.ui.activity.home
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -36,6 +38,7 @@ import com.arira.ngidol48.helper.Config.TOPIC_MNG
 import com.arira.ngidol48.helper.Config.TOPIC_NEWS
 import com.arira.ngidol48.helper.Config.TOPIC_SHOWROOM
 import com.arira.ngidol48.helper.SweetAlert
+import com.arira.ngidol48.model.Banner
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Slider
 import com.arira.ngidol48.ui.activity.allBlog.BlogActivity
@@ -44,6 +47,7 @@ import com.arira.ngidol48.ui.activity.handshake.HandshakeActivity
 import com.arira.ngidol48.ui.activity.member.MemberActivity
 import com.arira.ngidol48.ui.activity.member.MemberCallback
 import com.arira.ngidol48.ui.activity.mng.MngActivity
+import com.arira.ngidol48.ui.activity.newKalender.KalenderActivity
 import com.arira.ngidol48.ui.activity.news.BeritaActivity
 import com.arira.ngidol48.ui.activity.notifikasi.NotifikasiActivity
 import com.arira.ngidol48.ui.activity.pengaturan.PengaturanActivity
@@ -52,6 +56,7 @@ import com.arira.ngidol48.ui.activity.setlist.SetlistActivity
 import com.arira.ngidol48.ui.activity.viewShowroom.ViewLiveActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.play.core.review.ReviewInfo
 import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
@@ -71,6 +76,7 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     private var selectedBdMember:Member = Member()
     private var idnLiveStreamURL:String = ""
+    private var bannerData:Banner = Banner()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -125,6 +131,12 @@ class MainActivity : BaseActivity(), MemberCallback {
             }
         }else{
             binding.linUser.visibility = View.GONE
+        }
+
+        if (pref.getOnReview()){
+            binding.linBlog.visibility = View.GONE
+        }else{
+            binding.linBlog.visibility = View.VISIBLE
         }
     }
 
@@ -235,6 +247,14 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     private fun action(){
 
+        binding.ivBanner?.setOnClickListener {
+            if (bannerData.value.isNotEmpty()){
+                val openURL = Intent(Intent.ACTION_VIEW)
+                openURL.data = Uri.parse(bannerData.value)
+                startActivity(openURL)
+            }
+        }
+
         binding.divPlayIdn.setOnClickListener {
             Go(this).move(ViewLiveActivity::class.java, url = idnLiveStreamURL, choose = false)
         }
@@ -280,7 +300,12 @@ class MainActivity : BaseActivity(), MemberCallback {
         }
 
         binding.linKalender.setOnClickListener {
-            Go(this).move(EventActivity::class.java)
+            if (pref.getNewCalender()){
+                Go(this).move(KalenderActivity::class.java)
+            }else{
+                Go(this).move(EventActivity::class.java)
+            }
+
         }
 
         binding.ivSemuaBerita.setOnClickListener {
@@ -345,9 +370,6 @@ class MainActivity : BaseActivity(), MemberCallback {
     }
 
     private  fun subcribeAll(){
-//        FirebaseMessaging.getInstance().subscribeToTopic("handshake_test").addOnSuccessListener {
-//            Log.e("SUCCESS", "handshake_test")
-//         }
 
         if (pref.getNotifNews()){
             FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_NEWS).addOnSuccessListener {
@@ -403,25 +425,42 @@ class MainActivity : BaseActivity(), MemberCallback {
         viewModel.getResponse().observe(this, Observer {
             it.let {
                 if (it != null) {
+                    /*show slider data*/
                     setSlider(it.slider)
+
+                    /*show banner data*/
+                    Log.e("D", "sjoe ${it.show_banner}")
+                    if(it.show_banner == "1"){
+                        bannerData = it.banner
+                        binding.ivBanner.let { it1 ->
+                            Glide.with(this).load(it.banner.image)
+                                .diskCacheStrategy(DiskCacheStrategy.DATA)
+                                .into(
+                                    it1
+                                )
+                        }
+                        binding.cardBanner?.visibility = View.VISIBLE
+                    }else{
+                        binding.cardBanner?.visibility = View.GONE
+                    }
 
                     //idnlive
                     val idn = it.idn
                     if(idn.status == "live"){
                         binding.linIdn.visibility = View.VISIBLE
                         Glide.with(this).load(idn.image_url).into(binding.ivThumbIdn)
-                        binding.divPlayIdn.setOnClickListener {
-                            idnLiveStreamURL = idn.playback_url
-                        }
+                        idnLiveStreamURL = idn.playback_url
                     }else{
                         binding.linIdn.visibility = View.GONE
                     }
 
+                    /*show informasi*/
                     binding.rvBerita.apply {
                         layoutManager = LinearLayoutManager(context)
                         adapter = BeritaAdapter(it.news)
                     }
 
+                    /*show size notificaiton todae*/
                     if (it.notifikasi_hari_ini > 0){
                         binding.divJmlNotif.visibility = View.VISIBLE
                         binding.tvJmlNotif.text = it.notifikasi_hari_ini.toString()
@@ -429,6 +468,7 @@ class MainActivity : BaseActivity(), MemberCallback {
                         binding.divJmlNotif.visibility = View.GONE
                     }
 
+                    /*birthday member*/
                     if (it.bday_member.isNotEmpty()){
                         binding.linBday.visibility = View.VISIBLE
                         binding.rvBday.apply {
@@ -456,6 +496,7 @@ class MainActivity : BaseActivity(), MemberCallback {
                         binding.linBday.visibility = View.GONE
                     }
 
+                    /*event today*/
                     if(it.event.isEmpty()){
                         binding.linViewKosongEvent.visibility = View.VISIBLE
                     }else{
@@ -466,6 +507,7 @@ class MainActivity : BaseActivity(), MemberCallback {
                         }
                     }
 
+                    /*show showroom member online*/
                     if(it.live_showroom.isEmpty()){
                         binding.linShowroom.visibility = View.GONE
                     }else{
@@ -475,6 +517,13 @@ class MainActivity : BaseActivity(), MemberCallback {
                             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
                             adapter = ShowroomAdapter(it.live_showroom)
                         }
+                    }
+
+                    /*show blog menu*/
+                    if (pref.getOnReview()){
+                        binding.linBlog.visibility = View.GONE
+                    }else{
+                        binding.linBlog.visibility = View.VISIBLE
                     }
 
                 }
@@ -489,7 +538,6 @@ class MainActivity : BaseActivity(), MemberCallback {
             binding.slider.adapter = adapter
 
             /*auto sliding*/
-            val timerSlider: Timer
             val DELAY_MS: Long = 5000
             val PERIOD_MS: Long = 10000
 
@@ -497,19 +545,19 @@ class MainActivity : BaseActivity(), MemberCallback {
 
             /*After setting the adapter use the timer */
             val handler = Handler(Looper.myLooper()!!)
-            val Update = Runnable {
+            val update = Runnable {
                 if (currentPage == adapter.count) {
                     currentPage = 0
                 }
                 binding.slider.setCurrentItem(currentPage++, true)
             }
 
-            timerSlider = Timer() // This will create a new Thread
+            val timerSlider = Timer() // This will create a new Thread
 
             timerSlider.schedule(object : TimerTask() {
                 // task to be scheduled
                 override fun run() {
-                    handler.post(Update)
+                    handler.post(update)
                 }
             }, DELAY_MS, PERIOD_MS)
             /*selesai auto sliding*/
