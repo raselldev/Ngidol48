@@ -8,6 +8,10 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 
 ## Changelog
 
+### 2.16.20
+- fixing SimpleDateFormat in other language
+- fixing dark mode in calenderview
+
 ### 2.16.19
 - new ui for profil
 - add banner on home screen

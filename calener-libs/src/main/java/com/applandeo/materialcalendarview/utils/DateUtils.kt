@@ -70,7 +70,7 @@ fun Calendar?.isMonthAfter(secondCalendar: Calendar) = secondCalendar.isMonthBef
 
 /**
  * This method returns a string containing a month's name and a year (in number).
- * It's used instead of new SimpleDateFormat("MMMM yyyy", Locale.getDefault()).format([Date]);
+ * It's used instead of new SimpleDateFormat("MMMM yyyy", Locale("id")).format([Date]);
  * because that method returns a month's name in incorrect form in some languages (i.e. in Polish)
  *
  * @param this A Calendar object containing date which will be formatted

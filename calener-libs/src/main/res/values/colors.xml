@@ -5,10 +5,17 @@
     <color name="nextMonthDayColor">#1F000000</color>
     <color name="disabledDialogButtonColor">#1F000000</color>
 
+    <color name="currentMonthDayColorDark">#DEFFFFFF</color>
+    <color name="nextMonthDayColorDark">#C9CACACA</color>
+
     <color name="itemHighlightColor">#1F000000</color>
     <color name="itemFocusedColor">#1A000000</color>
 
     <color name="colorPrimary">#ff005f</color>
 
     <color name="defaultColor">#ff005f</color>
+
+    <color name="backgroundDark">#131415</color>
+    <color name="backgroundWhite">#FFFFFF</color>
+
 </resources>

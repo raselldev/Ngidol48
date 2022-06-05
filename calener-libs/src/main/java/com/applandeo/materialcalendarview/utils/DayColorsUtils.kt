@@ -73,10 +73,10 @@ fun setSelectedDayColors(dayLabel: TextView, calendar: Calendar, calendarPropert
  * @param dayLabel           TextView containing a day number
  * @param calendarProperties A resource of a color used to mark today day
  */
-fun setCurrentMonthDayColors(calendar: Calendar, dayLabel: TextView?, calendarProperties: CalendarProperties) {
+fun setCurrentMonthDayColors(calendar: Calendar, dayLabel: TextView?, calendarProperties: CalendarProperties, isDark:Boolean = false) {
     if (dayLabel == null) return
 
-    setNormalDayColors(calendar, dayLabel, calendarProperties)
+    setNormalDayColors(calendar, dayLabel, calendarProperties, isDark)
 
     if (calendar.isToday) {
         setTodayColors(calendar, dayLabel, calendarProperties)
@@ -138,11 +138,15 @@ private fun setHighlightedDayColors(dayLabel: TextView, calendarProperties: Cale
     dayLabel.setDayColors(textColor = calendarProperties.highlightedDaysLabelsColor)
 }
 
-private fun setNormalDayColors(calendar: Calendar, dayLabel: TextView, calendarProperties: CalendarProperties) {
+private fun setNormalDayColors(calendar: Calendar, dayLabel: TextView, calendarProperties: CalendarProperties, isDark:Boolean) {
     val calendarDay = calendarProperties.findDayProperties(calendar)
 
-    val labelColor = calendarDay?.getLabelColor(dayLabel.context)
-            ?: calendarProperties.daysLabelsColor
+    val labelColor = if (isDark){
+        calendarDay?.getLabelColor(dayLabel.context) ?: calendarProperties.daysLabelsColorDark
+    }else{
+        calendarDay?.getLabelColor(dayLabel.context) ?: calendarProperties.daysLabelsColor
+    }
+
 
     val calendarDayBackgroundRes = calendarDay?.backgroundResource
     val calendarDayBackgroundDrawable = calendarDay?.backgroundDrawable

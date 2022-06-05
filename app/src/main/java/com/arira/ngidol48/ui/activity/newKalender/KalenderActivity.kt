@@ -5,12 +5,11 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.applandeo.materialcalendarview.EventDay
 import com.applandeo.materialcalendarview.utils.DayClick
 import com.arira.ngidol48.R
-import com.arira.ngidol48.adapter.EventAdapter
 import com.arira.ngidol48.adapter.EventKalenderAdapter
 import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityKalenderBinding
@@ -27,7 +26,6 @@ import java.util.*
 class KalenderActivity : BaseActivity(), DayClick{
     lateinit var binding: ActivityKalenderBinding
     private lateinit var viewModel: EventViewModel
-    private lateinit var adapterEvent: EventAdapter
     private var listEvent:ArrayList<Event> = ArrayList()
     private var newListEvent:ArrayList<Event> = ArrayList()
 
@@ -50,7 +48,7 @@ class KalenderActivity : BaseActivity(), DayClick{
         dialog.setContentView(sheetBinding.root)
         sheetBinding.tvJudul.text = "Jadwal ${tanggal} ${bulan}"
         sheetBinding.rvData.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, true)
             adapter = EventKalenderAdapter(list)
         }
         dialog.show()
@@ -64,13 +62,6 @@ class KalenderActivity : BaseActivity(), DayClick{
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[EventViewModel::class.java]
         viewModel.context = this
-
-        adapterEvent = EventAdapter(listEvent)
-
-        binding.rvData.apply {
-            layoutManager  = GridLayoutManager(context, 2)
-            adapter = adapterEvent
-        }
 
         action()
         observerData()
@@ -113,7 +104,8 @@ class KalenderActivity : BaseActivity(), DayClick{
         val events: ArrayList<EventDay> = ArrayList()
         for (event in newListEvent){
             val calendar1 = Calendar.getInstance()
-            val newSdf = SimpleDateFormat("dd MMM yyyy")
+            val newSdf = SimpleDateFormat("dd MMM yyyy", Locale("id"))
+
             calendar1.time = newSdf.parse("${event.tanggal} ${event.bulan_tahun}")
 
             if (event.listEventName.isNotEmpty()){
@@ -144,6 +136,7 @@ class KalenderActivity : BaseActivity(), DayClick{
         /*set events*/
         binding.kalender.setEvents(events)
     }
+
 
     fun action(){
         binding.switchChangeToMain.setOnClickListener {
@@ -178,7 +171,6 @@ class KalenderActivity : BaseActivity(), DayClick{
                     if (it.events.isNotEmpty()){
                         listEvent.clear()
                         listEvent.addAll(it.events)
-//                        adapterEvent.notifyDataSetChanged()
 
 
                         loadToKalender()

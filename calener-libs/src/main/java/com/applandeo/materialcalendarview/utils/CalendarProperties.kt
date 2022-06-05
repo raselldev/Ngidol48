@@ -53,6 +53,12 @@ class CalendarProperties(private val context: Context) {
     var highlightedDaysLabelsColor: Int = 0
         get() = if (field == 0) context.parseColor(R.color.nextMonthDayColor) else field
 
+    var disabledDaysLabelsColorDark: Int = 0
+        get() = if (field == 0) context.parseColor(R.color.nextMonthDayColorDark) else field
+
+    var highlightedDaysLabelsColorDark: Int = 0
+        get() = if (field == 0) context.parseColor(R.color.nextMonthDayColorDark) else field
+
     var pagesColor: Int = 0
 
     var abbreviationsBarColor: Int = 0
@@ -64,11 +70,17 @@ class CalendarProperties(private val context: Context) {
     var daysLabelsColor: Int = 0
         get() = if (field == 0) context.parseColor(R.color.currentMonthDayColor) else field
 
+    var daysLabelsColorDark: Int = 0
+        get() = if (field == 0) context.parseColor(R.color.currentMonthDayColorDark) else field
+
     var selectionLabelColor: Int = 0
         get() = if (field == 0) context.parseColor(android.R.color.white) else field
 
     var anotherMonthsDaysLabelsColor: Int = 0
         get() = if (field == 0) context.parseColor(R.color.nextMonthDayColor) else field
+
+    var anotherMonthsDaysLabelsColorDark: Int = 0
+        get() = if (field == 0) context.parseColor(R.color.nextMonthDayColorDark) else field
 
     var headerVisibility: Int = View.VISIBLE
 

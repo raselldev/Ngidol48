@@ -29,7 +29,8 @@ class CalendarDayAdapter(
         private val calendarPageAdapter: CalendarPageAdapter,
         private val calendarProperties: CalendarProperties,
         dates: MutableList<Date>,
-        pageMonth: Int
+        pageMonth: Int,
+        private val isDark:Boolean
 ) : ArrayAdapter<Date>(context, calendarProperties.itemLayoutResource, dates) {
 
     private val pageMonth = if (pageMonth < 0) 11 else pageMonth
@@ -65,7 +66,12 @@ class CalendarDayAdapter(
         when {
             // Setting not current month day color
             !day.isCurrentMonthDay() && !calendarProperties.selectionBetweenMonthsEnabled ->
-                dayLabel.setDayColors(calendarProperties.anotherMonthsDaysLabelsColor)
+                if (isDark){
+                    dayLabel.setDayColors(calendarProperties.anotherMonthsDaysLabelsColorDark)
+                }else{
+                    dayLabel.setDayColors(calendarProperties.anotherMonthsDaysLabelsColor)
+                }
+
 
             // Setting view for all SelectedDays
             day.isSelectedDay() -> {
@@ -86,10 +92,10 @@ class CalendarDayAdapter(
             !day.isActiveDay() -> dayLabel.setDayColors(calendarProperties.disabledDaysLabelsColor)
 
             // Setting custom label color for event day
-            day.isEventDayWithLabelColor() -> setCurrentMonthDayColors(day, dayLabel, calendarProperties)
+            day.isEventDayWithLabelColor() -> setCurrentMonthDayColors(day, dayLabel, calendarProperties, isDark)
 
             // Setting current month day color
-            else -> setCurrentMonthDayColors(day, dayLabel, calendarProperties)
+            else -> setCurrentMonthDayColors(day, dayLabel, calendarProperties, isDark)
         }
     }
 

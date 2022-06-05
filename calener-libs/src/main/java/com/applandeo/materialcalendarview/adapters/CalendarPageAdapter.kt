@@ -21,7 +21,8 @@ import java.util.*
  */
 class CalendarPageAdapter(
         private val context: Context,
-        private val calendarProperties: CalendarProperties
+        private val calendarProperties: CalendarProperties,
+        private val isDark:Boolean
 ) : PagerAdapter() {
 
     private lateinit var calendarGridView: CalendarGridView
@@ -119,7 +120,8 @@ class CalendarPageAdapter(
         }
 
         pageMonth = calendar.get(Calendar.MONTH) - 1
-        val calendarDayAdapter = CalendarDayAdapter(context, this, calendarProperties, days, pageMonth)
+
+        val calendarDayAdapter = CalendarDayAdapter(context, this, calendarProperties, days, pageMonth, isDark)
 
         informDatePicker()
         calendarGridView.adapter = calendarDayAdapter

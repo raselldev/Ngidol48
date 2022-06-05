@@ -141,7 +141,7 @@ object Helper {
 
         //        final String formatBaru = "dd MMMM yyyy, hh:mm";
         val formatLama = "yyyy-MM-dd kk:mm:ss"
-        val dateFormat = SimpleDateFormat(formatLama)
+        val dateFormat = SimpleDateFormat(formatLama, Locale("id"))
 
         if (date.isNotEmpty()
         ) {
@@ -198,7 +198,7 @@ object Helper {
     fun convert(date: String, from: String, to: String): String {
         var hasil = ""
 
-        val dateFormat = SimpleDateFormat(from)
+        val dateFormat = SimpleDateFormat(from,Locale("id"))
 
         if (date.isEmpty()){
             return date
@@ -221,7 +221,7 @@ object Helper {
 
         val formatBaru = " HH:mm, dd MMMM yyyy"
         val formatLama = "yyyy-MM-dd HH:mm:ss.SSS"
-        val dateFormat = SimpleDateFormat(formatLama)
+        val dateFormat = SimpleDateFormat(formatLama, Locale("id"))
 
         if (date != null){
             try {
@@ -237,7 +237,7 @@ object Helper {
 
     fun getIntervalSecond(awal:String, akhir:String): Long {
         val formatLama = "yyyy-MM-dd HH:mm:ss"
-        val dateFormat = SimpleDateFormat(formatLama, Locale.getDefault())
+        val dateFormat = SimpleDateFormat(formatLama, Locale("id"))
         val dateAwal = dateFormat.parse(awal)
         val dateAkhir = dateFormat.parse(akhir)
 
@@ -250,7 +250,7 @@ object Helper {
 
     fun getIntervalMinutes(awal:String, akhir:String): Long {
         val formatLama = "yyyy-MM-dd HH:mm:ss"
-        val dateFormat = SimpleDateFormat(formatLama, Locale.getDefault())
+        val dateFormat = SimpleDateFormat(formatLama, Locale("id"))
         val dateAwal = dateFormat.parse(awal)
         val dateAkhir = dateFormat.parse(akhir)
 
@@ -263,7 +263,7 @@ object Helper {
 
     fun getIntervalHours(awal:String, akhir:String): Long {
         val formatLama = "yyyy-MM-dd HH:mm:ss"
-        val dateFormat = SimpleDateFormat(formatLama, Locale.getDefault())
+        val dateFormat = SimpleDateFormat(formatLama, Locale("id"))
         val dateAwal = dateFormat.parse(awal)
         val dateAkhir = dateFormat.parse(akhir)
 
@@ -277,7 +277,7 @@ object Helper {
 
     fun getIntervalDays(awal:String, akhir:String): Long {
         val formatLama = "yyyy-MM-dd HH:mm:ss"
-        val dateFormat = SimpleDateFormat(formatLama, Locale.getDefault())
+        val dateFormat = SimpleDateFormat(formatLama, Locale("id"))
         val dateAwal = dateFormat.parse(awal)
         val dateAkhir = dateFormat.parse(akhir)
 
@@ -291,7 +291,7 @@ object Helper {
     }
 
     fun getCurrentHour():String{
-        val sdf = SimpleDateFormat("HH", Locale.getDefault())
+        val sdf = SimpleDateFormat("HH", Locale("id"))
         return sdf.format(Date())
     }
 
@@ -310,17 +310,17 @@ object Helper {
     }
 
     fun getCurrentDateTime():String{
-        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale("id"))
         return sdf.format(Date())
     }
 
     fun getCurrentTime():String{
-        val sdf = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+        val sdf = SimpleDateFormat("HH:mm:ss", Locale("id"))
         return sdf.format(Date())
     }
 
     fun getCurrentDate():String{
-        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale("id"))
         return sdf.format(Date())
     }
 

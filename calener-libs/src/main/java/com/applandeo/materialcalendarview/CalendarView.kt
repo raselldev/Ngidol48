@@ -1,6 +1,7 @@
 package com.applandeo.materialcalendarview
 
 import android.content.Context
+import android.content.res.Configuration
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
@@ -214,7 +215,18 @@ class CalendarView @JvmOverloads constructor(
     }
 
     private fun initCalendar() {
-        calendarPageAdapter = CalendarPageAdapter(context, calendarProperties)
+        when (resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                calendarPageAdapter = CalendarPageAdapter(context, calendarProperties, true)
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                calendarPageAdapter = CalendarPageAdapter(context, calendarProperties, false)
+            }
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                calendarPageAdapter = CalendarPageAdapter(context, calendarProperties, false)
+            }
+        }
+
 
         calendarViewPager.adapter = calendarPageAdapter
         calendarViewPager.onCalendarPageChangedListener(::renderHeader)

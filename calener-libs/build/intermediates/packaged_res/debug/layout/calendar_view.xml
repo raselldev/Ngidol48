@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
     android:orientation="vertical">
 
     <!-- date toolbar -->
@@ -62,8 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/material_calendar_monday"
-            android:textColor="@color/daysLabelColor" />
+            android:text="@string/material_calendar_monday" />
 
         <TextView
             android:id="@+id/tuesdayLabel"
@@ -71,8 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/material_calendar_tuesday"
-            android:textColor="@color/daysLabelColor" />
+            android:text="@string/material_calendar_tuesday" />
 
         <TextView
             android:id="@+id/wednesdayLabel"
@@ -80,8 +77,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/material_calendar_wednesday"
-            android:textColor="@color/daysLabelColor" />
+            android:text="@string/material_calendar_wednesday" />
 
         <TextView
             android:id="@+id/thursdayLabel"
@@ -89,8 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/material_calendar_thursday"
-            android:textColor="@color/daysLabelColor" />
+            android:text="@string/material_calendar_thursday" />
 
         <TextView
             android:id="@+id/fridayLabel"
@@ -98,8 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/material_calendar_friday"
-            android:textColor="@color/daysLabelColor" />
+            android:text="@string/material_calendar_friday" />
 
         <TextView
             android:id="@+id/saturdayLabel"
@@ -107,8 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/material_calendar_saturday"
-            android:textColor="@color/daysLabelColor" />
+            android:text="@string/material_calendar_saturday" />
 
         <TextView
             android:id="@+id/sundayLabel"
@@ -116,8 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/material_calendar_sunday"
-            android:textColor="@color/daysLabelColor" />
+            android:text="@string/material_calendar_sunday" />
     </LinearLayout>
 
     <ScrollView
