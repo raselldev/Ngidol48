@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:name=".ui.activity.ShowroomReplayActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.detailMember.DetailMemberActivity"
             android:exported="false" />
         <activity

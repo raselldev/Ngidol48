@@ -50,35 +50,46 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
             myWebView.loadUrl(link)
             myWebView.settings.javaScriptEnabled = true
             myWebView.settings.useWideViewPort = true
-            myWebView.getSettings().setJavaScriptEnabled(true) //for wa web
+            myWebView.settings.setJavaScriptEnabled(true) //for wa web
 
-            myWebView.getSettings().setAllowContentAccess(true) // for camera
+            myWebView.settings.allowContentAccess = true // for camera
 
-            myWebView.getSettings().setAllowFileAccess(true)
-            myWebView.getSettings().setAllowFileAccessFromFileURLs(true)
-            myWebView.getSettings().setAllowUniversalAccessFromFileURLs(true)
-            myWebView.getSettings().setSaveFormData(true)
-            myWebView.getSettings().setLoadsImagesAutomatically(true)
-            myWebView.getSettings().setBlockNetworkImage(false)
-            myWebView.getSettings().setBlockNetworkLoads(false)
-            myWebView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true)
-            myWebView.getSettings().setNeedInitialFocus(false)
-            myWebView.getSettings().setGeolocationEnabled(true)
-            myWebView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN)
+            myWebView.settings.setAllowFileAccess(true)
+            myWebView.settings.setAllowFileAccessFromFileURLs(true)
+            myWebView.settings.setAllowUniversalAccessFromFileURLs(true)
+            myWebView.settings.setSaveFormData(true)
+            myWebView.settings.setLoadsImagesAutomatically(true)
+            myWebView.settings.setBlockNetworkImage(false)
+            myWebView.settings.setBlockNetworkLoads(false)
+            myWebView.settings.setJavaScriptCanOpenWindowsAutomatically(true)
+            myWebView.settings.setNeedInitialFocus(false)
+            myWebView.settings.setGeolocationEnabled(true)
+            myWebView.settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN)
 
 
-            myWebView.getSettings().setDomStorageEnabled(true) //for html5 app
+            myWebView.settings.setDomStorageEnabled(true) //for html5 app
 
-            myWebView.getSettings().setDatabaseEnabled(true)
+            myWebView.settings.setDatabaseEnabled(true)
+            myWebView.settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK)
 
 
 //            myWebView.settings.userAgentString = CHROME_FULL
 
-            myWebView.webViewClient = WebViewClient()
+//            myWebView.webViewClient = WebViewClient()
+
+            myWebView.webViewClient = object :  WebViewClient() {
+                override fun onPageFinished(view: WebView?, url: String?) {
+                    super.onPageFinished(view, url)
+                    CookieManager.getInstance().setAcceptCookie(true)
+                    CookieManager.getInstance().acceptCookie()
+                    CookieManager.getInstance().flush()
+                }
+            }
 
             root = myWebView
 
-            myWebView.setWebChromeClient(object : WebChromeClient() {
+            myWebView.webChromeClient = object : WebChromeClient() {
+
 
                 override fun onPermissionRequest(request: PermissionRequest?) {
                     super.onPermissionRequest(request)
@@ -95,9 +106,9 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
                     return true
                 }
 
-            })
+            }
 
-            myWebView.setWebViewClient(object : WebViewClient() {
+            myWebView.webViewClient = object : WebViewClient() {
 
 
                 override fun onReceivedError(
@@ -121,10 +132,10 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
                         true
                     }
                 }
-            })
+            }
         }
 
-//        myWebView.getSettings().setUserAgentString(CHROME_FULL)
+//        myWebView.settings.setUserAgentString(CHROME_FULL)
 
         return root
     }
@@ -195,20 +206,18 @@ class MyWebFragment(var link: String, var title: String) : BaseFragment() {
 
     private fun showSnackbar(msg: String) {
         activity.let {
-            if (it != null) {
-                it.runOnUiThread(Runnable {
-                    val snackbar = Snackbar.make(
-                        it.findViewById<View>(android.R.id.content),
-                        msg,
-                        900
-                    )
-                    snackbar.setAction(
-                        "dismiss"
-                    ) { view: View? -> snackbar.dismiss() }
-                    snackbar.setActionTextColor(Color.parseColor("#075E54"))
-                    snackbar.show()
-                })
-            }
+            it?.runOnUiThread(Runnable {
+                val snackbar = Snackbar.make(
+                    it.findViewById<View>(android.R.id.content),
+                    msg,
+                    900
+                )
+                snackbar.setAction(
+                    "dismiss"
+                ) { view: View? -> snackbar.dismiss() }
+                snackbar.setActionTextColor(Color.parseColor("#075E54"))
+                snackbar.show()
+            })
         }
 
     }

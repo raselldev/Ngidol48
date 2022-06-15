@@ -62,6 +62,10 @@ import com.google.android.play.core.review.ReviewManager
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.google.android.play.core.tasks.Task
 import com.google.firebase.messaging.FirebaseMessaging
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import io.reactivex.annotations.NonNull
 import java.util.*
 
 
@@ -77,6 +81,8 @@ class MainActivity : BaseActivity(), MemberCallback {
     private var selectedBdMember:Member = Member()
     private var idnLiveStreamURL:String = ""
     private var bannerData:Banner = Banner()
+
+    private var mYouTubePlayer: YouTubePlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,6 +124,10 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     override fun onResume() {
         super.onResume()
+
+        if (mYouTubePlayer != null){
+            mYouTubePlayer!!.pause()
+        }
 
         if(pref.getIsLogin()){
             val user = pref.getUser()
@@ -425,9 +435,6 @@ class MainActivity : BaseActivity(), MemberCallback {
         viewModel.getResponse().observe(this, Observer {
             it.let {
                 if (it != null) {
-                    /*show slider data*/
-                    setSlider(it.slider)
-
                     /*show banner data*/
                     Log.e("D", "sjoe ${it.show_banner}")
                     if(it.show_banner == "1"){
@@ -519,11 +526,34 @@ class MainActivity : BaseActivity(), MemberCallback {
                         }
                     }
 
+                    if(it.sr_today.isEmpty()){
+                        binding.linShowroomHistory?.visibility = View.GONE
+                    }else{
+                        binding.tvJmlMemberHistory?.text = "( ${it.sr_today.size} Replay )"
+                        binding.linShowroomHistory?.visibility = View.VISIBLE
+                        binding.rvShowroomHistory?.apply {
+                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                            adapter = HistoryShowroomAdapter(it.sr_today)
+                        }
+                    }
+
                     /*show blog menu*/
                     if (pref.getOnReview()){
                         binding.linBlog.visibility = View.GONE
                     }else{
                         binding.linBlog.visibility = View.VISIBLE
+                    }
+
+                    //show special video replay slider
+                    if (it.show_special_video == "1"){
+                        binding.embedYt?.visibility = View.VISIBLE
+                        binding.slider.visibility = View.GONE
+                        setDataVideo(it.special_video.videoId)
+                    }else{
+                        binding.embedYt?.visibility = View.GONE
+                        binding.slider.visibility = View.VISIBLE
+                        /*show slider data*/
+                        setSlider(it.slider)
                     }
 
                 }
@@ -564,4 +594,70 @@ class MainActivity : BaseActivity(), MemberCallback {
 
         }
     }
+
+    private fun setDataVideo(videoId:String){
+        binding.viewGroup.keepScreenOn = true
+        if (videoId.isNotEmpty()) {
+
+            binding.embedYt?.visibility = View.VISIBLE
+
+            binding.embedYt?.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+
+                override fun onReady(@NonNull youTubePlayer: YouTubePlayer) {
+                    mYouTubePlayer = youTubePlayer
+
+                    youTubePlayer.loadVideo(videoId, 0f)
+                }
+
+                override fun onStateChange(youTubePlayer: YouTubePlayer, state: PlayerConstants.PlayerState) {
+                    //PLAYING , PAUSED, ENDED, BUFFERING
+                    Log.e("STATUS", "state. ${state}")
+                    when(state.toString()){
+                        "PLAYING"->{
+//                            pref.setSong(lagu)
+//                            try{
+//                                ContextCompat.startForegroundService(
+//                                    applicationContext,
+//                                    Intent(applicationContext, MediaSessionService::class.java)
+//                                )
+//                            }catch (e:RuntimeException){
+//
+//                            }catch (e:RuntimeException){
+//
+//                            }catch (e:RemoteException){
+//
+//                            }
+
+                        }
+                        "ENDED"->{
+                        }
+                        else->{
+//                            try{
+//                                stopService(Intent(applicationContext, MediaSessionService::class.java))
+//                            }catch (e:RuntimeException){
+//
+//                            }catch (e:RuntimeException){
+//
+//                            }catch (e:RemoteException){
+//
+//                            }
+
+                        }
+                    }
+                }
+            })
+            binding.embedYt?.getPlayerUiController()?.showFullscreenButton(false)
+
+        } else {
+            binding.embedYt?.visibility = View.GONE
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (mYouTubePlayer != null){
+            mYouTubePlayer!!.pause()
+        }
+    }
+
 }

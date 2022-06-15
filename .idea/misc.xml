@@ -62,6 +62,7 @@
         <entry key="app/src/main/res/layout/activity_profil.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_report_blog.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_setlist.xml" value="0.24322916666666666" />
+        <entry key="app/src/main/res/layout/activity_showroom_replay.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_tambah_blog.xml" value="0.15777027027027027" />
         <entry key="app/src/main/res/layout/activity_view_image.xml" value="0.16722972972972974" />
@@ -84,6 +85,7 @@
         <entry key="app/src/main/res/layout/item_handshake_by_member.xml" value="0.16555183946488294" />
         <entry key="app/src/main/res/layout/item_handshake_member_list.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_handshake_member_list_2.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/item_history_showroom.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/item_kategori_blog.xml" value="0.15618729096989967" />
         <entry key="app/src/main/res/layout/item_kategori_notifikasi.xml" value="0.16555183946488294" />
         <entry key="app/src/main/res/layout/item_komentar.xml" value="0.16722972972972974" />

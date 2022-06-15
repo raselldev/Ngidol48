@@ -411,6 +411,8 @@ int color accent_material_dark 0x0
 int color accent_material_light 0x0
 int color androidx_core_ripple_material_light 0x0
 int color androidx_core_secondary_text_default_material_light 0x0
+int color backgroundDark 0x0
+int color backgroundWhite 0x0
 int color background_floating_material_dark 0x0
 int color background_floating_material_light 0x0
 int color background_material_dark 0x0
@@ -425,6 +427,7 @@ int color button_material_dark 0x0
 int color button_material_light 0x0
 int color colorPrimary 0x0
 int color currentMonthDayColor 0x0
+int color currentMonthDayColorDark 0x0
 int color day_item_background_state_color 0x0
 int color daysLabelColor 0x0
 int color defaultColor 0x0
@@ -454,6 +457,7 @@ int color material_grey_800 0x0
 int color material_grey_850 0x0
 int color material_grey_900 0x0
 int color nextMonthDayColor 0x0
+int color nextMonthDayColorDark 0x0
 int color notification_action_color_filter 0x0
 int color notification_icon_bg_color 0x0
 int color primary_dark_material_dark 0x0

@@ -338,6 +338,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_250sdp"/>
 
+                    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                        android:id="@+id/embed_yt"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
 
                     <LinearLayout
                         android:visibility="gone"
@@ -440,6 +446,41 @@
                             android:layout_marginHorizontal="@dimen/_15sdp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lin_showroom_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/title12"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:text="@string/teks_riwayat_showroom_harini"
+                                android:textColor="@color/colorPrimaryTeks" />
+
+                            <TextView
+                                android:id="@+id/tv_jml_member_history"
+                                style="@style/title12"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:text=""
+                                android:textColor="@color/colorPrimaryTeks" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_showroom_history"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_5sdp" />
                     </LinearLayout>
 
                     <LinearLayout

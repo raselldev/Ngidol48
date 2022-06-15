@@ -8,6 +8,12 @@ Download Play Store : https://play.google.com/store/apps/details?id=com.arira.ng
 
 ## Changelog
 
+
+### 2.17.21
+- special video at home
+- fixing webview
+- new menu for showrrom replay
+
 ### 2.16.20
 - fixing SimpleDateFormat in other language
 - fixing dark mode in calenderview

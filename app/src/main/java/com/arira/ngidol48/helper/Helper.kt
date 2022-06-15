@@ -163,7 +163,7 @@ object Helper {
 
         //        final String formatBaru = "dd MMMM yyyy, hh:mm";
         val formatLama = "kk:mm:ss"
-        val dateFormat = SimpleDateFormat(formatLama)
+        val dateFormat = SimpleDateFormat(formatLama,Locale("id"))
 
         if (date.isNotEmpty()
         ) {
@@ -181,7 +181,7 @@ object Helper {
 
 
     fun waktulalu(tanggalFeed: String): String {
-        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale("id"))
         var time: Long = 0
         try {
             time = sdf.parse(tanggalFeed)!!.time

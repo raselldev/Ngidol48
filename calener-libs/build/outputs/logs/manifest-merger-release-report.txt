@@ -1,14 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:1-57
-INJECTED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:1-57
-INJECTED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:1-57
+ADDED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:1-3:12
+INJECTED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:1-3:12
+INJECTED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:1-3:12
 	package
 		ADDED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:11-55
 		INJECTED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml
 		INJECTED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:1-57
+		ADDED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml:1:1-3:12
 uses-sdk
 INJECTED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/macbook/AndroidStudioProjects/Ngidol48/calener-libs/src/main/AndroidManifest.xml
