@@ -1,11 +1,9 @@
 package com.arira.ngidol48.ui.activity.pengaturan
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.arira.ngidol48.R
 import com.arira.ngidol48.app.App.Companion.pref
-import com.arira.ngidol48.databinding.ActivityPengaturanBinding
 import com.arira.ngidol48.databinding.ActivityPengaturanNotifikasiBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config.TOPIC_EVENT
@@ -13,7 +11,6 @@ import com.arira.ngidol48.helper.Config.TOPIC_HANDSHAKE
 import com.arira.ngidol48.helper.Config.TOPIC_MNG
 import com.arira.ngidol48.helper.Config.TOPIC_NEWS
 import com.arira.ngidol48.helper.Config.TOPIC_SHOWROOM
-import com.arira.ngidol48.utilities.Go
 import com.google.firebase.messaging.FirebaseMessaging
 
 class PengaturanNotifikasiActivity : BaseActivity() {
@@ -64,7 +61,7 @@ class PengaturanNotifikasiActivity : BaseActivity() {
         }
 
         binding.switchMng.setOnClickListener {
-            pref.setNotifHandshake(binding.switchMng.isChecked)
+            pref.setNotifMng(binding.switchMng.isChecked)
             if (!binding.switchMng.isChecked){
                 FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_MNG).addOnSuccessListener {
                 }

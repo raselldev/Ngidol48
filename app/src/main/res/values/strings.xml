@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Ngidol48</string>
-    <string name="teks_app_versi" translatable="false">versi 2.17.21</string>
+    <string name="teks_app_versi" translatable="false">versi 2.17.22</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>

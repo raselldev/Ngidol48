@@ -75,7 +75,7 @@ class MyWebActivity : BaseActivity() {
         myWebView.settings.useWideViewPort = true
 
         myWebView.settings.allowContentAccess = true // for camera
-
+        myWebView.settings.setSupportZoom(true)
         myWebView.settings.setAllowFileAccess(true)
         myWebView.settings.setAllowFileAccessFromFileURLs(true)
         myWebView.settings.setAllowUniversalAccessFromFileURLs(true)

@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
+import android.webkit.CookieManager
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -92,6 +93,8 @@ class MainActivity : BaseActivity(), MemberCallback {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
         viewModel.context = this
 
+        getCookie("https://jkt48.com", "test")
+
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
             R.color.colorPrimary,
@@ -120,6 +123,22 @@ class MainActivity : BaseActivity(), MemberCallback {
             Log.e("RATE", "show rate")
             showRateApp()
         }
+    }
+
+    fun getCookie(siteName: String?, cookieName: String?): String? {
+        var CookieValue: String? = null
+        val cookieManager: CookieManager = CookieManager.getInstance()
+        val cookies: String = cookieManager.getCookie(siteName)
+        Log.e("COOCKIES", "tes t: ${cookies}")
+        val temp = cookies.split(";".toRegex()).toTypedArray()
+        for (ar1 in temp) {
+            if (ar1.contains(cookieName!!)) {
+                val temp1 = ar1.split("=".toRegex()).toTypedArray()
+                CookieValue = temp1[1]
+                break
+            }
+        }
+        return CookieValue
     }
 
     override fun onResume() {
