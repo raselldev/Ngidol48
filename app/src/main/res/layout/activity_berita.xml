@@ -69,7 +69,7 @@
             android:layout_height="match_parent"
             android:id="@+id/swipe">
             <androidx.recyclerview.widget.RecyclerView
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:id="@+id/rv_data"

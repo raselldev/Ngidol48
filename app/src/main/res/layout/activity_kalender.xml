@@ -13,7 +13,7 @@
 
         <LinearLayout
             android:id="@+id/lin_new_calender"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_15sdp"
             android:background="@color/pink_transparan_40"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

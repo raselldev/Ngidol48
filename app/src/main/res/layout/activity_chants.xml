@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.chants.ChantsActivity">
+
+        <include layout="@layout/layout_toolbar"
+            android:id="@+id/toolbar"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <androidx.cardview.widget.CardView
+                        android:layout_weight="1"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_5sdp"
+                        android:layout_marginHorizontal="@dimen/_15sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <androidx.appcompat.widget.SearchView
+                                app:defaultQueryHint="@string/teks_cari_judul"
+                                app:searchIcon="@drawable/ic_baseline_search_24"
+                                app:iconifiedByDefault="false"
+                                app:queryHint="@string/teks_cari_judul"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/sv_pencarian"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+
+                </LinearLayout>
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    app:shimmer_duration="300">
+
+                    <include layout="@layout/placeholder_lagu" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/div_kosong"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+                        <ImageView
+                            android:id="@+id/img_"
+                            android:src="@drawable/ic_playlist"
+                            android:layout_gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_60sdp"/>
+
+                        <TextView
+                            android:textAlignment="center"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_gravity="center"
+                            style="@style/title12"
+                            android:text="@string/teks_tidak_ada_data_chant_tersedia"/>
+
+                        <TextView
+
+                            android:layout_gravity="center"
+                            style="@style/body10"
+                            android:text="@string/teks_periksa_koneksi_coba_beberapa_saat"/>
+
+                        <TextView
+                            android:id="@+id/tv_reload"
+                            android:background="@drawable/background_border_abu"
+                            android:textColor="@color/abu_pekat"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:layout_gravity="center"
+                            style="@style/body10"
+                            android:text="@string/teks_muat_ulang"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:layout_marginHorizontal="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/swipe">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:id="@+id/rv_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

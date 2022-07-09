@@ -12,7 +12,6 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
-import android.webkit.CookieManager
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -43,6 +42,7 @@ import com.arira.ngidol48.model.Banner
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Slider
 import com.arira.ngidol48.ui.activity.allBlog.BlogActivity
+import com.arira.ngidol48.ui.activity.chants.ChantsActivity
 import com.arira.ngidol48.ui.activity.event.EventActivity
 import com.arira.ngidol48.ui.activity.handshake.HandshakeActivity
 import com.arira.ngidol48.ui.activity.member.MemberActivity
@@ -93,7 +93,6 @@ class MainActivity : BaseActivity(), MemberCallback {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
         viewModel.context = this
 
-        getCookie("https://jkt48.com", "test")
 
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
@@ -123,22 +122,6 @@ class MainActivity : BaseActivity(), MemberCallback {
             Log.e("RATE", "show rate")
             showRateApp()
         }
-    }
-
-    fun getCookie(siteName: String?, cookieName: String?): String? {
-        var CookieValue: String? = null
-        val cookieManager: CookieManager = CookieManager.getInstance()
-        val cookies: String = cookieManager.getCookie(siteName)
-        Log.e("COOCKIES", "tes t: ${cookies}")
-        val temp = cookies.split(";".toRegex()).toTypedArray()
-        for (ar1 in temp) {
-            if (ar1.contains(cookieName!!)) {
-                val temp1 = ar1.split("=".toRegex()).toTypedArray()
-                CookieValue = temp1[1]
-                break
-            }
-        }
-        return CookieValue
     }
 
     override fun onResume() {
@@ -276,7 +259,11 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     private fun action(){
 
-        binding.ivBanner?.setOnClickListener {
+        binding.linChant?.setOnClickListener {
+            Go(this).move(ChantsActivity::class.java)
+        }
+
+        binding.ivBanner.setOnClickListener {
             if (bannerData.value.isNotEmpty()){
                 val openURL = Intent(Intent.ACTION_VIEW)
                 openURL.data = Uri.parse(bannerData.value)

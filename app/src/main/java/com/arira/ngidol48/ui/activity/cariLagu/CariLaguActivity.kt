@@ -12,10 +12,10 @@ import com.arira.ngidol48.app.App
 import com.arira.ngidol48.databinding.ActivityCariLaguBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.network.response.SongResponse
-import com.arira.ngidol48.ui.fragment.LaguFragment
-import com.arira.ngidol48.ui.fragment.SetlistFragment
 import com.arira.ngidol48.ui.activity.lagu.LaguActivity
 import com.arira.ngidol48.ui.activity.login.LoginActivity
+import com.arira.ngidol48.ui.fragment.LaguFragment
+import com.arira.ngidol48.ui.fragment.SetlistFragment
 import com.arira.ngidol48.utilities.Go
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -23,6 +23,7 @@ class CariLaguActivity : BaseActivity(), CariLaguCallback {
     private lateinit var binding: ActivityCariLaguBinding
     private lateinit var viewModel: CariLaguViewModel
     private var querySeach:String = ""
+    private var isFirst = false
 
     override fun callReload() {
         viewModel.cari(querySeach)

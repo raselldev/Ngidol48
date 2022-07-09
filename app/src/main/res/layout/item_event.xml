@@ -24,7 +24,7 @@
                     android:layout_height="@dimen/_78sdp"/>
 
                 <LinearLayout
-                    android:padding="@dimen/_10sdp"
+                    android:padding="@dimen/_15sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">

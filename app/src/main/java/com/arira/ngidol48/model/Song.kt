@@ -16,6 +16,7 @@ class Song() :Serializable, Parcelable {
 
     var user_id:String = ""
     var song_id:String = ""
+    var chant:Chant = Chant()
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString() ?: ""

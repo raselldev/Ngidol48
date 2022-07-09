@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
                 <LinearLayout
-                    android:padding="@dimen/_10sdp"
+                    android:padding="@dimen/_15sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -187,7 +187,7 @@
                 android:layout_marginRight="@dimen/_10sdp"
                 android:id="@+id/tv_signout"
                 android:textColor="@color/red"
-                android:padding="@dimen/_10sdp"
+                android:padding="@dimen/_15sdp"
                 android:layout_gravity="right"
                 style="@style/body12"
                 android:text="@string/teks_keluar"/>

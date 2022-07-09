@@ -27,7 +27,8 @@ class SongHolder(var item:ItemLaguBinding): RecyclerView.ViewHolder(item.root) {
 
         if (data.cover.isEmpty()){
             Glide.with(itemView.context).load(R.drawable.img_jkt48).into(item.ivCover)
-        }else{
+        }
+        else{
 
             Glide.with(itemView.context)
                 .asBitmap()
@@ -46,8 +47,6 @@ class SongHolder(var item:ItemLaguBinding): RecyclerView.ViewHolder(item.root) {
                     }
                 })
         }
-
-
         item.tvJudul.rootView.setOnClickListener {
             if (callback != null){
                 callback.onSelectSong(data)

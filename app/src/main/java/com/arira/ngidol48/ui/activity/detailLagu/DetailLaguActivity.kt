@@ -1,16 +1,19 @@
 package com.arira.ngidol48.ui.activity.detailLagu
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.SongSmallAdapter
+import com.arira.ngidol48.app.App.Companion.helper
 import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.app.App.Companion.user
 import com.arira.ngidol48.databinding.ActivityDetailLaguBinding
@@ -41,12 +44,14 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
     private lateinit var favViewModel: SongFavViewModel
     private var totalLike:Int = 0
     private var isLike:Boolean = false
+    private var isTabLirik = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_lagu)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_lagu)
         setToolbar(getString(R.string.teks_lagu_jkt), binding.toolbar)
+        statusPutih()
 
         listeningView = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SongListeningViewModel::class.java]
         listeningView.context = this
@@ -79,9 +84,26 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
         songDetailViewModel.detail(currentSong.id)
 
         observeDataFavorit()
+
     }
 
     private fun action(){
+        binding.ivBack.setOnClickListener { 
+            onBackPressed()
+        }
+
+        binding.tvTabChant.setOnClickListener {
+            if (!currentSong.chant.id.isNullOrBlank()){
+                isTabLirik = false
+                setupTabAction()
+            }
+        }
+
+        binding.tvTabLirik.setOnClickListener {
+            isTabLirik = true
+            setupTabAction()
+        }
+
         binding.ivFav.setOnClickListener {
             if (pref.getIsLogin()){
                 if (isLike){
@@ -129,6 +151,7 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 
         binding.tvJudul.text = currentSong.judul
         binding.tvLirik.text = currentSong.lirik
+        binding.tvChant.text = helper.fromHtml(currentSong.chant.chant)
         binding.tvSetlist.text = currentSong.nama
 
         if (pref.getOnReview()){
@@ -148,6 +171,8 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             adapter = SongSmallAdapter(filterSong, callback = this@DetailLaguActivity)
         }
+
+        firstSetupTab()
     }
 
     override fun onSelectOtherSong(lagu: Song) {
@@ -189,6 +214,86 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
             return listLagu[currentPosition + 1]
         }
         return null
+    }
+
+    private fun firstSetupTab(){
+
+        isTabLirik = true
+        binding.linLirik.visibility = View.VISIBLE
+        binding.linChant.visibility = View.GONE
+
+        when (resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                //is dark
+                if (!currentSong.chant.id.isNullOrBlank()){
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.white))
+                }else{
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.abu_pekat))
+                }
+
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                if (!currentSong.chant.id.isNullOrBlank()){
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.dark))
+                }else{
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.abu_pekat))
+                }
+            }
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                if (!currentSong.chant.id.isNullOrBlank()){
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.dark))
+                }else{
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.abu_pekat))
+                }
+            }
+        }
+    }
+
+    private fun setupTabAction(){
+        if (isTabLirik){
+            binding.linLirik.visibility = View.VISIBLE
+            binding.linChant.visibility = View.GONE
+            when (resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    //is dark
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.white))
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.dark))
+                }
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.dark))
+                }
+            }
+        }else{
+            binding.linLirik.visibility = View.GONE
+            binding.linChant.visibility = View.VISIBLE
+            when (resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    //is dark
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.white))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.dark))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                }
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    binding.tvTabLirik.setTextColor(ContextCompat.getColor(this, R.color.dark))
+                    binding.tvTabChant.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryTeks))
+                }
+            }
+        }
+
     }
 
 
@@ -298,6 +403,10 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
     private fun observeDataDetail(){
         songDetailViewModel.getResponse().observe(this){
             if (it != null){
+                currentSong.chant = it.chant
+                binding.tvChant.text = helper.fromHtml(currentSong.chant.chant)
+                firstSetupTab()
+
                 if (it.listener > 10){
                     binding.tvDidengarkan.visibility = View.VISIBLE
                 }

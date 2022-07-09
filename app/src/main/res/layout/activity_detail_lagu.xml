@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:keepScreenOn="true"
         tools:context=".ui.activity.detailLagu.DetailLaguActivity">
 
-        <include layout="@layout/layout_toolbar"
+        <include
+            android:visibility="gone"
+            layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
         <RelativeLayout
@@ -20,6 +23,17 @@
                 android:id="@+id/embed_yt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                app:srcCompat="@drawable/ic_back_white" />
 
             <androidx.cardview.widget.CardView
                 android:visibility="gone"
@@ -33,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/_10sdp">
+                    android:padding="@dimen/_15sdp">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -65,7 +79,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_10sdp">
+                android:padding="@dimen/_16sdp">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -117,8 +131,39 @@
 
                 <LinearLayout
                     android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_tab_lirik"
+                        android:textColor="@color/colorPrimaryTeks"
+                        android:gravity="center"
+                        style="@style/title12"
+                        android:text="@string/teks_lirik"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_weight="1"/>
+
+                    <View
+                        android:layout_marginVertical="@dimen/_5sdp"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/abu1_tipis"/>
+
+                    <TextView
+                        android:id="@+id/tv_tab_chant"
+                        android:textColor="@color/abu_pekat"
+                        android:gravity="center"
+                        style="@style/title12"
+                        android:text="@string/teks_chant"
+                        android:padding="@dimen/_5sdp"
+                        android:layout_weight="1"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lin_lirik"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:orientation="vertical"
-                    android:padding="@dimen/_10sdp"
+                    android:padding="@dimen/_15sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shape_pink">
@@ -128,11 +173,38 @@
                         android:text="@string/teks_lirik"/>
 
                     <TextView
+                        android:textColor="@color/dark"
                         android:textIsSelectable="true"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:id="@+id/tv_lirik"
-                        style="@style/title14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14sdp"
+                        android:text="@string/app_name"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lin_chant"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shape_pink">
+                    <TextView
                         android:textColor="@color/dark"
+                        style="@style/title10"
+                        android:text="@string/teks_chant"/>
+
+                    <TextView
+                        android:textColor="@color/dark"
+                        android:textIsSelectable="true"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:id="@+id/tv_chant"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14sdp"
                         android:text="@string/app_name"/>
                 </LinearLayout>
 

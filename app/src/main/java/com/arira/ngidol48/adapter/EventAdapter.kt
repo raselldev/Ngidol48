@@ -14,6 +14,7 @@ import com.arira.ngidol48.model.Event
 class EventAdapter(var list:ArrayList<Event>): RecyclerView.Adapter<EventHolder>(), Filterable {
     var data: ArrayList<Event> =  list
     var listFiltered: ArrayList<Event> = list
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventHolder {
         return  EventHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_event, parent, false))
     }

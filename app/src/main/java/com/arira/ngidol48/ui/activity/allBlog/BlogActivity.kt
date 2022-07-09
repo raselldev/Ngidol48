@@ -1,7 +1,6 @@
 package com.arira.ngidol48.ui.activity.allBlog
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
@@ -131,6 +130,7 @@ class BlogActivity : BaseActivity(), BlogKategoriCallback {
             }
 
         })
+
         binding.ivFilter.setOnClickListener {
             showSheetKategori()
         }

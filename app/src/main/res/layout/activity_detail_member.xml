@@ -389,7 +389,7 @@
                 <!--fanbase-->
                 <LinearLayout
                     android:visibility="gone"
-                    android:padding="@dimen/_10sdp"
+                    android:padding="@dimen/_15sdp"
                     android:background="@drawable/background_shape_pink"
                     android:layout_marginTop="@dimen/_15sdp"
                     android:id="@+id/lin_fans"

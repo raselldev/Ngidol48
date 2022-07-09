@@ -10,7 +10,7 @@
             android:id="@+id/tv_nama"
             android:textColor="@color/colorPrimary"
             android:background="@drawable/background_border_primary"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_15sdp"
             style="@style/body12"
             android:layout_marginStart="@dimen/_10sdp"
             android:text="@string/teks_semua_kategori"/>

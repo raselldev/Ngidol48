@@ -22,6 +22,10 @@ interface ApiServiceServer {
     fun member(): Observable<MemberResponse>
 
     @Headers(Config.API)
+    @GET("chant")
+    fun chants(): Observable<ChantResponse>
+
+    @Headers(Config.API)
     @GET("setlist")
     fun setlist(): Observable<SetlistResponse>
 
