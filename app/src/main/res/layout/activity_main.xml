@@ -343,7 +343,7 @@
                                 android:layout_height="@dimen/_40sdp"
                                 android:padding="@dimen/_5sdp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_blog" />
+                                android:src="@drawable/ic_crowd" />
 
                             <TextView
                                 style="@style/title10"

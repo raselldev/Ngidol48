@@ -18,7 +18,7 @@
 
             <LinearLayout
 
-                android:padding="@dimen/_15sdp"
+                android:padding="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -105,7 +105,7 @@
                 <ImageView
                     android:layout_gravity="end"
                     android:id="@+id/iv_sold"
-                    android:padding="@dimen/_15sdp"
+                    android:padding="@dimen/_10sdp"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/ic_sold"/>

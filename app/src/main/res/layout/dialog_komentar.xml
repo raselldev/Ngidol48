@@ -27,7 +27,7 @@
                 android:src="@drawable/ic_close"/>
             <!--data-->
             <LinearLayout
-                android:padding="@dimen/_15sdp"
+                android:padding="@dimen/_10sdp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

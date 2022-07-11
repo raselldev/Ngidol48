@@ -10,7 +10,7 @@
 
 
         <LinearLayout
-            android:padding="@dimen/_15sdp"
+            android:padding="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -71,10 +71,13 @@
 
         <Button
             android:id="@+id/btn_close"
-            android:text="@string/teks_tutup"
-            android:layout_margin="@dimen/_15sdp"
+            style="@style/button_main"
             android:layout_alignParentBottom="true"
-            style="@style/button_main"/>
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:text="@string/teks_tutup" />
 
     </RelativeLayout>
 </layout>

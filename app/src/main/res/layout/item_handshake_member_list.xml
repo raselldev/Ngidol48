@@ -19,7 +19,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_15sdp">
+                android:padding="@dimen/_10sdp">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/iv_ava"
                     app:civ_border_color="@color/pink"
@@ -55,7 +55,7 @@
                 <ImageView
                     android:layout_gravity="end"
                     android:id="@+id/iv_sold"
-                    android:padding="@dimen/_15sdp"
+                    android:padding="@dimen/_10sdp"
                     android:layout_width="@dimen/_50sdp"
                     android:layout_height="@dimen/_50sdp"
                     android:src="@drawable/ic_sold"/>

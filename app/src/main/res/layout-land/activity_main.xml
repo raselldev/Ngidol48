@@ -306,23 +306,29 @@
 
 
                         <LinearLayout
-                            android:visibility="gone"
-                            android:orientation="vertical"
+                            android:id="@+id/lin_chant"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1">
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/ic_crowd" />
+
+                            <TextView
+                                style="@style/title10"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="@string/teks_chant"
+                                android:textAlignment="center"
+                                android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
 
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                        </LinearLayout>
 
 
 
