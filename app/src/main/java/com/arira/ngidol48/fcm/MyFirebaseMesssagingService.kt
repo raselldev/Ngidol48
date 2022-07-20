@@ -17,6 +17,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.ui.activity.home.MainActivity
+import com.arira.ngidol48.utilities.SharedPref
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import org.json.JSONException
@@ -27,6 +28,11 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
 
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
+        val pref = SharedPref(this)
+        if (p0.isNotEmpty()) {
+            pref.setFCMToken(p0)
+        }
+
     }
 
     override fun onMessageReceived(p0: RemoteMessage) {

@@ -29,10 +29,19 @@ class SharedPref(context : Context) {
     private val token = "token"
     private val users = "users"
 
+    private val fcmToken:String = "fcmToken"
+
     fun setOnReview(value: Boolean) {
         editor.putBoolean(onReview, value)
         editor.commit()
         editor.apply()
+    }
+
+    fun setFCMToken(status : String){
+        sp.edit().putString(fcmToken, status).apply()
+    }
+    fun getFCMToken():String{
+        return sp.getString(fcmToken, "") ?: ""
     }
 
     fun setSong(data: Song): Song {

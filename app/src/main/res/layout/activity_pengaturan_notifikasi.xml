@@ -110,7 +110,7 @@
                         <TextView
                             android:layout_marginTop="@dimen/_5sdp"
                             style="@style/body10"
-                            android:text="@string/teks_deskripsi_notifikasi_handshake"/>
+                            android:text="@string/teks_deskripsi_notifikasi_mng"/>
                     </LinearLayout>
                     <Switch
                         android:id="@+id/switch_mng"
@@ -136,7 +136,7 @@
                         <TextView
                             android:layout_marginTop="@dimen/_5sdp"
                             style="@style/body10"
-                            android:text="@string/teks_deskripsi_notifikasi_handshake"/>
+                            android:text="@string/teks_deskripsi_notifikasi_showroom"/>
                     </LinearLayout>
                     <Switch
                         android:id="@+id/switch_showroom"

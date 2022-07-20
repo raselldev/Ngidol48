@@ -93,6 +93,16 @@ class MainActivity : BaseActivity(), MemberCallback {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
         viewModel.context = this
 
+        try {
+            FirebaseMessaging.getInstance().token.addOnSuccessListener {
+                if (!it.isNullOrBlank()){
+                    pref.setFCMToken(it)
+                }
+            }
+        } catch (e: RuntimeException) {
+
+        }
+
 
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
@@ -101,7 +111,7 @@ class MainActivity : BaseActivity(), MemberCallback {
             R.color.colorAccent)
 
         observerData()
-        viewModel.home()
+        viewModel.home(pref.getFCMToken())
 
         action()
 
@@ -259,7 +269,7 @@ class MainActivity : BaseActivity(), MemberCallback {
 
     private fun action(){
 
-        binding.linChant?.setOnClickListener {
+        binding.linChant.setOnClickListener {
             Go(this).move(ChantsActivity::class.java)
         }
 
@@ -292,7 +302,7 @@ class MainActivity : BaseActivity(), MemberCallback {
         }
 
         binding.swipe.setOnRefreshListener {
-            viewModel.home()
+            viewModel.home(pref.getFCMToken())
         }
 
         binding.icNotification.setOnClickListener {

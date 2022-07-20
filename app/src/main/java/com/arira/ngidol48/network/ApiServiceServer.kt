@@ -18,6 +18,13 @@ interface ApiServiceServer {
     fun home(): Observable<HomeResponse>
 
     @Headers(Config.API)
+    @GET("home")
+    fun home(
+        @Header("token") apptoken:String,
+        @Header("fcm") fcm:String,
+    ): Observable<HomeResponse>
+
+    @Headers(Config.API)
     @GET("member")
     fun member(): Observable<MemberResponse>
 
@@ -96,8 +103,14 @@ interface ApiServiceServer {
     fun allNews(
     ): Observable<NewsResponse>
 
+//    @Headers(Config.API)
+//    @GET("event/detail/{id}")
+//    fun detailEvent(
+//        @Path("id") id:String
+//    ): Observable<EventResponse>
+
     @Headers(Config.API)
-    @GET("event/detail/{id}")
+    @GET("event/detail2/{id}")
     fun detailEvent(
         @Path("id") id:String
     ): Observable<EventResponse>

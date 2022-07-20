@@ -249,6 +249,11 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
     }
 
     private fun action() {
+        binding.swipe.setOnRefreshListener {
+            binding.swipe.isRefreshing = false
+            detailBlogViewModel.hitDetail(blog.id)
+        }
+
         binding.linUser.setOnClickListener {
             Go(this).move(ProfilActivity::class.java, id = blog.id_user)
         }
@@ -440,6 +445,9 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
                 if(it != null){
                     if (it.code == 1){
                         blog = it.blog
+
+                        binding.tvView.text = "${it.views}x Dilihat"
+                        binding.tvView.visibility = View.VISIBLE
                         setDataBlog()
                     }else{
                         SweetAlert.onFailure(this, it.message)

@@ -114,6 +114,15 @@
                             style="@style/title12"
                             android:text="@string/teks_tiket_dan_informasi_lebih_lanjut"/>
 
+                        <TextView
+                            android:textColorLink="@color/colorPrimaryTeks"
+                            android:linksClickable="true"
+                            android:autoLink="all"
+                            android:id="@+id/tv_deskripsi"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            style="@style/body12"
+                            android:visibility="gone"/>
+
                         <LinearLayout
                             android:id="@+id/div_member_perform"
                             android:layout_marginTop="@dimen/_10sdp"

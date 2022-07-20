@@ -21,128 +21,135 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_16sdp">
+                    android:orientation="vertical">
                     <LinearLayout
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:paddingHorizontal="@dimen/_15sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
+                        android:orientation="vertical">
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:id="@+id/iv_avatar"
-                                android:layout_gravity="center"
-                                app:civ_border_color="@color/pink"
-                                app:civ_border_width="@dimen/_1sdp"
-                                android:src="@drawable/ic_member"
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="@dimen/_50sdp"/>
-                            <TextView
-                                android:textColor="@color/colorPrimaryTeks"
-                                android:id="@+id/tv_ganti_ava"
-                                android:padding="@dimen/_5sdp"
-                                style="@style/body8"
-                                android:text="@string/teks_ganti_avatar"/>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_weight="1"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginStart="@dimen/_10sdp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
+                            android:orientation="horizontal">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <LinearLayout
-                                    android:id="@+id/lin_fav"
-                                    android:layout_weight="1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-                                    <ImageView
-                                        android:visibility="gone"
-                                        android:layout_gravity="left"
-                                        android:layout_width="@dimen/_20sdp"
-                                        android:layout_height="@dimen/_20sdp"
-                                        android:src="@drawable/ic_fav"/>
-
-                                    <TextView
-                                        android:id="@+id/tv_fav_lagu"
-                                        android:layout_marginTop="@dimen/_5sdp"
-                                        android:textColor="@color/colorPrimaryTeks"
-                                        android:layout_gravity="center"
-                                        style="@style/title10"
-                                        android:text="0"/>
-
-                                    <TextView
-                                        android:layout_marginTop="@dimen/_5sdp"
-                                        android:textColor="@color/colorPrimaryTeks"
-                                        android:layout_gravity="center"
-                                        style="@style/body10"
-                                        android:text="@string/lagu_disukai"/>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_weight="1"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-                                    <ImageView
-                                        android:visibility="gone"
-                                        android:layout_gravity="left"
-                                        android:layout_width="@dimen/_20sdp"
-                                        android:layout_height="@dimen/_20sdp"
-                                        android:src="@drawable/ic_blog"/>
-
-                                    <TextView
-                                        android:gravity="center"
-                                        android:id="@+id/tv_blog"
-                                        android:layout_marginTop="@dimen/_5sdp"
-                                        android:textColor="@color/colorPrimaryTeks"
-                                        android:layout_gravity="center"
-                                        style="@style/title10"
-                                        android:text="0"/>
-
-                                    <TextView
-                                        android:layout_marginTop="@dimen/_5sdp"
-                                        android:textColor="@color/colorPrimaryTeks"
-                                        android:layout_gravity="center"
-                                        style="@style/body10"
-                                        android:text="@string/teks_tulisan"/>
-                                </LinearLayout>
+                                android:orientation="vertical">
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/iv_avatar"
+                                    android:layout_gravity="center"
+                                    app:civ_border_color="@color/pink"
+                                    app:civ_border_width="@dimen/_1sdp"
+                                    android:src="@drawable/ic_member"
+                                    android:layout_width="@dimen/_50sdp"
+                                    android:layout_height="@dimen/_50sdp"/>
+                                <TextView
+                                    android:textColor="@color/colorPrimaryTeks"
+                                    android:id="@+id/tv_ganti_ava"
+                                    android:padding="@dimen/_5sdp"
+                                    style="@style/body8"
+                                    android:text="@string/teks_ganti_avatar"/>
                             </LinearLayout>
 
+                            <LinearLayout
+                                android:layout_weight="1"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:id="@+id/lin_fav"
+                                        android:layout_weight="1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:visibility="gone"
+                                            android:layout_gravity="left"
+                                            android:layout_width="@dimen/_20sdp"
+                                            android:layout_height="@dimen/_20sdp"
+                                            android:src="@drawable/ic_fav"/>
+
+                                        <TextView
+                                            android:id="@+id/tv_fav_lagu"
+                                            android:layout_marginTop="@dimen/_5sdp"
+                                            android:textColor="@color/colorPrimaryTeks"
+                                            android:layout_gravity="center"
+                                            style="@style/title10"
+                                            android:text="0"/>
+
+                                        <TextView
+                                            android:layout_marginTop="@dimen/_5sdp"
+                                            android:textColor="@color/colorPrimaryTeks"
+                                            android:layout_gravity="center"
+                                            style="@style/body10"
+                                            android:text="@string/lagu_disukai"/>
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_weight="1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:visibility="gone"
+                                            android:layout_gravity="left"
+                                            android:layout_width="@dimen/_20sdp"
+                                            android:layout_height="@dimen/_20sdp"
+                                            android:src="@drawable/ic_blog"/>
+
+                                        <TextView
+                                            android:gravity="center"
+                                            android:id="@+id/tv_blog"
+                                            android:layout_marginTop="@dimen/_5sdp"
+                                            android:textColor="@color/colorPrimaryTeks"
+                                            android:layout_gravity="center"
+                                            style="@style/title10"
+                                            android:text="0"/>
+
+                                        <TextView
+                                            android:layout_marginTop="@dimen/_5sdp"
+                                            android:textColor="@color/colorPrimaryTeks"
+                                            android:layout_gravity="center"
+                                            style="@style/body10"
+                                            android:text="@string/teks_tulisan"/>
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/iv_edit"
+                                android:padding="@dimen/_5sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:src="@drawable/ic_edit"/>
                         </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/iv_edit"
-                            android:padding="@dimen/_5sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_width="@dimen/_25sdp"
-                            android:layout_height="@dimen/_25sdp"
-                            android:src="@drawable/ic_edit"/>
+                        <TextView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:id="@+id/tv_nama_detail"
+                            style="@style/title12"
+                            android:text="@string/teks_nama_anda"/>
+
+                        <TextView
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:textColor="@color/dark2"
+                            android:id="@+id/tv_gender"
+                            style="@style/body12"
+                            android:text="@string/teks_"/>
                     </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tv_nama_detail"
-                        style="@style/title12"
-                        android:text="@string/teks_nama_anda"/>
-
-                    <TextView
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:textColor="@color/dark2"
-                        android:id="@+id/tv_gender"
-                        style="@style/body12"
-                        android:text="@string/teks_"/>
 
                     <TextView
                         android:visibility="gone"
@@ -182,7 +189,14 @@
                         </LinearLayout>
                     </RelativeLayout>
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:background="@color/abuabu"/>
+
                     <androidx.recyclerview.widget.RecyclerView
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:paddingHorizontal="@dimen/_15sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:id="@+id/rv_blog"
                         android:layout_width="match_parent"

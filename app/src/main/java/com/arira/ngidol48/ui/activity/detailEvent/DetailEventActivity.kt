@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.MemberAdapter
 import com.arira.ngidol48.adapter.SongAdapter
+import com.arira.ngidol48.app.App.Companion.helper
 import com.arira.ngidol48.databinding.ActivityDetailEventBinding
 import com.arira.ngidol48.databinding.SheetLaguBinding
 import com.arira.ngidol48.helper.BaseActivity
@@ -24,6 +25,7 @@ import com.arira.ngidol48.helper.Helper
 import com.arira.ngidol48.model.Event
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Song
+import com.arira.ngidol48.ui.activity.ViewImageActivity
 import com.arira.ngidol48.ui.activity.lagu.LaguCallback
 import com.arira.ngidol48.ui.activity.member.MemberCallback
 import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
@@ -57,24 +59,28 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
 
         observerData()
 
-        viewModel.hitDetail(event.event_id)
+        viewModel.hitDetail(event.id)
 
         action()
     }
 
     private fun action(){
         binding.tvTiketDll.setOnClickListener {
-            val url = "https://jkt48.com/theater/schedule/id/${event.event_id}?lang=id"
-            Go(this).move(MyWebActivity::class.java, url = url)
+            if (event.tiket_link.isNotEmpty()){
+                Go(this).move(MyWebActivity::class.java, url = event.tiket_link)
+            }else{
+                val url = "https://jkt48.com/theater/schedule/id/${event.event_id}?lang=id"
+                Go(this).move(MyWebActivity::class.java, url = url)
+            }
         }
 
         binding.swipe.setOnRefreshListener {
             binding.swipe.isRefreshing = false
-            viewModel.hitDetail(event.event_id)
+            viewModel.hitDetail(event.id)
         }
 
         binding.tvReload.setOnClickListener {
-            viewModel.hitDetail(event.event_id)
+            viewModel.hitDetail(event.id)
         }
     }
 
@@ -173,14 +179,20 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
                     /*set list / song list*/
                     if (it.song_list.isNotEmpty()) {
                         if (!it.song_list[0].cover.isNullOrEmpty()) {
+                            val linkImage = Config.BASE_STORAGE + it.song_list[0].cover
                             Glide.with(this)
                                 .asBitmap()
-                                .load(Config.BASE_STORAGE + it.song_list[0].cover)
+                                .load(linkImage)
                                 .into(object : CustomTarget<Bitmap>() {
                                     override fun onResourceReady(
                                         resource: Bitmap,
                                         transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
                                     ) {
+
+                                        binding.ivEventCover.setOnClickListener {
+                                            Go(this@DetailEventActivity).move(ViewImageActivity::class.java, url = linkImage)
+                                        }
+
                                         binding.ivEventCover.setImageBitmap(resource)
                                         binding.ivEventCover.setBackgroundColor(
                                             Helper.getDominantColor(
@@ -193,9 +205,8 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
 
                                     }
                                 })
-
-//                            Glide.with(this).load(Config.BASE_STORAGE + it.song_list[0].cover).into(binding.ivEventCover)
                         }
+
                         binding.rvSonglist.apply {
                             layoutManager = LinearLayoutManager(context)
                             adapter = SongAdapter(
@@ -206,18 +217,71 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
                         binding.divSetlist.visibility = View.VISIBLE
                     } else {
                         binding.divSetlist.visibility = View.GONE
+
+                        val linkImage = if(it.event.badge_url.contains("http")){
+                            it.event.badge_url
+                        }else{
+                            Config.BASE_STORAGE_JKT + it.event.badge_url
+                        }
+
+                        Glide.with(this)
+                            .asBitmap()
+                            .load(linkImage)
+                            .into(object : CustomTarget<Bitmap>() {
+                                override fun onResourceReady(
+                                    resource: Bitmap,
+                                    transition: com.bumptech.glide.request.transition.Transition<in Bitmap>?
+                                ) {
+
+                                    binding.ivEventCover.setOnClickListener {
+                                        Go(this@DetailEventActivity).move(ViewImageActivity::class.java, url = linkImage)
+                                    }
+
+                                    binding.ivEventCover.setImageBitmap(resource)
+                                    binding.ivEventCover.setBackgroundColor(
+                                        Helper.getDominantColor(
+                                            resource
+                                        )
+                                    )
+                                }
+
+                                override fun onLoadCleared(placeholder: Drawable?) {
+
+                                }
+                            })
                     }
 
                     /*event data*/
+                    if (it.event.event_id.isEmpty() && it.event.tiket_link.isEmpty()){
+                        binding.tvTiketDll.visibility = View.GONE
+                    }else{
+                        binding.tvTiketDll.visibility = View.VISIBLE
+                    }
+
+                    event = it.event
+                    if (it.event.deskripsi.isNotEmpty()){
+                        binding.tvDeskripsi.text = helper.fromHtml(it.event.deskripsi)
+                        binding.tvDeskripsi.visibility = View.VISIBLE
+                    }else{
+                        binding.tvDeskripsi.visibility = View.GONE
+                    }
+
                     if (it.event.id.isNotEmpty()) {
-                        Glide.with(this).load(Config.BASE_STORAGE_JKT + it.event.badge_url)
+                        val linkImage = if(it.event.badge_url.contains("http")){
+                            it.event.badge_url
+                        }else{
+                            Config.BASE_STORAGE_JKT + it.event.badge_url
+                        }
+
+
+                        Glide.with(this).load(linkImage)
                             .into(binding.ivBadge)
                         binding.tvNamaEvent.text = it.event.event_name
                         if (it.event.event_time.isEmpty()) {
-                            binding.tvTanggal.text = "${it.event.tanggal} ${it.event.bulan_tahun}"
+                            binding.tvTanggal.text = "${it.event.hari}, ${it.event.tanggal} ${it.event.bulan_tahun}"
                         } else {
                             binding.tvTanggal.text =
-                                "${it.event.event_time}, ${it.event.tanggal} ${it.event.bulan_tahun}"
+                                "${it.event.event_time}, ${it.event.hari} ${it.event.tanggal} ${it.event.bulan_tahun}"
                         }
                     }
                 }

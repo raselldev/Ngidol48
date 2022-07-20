@@ -50,8 +50,9 @@ class HomeViewModel : ViewModel() {
         return data
     }
 
-    fun home() {
-        subscription = repo.home()
+    fun home(fcm:String) {
+        subscription = repo.home(fcm)
+
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { isLoading.value = true }

@@ -14,6 +14,8 @@ class Event() :Serializable, Parcelable {
     var event_time:String = ""
     var bulan_tahun:String = ""
     var member_perform:String = "0"
+    var deskripsi:String = ""
+    var tiket_link:String = ""
     var cover:String? = null
     var listEventName:ArrayList<String> = ArrayList()
 
@@ -27,6 +29,8 @@ class Event() :Serializable, Parcelable {
         event_time = parcel.readString() ?: ""
         bulan_tahun = parcel.readString() ?: ""
         member_perform = parcel.readString() ?: ""
+        deskripsi = parcel.readString() ?: ""
+        tiket_link = parcel.readString() ?: ""
         cover = parcel.readString()
     }
 
@@ -40,6 +44,8 @@ class Event() :Serializable, Parcelable {
         parcel.writeString(event_time)
         parcel.writeString(bulan_tahun)
         parcel.writeString(member_perform)
+        parcel.writeString(deskripsi)
+        parcel.writeString(tiket_link)
         parcel.writeString(cover)
     }
 

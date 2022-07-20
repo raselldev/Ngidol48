@@ -1,6 +1,7 @@
 package com.arira.ngidol48.network.response
 
-import com.arira.ngidol48.model.*
+import com.arira.ngidol48.model.Blog
+import com.arira.ngidol48.model.Komentar
 import java.io.Serializable
 
 class BlogResponse : Serializable {
@@ -13,6 +14,7 @@ class BlogResponse : Serializable {
     val comments:List<Komentar> = ArrayList()
     val totalpage:Int = 0
     val totalitem:Int = 0
+    val views:String = "0"
 
 
 }
