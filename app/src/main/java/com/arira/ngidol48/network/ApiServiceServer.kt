@@ -1,10 +1,7 @@
 package com.arira.ngidol48.network
 
 import com.arira.ngidol48.helper.Config
-import com.arira.ngidol48.model.Komentar
-import com.arira.ngidol48.model.Report
-import com.arira.ngidol48.model.Song
-import com.arira.ngidol48.model.User
+import com.arira.ngidol48.model.*
 import com.arira.ngidol48.network.response.*
 import io.reactivex.Observable
 import okhttp3.MultipartBody
@@ -35,6 +32,10 @@ interface ApiServiceServer {
     @Headers(Config.API)
     @GET("setlist")
     fun setlist(): Observable<SetlistResponse>
+
+    @Headers(Config.API)
+    @GET("setlist/home")
+    fun setlistHome(): Observable<SetlistResponse>
 
     @Headers(Config.API)
     @GET("notifikasi")
@@ -188,6 +189,11 @@ interface ApiServiceServer {
     ): Observable<BlogResponse>
 
     @Headers(Config.API)
+    @GET("donasi")
+    fun donasi(
+    ): Observable<DonasiResponse>
+
+    @Headers(Config.API)
     @Multipart
     @POST("blog/insert")
     fun addBlog(
@@ -283,6 +289,33 @@ interface ApiServiceServer {
         @Header("token") token:String,
         @Body raw:Song
     ): Observable<FavoritResponse>
+
+
+    /*LIVE STREAM*/
+
+    @Headers(Config.API)
+    @GET("livestream/d")
+    fun detailStream(
+        @Header("id") id:String,
+    ): Observable<StreamResponse>
+
+    @Headers(Config.API)
+    @POST("livestream/watch")
+    fun watchStream(
+        @Body raw:ViewLiveStream
+    ): Observable<ViewStreamResponse>
+
+    @Headers(Config.API)
+    @POST("livestream/leave")
+    fun leaveStream(
+        @Body raw:ViewLiveStream
+    ): Observable<ViewStreamResponse>
+
+    @Headers(Config.API)
+    @GET("livestream/views/{id}")
+    fun viewsStream(
+        @Path("id") id:String,
+    ): Observable<ViewStreamResponse>
 
 
 

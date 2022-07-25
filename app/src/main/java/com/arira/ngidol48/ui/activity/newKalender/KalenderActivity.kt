@@ -1,6 +1,7 @@
 package com.arira.ngidol48.ui.activity.newKalender
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -82,25 +83,33 @@ class KalenderActivity : BaseActivity(), DayClick{
     }
 
     private fun loadToKalender(){
-        //filter
 
+        //filtering & grouping
         for (event in listEvent){
+            Log.e("FILTERING", "tanggal: ${event.tanggal} || bulan_tahun : ${event.bulan_tahun}")
+
             if (newListEvent.isNotEmpty()){
                 val lastEvent = newListEvent.last()
+
+
                 if (lastEvent.tanggal == event.tanggal && lastEvent.bulan_tahun == event.bulan_tahun){
+                    Log.e("FILTERING", "---a")
                     lastEvent.listEventName.add(event.event_name)
                     newListEvent[newListEvent.lastIndex] = lastEvent
                 }else{
+                    Log.e("FILTERING", "---b")
                     event.listEventName.add(event.event_name)
                     newListEvent.add(event)
                 }
             }else{
+                Log.e("FILTERING", "---c")
                 event.listEventName.add(event.event_name)
                 newListEvent.add(event)
             }
 
         }
 
+        //create event list
         val events: ArrayList<EventDay> = ArrayList()
         for (event in newListEvent){
             val calendar1 = Calendar.getInstance()

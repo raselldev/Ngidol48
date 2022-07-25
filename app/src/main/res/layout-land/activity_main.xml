@@ -350,6 +350,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
+                    <androidx.cardview.widget.CardView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/card_livestrem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_8sdp">
+
+                        <ImageView
+                            android:scaleType="center"
+                            android:id="@+id/iv_live_stream"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_165sdp" />
+
+                    </androidx.cardview.widget.CardView>
+
 
                     <LinearLayout
                         android:visibility="gone"

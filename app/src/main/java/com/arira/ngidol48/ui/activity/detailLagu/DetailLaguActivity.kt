@@ -87,6 +87,19 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 
     }
 
+//    override fun onUserLeaveHint() {
+//        try{
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                val aspectRatio = Rational(16, 9)
+//                val params = PictureInPictureParams.Builder().setAspectRatio(aspectRatio).build()
+//                enterPictureInPictureMode(params)
+//            }
+//        }catch (e: IllegalStateException){
+//            toast.show(getString(R.string.teks_perangkat_tidak_mendukung_pip), this)
+//        }
+//
+//    }
+
     private fun action(){
         binding.ivBack.setOnClickListener { 
             onBackPressed()
@@ -148,6 +161,21 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
     }
 
     private fun setDataLagu(){
+
+        when (resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                binding.tvLirik.setTextColor(ContextCompat.getColor(this, R.color.white))
+                binding.tvChant.setTextColor(ContextCompat.getColor(this, R.color.white))
+            }
+            Configuration.UI_MODE_NIGHT_NO -> {
+                binding.tvChant.setTextColor(ContextCompat.getColor(this, R.color.dark))
+                binding.tvLirik.setTextColor(ContextCompat.getColor(this, R.color.dark))
+            }
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                binding.tvChant.setTextColor(ContextCompat.getColor(this, R.color.dark))
+                binding.tvLirik.setTextColor(ContextCompat.getColor(this, R.color.dark))
+            }
+        }
 
         binding.tvJudul.text = currentSong.judul
         binding.tvLirik.text = currentSong.lirik
@@ -295,7 +323,6 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
         }
 
     }
-
 
     private fun setDataVideo(){
         var videoId = ""

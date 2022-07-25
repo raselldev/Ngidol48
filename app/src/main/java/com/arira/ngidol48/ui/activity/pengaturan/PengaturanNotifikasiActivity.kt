@@ -11,6 +11,7 @@ import com.arira.ngidol48.helper.Config.TOPIC_HANDSHAKE
 import com.arira.ngidol48.helper.Config.TOPIC_MNG
 import com.arira.ngidol48.helper.Config.TOPIC_NEWS
 import com.arira.ngidol48.helper.Config.TOPIC_SHOWROOM
+import com.arira.ngidol48.helper.Config.TOPIC_STREAMING
 import com.google.firebase.messaging.FirebaseMessaging
 
 class PengaturanNotifikasiActivity : BaseActivity() {
@@ -67,6 +68,14 @@ class PengaturanNotifikasiActivity : BaseActivity() {
                 }
             }
         }
+
+        binding.switchStreaming.setOnClickListener {
+            pref.setNotifStreaming(binding.switchStreaming.isChecked)
+            if (!binding.switchStreaming.isChecked){
+                FirebaseMessaging.getInstance().unsubscribeFromTopic(TOPIC_STREAMING).addOnSuccessListener {
+                }
+            }
+        }
     }
 
     private fun setData(){
@@ -75,5 +84,6 @@ class PengaturanNotifikasiActivity : BaseActivity() {
         binding.switchMng.isChecked = pref.getNotifMng()
         binding.switchNews.isChecked = pref.getNotifNews()
         binding.switchShowroom.isChecked = pref.getNotifShowroom()
+        binding.switchStreaming.isChecked = pref.getNotifStreaming()
     }
 }

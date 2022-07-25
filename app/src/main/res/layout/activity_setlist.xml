@@ -73,7 +73,7 @@
                 android:id="@+id/lin_cari"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/_15sdp"
+                android:padding="@dimen/_10sdp"
                 android:orientation="horizontal">
                 <ImageView
                     android:layout_width="@dimen/_20sdp"

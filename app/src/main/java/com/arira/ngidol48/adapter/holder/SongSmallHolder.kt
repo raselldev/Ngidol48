@@ -15,7 +15,7 @@ import com.bumptech.glide.request.target.CustomTarget
 class SongSmallHolder(var item:ItemLaguSmallBinding): RecyclerView.ViewHolder(item.root) {
 
 
-    fun setData(data: Song, callback: LaguCallback?){
+    fun setData(data: Song, callback: LaguCallback?, listSong:List<Song>, isHome:Boolean = false){
         item.tvJudul.text = data.judul
 
         if (data.cover.isEmpty()){
@@ -42,8 +42,14 @@ class SongSmallHolder(var item:ItemLaguSmallBinding): RecyclerView.ViewHolder(it
 
         item.tvJudul.rootView.setOnClickListener {
             if (callback != null){
-                callback.onSelectOtherSong(data)
+                if (isHome){
+                    callback.onSelectSong(data, listSong)
+                }else{
+                    callback.onSelectOtherSong(data)
+                }
+
             }
+
         }
     }
 }

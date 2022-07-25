@@ -28,8 +28,7 @@ class SplashActivity : BaseActivity() {
 //        AnimationX().setDuration(2000)
 //            .setAnimation(Attention.ruberBand(binding.ivLogo, AnimationX().getNewAnimatorSet())).start()
 
-        AnimationX().setDuration(3000)
-            .setAnimation(Bounce.inUp(binding.ivLogoNewEra, AnimationX().getNewAnimatorSet())).start()
+        AnimationX().setDuration(3000).setAnimation(Bounce.inUp(binding.ivLogoNewEra, AnimationX().getNewAnimatorSet())).start()
 
         Handler(Looper.getMainLooper()).postDelayed({
             Go(this).move(MainActivity::class.java, clearPrevious = true)

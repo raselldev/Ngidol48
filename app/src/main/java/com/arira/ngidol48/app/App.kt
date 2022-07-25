@@ -48,6 +48,14 @@ class App : Application() {
         user = pref.getUser()
         token = user.token_app
 
+        if (pref.getUserTemp().isEmpty()){
+            pref.setUserTemp("user-${(100..1999).random()}")
+        }
+
+        if (user.fullname.isEmpty()){
+            user.fullname = pref.getUserTemp()
+        }
+
         /*path avatar*/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
             DIRECTORY_IMAGE_AVATAR =  getExternalFilesDir(Environment.DIRECTORY_PICTURES).toString()

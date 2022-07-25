@@ -11,9 +11,9 @@
     <color name="itemHighlightColor">#1F000000</color>
     <color name="itemFocusedColor">#1A000000</color>
 
-    <color name="colorPrimary">#ff005f</color>
+    <color name="colorPrimary">#f73946</color>
 
-    <color name="defaultColor">#ff005f</color>
+    <color name="defaultColor">#f73946</color>
 
     <color name="backgroundDark">#131415</color>
     <color name="backgroundWhite">#FFFFFF</color>

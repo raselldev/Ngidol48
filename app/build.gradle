@@ -12,8 +12,8 @@ android {
         applicationId "com.arira.ngidol48"
         minSdk 21
         targetSdk 32
-        versionCode 36
-        versionName "2.19.25"
+        versionCode 38
+        versionName "3.20.26"
         dataBinding.enabled = true
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -70,10 +70,12 @@ dependencies {
 
     // Firebase
     implementation platform('com.google.firebase:firebase-bom:26.1.0')
-    implementation 'com.google.firebase:firebase-messaging:23.0.0'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.8'
-    implementation 'com.google.firebase:firebase-analytics-ktx:20.1.0'
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+    implementation 'com.google.firebase:firebase-messaging:23.0.6'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.11'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.1.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
+    implementation 'com.google.firebase:firebase-database-ktx'
+
 
     //login with google
     implementation 'com.google.android.gms:play-services-auth:20.1.0'
@@ -114,7 +116,7 @@ dependencies {
     implementation 'com.google.android.exoplayer:exoplayer-core:2.8.3'
     implementation 'com.google.android.exoplayer:exoplayer-hls:2.8.3'
     implementation 'com.google.android.exoplayer:exoplayer-ui:2.8.3'
-
+    implementation 'com.google.android.exoplayer:extension-rtmp:2.8.3'
     // For DASH
     implementation 'com.google.android.exoplayer:exoplayer-dash:2.8.3'
     // For SmoothStreaming

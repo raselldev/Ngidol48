@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/iSlider_img_slider"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_160sdp"
+            android:layout_height="@dimen/_165sdp"
             android:scaleType="fitXY" />
 
     </androidx.cardview.widget.CardView>
