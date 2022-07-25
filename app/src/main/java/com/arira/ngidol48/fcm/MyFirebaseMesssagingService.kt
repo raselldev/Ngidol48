@@ -9,7 +9,6 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.media.AudioAttributes
-import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import androidx.core.app.NotificationCompat
@@ -54,6 +53,7 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
         p0.notification?.let {
             try {
                 sendNotification(
+                    p0.notification?.title!!,
                     p0.notification?.body!!,
                     p0.data.get("type"),
                     p0.notification?.imageUrl)
@@ -68,7 +68,7 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
 
     /*@Param messageBody  = teks yang di tampilkan di dalam pesan notifikasi*/
     @SuppressLint("ServiceCast")
-    private fun sendNotification(messageBody: String, type: String?, imageUrl: Uri?) {
+    private fun sendNotification(title: String, messageBody: String, type: String?, imageUrl: Uri?) {
 
         var go = Intent(this, MainActivity::class.java)
 
@@ -92,10 +92,10 @@ class MyFirebaseMesssagingService : FirebaseMessagingService() {
         }
 
         val channelId = getString(R.string.default_notification_channel_id)
-        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
             .setSmallIcon(R.drawable.img_jkt48)
-            .setContentTitle(getString(R.string.app_name))
+            .setContentTitle(title)
             .setContentText(messageBody)
             .setAutoCancel(true)
 //            .setSound(defaultSoundUri)

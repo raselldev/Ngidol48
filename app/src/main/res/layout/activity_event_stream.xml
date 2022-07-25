@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.stream.EventStreamActivity">
+
+        <include
+            android:visibility="gone"
+            layout="@layout/layout_toolbar"
+            android:id="@+id/toolbar"/>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:visibility="gone"
+                    android:id="@+id/rel_stream"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp">
+                    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+                        android:background="@color/dark"
+                        app:controller_layout_id="@layout/player_custom"
+                        android:id="@+id/exo_player"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"/>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/lin_views"
+                        android:layout_alignParentRight="true"
+                        android:gravity="end"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:background="@drawable/background_shape_primary"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_10sdp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:src="@drawable/ic_member"/>
+                        <TextView
+                            android:id="@+id/tv_views"
+                            android:layout_gravity="center"
+                            android:textColor="@color/white"
+                            android:paddingHorizontal="@dimen/_5sdp"
+                            style="@style/body8"
+                            android:text="10"/>
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:background="@color/dark"
+                    android:id="@+id/rel_waiting"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_thumb"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/img_logo" />
+
+                    <TextView
+
+                        android:id="@+id/tv_waktu_stream"
+                        style="@style/body10"
+                        android:fontFamily="@font/dm_sans_bold"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/pink_transparan_40"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/streaming_akan_dimulai_waiting_time" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!--stream infomation-->
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_weight="1"
+                        android:layout_above="@+id/lin_satus_komentar"
+                        android:id="@+id/lin_stream_information"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="none">
+                        <LinearLayout
+                            android:padding="@dimen/_15sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/tv_judul"
+                                style="@style/title12"
+                                android:text="Gadis Gadis Remaja Special Graduation Cindy Hapsari"/>
+                            <TextView
+                                android:id="@+id/tv_disklaimer"
+                                android:padding="@dimen/_10sdp"
+                                android:layout_width="match_parent"
+                                android:background="@drawable/background_shape_pink"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                style="@style/title10"
+                                android:text="@string/teks_disklaimer_nsemua_hak_cipta_konten_adalah_milik_jkt48"/>
+
+                            <TextView
+                                android:layout_marginTop="@dimen/_15sdp"
+                                style="@style/title12"
+                                android:text="Deskripsi"/>
+
+                            <TextView
+                                android:text=""
+                                android:id="@+id/tv_deskripsi"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                style="@style/body12" />
+
+                        </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+
+
+                    <LinearLayout
+                        android:id="@+id/lin_satus_komentar"
+                        android:gravity="center"
+                        android:padding="@dimen/_10sdp"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:textColor="@color/colorPrimaryTeks"
+                            android:id="@+id/tv_status_komentar"
+                            android:gravity="center"
+                            android:layout_gravity="center"
+                            style="@style/title10"
+                            android:text="@string/teks_tampilkan_komentar"/>
+                        <ImageView
+                            android:id="@+id/iv_status_komentar"
+                            android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"/>
+                    </LinearLayout>
+
+                    <!--live chat-->
+                    <RelativeLayout
+                        android:visibility="gone"
+                        android:id="@+id/lin_live_chat"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_komentar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/lin_form_komentar"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_5sdp" />
+
+                        <!--komentar form-->
+                        <LinearLayout
+                            android:layout_alignParentBottom="true"
+                            android:id="@+id/lin_form_komentar"
+                            android:paddingVertical="@dimen/_5sdp"
+                            android:paddingHorizontal="@dimen/_15sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="@dimen/_25sdp"
+                                app:civ_border_color="@color/colorPrimaryTeks"
+                                app:civ_border_width="@dimen/_1sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:src="@drawable/ic_member"/>
+
+                            <RelativeLayout
+                                android:layout_marginRight="@dimen/_5sdp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="@dimen/_5sdp"
+                                android:layout_gravity="center"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingEnd="@dimen/_6sdp"
+                                android:paddingVertical="@dimen/_5sdp">
+
+                                <EditText
+                                    android:id="@+id/edt_komentar"
+                                    style="@style/editTextEntryName"
+                                    android:layout_centerVertical="true"
+                                    android:background="@color/transparant"
+                                    android:gravity="center_vertical"
+                                    android:hint="@string/teks_tulis_komentar_anda"
+                                    android:maxLines="1"
+                                    android:singleLine="true"/>
+
+                            </RelativeLayout>
+
+                            <ImageView
+                                android:id="@+id/iv_kirim"
+                                android:padding="@dimen/_3sdp"
+                                android:src="@drawable/ic_send"
+                                android:layout_gravity="center"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_25sdp"/>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
+</layout>

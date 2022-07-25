@@ -18,6 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ngidol48">
         <activity
+            android:name=".ui.activity.songHome.HomeSongActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.donasi.DonasiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.stream.EventStreamActivity"
+            android:exported="false"
+            android:supportsPictureInPicture="true" />
+        <activity
             android:name=".ui.activity.chants.DetailChantActivity"
             android:exported="false" />
         <activity
@@ -57,7 +67,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:host="apiidol.arira.my.id"
+                    android:host="idol48.top"
                     android:scheme="ngidol" />
                 <!-- <data -->
                 <!-- android:host="apiidol.arira.my.id" -->

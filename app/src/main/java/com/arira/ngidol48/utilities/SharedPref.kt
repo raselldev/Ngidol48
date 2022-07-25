@@ -18,11 +18,14 @@ class SharedPref(context : Context) {
 
     private val songPlay = "songPlay"
 
+    private val userTemp = "userTemp"
+
     private val notifShowroom = "notifShowroom"
     private val notifNews = "notifNews"
     private val notifMng = "notifMng"
     private val notifEvent = "notifEvent"
     private val notifHandshake = "notifHandshake"
+    private val notifStreaming = "notifStreaming"
 
     private val calenderNewView = "calenderNewView"
 
@@ -42,6 +45,13 @@ class SharedPref(context : Context) {
     }
     fun getFCMToken():String{
         return sp.getString(fcmToken, "") ?: ""
+    }
+
+    fun setUserTemp(status : String){
+        sp.edit().putString(userTemp, status).apply()
+    }
+    fun getUserTemp():String{
+        return sp.getString(userTemp, "") ?: ""
     }
 
     fun setSong(data: Song): Song {
@@ -128,6 +138,14 @@ class SharedPref(context : Context) {
 
     fun setNotifHandshake(value : Boolean){
         sp.edit().putBoolean(notifHandshake, value).apply()
+    }
+
+    fun getNotifStreaming(): Boolean {
+        return sp.getBoolean(notifStreaming, true)
+    }
+
+    fun setNotifStreaming(value : Boolean){
+        sp.edit().putBoolean(notifStreaming, value).apply()
     }
 
     fun getOpenApp() : Int{

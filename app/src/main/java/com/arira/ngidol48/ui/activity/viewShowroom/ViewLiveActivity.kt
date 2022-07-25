@@ -66,6 +66,7 @@ class ViewLiveActivity : BaseActivity() {
         action()
     }
 
+
     private fun hideSystemBars() {
         val windowInsetsController =
             ViewCompat.getWindowInsetsController(window.decorView) ?: return
@@ -121,7 +122,7 @@ class ViewLiveActivity : BaseActivity() {
                 DefaultTrackSelector(adaptiveTrackSelection),
                 DefaultLoadControl()
             )
-            binding.videoView.setPlayer(player)
+            binding.videoView.player = player
             val defaultBandwidthMeter = DefaultBandwidthMeter()
             val dataSourceFactory: DataSource.Factory = DefaultDataSourceFactory(
                 this,
@@ -134,7 +135,7 @@ class ViewLiveActivity : BaseActivity() {
                 dataSourceFactory, mainHandler, null
             )
             player!!.prepare(mediaSource)
-            player!!.setPlayWhenReady(playWhenReady)
+            player!!.playWhenReady = playWhenReady
             player!!.addListener(object : Player.EventListener {
                 override fun onTimelineChanged(timeline: Timeline?, manifest: Any?, reason: Int) {}
                 override fun onTracksChanged(

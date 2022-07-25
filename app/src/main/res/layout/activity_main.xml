@@ -88,15 +88,16 @@
                     <androidx.viewpager.widget.ViewPager
                         android:id="@+id/slider"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_165sdp"
+                        android:layout_height="@dimen/_170sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:clipToPadding="false"
                         android:overScrollMode="never" />
+
                     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                         android:id="@+id/embed_yt"
-                        android:visibility="gone"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:id="@+id/lin_user"
@@ -355,8 +356,6 @@
                         </LinearLayout>
 
 
-
-
                     </LinearLayout>
 
 
@@ -415,6 +414,24 @@
                             </RelativeLayout>
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/card_livestrem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_8sdp">
+
+                        <ImageView
+                            android:scaleType="center"
+                            android:id="@+id/iv_live_stream"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_165sdp" />
+
+                    </androidx.cardview.widget.CardView>
 
                     <LinearLayout
                         android:id="@+id/lin_showroom"

@@ -39,5 +39,15 @@
             app:scrubber_color="@color/colorPrimaryTeks"
             app:unplayed_color="@color/colorBackground" />
     </LinearLayout>
+
+    <TextView
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:text="00:00"
+        android:padding="@dimen/_10sdp"
+        android:layout_alignParentBottom="true"
+        android:id="@id/exo_position"
+        style="@style/title10"
+        android:textStyle="bold" />
 </RelativeLayout>
 </layout>

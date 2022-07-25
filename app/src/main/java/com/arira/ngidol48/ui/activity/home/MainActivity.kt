@@ -15,7 +15,6 @@ import android.view.View.OnTouchListener
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -37,8 +36,10 @@ import com.arira.ngidol48.helper.Config.TOPIC_HANDSHAKE
 import com.arira.ngidol48.helper.Config.TOPIC_MNG
 import com.arira.ngidol48.helper.Config.TOPIC_NEWS
 import com.arira.ngidol48.helper.Config.TOPIC_SHOWROOM
+import com.arira.ngidol48.helper.Config.TOPIC_STREAMING
 import com.arira.ngidol48.helper.SweetAlert
 import com.arira.ngidol48.model.Banner
+import com.arira.ngidol48.model.LiveStream
 import com.arira.ngidol48.model.Member
 import com.arira.ngidol48.model.Slider
 import com.arira.ngidol48.ui.activity.allBlog.BlogActivity
@@ -53,7 +54,8 @@ import com.arira.ngidol48.ui.activity.news.BeritaActivity
 import com.arira.ngidol48.ui.activity.notifikasi.NotifikasiActivity
 import com.arira.ngidol48.ui.activity.pengaturan.PengaturanActivity
 import com.arira.ngidol48.ui.activity.profil.ProfilActivity
-import com.arira.ngidol48.ui.activity.setlist.SetlistActivity
+import com.arira.ngidol48.ui.activity.songHome.HomeSongActivity
+import com.arira.ngidol48.ui.activity.stream.EventStreamActivity
 import com.arira.ngidol48.ui.activity.viewShowroom.ViewLiveActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
@@ -82,6 +84,7 @@ class MainActivity : BaseActivity(), MemberCallback {
     private var selectedBdMember:Member = Member()
     private var idnLiveStreamURL:String = ""
     private var bannerData:Banner = Banner()
+    private var streamData = LiveStream()
 
     private var mYouTubePlayer: YouTubePlayer? = null
 
@@ -102,7 +105,6 @@ class MainActivity : BaseActivity(), MemberCallback {
         } catch (e: RuntimeException) {
 
         }
-
 
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,
@@ -161,7 +163,6 @@ class MainActivity : BaseActivity(), MemberCallback {
             binding.linBlog.visibility = View.VISIBLE
         }
     }
-
 
     /**
      * menampilkan review manager
@@ -251,7 +252,6 @@ class MainActivity : BaseActivity(), MemberCallback {
         dialogCreate.show()
     }
 
-
     fun findTodayBday(bdayMember:List<Member>):ArrayList<Member>{
         val listBday:ArrayList<Member> = ArrayList()
         for (i in bdayMember.indices){
@@ -283,6 +283,10 @@ class MainActivity : BaseActivity(), MemberCallback {
 
         binding.divPlayIdn.setOnClickListener {
             Go(this).move(ViewLiveActivity::class.java, url = idnLiveStreamURL, choose = false)
+        }
+
+        binding.ivLiveStream?.setOnClickListener {
+            Go(this).move(EventStreamActivity::class.java, data = streamData, choose = false)
         }
 
         binding.linUser.setOnClickListener {
@@ -322,7 +326,8 @@ class MainActivity : BaseActivity(), MemberCallback {
         }
 
         binding.linSetlist.setOnClickListener {
-            Go(this).move(SetlistActivity::class.java)
+//            Go(this).move(SetlistActivity::class.java)
+            Go(this).move(HomeSongActivity::class.java)
         }
 
         binding.linKalender.setOnClickListener {
@@ -395,6 +400,7 @@ class MainActivity : BaseActivity(), MemberCallback {
         }
     }
 
+    /*subcribe notifikasi*/
     private  fun subcribeAll(){
 
         if (pref.getNotifNews()){
@@ -404,6 +410,11 @@ class MainActivity : BaseActivity(), MemberCallback {
 
         if (pref.getNotifMng()){
             FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_MNG).addOnSuccessListener {
+            }
+        }
+
+        if (pref.getNotifStreaming()){
+            FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_STREAMING).addOnSuccessListener {
             }
         }
 
@@ -429,31 +440,31 @@ class MainActivity : BaseActivity(), MemberCallback {
     }
 
     fun observerData(){
-        viewModel.getLoading().observe(this, Observer {
+        viewModel.getLoading().observe(this) {
             it.let {
-                if (it != null){
+                if (it != null) {
                     binding.swipe.isRefreshing = it
                 }
             }
 
-        })
+        }
 
-        viewModel.getError().observe(this, Observer {
+        viewModel.getError().observe(this) {
             it.let {
-                if (it != null){
+                if (it != null) {
                     binding.swipe.isRefreshing = false
                     SweetAlert.onFailure(this, it)
                 }
 
             }
-        })
+        }
 
-        viewModel.getResponse().observe(this, Observer {
+        viewModel.getResponse().observe(this) {
             it.let {
                 if (it != null) {
+
                     /*show banner data*/
-                    Log.e("D", "sjoe ${it.show_banner}")
-                    if(it.show_banner == "1"){
+                    if (it.show_banner == "1") {
                         bannerData = it.banner
                         binding.ivBanner.let { it1 ->
                             Glide.with(this).load(it.banner.image)
@@ -462,18 +473,29 @@ class MainActivity : BaseActivity(), MemberCallback {
                                     it1
                                 )
                         }
-                        binding.cardBanner?.visibility = View.VISIBLE
-                    }else{
-                        binding.cardBanner?.visibility = View.GONE
+                        binding.cardBanner.visibility = View.VISIBLE
+                    } else {
+                        binding.cardBanner.visibility = View.GONE
                     }
+
+
+                    if (it.show_banner_stream == "1") {
+                        binding.cardLivestrem?.visibility = View.VISIBLE
+
+                        streamData = it.live_stream
+                        Glide.with(this).load(streamData.banner).into(binding.ivLiveStream!!)
+                    } else {
+                        binding.cardLivestrem?.visibility = View.GONE
+                    }
+
 
                     //idnlive
                     val idn = it.idn
-                    if(idn.status == "live"){
+                    if (idn.status == "live") {
                         binding.linIdn.visibility = View.VISIBLE
                         Glide.with(this).load(idn.image_url).into(binding.ivThumbIdn)
                         idnLiveStreamURL = idn.playback_url
-                    }else{
+                    } else {
                         binding.linIdn.visibility = View.GONE
                     }
 
@@ -484,20 +506,20 @@ class MainActivity : BaseActivity(), MemberCallback {
                     }
 
                     /*show size notificaiton todae*/
-                    if (it.notifikasi_hari_ini > 0){
+                    if (it.notifikasi_hari_ini > 0) {
                         binding.divJmlNotif.visibility = View.VISIBLE
                         binding.tvJmlNotif.text = it.notifikasi_hari_ini.toString()
-                    }else{
+                    } else {
                         binding.divJmlNotif.visibility = View.GONE
                     }
 
                     /*birthday member*/
-                    if (it.bday_member.isNotEmpty()){
+                    if (it.bday_member.isNotEmpty()) {
                         binding.linBday.visibility = View.VISIBLE
                         binding.rvBday.apply {
-                            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+                            if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
                                 layoutManager = GridLayoutManager(context, 5)
-                            }else{
+                            } else {
                                 layoutManager = GridLayoutManager(context, 4)
                             }
 
@@ -505,68 +527,72 @@ class MainActivity : BaseActivity(), MemberCallback {
                         }
 
                         val bdayToday = findTodayBday(it.bday_member)
-                        if (bdayToday.isNotEmpty()){
+                        if (bdayToday.isNotEmpty()) {
                             showBdayMember(bdayToday)
 
                             selectedBdMember = bdayToday[0]
                             binding.relBdayAva.visibility = View.VISIBLE
-                            Glide.with(this).load(Config.BASE_STORAGE_JKT + selectedBdMember.avatar).into(binding.ivAvaBday)
+                            Glide.with(this).load(Config.BASE_STORAGE_JKT + selectedBdMember.avatar)
+                                .into(binding.ivAvaBday)
                         }
 
 
-                    }else{
+                    } else {
                         binding.relBdayAva.visibility = View.GONE
                         binding.linBday.visibility = View.GONE
                     }
 
                     /*event today*/
-                    if(it.event.isEmpty()){
+                    if (it.event.isEmpty()) {
                         binding.linViewKosongEvent.visibility = View.VISIBLE
-                    }else{
+                    } else {
                         binding.linViewKosongEvent.visibility = View.GONE
                         binding.rvEvent.apply {
-                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                            layoutManager =
+                                LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
                             adapter = EventHomeAdapter(it.event)
                         }
                     }
 
                     /*show showroom member online*/
-                    if(it.live_showroom.isEmpty()){
+                    if (it.live_showroom.isEmpty()) {
                         binding.linShowroom.visibility = View.GONE
-                    }else{
+                    } else {
                         binding.tvJmlMember.text = "( ${it.live_showroom.size} Member )"
                         binding.linShowroom.visibility = View.VISIBLE
                         binding.rvShowroom.apply {
-                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                            layoutManager =
+                                LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
                             adapter = ShowroomAdapter(it.live_showroom)
                         }
                     }
 
-                    if(it.sr_today.isEmpty()){
-                        binding.linShowroomHistory?.visibility = View.GONE
-                    }else{
-                        binding.tvJmlMemberHistory?.text = "( ${it.sr_today.size} Replay )"
-                        binding.linShowroomHistory?.visibility = View.VISIBLE
-                        binding.rvShowroomHistory?.apply {
-                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                    if (it.sr_today.isEmpty()) {
+                        binding.linShowroomHistory.visibility = View.GONE
+                    } else {
+                        binding.tvJmlMemberHistory.text = "( ${it.sr_today.size} Replay )"
+                        binding.linShowroomHistory.visibility = View.VISIBLE
+                        binding.rvShowroomHistory.apply {
+                            layoutManager =
+                                LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
                             adapter = HistoryShowroomAdapter(it.sr_today)
                         }
                     }
 
                     /*show blog menu*/
-                    if (pref.getOnReview()){
+                    if (pref.getOnReview()) {
                         binding.linBlog.visibility = View.GONE
-                    }else{
+                    } else {
                         binding.linBlog.visibility = View.VISIBLE
                     }
 
                     //show special video replay slider
-                    if (it.show_special_video == "1"){
-                        binding.embedYt?.visibility = View.VISIBLE
+                    if (it.show_special_video == "1") {
+                        binding.embedYt.visibility = View.VISIBLE
                         binding.slider.visibility = View.GONE
                         setDataVideo(it.special_video.videoId)
-                    }else{
-                        binding.embedYt?.visibility = View.GONE
+                    } else {
+                        binding.embedYt.visibility = View.GONE
                         binding.slider.visibility = View.VISIBLE
                         /*show slider data*/
                         setSlider(it.slider)
@@ -574,7 +600,7 @@ class MainActivity : BaseActivity(), MemberCallback {
 
                 }
             }
-        })
+        }
     }
 
     fun setSlider(slider: List<Slider>){
@@ -615,9 +641,9 @@ class MainActivity : BaseActivity(), MemberCallback {
         binding.viewGroup.keepScreenOn = true
         if (videoId.isNotEmpty()) {
 
-            binding.embedYt?.visibility = View.VISIBLE
+            binding.embedYt.visibility = View.VISIBLE
 
-            binding.embedYt?.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            binding.embedYt.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
 
                 override fun onReady(@NonNull youTubePlayer: YouTubePlayer) {
                     mYouTubePlayer = youTubePlayer
@@ -630,42 +656,20 @@ class MainActivity : BaseActivity(), MemberCallback {
                     Log.e("STATUS", "state. ${state}")
                     when(state.toString()){
                         "PLAYING"->{
-//                            pref.setSong(lagu)
-//                            try{
-//                                ContextCompat.startForegroundService(
-//                                    applicationContext,
-//                                    Intent(applicationContext, MediaSessionService::class.java)
-//                                )
-//                            }catch (e:RuntimeException){
-//
-//                            }catch (e:RuntimeException){
-//
-//                            }catch (e:RemoteException){
-//
-//                            }
 
                         }
                         "ENDED"->{
                         }
                         else->{
-//                            try{
-//                                stopService(Intent(applicationContext, MediaSessionService::class.java))
-//                            }catch (e:RuntimeException){
-//
-//                            }catch (e:RuntimeException){
-//
-//                            }catch (e:RemoteException){
-//
-//                            }
 
                         }
                     }
                 }
             })
-            binding.embedYt?.getPlayerUiController()?.showFullscreenButton(false)
+            binding.embedYt.getPlayerUiController().showFullscreenButton(false)
 
         } else {
-            binding.embedYt?.visibility = View.GONE
+            binding.embedYt.visibility = View.GONE
         }
     }
 

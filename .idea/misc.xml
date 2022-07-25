@@ -31,9 +31,11 @@
         <entry key="app/src/main/res/drawable/ic_undo.xml" value="0.1295" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog.xml" value="0.2064814814814815" />
         <entry key="app/src/main/res/drawable/shape_rounded_dialog_dark.xml" value="0.2388888888888889" />
+        <entry key="app/src/main/res/layout-land/activity_event_stream.xml" value="0.1375" />
         <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.125" />
         <entry key="app/src/main/res/layout-land/activity_notifikasi.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout-land/item_ava_member.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout-land/item_live_chat.xml" value="0.1763888888888889" />
         <entry key="app/src/main/res/layout-land/item_member.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout-land/item_slider.xml" value="0.1984375" />
         <entry key="app/src/main/res/layout/activity_berita.xml" value="0.24322916666666666" />
@@ -47,12 +49,15 @@
         <entry key="app/src/main/res/layout/activity_detail_lagu.xml" value="0.29591064453125" />
         <entry key="app/src/main/res/layout/activity_detail_member.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/activity_detail_mng.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/activity_donasi.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/activity_edit_profil.xml" value="0.14864864864864866" />
         <entry key="app/src/main/res/layout/activity_event.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/activity_event_stream.xml" value="0.2162037037037037" />
         <entry key="app/src/main/res/layout/activity_handshake.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/activity_handshake_by_member.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/activity_history_handshake.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_history_mng.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/activity_home_song.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/activity_kalender.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_lagu.xml" value="0.22671353251318102" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16722972972972974" />
@@ -84,6 +89,7 @@
         <entry key="app/src/main/res/layout/item_chant.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/item_detail_handshake.xml" value="0.2578125" />
         <entry key="app/src/main/res/layout/item_detail_mng.xml" value="0.16722972972972974" />
+        <entry key="app/src/main/res/layout/item_donasi.xml" value="0.22602739726027396" />
         <entry key="app/src/main/res/layout/item_event.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/item_event_home.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/item_event_kalender.xml" value="0.16722972972972974" />
@@ -93,10 +99,12 @@
         <entry key="app/src/main/res/layout/item_handshake_member_list_2.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/item_history_showroom.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/item_kategori_blog.xml" value="0.15618729096989967" />
+        <entry key="app/src/main/res/layout/item_kategori_lagu.xml" value="0.22916666666666666" />
         <entry key="app/src/main/res/layout/item_kategori_notifikasi.xml" value="0.16555183946488294" />
         <entry key="app/src/main/res/layout/item_komentar.xml" value="0.16722972972972974" />
         <entry key="app/src/main/res/layout/item_lagu.xml" value="0.24322916666666666" />
         <entry key="app/src/main/res/layout/item_lagu_small.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/item_live_chat.xml" value="0.2162037037037037" />
         <entry key="app/src/main/res/layout/item_member.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_mng.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_mng_by_member.xml" value="0.16722972972972974" />

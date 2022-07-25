@@ -78,11 +78,13 @@
     <string name="teks_atur_penerimaan_notifikasi_anda">Atur penerimaan notifikasi anda</string>
     <string name="teks_donasi">Donasi</string>
     <string name="teks_deskripsi_donasi">Jika ingin berdonasi untuk kehidupan pengembang</string>
+    <string name="teks_deskripsi_donatur">Terima kasih banyak atas donasi yang diberikan :)</string>
     <string name="teks_deskripsi_informasi">Anda akan mendapatkan notifikasi terkait dengan informasi terbaru dari JKT48 Official Team</string>
     <string name="teks_deskripsi_notifikasi_event">Anda akan mendapatkan notifikasi terkait dengan event termasuk dengan penjualan dan pemberitahuan hari H event</string>
     <string name="teks_deskripsi_notifikasi_handshake">Anda akan mendapatkan notifikasi terkait dengan jadwal handshake / video call dan penjualan tiket</string>
     <string name="teks_deskripsi_notifikasi_mng">Anda akan mendapatkan notifikasi terkait dengan jadwal personal meet and greet dan penjualan tiket</string>
     <string name="teks_deskripsi_notifikasi_showroom">Anda akan mendapatkan notifikasi ketika ada member yang sedang atau memulai live showroom</string>
+    <string name="teks_deskripsi_notifikasi_streaming">Anda akan mendapatkan notifikasi ketika ada streaming khusus di aplikasi yang akan dimulai</string>
     <string name="teks_showroom">Live Showroom</string>
     <string name="teks_pengaturan">Pengaturan</string>
     <string name="teks_blog">Blog</string>
@@ -189,6 +191,14 @@
     <string name="teks_chant">Chant</string>
     <string name="teks_cari_judul">Cari Judul</string>
     <string name="teks_tidak_ada_data_chant_tersedia">Tidak ada data chant tersedia</string>
+    <string name="teks_stream">Stream</string>
+    <string name="teks_tampilkan_komentar">Tampilkan Komentar</string>
+    <string name="teks_disklaimer_nsemua_hak_cipta_konten_adalah_milik_jkt48">Disklaimer !!!\nSemua Hak Cipta Konten adalah milik JKT48</string>
+    <string name="streaming_akan_dimulai_waiting_time">Streaming Akan dimulai %s WIB</string>
+    <string name="teks_tutup_komentar">Tutup Komentar</string>
+    <string name="teks_gagal_mengirim_pesan">Gagal mengirim pesan</string>
+    <string name="teks_setlist_teater">Setlist Teater</string>
+    <string name="teks_streaming">Streaming</string>
 
 
 </resources>

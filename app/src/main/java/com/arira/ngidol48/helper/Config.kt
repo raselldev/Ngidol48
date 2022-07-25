@@ -28,6 +28,7 @@ object Config {
 
     val TOPIC_NEWS = "news"
     val TOPIC_MNG = "mng"
+    val TOPIC_STREAMING = "streaming"
     val TOPIC_EVENT = "event"
     val TOPIC_HANDSHAKE = "handshake"
     val TOPIC_SHOWROOM = "showroom"

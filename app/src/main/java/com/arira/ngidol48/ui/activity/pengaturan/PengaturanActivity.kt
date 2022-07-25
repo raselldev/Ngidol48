@@ -11,6 +11,7 @@ import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityPengaturanBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config.BASE_URL
+import com.arira.ngidol48.ui.activity.donasi.DonasiActivity
 import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
@@ -57,9 +58,7 @@ class PengaturanActivity : BaseActivity() {
         }
 
         binding.linDonasi.setOnClickListener {
-            val openURL = Intent(Intent.ACTION_VIEW)
-            openURL.data = Uri.parse("https://saweria.co/raflipakei")
-            startActivity(openURL)
+            Go(this).move(DonasiActivity::class.java)
         }
 
         binding.linPrivasi.setOnClickListener {

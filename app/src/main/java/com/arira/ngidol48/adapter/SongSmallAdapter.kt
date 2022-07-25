@@ -9,13 +9,13 @@ import com.arira.ngidol48.adapter.holder.SongSmallHolder
 import com.arira.ngidol48.model.Song
 import com.arira.ngidol48.ui.activity.lagu.LaguCallback
 
-class SongSmallAdapter(var list:List<Song>, val callback: LaguCallback? = null): RecyclerView.Adapter<SongSmallHolder>() {
+class SongSmallAdapter(var list:List<Song>, val callback: LaguCallback? = null, var isHome:Boolean = false): RecyclerView.Adapter<SongSmallHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongSmallHolder {
         return  SongSmallHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_lagu_small, parent, false))
     }
 
     override fun onBindViewHolder(holder: SongSmallHolder, position: Int) {
-        holder.setData(list[position], callback)
+        holder.setData(list[position], callback, list, isHome)
     }
 
     override fun getItemCount(): Int {
