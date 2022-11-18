@@ -116,6 +116,19 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
         }
     }
 
+//    override fun onUserLeaveHint() {
+//        try{
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                val aspectRatio = Rational(16, 9)
+//                val params = PictureInPictureParams.Builder().setAspectRatio(aspectRatio).build()
+//                enterPictureInPictureMode(params)
+//            }
+//        }catch (e: IllegalStateException){
+//            toast.show(getString(R.string.teks_perangkat_tidak_mendukung_pip), this)
+//        }
+//
+//    }
+
     private fun action(){
         binding.ivBack.setOnClickListener { 
             onBackPressed()
