@@ -34,14 +34,17 @@ class DetailHandshakeActivity : BaseActivity() {
             R.color.colorPrimaryDark,
             R.color.colorAccent)
 
+
+
+
         load()
+        setDataParentHS()
 
         binding.rvData.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = DetailHandshakeAdapter(listDetail)
         }
 
-        setDataParentHS()
 
         action()
     }

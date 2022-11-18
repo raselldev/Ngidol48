@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_detail_blog.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2101851851851852" />
+        <entry key="app/src/main/res/layout/item_event.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_event_home.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_event_kalender.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_handshake.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_handshake_by_member.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_handshake_member_list.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_kategori_blog.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_kategori_lagu.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_komentar.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_lagu.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_lagu_small.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_live_chat.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_mng.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_mng_by_member.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_notif.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_report.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/item_setlist.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/sheet_detail_member.xml" value="0.22916666666666666" />
+        <entry key="app/src/main/res/layout/sheet_lagu.xml" value="0.2101851851851852" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

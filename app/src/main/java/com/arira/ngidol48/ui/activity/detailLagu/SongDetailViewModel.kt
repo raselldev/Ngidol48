@@ -93,5 +93,45 @@ class SongDetailViewModel : ViewModel() {
             )
     }
 
+    fun  countStart(start:Int, html:String):Int{
+        var iStart = 0
+
+        if (start > 0){
+            val c = html.take(start)
+            iStart = if (c.contains("\n\n")){
+                c.lastIndexOf("\n\n")
+            }else{
+                0
+            }
+
+
+
+            if (iStart < 0){
+                iStart = 0
+            }
+        }
+
+        return  iStart
+    }
+
+    fun coutToNextParaph(start:Int, html:String):Int{
+        val c = html.removeRange(0, start)
+        var nextParaph = 0
+
+        nextParaph = if (c.contains("\n\n")){
+    //            Log.e("FIND", "contains with start ${start}")
+            start + c.indexOf("\n\n", 0)
+        }else{
+    //            Log.e("FIND", "not have  with start ${start}")
+            start + c.length
+        }
+
+
+
+
+
+        return  nextParaph
+    }
+
 
 }

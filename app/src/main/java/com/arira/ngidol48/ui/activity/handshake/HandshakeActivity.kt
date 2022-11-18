@@ -1,20 +1,35 @@
 package com.arira.ngidol48.ui.activity.handshake
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
-import com.arira.ngidol48.adapter.HandshakeAdapter
+import com.arira.ngidol48.adapter.DetailHandshakeAdapter
+import com.arira.ngidol48.adapter.TanggalHandshakeAdapter
 import com.arira.ngidol48.databinding.ActivityHandshakeBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.model.DetailHandshake
+import com.arira.ngidol48.model.Handshake
+import com.arira.ngidol48.model.ParentHandshake
+import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
 import com.arira.ngidol48.utilities.Go
 
-class HandshakeActivity : BaseActivity() {
+class HandshakeActivity : BaseActivity(), HandshakeCallback{
     private lateinit var binding: ActivityHandshakeBinding
     private lateinit var viewModel: HandshakeViewModel
+
+    private var active_id:String = ""
+    private lateinit var tanggalHandshakeAdapter: TanggalHandshakeAdapter
+
+    //for detail data
+    private var parentData = ParentHandshake()
+    private var listDetail:ArrayList<DetailHandshake> = ArrayList()
+    private var buy_url:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +67,11 @@ class HandshakeActivity : BaseActivity() {
         binding.tvReload.setOnClickListener {
             viewModel.hitAll()
         }
+
+        binding.tvTiketDll.setOnClickListener {
+            buy_url = "https://jkt48.com/handshake?id=${parentData.id_handshake}"
+            Go(this).move(MyWebActivity::class.java, url = buy_url)
+        }
     }
 
     fun observerData(){
@@ -86,10 +106,27 @@ class HandshakeActivity : BaseActivity() {
 
 
                     if (it.handshakes.isNotEmpty()){
-                        binding.rvData.apply {
-                            layoutManager  = LinearLayoutManager(context)
-                            adapter = HandshakeAdapter(it.handshakes)
+//                        binding.rvData.apply {
+//                            layoutManager  = LinearLayoutManager(context)
+//                            adapter = HandshakeAdapter(it.handshakes)
+//                        }
+
+                        tanggalHandshakeAdapter = TanggalHandshakeAdapter(it.handshakes.reversed(), this@HandshakeActivity)
+//                        val newlist = it.handshakes.reversed()
+                        binding.rvTanggal.apply {
+                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                            adapter = tanggalHandshakeAdapter
                         }
+
+
+
+                        parentData = it.handshakes[it.handshakes.size - 1]
+                        load()
+                        setDataParentHS()
+
+                        tanggalHandshakeAdapter.active_id = parentData.id_handshake
+                        tanggalHandshakeAdapter.notifyDataSetChanged()
+
                     }else{
                         binding.divKosong.visibility = View.VISIBLE
 
@@ -99,5 +136,71 @@ class HandshakeActivity : BaseActivity() {
                 }
             }
         })
+    }
+
+    override fun handshakeShow(data: ParentHandshake) {
+        //show detail
+        active_id = data.id_handshake
+        tanggalHandshakeAdapter.active_id = active_id
+
+        parentData = data
+        load()
+        setDataParentHS()
+
+        tanggalHandshakeAdapter.notifyDataSetChanged()
+    }
+
+
+    private fun setDataParentHS(){
+        binding.tvNama.text = parentData.nama_event_handshake
+        binding.tvTanggal.text = parentData.tanggal_envent_handshake
+        binding.tvMember.text = "${parentData.nama_member.size} Member"
+        binding.tvSesi.text = "${parentData.sesis.size} Sesi"
+        binding.tvTiket.text = "${parentData.total_sold}/${parentData.total_jadwal} Sold"
+    }
+
+    private fun load(){
+        listDetail.clear()
+
+        for (data in parentData.details){
+            if (alreadySesi(data.sesi)){
+                addDataToSesi(data)
+            }else{
+                //memuat item baru
+                val detailHandshake = DetailHandshake()
+                detailHandshake.sesi = data.sesi
+                detailHandshake.waktu = data.waktu
+                detailHandshake.standby = data.standby
+                detailHandshake.member_list_name = data.nama_member
+                detailHandshake.handshake.add(data)
+                listDetail.add(detailHandshake)
+            }
+        }
+
+        binding.rvData.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = DetailHandshakeAdapter(listDetail)
+        }
+
+    }
+
+    private fun addDataToSesi(handshake: Handshake){
+        Log.e("HS", "id ${handshake.id_member}")
+        for (i in listDetail.indices){
+            if (listDetail[i].sesi == handshake.sesi){
+                listDetail[i].handshake.add(handshake)
+                listDetail[i].member_list_name += ", ${handshake.nama_member}"
+            }
+        }
+    }
+
+    private fun alreadySesi(sesi:String):Boolean{
+        for (detail in listDetail){
+            if (detail.sesi == sesi){
+                return true
+            }
+        }
+
+        return false
     }
 }

@@ -173,7 +173,26 @@
                         style="@style/title10"
                         android:text="@string/teks_lirik"/>
 
+                    <com.arira.ngidol48.helper.customView.ObservableScrollView
+                        android:id="@+id/tinjauPart_sroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fillViewport="true">
+                        <com.arira.ngidol48.helper.customView.SelectableTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tv_lirik_selected"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/_12sdp"
+                            android:fontFamily="@font/dm_sans_bold"
+                            android:textColor="@color/dark"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:bufferType="spannable"
+                            />
+                    </com.arira.ngidol48.helper.customView.ObservableScrollView>
+
                     <TextView
+                        android:visibility="gone"
                         android:textStyle="bold"
                         android:fontFamily="@font/dm_sans_bold"
                         android:textColor="@color/dark"

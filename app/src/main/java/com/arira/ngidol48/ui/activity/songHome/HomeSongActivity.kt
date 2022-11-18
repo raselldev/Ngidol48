@@ -3,6 +3,7 @@ package com.arira.ngidol48.ui.activity.songHome
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.KategoriLaguAdapter
@@ -82,7 +83,7 @@ class HomeSongActivity : BaseActivity(), LaguCallback{
                 }
 
                 binding.rvSetlist.apply {
-                    layoutManager  = LinearLayoutManager(context)
+                    layoutManager  = GridLayoutManager(context, 2)
                     adapter = SetlistAdapter(it.setlist_teater)
                 }
             }

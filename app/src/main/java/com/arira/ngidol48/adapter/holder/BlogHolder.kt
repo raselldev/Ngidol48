@@ -65,6 +65,7 @@ class BlogHolder(var item:ItemBlogBinding): RecyclerView.ViewHolder(item.root) {
         item.tvJudul.text = data.judul
         item.tvNamaPengguna.text = data.fullname
         item.tvTanggal.text = helper.waktulalu(data.created_at)
+        item.tvDeskripsi.text = data.blog
 
         item.tvTotalKomentar.text = "${data.total_command} Komentar"
 

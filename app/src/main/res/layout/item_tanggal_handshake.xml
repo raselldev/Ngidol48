@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_tanggal"
+            android:textColor="@color/colorPrimaryTeks"
+            android:background="@drawable/background_border_primary"
+            android:paddingVertical="@dimen/_3sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
+            style="@style/body10"
+            android:text="19 Agustus 2022"/>
+    </LinearLayout>
+</layout>

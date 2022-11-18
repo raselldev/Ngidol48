@@ -46,6 +46,14 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
     private var isLike:Boolean = false
     private var isTabLirik = true
 
+    //text selection
+    private var mTouchXTextSelection = 0
+    private var mTouchYTextSelection = 0
+    private val DEFAULT_SELECTION_LEN = 5
+
+    var startSelected: Int = 0
+    var endSelected: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_lagu)
@@ -85,20 +93,28 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 
         observeDataFavorit()
 
+        lirikSelectedSetup()
     }
 
-//    override fun onUserLeaveHint() {
-//        try{
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//                val aspectRatio = Rational(16, 9)
-//                val params = PictureInPictureParams.Builder().setAspectRatio(aspectRatio).build()
-//                enterPictureInPictureMode(params)
-//            }
-//        }catch (e: IllegalStateException){
-//            toast.show(getString(R.string.teks_perangkat_tidak_mendukung_pip), this)
-//        }
-//
-//    }
+    private fun lirikSelectedSetup(){
+        binding.tvLirikSelected.setDefaultSelectionColor(0x50F7729A)
+
+        binding.tvLirikSelected.setOnClickListener {
+            hideShareLirik()
+            binding.tvLirikSelected.hideCursor()
+        }
+
+        binding.tvLirikSelected.setOnLongClickListener {
+            showSelectionCursors(mTouchXTextSelection, mTouchYTextSelection)
+            true
+        }
+
+        binding.tvLirikSelected.setOnTouchListener { _, event ->
+            mTouchXTextSelection = event.x.toInt()
+            mTouchYTextSelection = event.y.toInt()
+            false
+        }
+    }
 
     private fun action(){
         binding.ivBack.setOnClickListener { 
@@ -179,6 +195,8 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
 
         binding.tvJudul.text = currentSong.judul
         binding.tvLirik.text = currentSong.lirik
+        binding.tvLirikSelected.text = currentSong.lirik
+//        tv_lirik_selected
         binding.tvChant.text = helper.fromHtml(currentSong.chant.chant)
         binding.tvSetlist.text = currentSong.nama
 
@@ -459,5 +477,38 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
                 toast.show(it, this)
             }
         }
+    }
+
+
+    /*CURSOR FOR LIRIK*/
+    private fun showSelectionCursors(x: Int, y: Int) {
+        binding.tvLirikSelected.hideCursor()
+        showShareLirik()
+
+        val start: Int = binding.tvLirikSelected.getPreciseOffset(x, y)
+        startSelected = songDetailViewModel.countStart(start, currentSong.lirik)
+
+        if (start > -1) {
+
+            endSelected = songDetailViewModel.coutToNextParaph(start, currentSong.lirik)
+            if (endSelected > binding.tvLirikSelected.text.length) {
+                endSelected = binding.tvLirikSelected.text.length - 1
+            }
+
+            var end: Int = start + DEFAULT_SELECTION_LEN
+            if (end >= binding.tvLirikSelected.text.length) {
+                end = binding.tvLirikSelected.text.length - 1
+            }
+
+            binding.tvLirikSelected.showSelectionControls(start, end)
+        }
+
+    }
+
+    private fun showShareLirik() {
+//        toolbar_komen.visibility = View.VISIBLE
+    }
+
+    private fun hideShareLirik() {
     }
 }

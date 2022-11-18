@@ -320,7 +320,7 @@ object Helper {
     }
 
     fun getCurrentDate():String{
-        val sdf = SimpleDateFormat("yyyy-MM-dd", Locale("id"))
+        val sdf = SimpleDateFormat("dd MMM yyyy", Locale("id"))
         return sdf.format(Date())
     }
 
