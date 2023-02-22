@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.radio.RadioActivity">
+        <include layout="@layout/layout_toolbar"
+            android:id="@+id/toolbar"/>
+        
+        <ImageView
+            android:id="@+id/tv_cover"
+            android:src="@drawable/img_radio_dummy"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_200sdp"/>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_gravity="center"
+            style="@style/title12"
+            android:text="JKT48 - Seventeen (Unreleased)"/>
+        <TextView
+            android:id="@+id/tv_subtitle"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_gravity="center"
+            style="@style/body12"
+            android:textColor="@color/abu_pekat"
+            android:text="Seventeen Loop"/>
+
+        <ImageView
+            android:id="@+id/iv_btn_play"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_stop"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"/>
+    </LinearLayout>
+</layout>

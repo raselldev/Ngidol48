@@ -24,6 +24,7 @@ import com.arira.ngidol48.model.Setlist
 import com.arira.ngidol48.model.Song
 import com.arira.ngidol48.ui.activity.lagu.LaguActivity
 import com.arira.ngidol48.ui.activity.lagu.LaguCallback
+import com.arira.ngidol48.ui.activity.shareLirik.SelectShareLirikActivity
 import com.arira.ngidol48.utilities.Go
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
@@ -107,6 +108,10 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
         binding.tvLirikSelected.setOnLongClickListener {
             showSelectionCursors(mTouchXTextSelection, mTouchYTextSelection)
             true
+        }
+
+        binding.ivShareLirik.setOnClickListener {
+            Go(this).move(SelectShareLirikActivity::class.java, data = currentSong)
         }
 
         binding.tvLirikSelected.setOnTouchListener { _, event ->

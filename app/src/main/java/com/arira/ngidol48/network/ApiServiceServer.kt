@@ -318,5 +318,12 @@ interface ApiServiceServer {
     ): Observable<ViewStreamResponse>
 
 
+    @Headers(Config.API)
+    @GET("photocard/data/{id}")
+    fun getDetailPhotoCard(
+        @Path("id") id:String,
+    ): Observable<PhotoCardResponse>
+
+
 
 }

@@ -1,19 +1,18 @@
 package com.applandeo.materialcalendarview.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.applandeo.materialcalendarview.R
+import com.applandeo.materialcalendarview.databinding.ItemEventDateBinding
 
 
 class AdapterEvent(private var data: List<String>) : RecyclerView.Adapter<AdapterEvent.Holder>(){
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_event_date, parent, false)
-        return Holder(view)
+        return  Holder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.item_event_date, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -22,12 +21,11 @@ class AdapterEvent(private var data: List<String>) : RecyclerView.Adapter<Adapte
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
 
-        holder.tvNama.text = data[position]
+        holder.item.tvEvent.text = data[position]
 
     }
 
-    inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvNama: TextView = itemView.findViewById(R.id.tv_event)
+    inner class Holder(var item: ItemEventDateBinding) : RecyclerView.ViewHolder(item.root) {
     }
 
 }

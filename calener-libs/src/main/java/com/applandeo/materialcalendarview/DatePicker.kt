@@ -6,11 +6,12 @@ import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import com.applandeo.materialcalendarview.databinding.DatePickerDialogBinding
 import com.applandeo.materialcalendarview.utils.CalendarProperties
 import com.applandeo.materialcalendarview.utils.isMonthAfter
 import com.applandeo.materialcalendarview.utils.isMonthBefore
 import com.applandeo.materialcalendarview.utils.midnightCalendar
-import kotlinx.android.synthetic.main.date_picker_dialog.view.*
 
 /**
  * This class is responsible for creating DatePicker dialog.
@@ -22,27 +23,29 @@ class DatePicker(
         private val context: Context,
         private val calendarProperties: CalendarProperties
 ) {
+    private lateinit var binding:DatePickerDialogBinding
 
     fun show(): DatePicker {
-        val view = LayoutInflater.from(context).inflate(R.layout.date_picker_dialog, null)
+        binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.date_picker_dialog, null, false)
+        val view = binding.root
 
         if (calendarProperties.pagesColor != 0) {
             view.setBackgroundColor(calendarProperties.pagesColor)
         }
 
-        setTodayButtonVisibility(view.todayButton)
-        setDialogButtonsColors(view.negativeButton, view.todayButton)
-        setOkButtonState(calendarProperties.calendarType == CalendarView.ONE_DAY_PICKER, view.positiveButton)
+        setTodayButtonVisibility(binding.todayButton)
+        setDialogButtonsColors(binding.negativeButton, binding.todayButton)
+        setOkButtonState(calendarProperties.calendarType == CalendarView.ONE_DAY_PICKER, binding.positiveButton)
 
         setDialogButtonsTypeface(view)
 
         calendarProperties.onSelectionAbilityListener = { enabled ->
-            setOkButtonState(enabled, view.positiveButton)
+            setOkButtonState(enabled, binding.positiveButton)
         }
 
         val calendarView = CalendarView(context = context, properties = calendarProperties)
 
-        view.calendarContainer.addView(calendarView)
+        binding.calendarContainer.addView(calendarView)
 
         calendarProperties.calendar?.let {
             runCatching { calendarView.setDate(it) }
@@ -52,14 +55,14 @@ class DatePicker(
             setView(view)
         }
 
-        view.negativeButton.setOnClickListener { alertDialog.cancel() }
+        binding.negativeButton.setOnClickListener { alertDialog.cancel() }
 
-        view.positiveButton.setOnClickListener {
+        binding.positiveButton.setOnClickListener {
             alertDialog.cancel()
             calendarProperties.onSelectDateListener?.onSelect(calendarView.selectedDates)
         }
 
-        view.todayButton.setOnClickListener { calendarView.showCurrentMonthPage() }
+        binding.todayButton.setOnClickListener { calendarView.showCurrentMonthPage() }
 
         alertDialog.show()
 
@@ -68,9 +71,9 @@ class DatePicker(
 
     private fun setDialogButtonsTypeface(view: View) {
         calendarProperties.typeface?.let { typeface ->
-            view.todayButton.typeface = typeface
-            view.negativeButton.typeface = typeface
-            view.positiveButton.typeface = typeface
+            binding.todayButton.typeface = typeface
+            binding.negativeButton.typeface = typeface
+            binding.positiveButton.typeface = typeface
         }
     }
 

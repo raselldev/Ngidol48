@@ -18,6 +18,9 @@ class SharedPref(context : Context) {
 
     private val songPlay = "songPlay"
 
+    private val radioURL = "radioURL"
+    private val isDark = "isDark"
+
     private val userTemp = "userTemp"
 
     private val notifShowroom = "notifShowroom"
@@ -45,6 +48,20 @@ class SharedPref(context : Context) {
     }
     fun getFCMToken():String{
         return sp.getString(fcmToken, "") ?: ""
+    }
+
+    fun setRadioURL(url : String){
+        sp.edit().putString(radioURL, url).apply()
+    }
+    fun getRadioURL():String{
+        return sp.getString(radioURL, "") ?: ""
+    }
+
+    fun setString(variable:String, value : String){
+        sp.edit().putString(variable, value).apply()
+    }
+    fun getString(variable:String):String{
+        return sp.getString(variable, "") ?: ""
     }
 
     fun setUserTemp(status : String){
@@ -98,6 +115,14 @@ class SharedPref(context : Context) {
 
     fun setNewCalender(value : Boolean){
         sp.edit().putBoolean(calenderNewView, value).apply()
+    }
+
+    fun isDark(): Boolean {
+        return sp.getBoolean(isDark, false)
+    }
+
+    fun setDark(value : Boolean){
+        sp.edit().putBoolean(isDark, value).apply()
     }
 
     fun getNotifShowroom(): Boolean {

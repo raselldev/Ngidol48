@@ -13,8 +13,8 @@
 
     <item
         android:id="@+id/navigation_blog"
-        android:icon="@drawable/ic_feed"
-        android:title="@string/title_blog" />
+        android:icon="@drawable/ic_jadwal_menu"
+        android:title="@string/teks_jadwal" />
 
     <item
         android:id="@+id/navigation_member"

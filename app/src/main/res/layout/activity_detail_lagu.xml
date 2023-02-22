@@ -168,10 +168,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shape_pink">
-                    <TextView
-                        android:textColor="@color/dark"
-                        style="@style/title10"
-                        android:text="@string/teks_lirik"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_weight="1"
+                            android:textColor="@color/dark"
+                            style="@style/title10"
+                            android:text="@string/teks_lirik"/>
+                        <ImageView
+                            android:id="@+id/iv_share_lirik"
+                            android:padding="@dimen/_2sdp"
+                            android:layout_gravity="center"
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_15sdp"
+                            android:src="@drawable/ic_baseline_share_24"/>
+                    </LinearLayout>
 
                     <com.arira.ngidol48.helper.customView.ObservableScrollView
                         android:id="@+id/tinjauPart_sroll"

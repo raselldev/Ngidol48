@@ -62,9 +62,8 @@
                         android:layout_marginTop="@dimen/_15sdp"
                         android:orientation="horizontal">
 
-
                         <LinearLayout
-                            android:id="@+id/lin_kalender"
+                            android:id="@+id/lin_blog"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -75,13 +74,14 @@
                                 android:layout_height="@dimen/_30sdp"
                                 android:padding="@dimen/_5sdp"
                                 android:scaleType="centerInside"
-                                android:src="@drawable/ic_calendar" />
+                                android:src="@drawable/ic_blog" />
 
                             <TextView
                                 style="@style/body8"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:text="@string/teks_jadwal"
+                                android:text="@string/teks_blog"
+                                android:textAlignment="center"
                                 android:textColor="@color/colorPrimary" />
                         </LinearLayout>
 
@@ -255,6 +255,8 @@
 
                     </androidx.cardview.widget.CardView>
 
+
+
                     <LinearLayout
                         android:visibility="gone"
                         android:id="@+id/lin_showroom"
@@ -371,8 +373,6 @@
 
                     </LinearLayout>
 
-
-
                     <LinearLayout
                         android:visibility="gone"
                         android:id="@+id/lin_showroom_history"
@@ -452,6 +452,33 @@
                             android:paddingHorizontal="@dimen/_10sdp"
                             android:clipToPadding="false"/>
                     </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:id="@+id/card_photocard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:cardCornerRadius="@dimen/_8sdp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:scaleType="center"
+                                android:id="@+id/ic_photocard"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_150sdp" />
+                            <TextView
+                                android:id="@+id/tv_title_photocard"
+                                android:paddingVertical="@dimen/_10sdp"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                style="@style/title12"
+                                android:text="Special Photo card Indah Cahya"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
                     <LinearLayout
                         android:visibility="gone"

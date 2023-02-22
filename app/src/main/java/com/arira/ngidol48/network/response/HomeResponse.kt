@@ -24,6 +24,7 @@ class HomeResponse : Serializable {
     var show_special_video:String = "0"
     var banner:Banner = Banner()
     var special_video:SpecialVideo = SpecialVideo()
+    var session:PhotocardSession = PhotocardSession()
 
 
 }

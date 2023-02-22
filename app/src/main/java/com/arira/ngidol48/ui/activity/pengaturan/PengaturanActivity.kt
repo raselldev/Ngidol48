@@ -28,6 +28,7 @@ class PengaturanActivity : BaseActivity() {
 
 
         binding.switchJadwal.isChecked = pref.getNewCalender()
+        binding.switchTemaGelap.isChecked = pref.isDark()
 
         if(pref.getIsLogin()){
             binding.tvSignout.visibility = View.VISIBLE
@@ -81,6 +82,11 @@ class PengaturanActivity : BaseActivity() {
 
         binding.switchJadwal.setOnClickListener {
             pref.setNewCalender(binding.switchJadwal.isChecked)
+        }
+
+        binding.switchTemaGelap.setOnClickListener {
+            pref.setDark(binding.switchTemaGelap.isChecked)
+            App().recreate()
         }
     }
 }

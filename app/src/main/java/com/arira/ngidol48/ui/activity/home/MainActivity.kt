@@ -32,10 +32,7 @@ import com.arira.ngidol48.ui.activity.login.LoginActivity
 import com.arira.ngidol48.ui.activity.member.MemberCallback
 import com.arira.ngidol48.ui.activity.notifikasi.NotifikasiActivity
 import com.arira.ngidol48.ui.activity.pengaturan.PengaturanActivity
-import com.arira.ngidol48.ui.fragment.BlogFragment
-import com.arira.ngidol48.ui.fragment.InformasiFragment
-import com.arira.ngidol48.ui.fragment.MemberFragment
-import com.arira.ngidol48.ui.fragment.ProfilFragment
+import com.arira.ngidol48.ui.fragment.*
 import com.arira.ngidol48.ui.fragment.home.HomeFragment
 import com.arira.ngidol48.utilities.Go
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -56,7 +53,7 @@ class MainActivity : BaseActivity(), MemberCallback {
     private lateinit var menuItem: MenuItem
 
 
-
+    private var isShowDB:Boolean = false
     private var selectedBdMember:Member = Member()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -141,7 +138,7 @@ class MainActivity : BaseActivity(), MemberCallback {
                 R.id.navigation_blog -> {
                     menuItem = menu.getItem(2)
                     menuItem.isChecked = true
-                    callFragment(BlogFragment())
+                    callFragment(JadwalFragment())
                 }
 
                 R.id.navigation_member -> {
@@ -290,6 +287,11 @@ class MainActivity : BaseActivity(), MemberCallback {
             }
         }
 
+        if (pref.getNotifNews()){
+            FirebaseMessaging.getInstance().subscribeToTopic("test_topic").addOnSuccessListener {
+            }
+        }
+
         if (pref.getNotifMng()){
             FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_MNG).addOnSuccessListener {
             }
@@ -348,7 +350,11 @@ class MainActivity : BaseActivity(), MemberCallback {
                     if (it.bday_member.isNotEmpty()) {
                         val bdayToday = findTodayBday(it.bday_member)
                         if (bdayToday.isNotEmpty()) {
-                            showBdayMember(bdayToday)
+                            if (!isShowDB){
+                                showBdayMember(bdayToday)
+                                isShowDB = true
+                            }
+
 
                             selectedBdMember = bdayToday[0]
                         }

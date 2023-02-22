@@ -12,8 +12,11 @@ import com.arira.ngidol48.app.App
 import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityLoginBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.helper.SweetAlert
 import com.arira.ngidol48.model.User
+import com.arira.ngidol48.ui.activity.myWeb.MyWebActivity
+import com.arira.ngidol48.utilities.Go
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -130,6 +133,10 @@ class LoginActivity : BaseActivity() {
     private fun action(){
         binding.loginBtnMasukGoogle.setOnClickListener {
             loginResult.launch(googleSignInClient.signInIntent)
+        }
+
+        binding.tvBacaPrivasi.setOnClickListener {
+            Go(this).move(MyWebActivity::class.java, url = Config.BASE_URL + "app/privacy")
         }
     }
 

@@ -11,6 +11,7 @@
             android:id="@+id/toolbar"/>
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/lin_new_calender"
             android:padding="@dimen/_10sdp"
             android:background="@color/pink_transparan_40"

@@ -1,12 +1,13 @@
 package com.applandeo.materialcalendarview.adapters
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
-import android.view.View.inflate
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
 import com.applandeo.materialcalendarview.R
-import com.applandeo.materialcalendarview.extensions.CalendarGridView
+import com.applandeo.materialcalendarview.databinding.CalendarViewGridBinding
 import com.applandeo.materialcalendarview.listeners.DayRowClickListener
 import com.applandeo.materialcalendarview.listeners.DayRowLongClickListener
 import com.applandeo.materialcalendarview.utils.CalendarProperties
@@ -25,7 +26,7 @@ class CalendarPageAdapter(
         private val isDark:Boolean
 ) : PagerAdapter() {
 
-    private lateinit var calendarGridView: CalendarGridView
+    private lateinit var bindingCalendarGridView: CalendarViewGridBinding
 
     private var pageMonth = 0
 
@@ -50,17 +51,18 @@ class CalendarPageAdapter(
     override fun isViewFromObject(view: View, any: Any) = view === any
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        calendarGridView = inflate(context, R.layout.calendar_view_grid, null) as CalendarGridView
+        bindingCalendarGridView = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.calendar_view_grid, null, false)
+
 
         loadMonth(position)
 
-        calendarGridView.onItemClickListener = DayRowClickListener(this, calendarProperties, pageMonth)
+        bindingCalendarGridView.calendarGridView.onItemClickListener = DayRowClickListener(this, calendarProperties, pageMonth)
 
-        calendarGridView.onItemLongClickListener = DayRowLongClickListener(calendarProperties)
+        bindingCalendarGridView.calendarGridView.onItemLongClickListener = DayRowLongClickListener(calendarProperties)
 
-        container.addView(calendarGridView)
+        container.addView(bindingCalendarGridView.calendarGridView)
 
-        return calendarGridView
+        return bindingCalendarGridView.calendarGridView
     }
 
     fun addSelectedDay(selectedDay: SelectedDay) {
@@ -124,7 +126,7 @@ class CalendarPageAdapter(
         val calendarDayAdapter = CalendarDayAdapter(context, this, calendarProperties, days, pageMonth, isDark)
 
         informDatePicker()
-        calendarGridView.adapter = calendarDayAdapter
+        bindingCalendarGridView.calendarGridView.adapter = calendarDayAdapter
     }
 
     private fun getPageDaysProperties(calendar: Calendar) {

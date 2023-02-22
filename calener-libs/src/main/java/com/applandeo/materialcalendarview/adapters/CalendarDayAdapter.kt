@@ -8,12 +8,14 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.applandeo.materialcalendarview.CalendarView
+import com.applandeo.materialcalendarview.R
+import com.applandeo.materialcalendarview.databinding.CalendarViewDayBinding
 import com.applandeo.materialcalendarview.exceptions.InvalidCustomLayoutException
 import com.applandeo.materialcalendarview.utils.*
-import kotlinx.android.synthetic.main.calendar_view_day.view.*
 import java.util.*
 
 private const val INVISIBLE_IMAGE_ALPHA = 0.12f
@@ -37,8 +39,7 @@ class CalendarDayAdapter(
 
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
-        val dayView = view
-                ?: LayoutInflater.from(context).inflate(calendarProperties.itemLayoutResource, parent, false)
+        val dayView:CalendarViewDayBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.calendar_view_day, parent, false)
 
         val day = GregorianCalendar().apply { time = getItem(position) }
 
@@ -59,7 +60,7 @@ class CalendarDayAdapter(
                 }
             }
         }
-        return dayView
+        return dayView.root
     }
 
     private fun setLabelColors(dayLabel: TextView, day: Calendar) {

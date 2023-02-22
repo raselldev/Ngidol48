@@ -9,4 +9,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Ngidol 48"
 include ':app'
-include ':calener-libs'
+include ':calendar-libs'

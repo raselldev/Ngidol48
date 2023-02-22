@@ -86,6 +86,13 @@ int attr buttonStyle 0x0
 int attr buttonStyleSmall 0x0
 int attr buttonTint 0x0
 int attr buttonTintMode 0x0
+int attr cardBackgroundColor 0x0
+int attr cardCornerRadius 0x0
+int attr cardElevation 0x0
+int attr cardMaxElevation 0x0
+int attr cardPreventCornerOverlap 0x0
+int attr cardUseCompatPadding 0x0
+int attr cardViewStyle 0x0
 int attr chainUseRtl 0x0
 int attr checkboxStyle 0x0
 int attr checkedTextViewStyle 0x0
@@ -115,6 +122,11 @@ int attr contentInsetLeft 0x0
 int attr contentInsetRight 0x0
 int attr contentInsetStart 0x0
 int attr contentInsetStartWithNavigation 0x0
+int attr contentPadding 0x0
+int attr contentPaddingBottom 0x0
+int attr contentPaddingLeft 0x0
+int attr contentPaddingRight 0x0
+int attr contentPaddingTop 0x0
 int attr controlBackground 0x0
 int attr coordinatorLayoutStyle 0x0
 int attr customNavigationLayout 0x0
@@ -425,6 +437,10 @@ int color bright_foreground_material_dark 0x0
 int color bright_foreground_material_light 0x0
 int color button_material_dark 0x0
 int color button_material_light 0x0
+int color cardview_dark_background 0x0
+int color cardview_light_background 0x0
+int color cardview_shadow_end_color 0x0
+int color cardview_shadow_start_color 0x0
 int color colorPrimary 0x0
 int color currentMonthDayColor 0x0
 int color currentMonthDayColorDark 0x0
@@ -558,6 +574,9 @@ int dimen abc_text_size_subhead_material 0x0
 int dimen abc_text_size_subtitle_material_toolbar 0x0
 int dimen abc_text_size_title_material 0x0
 int dimen abc_text_size_title_material_toolbar 0x0
+int dimen cardview_compat_inset_shadow 0x0
+int dimen cardview_default_elevation 0x0
+int dimen cardview_default_radius 0x0
 int dimen compat_button_inset_horizontal_material 0x0
 int dimen compat_button_inset_vertical_material 0x0
 int dimen compat_button_padding_horizontal_material 0x0
@@ -788,6 +807,7 @@ int id contentPanel 0x0
 int id currentDateLabel 0x0
 int id custom 0x0
 int id customPanel 0x0
+int id dataBinding 0x0
 int id dayIcon 0x0
 int id dayLabel 0x0
 int id decor_content_parent 0x0
@@ -829,6 +849,8 @@ int id normal 0x0
 int id notification_background 0x0
 int id notification_main_column 0x0
 int id notification_main_column_container 0x0
+int id onAttachStateChangeListener 0x0
+int id onDateChanged 0x0
 int id one_day_picker 0x0
 int id packed 0x0
 int id parent 0x0
@@ -892,6 +914,7 @@ int id text 0x0
 int id text2 0x0
 int id textSpacerNoButtons 0x0
 int id textSpacerNoTitle 0x0
+int id textWatcher 0x0
 int id thursday 0x0
 int id thursdayLabel 0x0
 int id time 0x0
@@ -1022,6 +1045,7 @@ int style Base_AlertDialog_AppCompat_Light 0x0
 int style Base_Animation_AppCompat_Dialog 0x0
 int style Base_Animation_AppCompat_DropDownUp 0x0
 int style Base_Animation_AppCompat_Tooltip 0x0
+int style Base_CardView 0x0
 int style Base_DialogWindowTitleBackground_AppCompat 0x0
 int style Base_DialogWindowTitle_AppCompat 0x0
 int style Base_TextAppearance_AppCompat 0x0
@@ -1172,6 +1196,9 @@ int style Base_Widget_AppCompat_Spinner_Underlined 0x0
 int style Base_Widget_AppCompat_TextView_SpinnerItem 0x0
 int style Base_Widget_AppCompat_Toolbar 0x0
 int style Base_Widget_AppCompat_Toolbar_Button_Navigation 0x0
+int style CardView 0x0
+int style CardView_Dark 0x0
+int style CardView_Light 0x0
 int style Platform_AppCompat 0x0
 int style Platform_AppCompat_Light 0x0
 int style Platform_ThemeOverlay_AppCompat 0x0
@@ -1609,6 +1636,20 @@ int styleable CalendarView_typeface 23
 int[] styleable Capability { 0x0, 0x0 }
 int styleable Capability_queryPatterns 0
 int styleable Capability_shortcutMatchRequired 1
+int[] styleable CardView { 0x1010140, 0x101013f, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
+int styleable CardView_android_minHeight 0
+int styleable CardView_android_minWidth 1
+int styleable CardView_cardBackgroundColor 2
+int styleable CardView_cardCornerRadius 3
+int styleable CardView_cardElevation 4
+int styleable CardView_cardMaxElevation 5
+int styleable CardView_cardPreventCornerOverlap 6
+int styleable CardView_cardUseCompatPadding 7
+int styleable CardView_contentPadding 8
+int styleable CardView_contentPaddingBottom 9
+int styleable CardView_contentPaddingLeft 10
+int styleable CardView_contentPaddingRight 11
+int styleable CardView_contentPaddingTop 12
 int[] styleable ColorStateListItem { 0x0, 0x101031f, 0x10101a5, 0x1010647, 0x0 }
 int styleable ColorStateListItem_alpha 0
 int styleable ColorStateListItem_android_alpha 1

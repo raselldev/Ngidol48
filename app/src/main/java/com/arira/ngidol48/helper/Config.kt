@@ -15,6 +15,7 @@ object Config {
     const val API = "apikey: NGIDOLKAKAK"
 
     val PUSH_NOTIFICATION: String = "PUSH_NOTIFICATION"
+    val BC_RADIO: String = "BC_RADIO"
 
     const val BERHASIL = "Berhasil"
 
@@ -33,6 +34,7 @@ object Config {
     val TOPIC_HANDSHAKE = "handshake"
     val TOPIC_SHOWROOM = "showroom"
 
+    var DIRECTORY_IMAGE_PHOTOCARD: String = Environment.getExternalStorageDirectory().toString() + "/NGIDOL48/photocard/"
     var DIRECTORY_IMAGE_AVATAR: String = Environment.getExternalStorageDirectory().toString() + "/NGIDOL48/avatar/"
     var DIRECTORY_IMAGE_BLOG: String = Environment.getExternalStorageDirectory().toString() + "/NGIDOL48/blog/"
 

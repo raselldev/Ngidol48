@@ -27,18 +27,15 @@ import com.arira.ngidol48.databinding.FragmentHomeBinding
 import com.arira.ngidol48.helper.BaseFragment
 import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.helper.SweetAlert
-import com.arira.ngidol48.model.Banner
-import com.arira.ngidol48.model.LiveStream
-import com.arira.ngidol48.model.Member
-import com.arira.ngidol48.model.Slider
+import com.arira.ngidol48.model.*
+import com.arira.ngidol48.ui.activity.allBlog.BlogActivity
 import com.arira.ngidol48.ui.activity.chants.ChantsActivity
-import com.arira.ngidol48.ui.activity.event.EventActivity
 import com.arira.ngidol48.ui.activity.handshake.HandshakeActivity
 import com.arira.ngidol48.ui.activity.home.HomeViewModel
 import com.arira.ngidol48.ui.activity.member.MemberCallback
 import com.arira.ngidol48.ui.activity.mng.MngActivity
-import com.arira.ngidol48.ui.activity.newKalender.KalenderActivity
 import com.arira.ngidol48.ui.activity.news.BeritaActivity
+import com.arira.ngidol48.ui.activity.photoCard.listPhoto.ListPhotoActivity
 import com.arira.ngidol48.ui.activity.songHome.HomeSongActivity
 import com.arira.ngidol48.ui.activity.stream.EventStreamActivity
 import com.arira.ngidol48.ui.activity.viewShowroom.ViewLiveActivity
@@ -59,7 +56,7 @@ class HomeFragment : BaseFragment(), MemberCallback {
     private var idnLiveStreamURL:String = ""
     private var bannerData: Banner = Banner()
     private var streamData = LiveStream()
-
+    private var photocardSession = PhotocardSession()
     private var xDelta = 0
     private var yDelta = 0
 
@@ -146,6 +143,10 @@ class HomeFragment : BaseFragment(), MemberCallback {
 
     private fun action(){
 
+        binding.cardPhotocard.setOnClickListener {
+            Go(requireActivity()).move(ListPhotoActivity::class.java, data =  photocardSession)
+        }
+
         binding.linChant.setOnClickListener {
             Go(requireContext()).move(ChantsActivity::class.java)
         }
@@ -162,7 +163,7 @@ class HomeFragment : BaseFragment(), MemberCallback {
             Go(requireContext()).move(ViewLiveActivity::class.java, url = idnLiveStreamURL, choose = false)
         }
 
-        binding.ivLiveStream?.setOnClickListener {
+        binding.ivLiveStream.setOnClickListener {
             Go(requireContext()).move(EventStreamActivity::class.java, data = streamData, choose = false)
         }
 
@@ -180,17 +181,11 @@ class HomeFragment : BaseFragment(), MemberCallback {
         }
 
         binding.linSetlist.setOnClickListener {
-//            Go(this).move(SetlistActivity::class.java)
             Go(requireContext()).move(HomeSongActivity::class.java)
         }
 
-        binding.linKalender.setOnClickListener {
-            if (App.pref.getNewCalender()){
-                Go(requireContext()).move(KalenderActivity::class.java)
-            }else{
-                Go(requireContext()).move(EventActivity::class.java)
-            }
-
+        binding.linBlog.setOnClickListener {
+            Go(requireContext()).move(BlogActivity::class.java)
         }
 
         binding.ivSemuaBerita.setOnClickListener {
@@ -216,7 +211,6 @@ class HomeFragment : BaseFragment(), MemberCallback {
                     binding.swipe.isRefreshing = it
                 }
             }
-
         }
 
         viewModel.getError().observe(requireActivity()) {
@@ -232,6 +226,25 @@ class HomeFragment : BaseFragment(), MemberCallback {
         viewModel.getResponse().observe(requireActivity()) {
             it.let {
                 if (it != null) {
+
+                    /*show photocard session*/
+                    try{
+                        if (it.session.id.isNotEmpty()){
+                            this.photocardSession = it.session
+                            binding.cardPhotocard.visibility = View.VISIBLE
+                            Glide.with(this).load(it.session.session_banner)
+                                .diskCacheStrategy(DiskCacheStrategy.DATA)
+                                .into(
+                                    binding.icPhotocard
+                                )
+
+                            binding.tvTitlePhotocard.text = it.session.session_name
+                        }else{
+                            binding.cardPhotocard.visibility = View.GONE
+                        }
+                    }catch (e: java.lang.NullPointerException){
+
+                    }
 
                     /*show banner data*/
                     if (it.show_banner == "1") {
@@ -352,6 +365,13 @@ class HomeFragment : BaseFragment(), MemberCallback {
                         binding.slider.visibility = View.VISIBLE
                         /*show slider data*/
                         setSlider(it.slider)
+                    }
+
+                    /*show blog menu*/
+                    if (App.pref.getOnReview()) {
+                        binding.linBlog.visibility = View.GONE
+                    } else {
+                        binding.linBlog.visibility = View.VISIBLE
                     }
 
                 }

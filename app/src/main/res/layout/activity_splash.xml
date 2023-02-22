@@ -14,12 +14,13 @@
             android:layout_height="@dimen/_150sdp"/>
 
         <ImageView
+            android:layout_marginBottom="@dimen/_10sdp"
             android:scaleType="fitEnd"
             android:id="@+id/iv_logo_new_era"
-            android:src="@drawable/img_new_era"
+            android:src="@drawable/ic_new_era"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_width="@dimen/_70sdp"
+            android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_30sdp"/>
     </RelativeLayout>
 

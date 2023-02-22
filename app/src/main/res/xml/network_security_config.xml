@@ -5,6 +5,7 @@
         <domain includeSubdomains="true">apiidol.arira.my.id</domain>
         <domain includeSubdomains="true">idol48.top</domain>
         <domain includeSubdomains="true">jkt48.com</domain>
+        <domain includeSubdomains="true">117.53.144.184</domain>
 
     </domain-config>
 

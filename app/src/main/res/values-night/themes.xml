@@ -86,7 +86,6 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:fontFamily">@font/dm_sans</item>
-        <item name="android:lineSpacingMultiplier">1.1</item>
     </style>
 
     <style name="title10">
