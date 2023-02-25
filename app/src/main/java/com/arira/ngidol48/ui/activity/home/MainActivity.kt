@@ -287,10 +287,10 @@ class MainActivity : BaseActivity(), MemberCallback {
             }
         }
 
-        if (pref.getNotifNews()){
-            FirebaseMessaging.getInstance().subscribeToTopic("test_topic").addOnSuccessListener {
-            }
-        }
+//        if (pref.getNotifNews()){
+//            FirebaseMessaging.getInstance().subscribeToTopic("testtopic").addOnSuccessListener {
+//            }
+//        }
 
         if (pref.getNotifMng()){
             FirebaseMessaging.getInstance().subscribeToTopic(TOPIC_MNG).addOnSuccessListener {

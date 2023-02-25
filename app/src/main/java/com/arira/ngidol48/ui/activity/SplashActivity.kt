@@ -32,7 +32,6 @@ class SplashActivity : BaseActivity() {
         hideSystemBars()
 
         supportActionBar?.hide()
-
         
         AnimationX().setDuration(3000).setAnimation(Bounce.inUp(binding.ivLogoNewEra, AnimationX().getNewAnimatorSet())).start()
 
@@ -48,6 +47,9 @@ class SplashActivity : BaseActivity() {
                 "TIKETCOM"-> {
                     Go(this).move(MyWebActivity::class.java, url = "https://www.tiket.com${notificationData.url}", clearPrevious = true)
                 }
+                "TOKOPEDIA"-> {
+                    Go(this).move(MyWebActivity::class.java, url = notificationData.url, clearPrevious = true)
+                }
                 else -> {
                     Go(this).move(MainActivity::class.java, clearPrevious = true)
                 }
@@ -62,11 +64,19 @@ class SplashActivity : BaseActivity() {
 
     fun handleNotificationData(): NotificationData? {
         val bundle = intent.extras
-        if (bundle != null) {
-            bundle["data"].let {
-                return Gson().fromJson(it.toString(), NotificationData::class.java)
-            }
 
+        if (bundle != null) {
+            if (bundle.get("tipe") != null){
+                val notificationModel = NotificationData()
+                notificationModel.type = bundle.get("tipe").toString()
+                notificationModel.url = bundle.get("url").toString()
+
+                return notificationModel
+            }else{
+                bundle["data"].let {
+                    return Gson().fromJson(it.toString(), NotificationData::class.java)
+                }
+            }
         }
         return null
     }

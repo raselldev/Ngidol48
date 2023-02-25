@@ -303,7 +303,7 @@ class HomeFragment : BaseFragment(), MemberCallback {
 
                         val bdayToday = findTodayBday(it.bday_member)
                         if (bdayToday.isNotEmpty()) {
-                            showBdayMember(bdayToday)
+//                            showBdayMember(bdayToday)
 
                             selectedBdMember = bdayToday[0]
                             binding.relBdayAva.visibility = View.VISIBLE
