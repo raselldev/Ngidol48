@@ -11,6 +11,8 @@ import android.net.Uri
 import android.os.Build
 import android.view.View
 import android.view.Window
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
@@ -225,6 +227,38 @@ open class BaseActivity : AppCompatActivity() {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
 
+    }
+
+    fun updatePositionSign(imageView: ImageView, posisiSign:Int) {
+        when(posisiSign) {
+            0 -> {
+                val layoutParams = RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+                )
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_START)
+                imageView.layoutParams = layoutParams
+            }
+            1 -> {
+                val layoutParams = RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+                )
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+                layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL)
+                imageView.layoutParams = layoutParams
+            }
+            2 -> {
+                val layoutParams = RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.WRAP_CONTENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+                )
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_END)
+                imageView.layoutParams = layoutParams
+            }
+        }
     }
 
 }

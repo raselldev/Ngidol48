@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.SmallPhotoCardAdapter
+import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityListPhotoBinding
 import com.arira.ngidol48.databinding.SheetDetailPhotocardBinding
 import com.arira.ngidol48.helper.BaseActivity
@@ -22,7 +23,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class ListPhotoActivity : BaseActivity(), ListPhotoCallback{
+class ListPhotoActivity : BaseActivity(), ListPhotoCallback {
+
     private lateinit var viewModel: ListPhotoCardViewModel
     private lateinit var binding: ActivityListPhotoBinding
     private var session = PhotocardSession()
@@ -40,6 +42,8 @@ class ListPhotoActivity : BaseActivity(), ListPhotoCallback{
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[ListPhotoCardViewModel::class.java]
         viewModel.context = this
+
+        binding.tvDeskripsi.text = session.session_description
 
         observerData()
         viewModel.getDetail(session.id)
@@ -92,7 +96,7 @@ class ListPhotoActivity : BaseActivity(), ListPhotoCallback{
         }
     }
 
-    fun observerData(){
+    fun observerData() {
         viewModel.getLoading().observe(this) {
             it.let {
                 if (it) {
@@ -140,24 +144,17 @@ class ListPhotoActivity : BaseActivity(), ListPhotoCallback{
 
         bottomSheetDialog.setContentView(bindingSheet.root)
 
-//        bottomSheetDialog.setOnShowListener {
-//
-//            val bottomSheetDialog2 = it as BottomSheetDialog
-//            val parentLayout = bottomSheetDialog2.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-//            parentLayout?.let { it ->
-//                val behaviour = BottomSheetBehavior.from(it)
-//                val layoutParams = it.layoutParams
-//                layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
-//                it.layoutParams = layoutParams
-//                behaviour.state = BottomSheetBehavior.STATE_EXPANDED
-//            }
-//        }
 
         bottomSheetDialog.show()
     }
 
     override fun onClick(data: PhotoCardImage) {
-        Go(this).move(SelectSignPhotoCardActivity::class.java, data = data,listData = listSign)
+        if (pref.getTotalCreatePC() < session.max.toInt()) {
+            Go(this).move(SelectSignPhotoCardActivity::class.java, data = data,listData = listSign)
+        }else{
+            SweetAlert.onFailure(this, "Anda sudah mencapai batas maksimal untuk membuat digital photo card")
+        }
+
     }
 
 }

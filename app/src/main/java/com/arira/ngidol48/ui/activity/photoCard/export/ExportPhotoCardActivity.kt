@@ -12,16 +12,20 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.view.View
+import androidx.databinding.DataBindingUtil
+import com.arira.ngidol48.R
+import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityExportPhotoCardBinding
+import com.arira.ngidol48.databinding.SheetExportPhotoCardBinding
 import com.arira.ngidol48.helper.BaseActivity
 import com.arira.ngidol48.helper.Config
 import com.arira.ngidol48.helper.Validasi
-import com.arira.ngidol48.model.PhotoCardImage
+import com.arira.ngidol48.model.CreatePhotoCard
 import com.arira.ngidol48.ui.activity.home.MainActivity
 import com.arira.ngidol48.utilities.Go
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.ontbee.legacyforks.cn.pedant.SweetAlert.SweetAlertDialog
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -29,9 +33,7 @@ import java.io.OutputStream
 
 class ExportPhotoCardActivity : BaseActivity() {
     private lateinit var binding: ActivityExportPhotoCardBinding
-    private var photoCardImage: PhotoCardImage = PhotoCardImage()
-    private var signImage:String = ""
-    private var greatingText:String = ""
+    private var createPhotoCardImage = CreatePhotoCard()
     private var exportPhotoCard:Boolean = false
     private var exportGreating:Boolean = false
     private var imagesUri:ArrayList<Uri> = ArrayList()
@@ -43,9 +45,7 @@ class ExportPhotoCardActivity : BaseActivity() {
 
         Validasi().ijinDokumen(this)
 
-        photoCardImage = intent.getParcelableExtra(Config.extra_model) ?: PhotoCardImage()
-        signImage = intent.getStringExtra(Config.extra_other) ?: ""
-        greatingText = intent.getStringExtra(Config.extra_url) ?: ""
+        createPhotoCardImage = intent.getParcelableExtra(Config.extra_model) ?: CreatePhotoCard()
 
         binding.ivCardPhotocard.rotation = -5.0f
         binding.ivCardGreating.rotation = 5.0f
@@ -55,19 +55,21 @@ class ExportPhotoCardActivity : BaseActivity() {
     }
 
     fun setData(){
-        Glide.with(this).load(photoCardImage.image)
+        Glide.with(this).load(createPhotoCardImage.photoCard.image)
             .diskCacheStrategy(DiskCacheStrategy.DATA)
             .into(
                 binding.ivPhotoCard
             )
 
-        Glide.with(this).load(signImage)
+        Glide.with(this).load(createPhotoCardImage.sign.image)
             .diskCacheStrategy(DiskCacheStrategy.DATA)
             .into(
                 binding.ivSelectedSign
             )
 
-        binding.tvGreating.text = greatingText
+        binding.tvGreating.text = createPhotoCardImage.greating
+        binding.tvName.text = createPhotoCardImage.nickName
+        updatePositionSign(binding.ivSelectedSign, createPhotoCardImage.signPosition)
     }
 
     fun action(){
@@ -166,32 +168,39 @@ class ExportPhotoCardActivity : BaseActivity() {
             }
 
             if (exportPhotoCard && exportGreating){
-                val sweetDialog =  SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-                sweetDialog.titleText = "Create Photo Card"
-                sweetDialog.contentText = "Photocard dan ucapapan anda berhasil diunduh, silahkan perikasa galeri anda"
-
+                val dialog = BottomSheetDialog(this, R.style.BottomSheetDialogTheme)
+                dialog.setCancelable(false)
+                dialog.dismissWithAnimation = true
+                val bindingSheet: SheetExportPhotoCardBinding = DataBindingUtil.inflate(layoutInflater, R.layout.sheet_export_photo_card, null, false)
+                dialog.setContentView(bindingSheet.root)
 
                 if (imagesUri.isNotEmpty()){
-                    sweetDialog.confirmText = "Bagikan"
-                    sweetDialog.setConfirmClickListener {
+                    bindingSheet.tvBagikan.visibility = View.VISIBLE
 
-                        val intent = Intent()
-                        intent.action = Intent.ACTION_SEND_MULTIPLE
-                        intent.type = "*/*"
-                        intent.putExtra(Intent.EXTRA_TEXT, greatingText)
-                        intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imagesUri)
-                        startActivity(intent)
-                    }
+                }else {
+                    bindingSheet.tvBagikan.visibility = View.GONE
                 }
-                sweetDialog.cancelText = "Kembali"
-                sweetDialog.setCancelClickListener {
-                    sweetDialog.dismissWithAnimation()
-                    sweetDialog.dismiss()
-                        Go(this).move(MainActivity::class.java, clearPrevious = true)
-                    }
 
-                sweetDialog.show()
+                bindingSheet.tvBagikan.setOnClickListener {
+                    val message = """${createPhotoCardImage.greating}
+                            |
+                            |- ${createPhotoCardImage.nickName}
+                        """.trimMargin()
 
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_SEND_MULTIPLE
+                    intent.type = "*/*"
+                    intent.putExtra(Intent.EXTRA_TEXT, message)
+                    intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, imagesUri)
+                    startActivity(intent)
+                }
+
+                bindingSheet.tvKembali.setOnClickListener {
+                    pref.setTotalCreatePC(pref.getTotalCreatePC() + 1)
+                    Go(this).move(MainActivity::class.java, clearPrevious = true)
+                }
+
+                dialog.show()
             }
         }
     }

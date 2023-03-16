@@ -31,7 +31,8 @@ class SharedPref(context : Context) {
     private val notifStreaming = "notifStreaming"
 
     private val calenderNewView = "calenderNewView"
-
+    private val sessionPCId = "pcSessions"
+    private val totalCreatePC = "totalCreatePC"
     private val token = "token"
     private val users = "users"
 
@@ -188,6 +189,20 @@ class SharedPref(context : Context) {
     fun clearAll() {
         editor.clear()
         editor.commit()
+    }
+
+    fun setSessionPC( value : String) {
+        sp.edit().putString(sessionPCId, value).apply()
+    }
+    fun getSessionPC():String {
+        return sp.getString(sessionPCId, "") ?: ""
+    }
+
+    fun setTotalCreatePC( value : Int) {
+        sp.edit().putInt(totalCreatePC, value).apply()
+    }
+    fun getTotalCreatePC():Int {
+        return sp.getInt(totalCreatePC, 0)
     }
 
 }

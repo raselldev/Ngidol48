@@ -10,8 +10,11 @@ import android.view.View
 import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.ActivityRadioBinding
 import com.arira.ngidol48.helper.BaseActivity
+import com.arira.ngidol48.helper.Config.extra_model
 import com.arira.ngidol48.helper.Validasi
+import com.arira.ngidol48.model.Radio
 import com.arira.ngidol48.service.MediaPlayerService
+import com.bumptech.glide.Glide
 
 
 class RadioActivity : BaseActivity() {
@@ -20,7 +23,7 @@ class RadioActivity : BaseActivity() {
 
     private var player: MediaPlayerService? = null
     var serviceBound = false
-
+    private var radio = Radio()
     private lateinit var binding : ActivityRadioBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +31,21 @@ class RadioActivity : BaseActivity() {
         setContentView(binding.root)
         setToolbar("Radio", binding.toolbar)
         Validasi().ijinReadPhone(this)
+
         binding.toolbar.toolbarSubtitle.visibility = View.VISIBLE
         binding.toolbar.toolbarSubtitle.text = "[BETA]"
-        pref.setRadioURL("http://117.53.144.184:8001/stream")
+
+        radio = intent.getParcelableExtra(extra_model) ?: Radio()
+        setRadioData()
+
+        pref.setRadioURL(radio.playback)
         action()
+    }
 
-
+    private fun setRadioData() {
+        binding.tvTitle.text = radio.name
+        binding.tvSubtitle.text = radio.description
+        Glide.with(this).load(radio.image).into(binding.ivCover)
     }
 
     private fun action(){

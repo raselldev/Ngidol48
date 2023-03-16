@@ -75,6 +75,7 @@ class App : Application() {
                 isDark = false
             }
         }
+        isDark = pref.isDark()
 
         /*path avatar*/
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){

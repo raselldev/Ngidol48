@@ -29,10 +29,8 @@
 
                 <ImageView
                     android:id="@+id/iv_selected_sign"
-                    android:padding="@dimen/_10sdp"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_alignParentEnd="true"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
                     android:layout_alignParentBottom="true"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
@@ -42,60 +40,25 @@
         </androidx.cardview.widget.CardView>
         
         <LinearLayout
-            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:paddingHorizontal="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <LinearLayout
+
+            <TextView
+                android:visibility="gone"
+                android:paddingVertical="@dimen/_5sdp"
+                android:id="@+id/tv_ganti_posisi_tanda_tangan"
+                android:layout_gravity="end"
+                android:textColor="@color/colorPrimary"
+                style="@style/title10"
+                android:text="Ganti Posisi Tanda Tangan"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:clipToPadding="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <androidx.cardview.widget.CardView
-                    app:cardCornerRadius="@dimen/_8sdp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginVertical="@dimen/_5sdp">
-                    <ImageView
-                        android:id="@+id/iv_sign_1"
-                        android:padding="@dimen/_10sdp"
-                        android:src="@drawable/img_logo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    app:cardCornerRadius="@dimen/_8sdp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginVertical="@dimen/_5sdp">
-                    <ImageView
-                        android:id="@+id/iv_sign_2"
-                        android:padding="@dimen/_10sdp"
-                        android:src="@drawable/img_logo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    app:cardCornerRadius="@dimen/_8sdp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginVertical="@dimen/_5sdp">
-                    <ImageView
-                        android:id="@+id/iv_sign_3"
-                        android:padding="@dimen/_10sdp"
-                        android:src="@drawable/img_logo"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
+                android:id="@+id/rv_sign"/>
 
             <TextView
                 android:layout_marginBottom="@dimen/_15sdp"
@@ -105,11 +68,11 @@
                 android:layout_marginTop="@dimen/_15sdp"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
-                android:paddingVertical="@dimen/_12sdp"
+                android:paddingVertical="@dimen/_10sdp"
                 android:paddingHorizontal="@dimen/_16sdp"
                 style="@style/title12"
                 android:text="@string/teks_selanjutnya"
-                android:background="@drawable/background_shape_primary"/>
+                android:background="@drawable/background_shape_photocard"/>
 
         </LinearLayout>
     </LinearLayout>

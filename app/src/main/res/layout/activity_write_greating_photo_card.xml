@@ -24,31 +24,80 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
-                app:cardBackgroundColor="#F8AEDF"
                 app:cardCornerRadius="@dimen/_10sdp">
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_bg_photocard"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/iv_interindah"
-                        android:layout_width="@dimen/_75sdp"
-                        android:layout_height="@dimen/_75sdp"
+                        android:id="@+id/iv_logo_flow"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_centerHorizontal="true"
-                        android:layout_margin="@dimen/_5sdp"
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:src="@drawable/img_indah_flow"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
                         android:src="@drawable/img_interindah" />
 
-                    <TextView
+                   <LinearLayout
+                       android:layout_centerHorizontal="true"
+                       android:layout_below="@+id/iv_logo_flow"
+                       android:layout_width="@dimen/_200sdp"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical">
+                       <TextView
+                           android:id="@+id/tv_greating"
+                           style="@style/title12"
+                           android:layout_width="@dimen/_200sdp"
+                           android:layout_marginTop="@dimen/_15sdp"
+                           android:background="@drawable/background_border_white"
+                           android:fontFamily="@font/tw_cent_black"
+                           android:paddingHorizontal="@dimen/_10sdp"
+                           android:paddingVertical="@dimen/_10sdp"
+                           android:text="Tulis Ucapan Anda"
+                           android:maxLines="5"
+                           android:textColor="@color/white" />
 
-                        android:id="@+id/tv_greating"
-                        style="@style/headline3"
-                        android:layout_centerInParent="true"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        android:text="Tulis Ucapan Anda"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/ave_fedan"/>
+                       <TextView
+                           android:layout_gravity="end"
+                           android:layout_marginTop="@dimen/_10sdp"
+                           android:paddingVertical="@dimen/_5sdp"
+                           android:paddingHorizontal="@dimen/_10sdp"
+
+                           android:background="@drawable/background_border_white"
+                           android:maxLength="20"
+                           android:id="@+id/tv_name"
+                           android:fontFamily="@font/tw_cent_black"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:elevation="@dimen/_3sdp"
+                           android:hint="       "
+                           android:maxLines="1"
+                           android:singleLine="false"
+                           android:textColor="@color/white"
+                           android:textColorHint="@color/white"
+                           android:textSize="@dimen/_10sdp" />
+                   </LinearLayout>
+
+                    <ImageView
+                        android:layout_marginBottom="-10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_ilustration_photo_card"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"/>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -56,6 +105,7 @@
                 android:id="@+id/iv_card_photocard"
                 android:layout_width="@dimen/_110sdp"
                 android:layout_height="@dimen/_160sdp"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginHorizontal="@dimen/_15sdp"
                 android:layout_marginVertical="@dimen/_10sdp"
@@ -73,15 +123,18 @@
 
                     <ImageView
                         android:id="@+id/iv_selected_sign"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@drawable/ic_sign"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
+                        android:layout_width="@dimen/_45sdp"
+                        android:layout_height="@dimen/_45sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
-                        android:layout_margin="@dimen/_5sdp"/>
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:padding="@dimen/_2sdp"
+                        android:src="@drawable/ic_sign" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
+
         </RelativeLayout>
 
         <LinearLayout
@@ -122,9 +175,7 @@
 
         </LinearLayout>
 
-
         <TextView
-
             android:id="@+id/btn_next"
             android:textAlignment="center"
             android:layout_width="match_parent"
@@ -132,11 +183,11 @@
             android:layout_marginBottom="@dimen/_15sdp"
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:paddingVertical="@dimen/_12sdp"
+            android:paddingVertical="@dimen/_10sdp"
             android:paddingHorizontal="@dimen/_16sdp"
             style="@style/title12"
             android:text="@string/teks_selanjutnya"
-            android:background="@drawable/background_shape_primary"/>
+            android:background="@drawable/background_shape_photocard"/>
 
     </LinearLayout>
 </layout>

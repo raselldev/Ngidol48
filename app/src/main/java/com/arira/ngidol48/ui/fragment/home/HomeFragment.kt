@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.adapter.*
 import com.arira.ngidol48.app.App
+import com.arira.ngidol48.app.App.Companion.pref
 import com.arira.ngidol48.databinding.DialogBdayBinding
 import com.arira.ngidol48.databinding.FragmentHomeBinding
 import com.arira.ngidol48.helper.BaseFragment
@@ -36,6 +37,7 @@ import com.arira.ngidol48.ui.activity.member.MemberCallback
 import com.arira.ngidol48.ui.activity.mng.MngActivity
 import com.arira.ngidol48.ui.activity.news.BeritaActivity
 import com.arira.ngidol48.ui.activity.photoCard.listPhoto.ListPhotoActivity
+import com.arira.ngidol48.ui.activity.radio.RadioActivity
 import com.arira.ngidol48.ui.activity.songHome.HomeSongActivity
 import com.arira.ngidol48.ui.activity.stream.EventStreamActivity
 import com.arira.ngidol48.ui.activity.viewShowroom.ViewLiveActivity
@@ -144,6 +146,11 @@ class HomeFragment : BaseFragment(), MemberCallback {
     private fun action(){
 
         binding.cardPhotocard.setOnClickListener {
+            //reset photocard session
+            if (pref.getSessionPC() != photocardSession.id) {
+                pref.setSessionPC(photocardSession.id)
+                pref.setTotalCreatePC(0)
+            }
             Go(requireActivity()).move(ListPhotoActivity::class.java, data =  photocardSession)
         }
 
@@ -228,8 +235,8 @@ class HomeFragment : BaseFragment(), MemberCallback {
                 if (it != null) {
 
                     /*show photocard session*/
-                    try{
-                        if (it.session.id.isNotEmpty()){
+                    try {
+                        if (it.session.id.isNotEmpty()) {
                             this.photocardSession = it.session
                             binding.cardPhotocard.visibility = View.VISIBLE
                             Glide.with(this).load(it.session.session_banner)
@@ -239,12 +246,17 @@ class HomeFragment : BaseFragment(), MemberCallback {
                                 )
 
                             binding.tvTitlePhotocard.text = it.session.session_name
-                        }else{
+                        }else {
                             binding.cardPhotocard.visibility = View.GONE
                         }
-                    }catch (e: java.lang.NullPointerException){
+                    }catch (_: java.lang.NullPointerException){
 
                     }
+
+                    it.radio?.let { radio ->
+                        setRadio(radio)
+                    }
+
 
                     /*show banner data*/
                     if (it.show_banner == "1") {
@@ -261,7 +273,6 @@ class HomeFragment : BaseFragment(), MemberCallback {
                         binding.cardBanner.visibility = View.GONE
                     }
 
-
                     if (it.show_banner_stream == "1") {
                         binding.cardLivestrem?.visibility = View.VISIBLE
 
@@ -270,7 +281,6 @@ class HomeFragment : BaseFragment(), MemberCallback {
                     } else {
                         binding.cardLivestrem?.visibility = View.GONE
                     }
-
 
                     //idnlive
                     val idn = it.idn
@@ -354,7 +364,6 @@ class HomeFragment : BaseFragment(), MemberCallback {
                         }
                     }
 
-
                     //show special video replay slider
                     if (it.show_special_video == "1") {
                         binding.embedYt.visibility = View.VISIBLE
@@ -368,10 +377,20 @@ class HomeFragment : BaseFragment(), MemberCallback {
                     }
 
                     /*show blog menu*/
-                    if (App.pref.getOnReview()) {
+                    if (pref.getOnReview()) {
                         binding.linBlog.visibility = View.GONE
                     } else {
                         binding.linBlog.visibility = View.VISIBLE
+                    }
+
+                    if(it.merch.isNotEmpty()) {
+                        binding.linMerch.visibility  = View.VISIBLE
+                        binding.rvMerch.apply {
+                            layoutManager = GridLayoutManager(context, 2)
+                            adapter = MerchAdapter(it.merch)
+                        }
+                    }else {
+                        binding.linMerch.visibility  = View.GONE
                     }
 
                 }
@@ -429,7 +448,6 @@ class HomeFragment : BaseFragment(), MemberCallback {
 
                 override fun onStateChange(youTubePlayer: YouTubePlayer, state: PlayerConstants.PlayerState) {
                     //PLAYING , PAUSED, ENDED, BUFFERING
-                    Log.e("STATUS", "state. ${state}")
                     when(state.toString()){
                         "PLAYING"->{
 
@@ -453,6 +471,20 @@ class HomeFragment : BaseFragment(), MemberCallback {
         super.onPause()
         if (mYouTubePlayer != null){
             mYouTubePlayer!!.pause()
+        }
+    }
+
+    private fun setRadio(radio: Radio?) {
+        radio?.let {
+            if (radio.id.isNotEmpty()) {
+                binding.cardRadio.visibility  = View.VISIBLE
+                binding.tvRadioTitle.text  = it.name
+                binding.tvRadioDesc.text = it.description
+                binding.cardRadio.setOnClickListener {
+                    Go(requireContext()).move(RadioActivity::class.java, data = radio)
+                }
+            }
+
         }
     }
 

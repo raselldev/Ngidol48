@@ -2,6 +2,7 @@ package com.arira.ngidol48.adapter.holder
 
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.arira.ngidol48.R
 import com.arira.ngidol48.databinding.ItemLaguBinding
@@ -20,8 +21,8 @@ import com.bumptech.glide.request.target.CustomTarget
 
 class SongHolder(var item:ItemLaguBinding): RecyclerView.ViewHolder(item.root) {
 
-
-    fun setData(data: Song, callback: LaguCallback?, laguSetlist: ArrayList<Song>){
+    val context = itemView.context
+    fun setData(data: Song, callback: LaguCallback?, laguSetlist: ArrayList<Song>, onlyWhite:Boolean = false){
         item.tvJudul.text = data.judul
         var requestOptions = RequestOptions()
         requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(16))
@@ -64,6 +65,11 @@ class SongHolder(var item:ItemLaguBinding): RecyclerView.ViewHolder(item.root) {
             }else{
                 Go(itemView.context).move(DetailLaguActivity::class.java, data = data, listData = laguSetlist)
             }
+        }
+
+        if(onlyWhite) {
+            item.tvJudul.setTextColor(ContextCompat.getColor(context, R.color.white))
+            item.tvLirikTersedia.setTextColor(ContextCompat.getColor(context, R.color.abu_pekat))
         }
     }
 }

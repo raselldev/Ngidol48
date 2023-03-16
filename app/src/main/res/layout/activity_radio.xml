@@ -11,7 +11,7 @@
             android:id="@+id/toolbar"/>
         
         <ImageView
-            android:id="@+id/tv_cover"
+            android:id="@+id/iv_cover"
             android:src="@drawable/img_radio_dummy"
             android:layout_marginTop="@dimen/_40sdp"
             android:layout_gravity="center"
@@ -35,7 +35,7 @@
         <ImageView
             android:id="@+id/iv_btn_play"
             android:padding="@dimen/_10sdp"
-            android:src="@drawable/ic_stop"
+            android:src="@drawable/ic_play"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_gravity="center"
             android:layout_width="@dimen/_50sdp"

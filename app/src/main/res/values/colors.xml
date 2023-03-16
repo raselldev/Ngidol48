@@ -12,6 +12,7 @@
     <color name="colorHintText">#BDBDBD</color>
     <color name="colorMeetingInvitationStart">#01B763</color>
     <color name="colorMeetingInvitationEnd">#2CCF7E</color>
+    <color name="photcardColor">#7b9c44</color>
 
 
     <color name="dark">#131415</color>

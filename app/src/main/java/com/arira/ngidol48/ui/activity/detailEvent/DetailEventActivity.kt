@@ -211,7 +211,8 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
                             layoutManager = LinearLayoutManager(context)
                             adapter = SongAdapter(
                                 it.song_list, this@DetailEventActivity,
-                                it.song_list as ArrayList<Song>
+                                it.song_list as ArrayList<Song>,
+                                onlyWhite = true
                             )
                         }
                         binding.divSetlist.visibility = View.VISIBLE

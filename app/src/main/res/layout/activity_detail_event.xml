@@ -154,26 +154,30 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"/>
                         </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/div_setlist"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <TextView
-                                style="@style/title12"
-                                android:text="@string/teks_setlist"/>
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:id="@+id/rv_songlist"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"/>
-                        </LinearLayout>
-
                     </LinearLayout>
 
-
+                    <LinearLayout
+                        android:padding="@dimen/_15sdp"
+                        android:background="@drawable/shape_rounded_top_primary"
+                        android:id="@+id/div_setlist"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:textColor="@color/white"
+                            style="@style/title12"
+                            android:text="@string/teks_setlist"/>
+                        <TextView
+                            android:textColor="@color/white"
+                            style="@style/body10"
+                            android:text="Daftar lagu yang akan dibawakan pada event ini"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:id="@+id/rv_songlist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>

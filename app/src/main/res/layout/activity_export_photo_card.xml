@@ -23,32 +23,81 @@
                 app:cardBackgroundColor="#F8AEDF"
                 app:cardCornerRadius="@dimen/_10sdp">
 
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_bg_photocard"/>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:id="@+id/iv_interindah"
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_40sdp"
+                        android:id="@+id/iv_logo_flow"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:src="@drawable/img_indah_flow"/>
+
+                    <ImageView
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_7sdp"
                         android:src="@drawable/img_interindah" />
 
-                    <TextView
-                        android:id="@+id/tv_greating"
-                        style="@style/title12"
-                        android:layout_centerInParent="true"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        android:text="Ucapan anda"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/ave_fedan"
-                        />
+                    <LinearLayout
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/iv_logo_flow"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/tv_greating"
+                            style="@style/title10"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@drawable/background_border_white"
+                            android:fontFamily="@font/tw_cent_black"
+                            android:paddingHorizontal="@dimen/_5sdp"
+                            android:paddingVertical="@dimen/_5sdp"
+                            android:text="Tulis Ucapan Anda"
+                            android:maxLines="5"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:layout_gravity="end"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:paddingVertical="@dimen/_3sdp"
+                            android:paddingHorizontal="@dimen/_5sdp"
+
+                            android:background="@drawable/background_border_white"
+                            android:maxLength="20"
+                            android:id="@+id/tv_name"
+                            android:fontFamily="@font/tw_cent_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:elevation="@dimen/_3sdp"
+                            android:hint="       "
+                            android:maxLines="1"
+                            android:singleLine="false"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:textSize="@dimen/_8sdp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_marginBottom="-10dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_ilustration_photo_card"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_120sdp"/>
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -72,15 +121,14 @@
 
                     <ImageView
                         android:id="@+id/iv_selected_sign"
-                        android:layout_width="@dimen/_45sdp"
-                        android:layout_height="@dimen/_45sdp"
+                        android:layout_width="@dimen/_65sdp"
+                        android:layout_height="@dimen/_65sdp"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
-                        android:padding="@dimen/_5sdp"
                         android:src="@drawable/ic_sign" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -104,6 +152,6 @@
             android:paddingHorizontal="@dimen/_16sdp"
             style="@style/title12"
             android:text="Download Sekarang"
-            android:background="@drawable/background_shape_primary"/>
+            android:background="@drawable/background_shape_photocard"/>
     </LinearLayout>
 </layout>

@@ -25,6 +25,7 @@ class HomeResponse : Serializable {
     var banner:Banner = Banner()
     var special_video:SpecialVideo = SpecialVideo()
     var session:PhotocardSession = PhotocardSession()
-
+    var radio:Radio? = Radio()
+    var merch:List<Merch> = ArrayList()
 
 }

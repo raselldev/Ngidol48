@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="7dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/background_shape_pink" />
+
+           <LinearLayout
+               android:layout_marginTop="@dimen/_15sdp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+
+               <LinearLayout
+                   android:layout_marginHorizontal="@dimen/_3sdp"
+                   android:layout_weight="1"
+                   android:id="@+id/lin_kiri"
+                   android:paddingVertical="@dimen/_10sdp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+                   <TextView
+                       android:paddingVertical="@dimen/_2sdp"
+                       android:background="@drawable/background_border_abu"
+                       android:textAlignment="center"
+                       android:layout_gravity="center"
+                       android:id="@+id/tv_kiri"
+                       android:layout_width="match_parent"
+                       style="@style/body12"
+                       android:text="Kiri"/>
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_marginHorizontal="@dimen/_3sdp"
+                   android:layout_weight="1"
+                   android:id="@+id/lin_tengah"
+                   android:paddingVertical="@dimen/_10sdp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+                   <TextView
+                       android:paddingVertical="@dimen/_2sdp"
+                       android:textAlignment="center"
+                       android:background="@drawable/background_border_abu"
+                       android:layout_gravity="center"
+                       android:id="@+id/tv_tengah"
+                       android:layout_width="match_parent"
+                       style="@style/body12"
+                       android:text="Tengah"/>
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_marginHorizontal="@dimen/_3sdp"
+                   android:layout_weight="1"
+                   android:id="@+id/lin_kanan"
+                   android:paddingVertical="@dimen/_10sdp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+                   <TextView
+                       android:paddingVertical="@dimen/_2sdp"
+                       android:textAlignment="center"
+                       android:background="@drawable/background_border_abu"
+                       android:layout_weight="1"
+                       android:layout_gravity="center"
+                       android:id="@+id/tv_kanan"
+                       android:layout_width="match_parent"
+                       style="@style/body12"
+                       android:text="Kanan"/>
+               </LinearLayout>
+
+           </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

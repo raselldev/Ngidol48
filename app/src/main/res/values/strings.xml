@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">Ngidol48</string>
-    <string name="teks_app_versi" translatable="false">versi 4.22.36</string>
+    <string name="teks_app_versi" translatable="false">versi 4.22.39</string>
 
     <string name="teks_tidak_dapat_tehubung_ke_server">Tidak dapat terhubung ke server, coba beberapa saat lagi. 2001</string>
     <string name="teks_terjadi_kesalahan_code">Terjadi kesalahan saat memproses data. coba beberapa saat lagi. %d</string>
@@ -210,6 +210,8 @@
     <string name="teks_selanjutnya">Selanjutnya</string>
     <string name="teks_tema_gelap" tools:ignore="ExtraTranslation">Tema Gelap</string>
     <string name="teks_deskripsi_tema_gelap" tools:ignore="ExtraTranslation">"Atur tema untuk aplikasi "</string>
+    <string name="teks_jkt48_merch">JKT48 Merchandise</string>
+    <string name="teks_jkt48_merch_desc">Official merchandise from JKT48</string>
 
 
 </resources>
