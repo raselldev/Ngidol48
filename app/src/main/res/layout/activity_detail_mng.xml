@@ -6,12 +6,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/img_background"
         tools:context=".ui.activity.handshake.DetailHandshakeActivity">
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
+            style="@style/ContentMain"
             android:id="@+id/swipe"
             android:layout_height="match_parent">
             <androidx.core.widget.NestedScrollView

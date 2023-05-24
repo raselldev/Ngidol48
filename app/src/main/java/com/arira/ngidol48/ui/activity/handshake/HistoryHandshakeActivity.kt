@@ -20,7 +20,7 @@ class HistoryHandshakeActivity : BaseActivity() {
         setContentView(R.layout.activity_history_handshake)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_history_handshake)
-        setToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
 
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,

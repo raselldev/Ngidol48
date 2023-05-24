@@ -22,7 +22,7 @@ class ChantsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chants)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chants)
-        setToolbar(getString(R.string.teks_chant), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_chant), binding.toolbar)
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[ChantViewModel::class.java]
         viewModel.context = this

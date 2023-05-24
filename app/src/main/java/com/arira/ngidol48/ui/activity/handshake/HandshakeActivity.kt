@@ -36,7 +36,7 @@ class HandshakeActivity : BaseActivity(), HandshakeCallback{
 
         setContentView(R.layout.activity_handshake)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_handshake)
-        setToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
 
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,

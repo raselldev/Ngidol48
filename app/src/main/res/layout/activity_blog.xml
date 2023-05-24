@@ -6,12 +6,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/img_background"
         tools:context=".ui.activity.allBlog.BlogActivity">
 
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
         <RelativeLayout
+            style="@style/ContentMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
@@ -20,6 +22,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">

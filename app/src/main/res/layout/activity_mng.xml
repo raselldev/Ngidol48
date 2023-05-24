@@ -5,92 +5,100 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/img_background"
         android:orientation="vertical"
         tools:context=".ui.activity.notifikasi.NotifikasiActivity">
 
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmer"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            app:shimmer_duration="300">
-
-            <include layout="@layout/placeholder_news" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
-        <RelativeLayout
-            android:id="@+id/div_kosong"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
+            android:orientation="vertical"
+            style="@style/ContentMain">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:shimmer_duration="300">
 
-                <ImageView
-                    android:id="@+id/img_"
+                <include layout="@layout/placeholder_news" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/div_kosong"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_mng" />
-
-                <TextView
-
-                    style="@style/title12"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:text="@string/teks_tidak_ada_data_mng"
-                    android:textAlignment="center" />
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
 
-                <TextView
-                    style="@style/body10"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:text="@string/teks_detail_message_mng_kosong"
-                    android:textAlignment="center" />
+                    <ImageView
+                        android:id="@+id/img_"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_mng" />
 
-                <TextView
-                    android:id="@+id/tv_reload"
-                    style="@style/body10"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:background="@drawable/background_border_abu"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:text="@string/teks_muat_ulang"
-                    android:textColor="@color/abu_pekat"
-                    android:visibility="gone" />
+                    <TextView
 
-                <TextView
-                    android:id="@+id/tv_riwayat"
-                    style="@style/body10"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:background="@drawable/background_border_primary"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:text="@string/teks_lihat_riwayat"
-                    android:textColor="@color/colorPrimaryTeks" />
-            </LinearLayout>
-        </RelativeLayout>
+                        style="@style/title12"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/teks_tidak_ada_data_mng"
+                        android:textAlignment="center" />
 
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/swipe">
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:id="@+id/rv_data"
+                    <TextView
+                        style="@style/body10"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:text="@string/teks_detail_message_mng_kosong"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/tv_reload"
+                        style="@style/body10"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@drawable/background_border_abu"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:text="@string/teks_muat_ulang"
+                        android:textColor="@color/abu_pekat"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tv_riwayat"
+                        style="@style/body10"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/background_border_primary"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:text="@string/teks_lihat_riwayat"
+                        android:textColor="@color/colorPrimaryTeks" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:paddingTop="@dimen/_10sdp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                android:layout_height="match_parent"
+                android:id="@+id/swipe">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:id="@+id/rv_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

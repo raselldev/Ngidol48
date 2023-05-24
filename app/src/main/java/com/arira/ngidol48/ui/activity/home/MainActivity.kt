@@ -59,7 +59,7 @@ class MainActivity : BaseActivity(), MemberCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        statusPutih()
+        newStatusBarTheme()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeViewModel::class.java]
         viewModel.context = this

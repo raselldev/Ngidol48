@@ -25,7 +25,7 @@ class DetailHandshakeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_handshake)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_handshake)
-        setToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
         parentData = intent.getParcelableExtra(extra_model) ?: ParentHandshake()
 
         /*menambakan warna untuk swipe refresh*/

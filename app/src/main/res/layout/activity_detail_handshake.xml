@@ -5,12 +5,14 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/img_background"
         android:orientation="vertical"
         tools:context=".ui.activity.handshake.DetailHandshakeActivity">
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            style="@style/ContentMain"
             android:layout_width="match_parent"
             android:id="@+id/swipe"
             android:layout_height="match_parent">

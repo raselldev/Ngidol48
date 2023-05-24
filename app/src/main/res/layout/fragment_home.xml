@@ -5,21 +5,21 @@
     <RelativeLayout
         android:id="@+id/viewGroup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ui.activity.home.MainActivity">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipe"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
 
@@ -38,566 +38,567 @@
                         android:layout_height="wrap_content"
                         android:visibility="gone" />
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_banner"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="10sp"
-                        android:layout_marginVertical="@dimen/_10sdp"
-                        android:visibility="gone"
-                        app:cardCornerRadius="@dimen/_8sdp">
-
-                        <ImageView
-                            android:id="@+id/iv_banner"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_48sdp"
-                            android:layout_gravity="start" />
-                    </androidx.cardview.widget.CardView>
-
-                    <!--MENU-->
-
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:id="@+id/lin_blog"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_30sdp"
-                                android:padding="@dimen/_5sdp"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/ic_blog" />
-
-                            <TextView
-                                style="@style/body8"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:text="@string/teks_blog"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lin_setlist"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_30sdp"
-                                android:padding="@dimen/_5sdp"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/ic_playlist" />
-
-                            <TextView
-                                style="@style/body8"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:text="@string/teks_lagu"
-                                android:textColor="@color/colorPrimary" />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-                            android:id="@+id/lin_handshake"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_30sdp"
-                                android:padding="@dimen/_5sdp"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/ic_videocall" />
-
-                            <TextView
-                                style="@style/body8"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:text="@string/teks_handshake_vc"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lin_mng"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_30sdp"
-                                android:padding="@dimen/_5sdp"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/ic_mng" />
-
-                            <TextView
-                                style="@style/body8"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:text="@string/teks_mng_vc"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lin_chant"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_30sdp"
-                                android:padding="@dimen/_5sdp"
-                                android:scaleType="centerInside"
-                                android:src="@drawable/ic_crowd" />
-
-                            <TextView
-                                style="@style/body8"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:text="@string/teks_chant"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimary" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/lin_idn"
+                        style="@style/ContentMain"
+                        android:paddingTop="@dimen/_10sdp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:orientation="vertical"
-                        android:visibility="gone">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <androidx.cardview.widget.CardView
+                            android:visibility="gone"
+                            android:id="@+id/card_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10sp"
+                            android:layout_marginVertical="@dimen/_10sdp"
+                            app:cardCornerRadius="@dimen/_8sdp">
+
+                            <ImageView
+                                android:id="@+id/iv_banner"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_48sdp"
+                                android:layout_gravity="start" />
+                        </androidx.cardview.widget.CardView>
+
+                        <!--MENU-->
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_15sdp"
                             android:orientation="horizontal">
 
-                            <TextView
-                                style="@style/title12"
+                            <LinearLayout
+                                android:id="@+id/lin_blog"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
-                                android:text="@string/teks_jkt_live_idn"
-                                android:textColor="@color/colorPrimaryTeks" />
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:padding="@dimen/_5sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_blog" />
+
+                                <TextView
+                                    style="@style/body8"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:text="@string/teks_blog"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/lin_setlist"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:padding="@dimen/_5sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_playlist" />
+
+                                <TextView
+                                    style="@style/body8"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:text="@string/teks_lagu"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/lin_handshake"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:padding="@dimen/_5sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_videocall" />
+
+                                <TextView
+                                    style="@style/body8"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:text="@string/teks_handshake_vc"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/lin_mng"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:padding="@dimen/_5sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_mng" />
+
+                                <TextView
+                                    style="@style/body8"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:text="@string/teks_mng_vc"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/lin_chant"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:padding="@dimen/_5sdp"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_crowd" />
+
+                                <TextView
+                                    style="@style/body8"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:text="@string/teks_chant"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorPrimary" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/lin_idn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/title12"
+
+                                    android:text="@string/teks_jkt_live_idn"
+                                    android:textColor="@color/colorPrimaryTeks" />
+                            </LinearLayout>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_150sdp"
+                                android:layout_margin="@dimen/_5sdp"
+                                app:cardCornerRadius="@dimen/_8sdp">
+
+                                <RelativeLayout
+                                    android:id="@+id/div_play_idn"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/iv_thumb_idn"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="centerCrop" />
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/abu1_tipis">
+
+                                        <ImageView
+                                            android:id="@+id/iv_play_idn"
+                                            android:layout_width="@dimen/_20sdp"
+                                            android:layout_height="@dimen/_20sdp"
+                                            android:layout_centerInParent="true"
+                                            android:src="@drawable/ic_play_white" />
+                                    </RelativeLayout>
+
+                                </RelativeLayout>
+                            </androidx.cardview.widget.CardView>
                         </LinearLayout>
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="@dimen/_100sdp"
-                            android:layout_height="@dimen/_150sdp"
-                            android:layout_margin="@dimen/_5sdp"
+                            android:visibility="gone"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:id="@+id/card_livestrem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
                             app:cardCornerRadius="@dimen/_8sdp">
 
-                            <RelativeLayout
-                                android:id="@+id/div_play_idn"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/iv_thumb_idn"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:scaleType="centerCrop" />
-
-                                <RelativeLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:background="@color/abu1_tipis">
-
-                                    <ImageView
-                                        android:id="@+id/iv_play_idn"
-                                        android:layout_width="@dimen/_20sdp"
-                                        android:layout_height="@dimen/_20sdp"
-                                        android:layout_centerInParent="true"
-                                        android:src="@drawable/ic_play_white" />
-                                </RelativeLayout>
-
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
-                    </LinearLayout>
-
-                    <androidx.cardview.widget.CardView
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:id="@+id/card_livestrem"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        app:cardCornerRadius="@dimen/_8sdp">
-
-                        <ImageView
-                            android:scaleType="center"
-                            android:id="@+id/iv_live_stream"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_165sdp" />
-
-                    </androidx.cardview.widget.CardView>
-
-
-
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:id="@+id/lin_showroom"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_marginHorizontal="@dimen/_10sdp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:textColor="@color/colorPrimaryTeks"
-                                style="@style/title12"
-                                android:text="@string/teks_member_showroom_live" />
-
-                            <TextView
-                                android:id="@+id/tv_jml_member"
-                                style="@style/body10"
-                                android:text="0 Member"
-                                android:textColor="@color/abu_pekat" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:background="@color/colorAccent"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/rv_showroom"
-                                android:layout_marginBottom="@dimen/_5sdp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:padding="@dimen/_10sdp"
-                                android:clipToPadding="false"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/lin_view_kosong_showroom"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:visibility="gone">
-
                             <ImageView
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="@dimen/_40sdp"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_20sdp"
-                                android:src="@drawable/ic_calendar" />
+                                android:scaleType="center"
+                                android:id="@+id/iv_live_stream"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_165sdp" />
 
-                            <TextView
-                                style="@style/body10"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_15sdp"
-                                android:text="@string/teks_showroom_kosong"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimaryTeks" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:id="@+id/lin_bday"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        </androidx.cardview.widget.CardView>
 
                         <LinearLayout
-                            android:background="@color/primary_soft"
+                            android:visibility="gone"
+                            android:id="@+id/lin_showroom"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
                             <LinearLayout
-                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginHorizontal="@dimen/_10sdp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:padding="@dimen/_3sdp"
-                                    android:layout_marginStart="@dimen/_10sdp"
-                                    android:layout_width="@dimen/_20sdp"
-                                    android:layout_height="@dimen/_20sdp"
-                                    android:src="@drawable/ic_bd"/>
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
                                 <TextView
-                                    android:textColor="@color/white"
-                                    android:layout_marginStart="@dimen/_10sdp"
-                                    android:layout_gravity="center"
+                                    android:textColor="@color/colorPrimaryTeks"
                                     style="@style/title12"
-                                    android:text="Ulang Tahun Bulan ini nih..."/>
+                                    android:text="@string/teks_member_showroom_live" />
+
+                                <TextView
+                                    android:id="@+id/tv_jml_member"
+                                    style="@style/body10"
+                                    android:text="0 Member"
+                                    android:textColor="@color/abu_pekat" />
                             </LinearLayout>
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/rv_bday"
-                                android:paddingHorizontal="@dimen/_10sdp"
-                                android:clipToPadding="false"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginVertical="@dimen/_5sdp" />
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:id="@+id/lin_showroom_history"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_marginTop="@dimen/_15sdp"
-                                android:layout_marginHorizontal="@dimen/_10sdp"
-                                style="@style/title12"
-                                android:text="@string/teks_riwayat_showroom_harini"
-                                android:textColor="@color/colorPrimaryTeks" />
-
-                            <TextView
-                                android:id="@+id/tv_jml_member_history"
-                                style="@style/title12"
-                                android:layout_marginStart="@dimen/_5sdp"
-                                android:textColor="@color/colorPrimaryTeks" />
-                        </LinearLayout>
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_showroom_history"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingHorizontal="@dimen/_10sdp"
-                            android:clipToPadding="false"
-                            android:layout_marginTop="@dimen/_5sdp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/lin_event"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_marginHorizontal="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_15sdp"
-                            style="@style/title12"
-                            android:text="@string/teks_event_hari_ini"
-                            android:textColor="@color/colorPrimaryTeks" />
-
-                        <LinearLayout
-                            android:id="@+id/lin_view_kosong_event"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:visibility="gone">
-
-                            <ImageView
-                                android:layout_width="@dimen/_40sdp"
-                                android:layout_height="@dimen/_40sdp"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_20sdp"
-                                android:src="@drawable/ic_calendar" />
-
-                            <TextView
-                                style="@style/body10"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_15sdp"
-                                android:text="@string/teks_event_kosong"
-                                android:textAlignment="center"
-                                android:textColor="@color/colorPrimaryTeks" />
-                        </LinearLayout>
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_event"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingHorizontal="@dimen/_5sdp"
-                            android:clipToPadding="false"/>
-                    </LinearLayout>
-
-                    <androidx.cardview.widget.CardView
-                        android:visibility="gone"
-                        android:id="@+id/card_radio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_10sdp"
-                        app:cardCornerRadius="@dimen/_8sdp">
-                        <LinearLayout
-                            android:padding="@dimen/_10sdp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <ImageView
-                                android:layout_width="@dimen/_30sdp"
-                                android:layout_height="@dimen/_30sdp"
-                                android:src="@drawable/ic_radio"/>
-
                             <LinearLayout
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:background="@color/colorAccent"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical">
-                                <TextView
-                                    android:id="@+id/tv_radio_title"
-                                    style="@style/title10"
-                                    android:text="Radio Name"/>
-                                <TextView
-                                    android:textColor="@color/abu_pekat"
-                                    android:id="@+id/tv_radio_desc"
-                                    style="@style/body9"
-                                    android:text="Radio Name"/>
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rv_showroom"
+                                    android:layout_marginBottom="@dimen/_5sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="@dimen/_10sdp"
+                                    android:clipToPadding="false"
+                                    />
                             </LinearLayout>
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:id="@+id/card_photocard"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        app:cardCornerRadius="@dimen/_8sdp">
+                            <LinearLayout
+                                android:id="@+id/lin_view_kosong_showroom"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_40sdp"
+                                    android:layout_height="@dimen/_40sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_20sdp"
+                                    android:src="@drawable/ic_calendar" />
+
+                                <TextView
+                                    style="@style/body10"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_15sdp"
+                                    android:text="@string/teks_showroom_kosong"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorPrimaryTeks" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
                         <LinearLayout
+                            android:visibility="gone"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:id="@+id/lin_bday"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
-                            <ImageView
-                                android:scaleType="center"
-                                android:id="@+id/ic_photocard"
+
+                            <LinearLayout
+                                android:background="@color/primary_soft"
                                 android:layout_width="match_parent"
-                                android:layout_height="@dimen/_150sdp" />
-                            <TextView
-                                android:visibility="gone"
-                                android:id="@+id/tv_title_photocard"
-                                android:paddingVertical="@dimen/_10sdp"
-                                android:paddingHorizontal="@dimen/_10sdp"
-                                style="@style/title12"
-                                android:text="Special Photo card Indah Cahya"/>
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_marginTop="@dimen/_10sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:padding="@dimen/_3sdp"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:layout_width="@dimen/_20sdp"
+                                        android:layout_height="@dimen/_20sdp"
+                                        android:src="@drawable/ic_bd"/>
+
+                                    <TextView
+                                        android:textColor="@color/white"
+                                        android:layout_marginStart="@dimen/_10sdp"
+                                        android:layout_gravity="center"
+                                        style="@style/title12"
+                                        android:text="Ulang Tahun Bulan ini nih..."/>
+                                </LinearLayout>
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/rv_bday"
+                                    android:paddingHorizontal="@dimen/_10sdp"
+                                    android:clipToPadding="false"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginVertical="@dimen/_5sdp" />
+                            </LinearLayout>
+
+
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/title14"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:layout_weight="1"
-                            android:text="@string/teks_informasi"
-                            android:textColor="@color/colorPrimaryTeks" />
-
-                        <TextView
-                            android:id="@+id/iv_semua_berita"
-                            style="@style/title10"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
-                            android:text="@string/teks_lihat_semua"
-                            android:textColor="@color/colorPrimary" />
-                    </LinearLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:visibility="gone"
-                        android:id="@+id/rv_berita"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginHorizontal="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp" />
-
-                    <LinearLayout
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:background="@drawable/shape_rounded_top_primary"
-                        android:id="@+id/lin_merch"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_marginHorizontal="@dimen/_10sdp"
-                            android:layout_marginTop="@dimen/_15sdp"
-                            style="@style/title14"
-                            android:text="@string/teks_jkt48_merch"
-                            android:textColor="@color/white" />
-                        <TextView
-                            android:layout_marginHorizontal="@dimen/_10sdp"
-                             style="@style/body10"
-                            android:text="@string/teks_jkt48_merch_desc"
-                            android:textColor="@color/white" />
-
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rv_merch"
-                            android:layout_marginTop="@dimen/_10sdp"
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/lin_showroom_history"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingHorizontal="@dimen/_10sdp"
-                            android:clipToPadding="false"/>
+                            android:orientation="vertical">
 
-                        <TextView
-                            style="@style/body10"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/_20sdp"
-                            android:autoLink="web"
-                            android:text="@string/sumber_jkt48_com_n_semua_hak_cipta_milik_jkt_48_atau_pemilik_aset_asliknya"
-                            android:textAlignment="center"
-                            android:visibility="gone" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
 
-                        <TextView
-                            android:textColor="@color/white"
-                            style="@style/body10"
-                            android:layout_gravity="center"
+                                <TextView
+                                    android:layout_marginTop="@dimen/_15sdp"
+                                    android:layout_marginHorizontal="@dimen/_10sdp"
+                                    style="@style/title12"
+                                    android:text="@string/teks_riwayat_showroom_harini"
+                                    android:textColor="@color/colorPrimaryTeks" />
+
+                                <TextView
+                                    android:id="@+id/tv_jml_member_history"
+                                    style="@style/title12"
+                                    android:layout_marginStart="@dimen/_5sdp"
+                                    android:textColor="@color/colorPrimaryTeks" />
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_showroom_history"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:clipToPadding="false"
+                                android:layout_marginTop="@dimen/_5sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/lin_event"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginHorizontal="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                style="@style/title12"
+                                android:text="@string/teks_event_hari_ini"
+                                android:textColor="@color/colorPrimaryTeks" />
+
+                            <LinearLayout
+                                android:id="@+id/lin_view_kosong_event"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_40sdp"
+                                    android:layout_height="@dimen/_40sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_20sdp"
+                                    android:src="@drawable/ic_calendar" />
+
+                                <TextView
+                                    style="@style/body10"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/_15sdp"
+                                    android:text="@string/teks_event_kosong"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorPrimaryTeks" />
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_event"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="@dimen/_5sdp"
+                                android:clipToPadding="false"/>
+                        </LinearLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:visibility="gone"
+                            android:id="@+id/card_radio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            app:cardCornerRadius="@dimen/_8sdp">
+                            <LinearLayout
+                                android:padding="@dimen/_10sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_width="@dimen/_30sdp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:src="@drawable/ic_radio"/>
+
+                                <LinearLayout
+                                    android:layout_marginTop="@dimen/_2sdp"
+                                    android:layout_marginStart="@dimen/_10sdp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:id="@+id/tv_radio_title"
+                                        style="@style/title10"
+                                        android:text="Radio Name"/>
+                                    <TextView
+                                        android:textColor="@color/abu_pekat"
+                                        android:id="@+id/tv_radio_desc"
+                                        style="@style/body9"
+                                        android:text="Radio Name"/>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:visibility="gone"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginBottom="@dimen/_20sdp"
-                            android:autoLink="web"
-                            android:text="@string/teks_app_versi"
-                            android:textAlignment="center" />
-                    </LinearLayout>
+                            android:id="@+id/card_photocard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_5sdp"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            app:cardCornerRadius="@dimen/_8sdp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:scaleType="center"
+                                    android:id="@+id/ic_photocard"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_150sdp" />
+                                <TextView
+                                    android:visibility="gone"
+                                    android:id="@+id/tv_title_photocard"
+                                    android:paddingVertical="@dimen/_10sdp"
+                                    android:paddingHorizontal="@dimen/_10sdp"
+                                    style="@style/title12"
+                                    android:text="Special Photo card Indah Cahya"/>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
 
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/title14"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_weight="1"
+                                android:text="@string/teks_informasi"
+                                android:textColor="@color/colorPrimaryTeks" />
+
+                            <TextView
+                                android:id="@+id/iv_semua_berita"
+                                style="@style/title10"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:text="@string/teks_lihat_semua"
+                                android:textColor="@color/colorPrimary" />
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:visibility="gone"
+                            android:id="@+id/rv_berita"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="@dimen/_20sdp"
+                            android:layout_marginTop="@dimen/_10sdp" />
+
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_15sdp"
+                            android:id="@+id/lin_merch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_marginHorizontal="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                style="@style/title14"
+                                android:text="@string/teks_jkt48_merch" />
+                            <TextView
+                                android:layout_marginHorizontal="@dimen/_10sdp"
+                                style="@style/body10"
+                                android:text="@string/teks_jkt48_merch_desc" />
+
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rv_merch"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:clipToPadding="false"/>
+
+                            <TextView
+                                style="@style/body10"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_20sdp"
+                                android:autoLink="web"
+                                android:text="@string/sumber_jkt48_com_n_semua_hak_cipta_milik_jkt_48_atau_pemilik_aset_asliknya"
+                                android:textAlignment="center"
+                                android:visibility="gone" />
+
+                            <TextView
+                                style="@style/body10"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:autoLink="web"
+                                android:text="@string/teks_app_versi"
+                                android:textAlignment="center" />
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>

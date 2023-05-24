@@ -6,12 +6,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/img_background"
         tools:context=".ui.activity.songHome.HomeSongActivity">
 
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_banner"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp">
+            <ImageView
+                android:id="@+id/iv_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/img_logo"/>
+        </androidx.cardview.widget.CardView>
+
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            style="@style/ContentMain"
             android:id="@+id/swipe"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -20,22 +36,11 @@
                 android:layout_height="match_parent"
                 android:scrollbars="none">
                 <LinearLayout
+                    android:paddingTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/card_banner"
-                        android:layout_marginHorizontal="@dimen/_15sdp"
-                        android:layout_marginVertical="@dimen/_10sdp"
-                        app:cardCornerRadius="@dimen/_10sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_150sdp">
-                        <ImageView
-                            android:id="@+id/iv_banner"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/img_logo"/>
-                    </androidx.cardview.widget.CardView>
+
 
                     <androidx.cardview.widget.CardView
                         app:cardCornerRadius="@dimen/_10sdp"

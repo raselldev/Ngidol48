@@ -14,6 +14,7 @@ import android.view.Window
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.databinding.DataBindingUtil
 import com.arira.ngidol48.R
@@ -189,6 +190,35 @@ open class BaseActivity : AppCompatActivity() {
 
     }
 
+    fun newStatusBarTheme() {
+        supportActionBar?.hide()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val window: Window = window
+            val decorView: View = window.decorView
+            val wic = WindowInsetsControllerCompat(window, decorView)
+
+
+            when (resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    wic.isAppearanceLightStatusBars = false // true or false as desired.
+                    window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    wic.isAppearanceLightStatusBars = true // true or false as desired.
+                    window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
+                }
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    wic.isAppearanceLightStatusBars = true // true or false as desired.
+                    window.statusBarColor = ContextCompat.getColor(this, R.color.colorPrimary)
+                }
+            }
+
+        }
+
+
+    }
+
 
     fun setToolbar(title: String, toolbarTitle: LayoutToolbarBinding) {
         statusPutih()
@@ -204,6 +234,20 @@ open class BaseActivity : AppCompatActivity() {
                 toolbarTitle.toolbarBack.setImageResource(R.drawable.ic_back_black)
             }
         }
+
+        toolbarTitle.toolbarTitle.text = title
+        toolbarTitle.toolbarBack.setOnClickListener {
+            onBackPressed()
+        }
+
+        //mengubah warna status bar
+
+    }
+    fun setNewToolbar(title: String, toolbarTitle: LayoutToolbarBinding) {
+        newStatusBarTheme()
+
+        toolbarTitle.toolbarTitle.setTextColor(ContextCompat.getColor(this, R.color.white))
+        toolbarTitle.toolbarBack.setImageResource(R.drawable.ic_back_white)
 
         toolbarTitle.toolbarTitle.text = title
         toolbarTitle.toolbarBack.setOnClickListener {

@@ -36,7 +36,7 @@ class SetlistActivity : BaseActivity() {
             R.color.colorPrimaryDark,
             R.color.colorAccent)
 
-        setToolbar(getString(R.string.teks_lagu), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_lagu), binding.toolbar)
 
         observerData()
         viewModel.hitSetlist()

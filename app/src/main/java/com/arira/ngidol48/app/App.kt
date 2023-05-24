@@ -42,8 +42,8 @@ class App : Application() {
         token = ""
     }
 
-    fun recreate(){
-        recreate()
+    fun recreate() {
+        onCreate()
     }
 
 

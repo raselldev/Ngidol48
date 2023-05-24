@@ -23,7 +23,7 @@ class BeritaActivity : BaseActivity() {
         viewModel.context = this
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_berita)
-        setToolbar(getString(R.string.teks_informasi), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_informasi), binding.toolbar)
 
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,

@@ -21,7 +21,7 @@ class MngActivity : BaseActivity() {
 
         setContentView(R.layout.activity_mng)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_mng)
-        setToolbar(getString(R.string.teks_mng_vc), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_mng_vc), binding.toolbar)
 
         /*menambakan warna untuk swipe refresh*/
         binding.swipe.setColorSchemeResources(R.color.colorPrimaryTeks,

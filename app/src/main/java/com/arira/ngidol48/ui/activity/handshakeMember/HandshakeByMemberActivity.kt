@@ -29,7 +29,7 @@ class HandshakeByMemberActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_handshake_by_member)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_handshake_by_member)
-        setToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_handshake_vc), binding.toolbar)
         idMember = intent.getStringExtra(extra_id) ?: "0"
 
         /*menambakan warna untuk swipe refresh*/

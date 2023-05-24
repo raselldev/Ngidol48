@@ -31,7 +31,7 @@ class HomeSongActivity : BaseActivity(), LaguCallback{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_song)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home_song)
-        setToolbar(getString(R.string.teks_lagu), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_lagu), binding.toolbar)
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[HomeLaguViewModel::class.java]
         viewModel.context = this

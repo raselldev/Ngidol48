@@ -33,7 +33,7 @@ class ProfilActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profil)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profil)
-        setToolbar(getString(R.string.teks_profil), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_profil), binding.toolbar)
 
         idUser = intent.getStringExtra(extra_id) ?: "0"
         if (idUser.isEmpty()){

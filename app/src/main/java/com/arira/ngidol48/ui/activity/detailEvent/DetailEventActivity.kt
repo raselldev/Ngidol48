@@ -55,7 +55,7 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailEventViewModel::class.java]
         viewModel.context = this
 
-        setToolbar(getString(R.string.teks_event), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_event), binding.toolbar)
 
         observerData()
 
@@ -211,8 +211,7 @@ class DetailEventActivity : BaseActivity(), MemberCallback, LaguCallback {
                             layoutManager = LinearLayoutManager(context)
                             adapter = SongAdapter(
                                 it.song_list, this@DetailEventActivity,
-                                it.song_list as ArrayList<Song>,
-                                onlyWhite = true
+                                it.song_list as ArrayList<Song>
                             )
                         }
                         binding.divSetlist.visibility = View.VISIBLE

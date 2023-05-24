@@ -49,7 +49,7 @@ class TambahBlogActivity : BaseActivity(), BlogKategoriCallback{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambah_blog)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tambah_blog)
-        setToolbar(getString(R.string.teks_tulis_blog), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_tulis_blog), binding.toolbar)
 
         adapterKategori = BlogKategoriAdapter(listKategori, this)
 

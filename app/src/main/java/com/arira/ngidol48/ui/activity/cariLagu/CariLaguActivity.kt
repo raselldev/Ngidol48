@@ -33,7 +33,7 @@ class CariLaguActivity : BaseActivity(), CariLaguCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cari_lagu)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cari_lagu)
-        setToolbar(getString(R.string.teks_lagu), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_lagu), binding.toolbar)
         binding.toolbar.ivMenu.visibility = View.VISIBLE
         binding.toolbar.ivMenu.setImageResource(R.drawable.ic_fav)
 

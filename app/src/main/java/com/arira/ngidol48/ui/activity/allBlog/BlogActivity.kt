@@ -76,7 +76,7 @@ class BlogActivity : BaseActivity(), BlogKategoriCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blog)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_blog)
-        setToolbar(getString(R.string.teks_blog), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_blog), binding.toolbar)
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[AllblogViewModel::class.java]
         viewModel.context = this

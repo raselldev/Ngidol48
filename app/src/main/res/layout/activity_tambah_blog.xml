@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
+        android:background="@drawable/img_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -21,6 +22,7 @@
                     android:id="@+id/toolbar"/>
 
                 <androidx.core.widget.NestedScrollView
+                    style="@style/ContentMain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scrollbars="none">
@@ -141,6 +143,7 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:layout_marginBottom="@dimen/_15sdp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_16sdp"
@@ -181,6 +184,8 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="-20dp"
+                style="@style/ContentMain"
                 android:id="@+id/tBagian_div_footer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

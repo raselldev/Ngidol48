@@ -42,6 +42,7 @@
                         android:src="@drawable/img_indah_flow"/>
 
                     <ImageView
+                        android:visibility="gone"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentEnd="true"
@@ -52,7 +53,7 @@
                     <LinearLayout
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/iv_logo_flow"
-                        android:layout_width="@dimen/_120sdp"
+                        android:layout_width="@dimen/_130sdp"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView

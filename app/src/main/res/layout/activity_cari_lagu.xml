@@ -6,55 +6,62 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/img_background"
         tools:context=".ui.activity.cariLagu.CariLaguActivity">
 
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
-        <androidx.cardview.widget.CardView
-            app:cardCornerRadius="@dimen/_10sdp"
+        <LinearLayout
+            style="@style/ContentMain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/_5sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp">
-            <LinearLayout
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <androidx.appcompat.widget.SearchView
-                    app:defaultQueryHint="@string/teks_cari_lagu_album_atau_setlist_jkt48"
-                    app:searchIcon="@drawable/ic_baseline_search_24"
-                    app:iconifiedByDefault="false"
-                    app:queryHint="@string/teks_cari_lagu_album_atau_setlist_jkt48"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sv_pencarian"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.SearchView
+                        app:defaultQueryHint="@string/teks_cari_lagu_album_atau_setlist_jkt48"
+                        app:searchIcon="@drawable/ic_baseline_search_24"
+                        app:iconifiedByDefault="false"
+                        app:queryHint="@string/teks_cari_lagu_album_atau_setlist_jkt48"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sv_pencarian"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            app:shimmer_duration="300">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:shimmer_duration="300">
 
-            <include layout="@layout/placeholder_lagu" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
+                <include layout="@layout/placeholder_lagu" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:layout_marginTop="@dimen/_10sdp"
-            android:id="@+id/pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingTop="4dp" />
+            <androidx.viewpager2.widget.ViewPager2
+                android:layout_marginTop="@dimen/_10sdp"
+                android:id="@+id/pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="4dp" />
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

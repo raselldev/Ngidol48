@@ -59,7 +59,7 @@ class DetailLaguActivity : BaseActivity(), LaguCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_lagu)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_lagu)
-        setToolbar(getString(R.string.teks_lagu_jkt), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_lagu_jkt), binding.toolbar)
         statusPutih()
 
         listeningView = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[SongListeningViewModel::class.java]

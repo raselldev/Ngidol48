@@ -43,7 +43,7 @@ class EventActivity : BaseActivity() {
             R.color.colorPrimaryDark,
             R.color.colorAccent)
 
-        setToolbar(getString(R.string.teks_kalender), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_kalender), binding.toolbar)
         observerData()
         viewModel.hitAll()
 

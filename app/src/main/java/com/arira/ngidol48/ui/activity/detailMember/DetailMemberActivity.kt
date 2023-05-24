@@ -36,7 +36,7 @@ class DetailMemberActivity : BaseActivity() {
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailMemberViewModel::class.java]
         viewModel.context = this
 
-        setToolbar(getString(R.string.teks_detail_member), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_detail_member), binding.toolbar)
 
         member = intent.getParcelableExtra(extra_model) ?: Member()
         setData()

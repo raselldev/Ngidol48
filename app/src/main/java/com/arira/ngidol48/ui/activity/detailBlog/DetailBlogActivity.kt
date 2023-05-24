@@ -58,7 +58,7 @@ class DetailBlogActivity : BaseActivity(), KomentarCallback {
         setContentView(R.layout.activity_detail_blog)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_blog)
-        setToolbar(getString(R.string.teks_blog), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_blog), binding.toolbar)
 
         binding.toolbar.ivMenu.visibility = View.VISIBLE
 

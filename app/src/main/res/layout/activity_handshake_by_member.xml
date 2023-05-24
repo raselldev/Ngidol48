@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
+        android:background="@drawable/img_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -10,142 +11,149 @@
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
-        <com.facebook.shimmer.ShimmerFrameLayout
-            android:id="@+id/shimmer"
+        <LinearLayout
+            android:paddingTop="@dimen/_15sdp"
+            style="@style/ContentMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            app:shimmer_duration="300">
-
-            <include layout="@layout/placeholder_news" />
-        </com.facebook.shimmer.ShimmerFrameLayout>
-
-        <RelativeLayout
-            android:visibility="gone"
-            android:id="@+id/div_kosong"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
+            android:orientation="vertical">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:shimmer_duration="300">
 
-                <ImageView
-                    android:id="@+id/img_"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_videocall" />
+                <include layout="@layout/placeholder_news" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
 
-                <TextView
-
-                    android:textAlignment="center"
-                    style="@style/title12"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:text="@string/teks_tidak_ada_data_handshake" />
-
-                <TextView
-                    android:textAlignment="center"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    style="@style/body10"
-                    android:layout_gravity="center"
-                    android:text="@string/teks_detail_message_handshake_kosong" />
-
-                <TextView
-                    android:visibility="gone"
-                    android:id="@+id/tv_reload"
-                    android:background="@drawable/background_border_abu"
-                    android:textColor="@color/abu_pekat"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_gravity="center"
-                    style="@style/body10"
-                    android:text="@string/teks_muat_ulang"/>
-
-                <TextView
-                    android:id="@+id/tv_riwayat"
-                    android:background="@drawable/background_border_primary"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:paddingVertical="@dimen/_5sdp"
-                    android:textColor="@color/colorPrimaryTeks"
-                    android:text="@string/teks_lihat_riwayat"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    style="@style/body10"/>
-            </LinearLayout>
-        </RelativeLayout>
-
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/swipe">
-            <androidx.core.widget.NestedScrollView
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/div_kosong"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbars="none">
+                android:layout_height="match_parent">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:orientation="vertical">
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        app:civ_border_color="@color/pink"
-                        android:id="@+id/iv_ava"
-                        app:civ_border_width="@dimen/_1sdp"
-                        android:src="@drawable/ic_women"
-                        android:layout_width="@dimen/_90sdp"
-                        android:layout_height="@dimen/_90sdp"
-                        android:layout_gravity="center"/>
-                    <LinearLayout
-                        android:layout_marginTop="@dimen/_10sdp"
+
+                    <ImageView
+                        android:id="@+id/img_"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_60sdp"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        android:src="@drawable/ic_videocall" />
+
+                    <TextView
+
+                        android:textAlignment="center"
+                        style="@style/title12"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/teks_tidak_ada_data_handshake" />
+
+                    <TextView
+                        android:textAlignment="center"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        style="@style/body10"
+                        android:layout_gravity="center"
+                        android:text="@string/teks_detail_message_handshake_kosong" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/tv_reload"
+                        android:background="@drawable/background_border_abu"
+                        android:textColor="@color/abu_pekat"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_gravity="center"
+                        style="@style/body10"
+                        android:text="@string/teks_muat_ulang"/>
+
+                    <TextView
+                        android:id="@+id/tv_riwayat"
+                        android:background="@drawable/background_border_primary"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:textColor="@color/colorPrimaryTeks"
+                        android:text="@string/teks_lihat_riwayat"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        style="@style/body10"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/swipe">
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            app:civ_border_color="@color/pink"
+                            android:id="@+id/iv_ava"
+                            app:civ_border_width="@dimen/_1sdp"
+                            android:src="@drawable/ic_women"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_90sdp"
+                            android:layout_gravity="center"/>
+                        <LinearLayout
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:layout_gravity="center"
-                            android:paddingHorizontal="@dimen/_10sdp"
-                            android:paddingVertical="@dimen/_3sdp"
-                            android:background="@drawable/background_shape_pink"
-                            android:layout_marginHorizontal="@dimen/_2sdp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_gravity="center"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingVertical="@dimen/_3sdp"
+                                android:background="@drawable/background_shape_pink"
+                                android:layout_marginHorizontal="@dimen/_2sdp"
+                                android:textAlignment="center"
+                                android:id="@+id/tv_team"
+                                android:textColor="@color/colorPrimaryTeks"
+                                style="@style/body10"
+                                android:text="@string/app_name"/>
+
+                            <TextView
+                                android:textColor="@color/colorPrimaryTeks"
+                                android:id="@+id/tv_generasi"
+                                android:layout_marginStart="@dimen/_3sdp"
+                                style="@style/body10"
+                                android:text="-"/>
+                        </LinearLayout>
+                        <TextView
+                            android:layout_marginHorizontal="@dimen/_10sdp"
                             android:textAlignment="center"
-                            android:id="@+id/tv_team"
+                            android:id="@+id/tv_nama"
                             android:textColor="@color/colorPrimaryTeks"
-                            style="@style/body10"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_gravity="center"
+                            style="@style/title12"
                             android:text="@string/app_name"/>
 
-                        <TextView
-                            android:textColor="@color/colorPrimaryTeks"
-                            android:id="@+id/tv_generasi"
-                            android:layout_marginStart="@dimen/_3sdp"
-                            style="@style/body10"
-                            android:text="-"/>
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:id="@+id/rv_data"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"/>
                     </LinearLayout>
-                    <TextView
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        android:textAlignment="center"
-                        android:id="@+id/tv_nama"
-                        android:textColor="@color/colorPrimaryTeks"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_gravity="center"
-                        style="@style/title12"
-                        android:text="@string/app_name"/>
+                </androidx.core.widget.NestedScrollView>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_10sdp"
-                        android:layout_marginHorizontal="@dimen/_10sdp"
-                        android:id="@+id/rv_data"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </LinearLayout>
-            </androidx.core.widget.NestedScrollView>
-
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

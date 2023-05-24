@@ -37,7 +37,7 @@ class MemberActivity : BaseActivity(), MemberCallback {
             R.color.colorPrimaryDark,
             R.color.colorAccent)
 
-        setToolbar(getString(R.string.teks_member), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_member), binding.toolbar)
 
         observerData()
 

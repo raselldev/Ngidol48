@@ -19,7 +19,7 @@ class EditProfilActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profil)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profil)
-        setToolbar(getString(R.string.teks_perbarui_profil), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_perbarui_profil), binding.toolbar)
         setDataUser()
 
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[EditProfilViewModel::class.java]

@@ -31,7 +31,7 @@ class DetailChantActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_chant)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_chant)
-        setToolbar(getString(R.string.teks_chant), binding.toolbar)
+        setNewToolbar(getString(R.string.teks_chant), binding.toolbar)
 
         chant = intent.getParcelableExtra(extra_model) ?: Chant()
         setChantData()

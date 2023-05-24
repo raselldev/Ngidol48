@@ -3,6 +3,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="@dimen/_10sdp"
+        style="@style/ContentMain"
         android:orientation="vertical">
 
         <com.facebook.shimmer.ShimmerFrameLayout

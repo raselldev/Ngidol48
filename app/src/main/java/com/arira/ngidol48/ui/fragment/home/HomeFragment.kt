@@ -386,7 +386,7 @@ class HomeFragment : BaseFragment(), MemberCallback {
                     if(it.merch.isNotEmpty()) {
                         binding.linMerch.visibility  = View.VISIBLE
                         binding.rvMerch.apply {
-                            layoutManager = GridLayoutManager(context, 2)
+                            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, true)
                             adapter = MerchAdapter(it.merch)
                         }
                     }else {

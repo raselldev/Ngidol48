@@ -6,11 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/img_background"
         tools:context=".ui.activity.chants.DetailChantActivity">
         <include layout="@layout/layout_toolbar"
             android:id="@+id/toolbar"/>
 
         <ScrollView
+            style="@style/ContentMain"
             android:padding="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

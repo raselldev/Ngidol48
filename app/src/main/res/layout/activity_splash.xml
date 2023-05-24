@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.activity.SplashActivity">
     <RelativeLayout
@@ -8,10 +9,10 @@
 
         <ImageView
             android:id="@+id/iv_logo"
-            android:src="@drawable/img_logo"
-            android:layout_centerInParent="true"
             android:layout_width="@dimen/_150sdp"
-            android:layout_height="@dimen/_150sdp"/>
+            android:layout_height="@dimen/_150sdp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/img_logo" />
 
         <ImageView
             android:layout_marginBottom="@dimen/_10sdp"
