@@ -236,16 +236,16 @@ class HomeFragment : BaseFragment(), MemberCallback {
 
                     /*show photocard session*/
                     try {
-                        if (it.session.id.isNotEmpty()) {
-                            this.photocardSession = it.session
+                        if (it.session_cathleenexus.id.isNotEmpty()) {
+                            this.photocardSession = it.session_cathleenexus
                             binding.cardPhotocard.visibility = View.VISIBLE
-                            Glide.with(this).load(it.session.session_banner)
+                            Glide.with(this).load(it.session_cathleenexus.session_banner)
                                 .diskCacheStrategy(DiskCacheStrategy.DATA)
                                 .into(
                                     binding.icPhotocard
                                 )
 
-                            binding.tvTitlePhotocard.text = it.session.session_name
+                            binding.tvTitlePhotocard.text = it.session_cathleenexus.session_name
                         }else {
                             binding.cardPhotocard.visibility = View.GONE
                         }

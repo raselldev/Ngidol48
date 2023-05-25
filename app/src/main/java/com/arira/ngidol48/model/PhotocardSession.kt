@@ -11,6 +11,7 @@ class PhotocardSession() :java.io.Serializable, Parcelable {
     var session_banner:String = ""
     var id_member:String = ""
     var max:String = "0"
+    var tag:String = ""
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readString() ?: ""
@@ -19,6 +20,7 @@ class PhotocardSession() :java.io.Serializable, Parcelable {
         session_banner = parcel.readString() ?: ""
         id_member = parcel.readString() ?: ""
         max = parcel.readString() ?: "0"
+        tag = parcel.readString() ?: ""
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -28,6 +30,7 @@ class PhotocardSession() :java.io.Serializable, Parcelable {
         parcel.writeString(session_banner)
         parcel.writeString(id_member)
         parcel.writeString(max)
+        parcel.writeString(tag)
     }
 
     override fun describeContents(): Int {

@@ -182,9 +182,12 @@ class ExportPhotoCardActivity : BaseActivity() {
                 }
 
                 bindingSheet.tvBagikan.setOnClickListener {
+                    createPhotoCardImage.tag  = pref.getString("tag_pc")
                     val message = """${createPhotoCardImage.greating}
                             |
-                            |- ${createPhotoCardImage.nickName}
+                            |dari ${createPhotoCardImage.nickName}
+                            |
+                            |${createPhotoCardImage.tag}
                         """.trimMargin()
 
                     val intent = Intent()

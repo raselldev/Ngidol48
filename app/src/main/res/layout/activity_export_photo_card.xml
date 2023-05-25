@@ -39,7 +39,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_width="@dimen/_100sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:src="@drawable/img_indah_flow"/>
+                        android:src="@drawable/img_fanbase_pc"/>
 
                     <ImageView
                         android:visibility="gone"
@@ -48,7 +48,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="@dimen/_15sdp"
                         android:layout_marginEnd="@dimen/_7sdp"
-                        android:src="@drawable/img_interindah" />
+                        android:src="@drawable/ic_logo_fanbase" />
 
                     <LinearLayout
                         android:layout_centerHorizontal="true"
@@ -61,7 +61,7 @@
                             style="@style/title10"
                             android:layout_width="match_parent"
                             android:layout_marginTop="@dimen/_5sdp"
-                            android:background="@drawable/background_border_white"
+                            android:background="@drawable/background_shape_photocard_70"
                             android:fontFamily="@font/tw_cent_black"
                             android:paddingHorizontal="@dimen/_5sdp"
                             android:paddingVertical="@dimen/_5sdp"
@@ -75,7 +75,7 @@
                             android:paddingVertical="@dimen/_3sdp"
                             android:paddingHorizontal="@dimen/_5sdp"
 
-                            android:background="@drawable/background_border_white"
+                            android:background="@drawable/background_shape_photocard_70"
                             android:maxLength="20"
                             android:id="@+id/tv_name"
                             android:fontFamily="@font/tw_cent_black"
@@ -91,12 +91,13 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:layout_marginBottom="-10dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/img_ilustration_photo_card"
+                        android:layout_marginBottom="@dimen/_20sdp"
                         android:layout_alignParentBottom="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_120sdp"/>
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:src="@drawable/ic_logo_fanbase"/>
+
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>

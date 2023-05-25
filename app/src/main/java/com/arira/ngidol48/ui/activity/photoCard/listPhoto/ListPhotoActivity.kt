@@ -40,6 +40,8 @@ class ListPhotoActivity : BaseActivity(), ListPhotoCallback {
 
         session = intent.getParcelableExtra(extra_model) ?: PhotocardSession()
 
+        pref.setString("tag_pc", session.tag)
+
         viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[ListPhotoCardViewModel::class.java]
         viewModel.context = this
 

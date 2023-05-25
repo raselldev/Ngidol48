@@ -8,6 +8,7 @@ class CreatePhotoCard() :java.io.Serializable, Parcelable {
     var signPosition = 0 //0.1.2
     var greating:String = ""
     var nickName:String = ""
+    var tag:String = ""
     var photoCard = PhotoCardImage()
     var sign = PhotoCardSign()
 
@@ -15,6 +16,7 @@ class CreatePhotoCard() :java.io.Serializable, Parcelable {
         signPosition = parcel.readInt()
         greating = parcel.readString() ?: ""
         nickName = parcel.readString() ?: ""
+        tag = parcel.readString() ?: ""
         photoCard = parcel.readParcelable(PhotoCardImage::class.java.classLoader) ?: PhotoCardImage()
         sign = parcel.readParcelable(PhotoCardSign::class.java.classLoader) ?: PhotoCardSign()
     }
@@ -23,6 +25,7 @@ class CreatePhotoCard() :java.io.Serializable, Parcelable {
         parcel.writeInt(signPosition)
         parcel.writeString(greating)
         parcel.writeString(nickName)
+        parcel.writeString(tag)
         parcel.writeParcelable(photoCard, flags)
         parcel.writeParcelable(sign, flags)
     }

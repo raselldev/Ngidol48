@@ -12,7 +12,7 @@
     <color name="colorHintText">#BDBDBD</color>
     <color name="colorMeetingInvitationStart">#01B763</color>
     <color name="colorMeetingInvitationEnd">#2CCF7E</color>
-    <color name="photcardColor">#7b9c44</color>
+    <color name="photcardColor">#7847d4</color>
 
 
     <color name="dark">#131415</color>
@@ -29,6 +29,7 @@
     <color name="abu1_tipis">#B4CACACA</color>
     <color name="pink">#B4FACECE</color>
     <color name="pink_transparan_40">#66FACECE</color>
+    <color name="photcardColor_70">#B37847D4</color>
 
     <color name="red">#FF2C2C</color>
 
